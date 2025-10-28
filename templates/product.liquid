@@ -8,53 +8,58 @@
 {%- else -%}
   <section class="product" aria-labelledby="product-title">
     <div class="product__grid">
-      <div class="product__media">
-        {%- if product.media.size > 0 -%}
-          <div class="product__media-gallery" role="list">
-            {%- for media in product.media -%}
-              <figure class="product__media-item" role="listitem">
-                {{
-                  media
-                  | media_tag:
-                    class: 'product__media-image',
-                    loading: 'lazy',
-                    image_size: '2048x2048'
-                }}
-                {%- if media.alt != blank -%}
-                  <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
-                {%- endif -%}
-              </figure>
-            {%- endfor -%}
-          </div>
-        {%- else -%}
-          <div class="product__media-placeholder">No media available</div>
-        {%- endif -%}
-      </div>
-
-      <div class="product__details">
-        <header class="product__header">
-          <h1 id="product-title">{{ product.title }}</h1>
-          {%- if product.vendor != blank -%}
-            <p class="product__vendor">By {{ product.vendor }}</p>
-          {%- endif -%}
-        </header>
-
-        <div class="product__pricing">
-          {%- assign primary_variant = product.selected_or_first_available_variant -%}
-          <span class="product__price">{{ primary_variant.price | money }}</span>
-          {%- if primary_variant.compare_at_price > primary_variant.price -%}
-            <span class="product__price--compare">{{ primary_variant.compare_at_price | money }}</span>
+      <div class="product__column product__column--visual">
+        <div class="product__media">
+          {%- if product.media.size > 0 -%}
+            <div class="product__media-gallery" role="list">
+              {%- for media in product.media -%}
+                <figure class="product__media-item" role="listitem">
+                  {{
+                    media
+                    | media_tag:
+                      class: 'product__media-image',
+                      loading: 'lazy',
+                      image_size: '2048x2048'
+                  }}
+                  {%- if media.alt != blank -%}
+                    <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
+                  {%- endif -%}
+                </figure>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <div class="product__media-placeholder">No media available</div>
           {%- endif -%}
         </div>
 
         {%- if product.description != blank -%}
-          <div class="product__description">{{ product.description }}</div>
+          <div class="product__description-panel">
+            <div class="product__description">{{ product.description }}</div>
+          </div>
         {%- endif -%}
+      </div>
 
-        {%- form 'product', product, class: 'product-form' -%}
-          {{ form.errors | default_errors }}
-          {%- if product.variants.size > 1 -%}
-            <label class="product-form__label" for="VariantSelector-{{ form.id }}">Choose an option</label>
+      <div class="product__column product__column--summary">
+        <div class="product__details">
+          <header class="product__header">
+            <h1 id="product-title">{{ product.title }}</h1>
+            {%- if product.vendor != blank -%}
+              <p class="product__vendor">By {{ product.vendor }}</p>
+            {%- endif -%}
+          </header>
+
+          <div class="product__pricing">
+            {%- assign primary_variant = product.selected_or_first_available_variant -%}
+            <span class="product__price">{{ primary_variant.price | money }}</span>
+            {%- if primary_variant.compare_at_price > primary_variant.price -%}
+              <span class="product__price--compare">{{ primary_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
+
+          {%- form 'product', product, class: 'product-form' -%}
+            {{ form.errors | default_errors }}
+            {%- if product.variants.size > 1 -%}
+              <label class="product-form__label" for="VariantSelector-{{ form.id }}">Choose an option</label>
             <select
               id="VariantSelector-{{ form.id }}"
               name="id"
@@ -106,6 +111,7 @@
             </div>
           {%- endif -%}
         {%- endform -%}
+        </div>
       </div>
     </div>
   </section>
