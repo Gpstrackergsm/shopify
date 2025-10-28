@@ -76,6 +76,30 @@
 
           {{ form | payment_terms }}
 
+          {%- assign current_price = primary_variant.price -%}
+          {%- assign compare_price = primary_variant.compare_at_price -%}
+          {%- if compare_price > current_price and compare_price > 0 -%}
+            {%- assign discount_percentage = compare_price | minus: current_price | times: 100 | divided_by: compare_price | round -%}
+          {%- endif -%}
+
+          <div class="product-offer-highlight" data-countdown-hours="20">
+            <p class="product-offer-highlight__meta">In 20+ carts</p>
+            <div class="product-offer-highlight__prices">
+              <span class="product-offer-highlight__price-current">{{ current_price | money }}</span>
+              {%- if compare_price > current_price -%}
+                <span class="product-offer-highlight__price-compare">{{ compare_price | money }}</span>
+              {%- endif -%}
+            </div>
+            <span class="product-offer-highlight__badge">Introductory price</span>
+            <div class="product-offer-highlight__footer">
+              {%- if discount_percentage -%}
+                <span class="product-offer-highlight__discount">{{ discount_percentage }}% off</span>
+                <span aria-hidden="true" class="product-offer-highlight__separator">·</span>
+              {%- endif -%}
+              <span class="product-offer-highlight__timer">Sale ends in <span data-countdown-target>20:00:00</span></span>
+            </div>
+          </div>
+
           {%- if product.available -%}
             <div class="product-form__payment-button">
               {{ form | payment_button }}
@@ -87,4 +111,43 @@
   </section>
 
   {%- render 'product-reviews' -%}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.product-offer-highlight[data-countdown-hours]').forEach(function(wrapper) {
+        var countdownTarget = wrapper.querySelector('[data-countdown-target]');
+        if (!countdownTarget) {
+          return;
+        }
+
+        var hours = parseInt(wrapper.getAttribute('data-countdown-hours'), 10);
+        if (isNaN(hours) || hours <= 0) {
+          return;
+        }
+
+        var deadline = Date.now() + hours * 60 * 60 * 1000;
+
+        function updateCountdown() {
+          var remaining = Math.max(0, deadline - Date.now());
+          var totalSeconds = Math.floor(remaining / 1000);
+          var displayHours = Math.floor(totalSeconds / 3600);
+          var displayMinutes = Math.floor((totalSeconds % 3600) / 60);
+          var displaySeconds = totalSeconds % 60;
+
+          countdownTarget.textContent = [displayHours, displayMinutes, displaySeconds]
+            .map(function(value) {
+              return String(value).padStart(2, '0');
+            })
+            .join(':');
+
+          if (remaining <= 0) {
+            countdownTarget.textContent = '00:00:00';
+            clearInterval(intervalId);
+          }
+        }
+
+        updateCountdown();
+        var intervalId = setInterval(updateCountdown, 1000);
+      });
+    });
+  </script>
 {%- endif -%}
