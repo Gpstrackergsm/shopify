@@ -19,7 +19,8 @@
                     | media_tag:
                       class: 'product__media-image',
                       loading: 'lazy',
-                      image_size: '2048x2048'
+                      widths: '400,600,800,1000,1200,1600',
+                      sizes: '(min-width: 960px) 480px, min(calc(100vw - 3rem), 520px)'
                   }}
                   {%- if media.alt != blank -%}
                     <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
