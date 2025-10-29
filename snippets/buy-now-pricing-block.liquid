@@ -69,11 +69,11 @@
     </p>
   {%- endif -%}
   {%- if checkout_disabled -%}
-    <span class="buy-now-card__button buy-now-card__button--disabled" role="button" aria-disabled="true">Sold out</span>
+    <span class="button button-primary buy-now-card__button buy-now-card__button--disabled" role="button" aria-disabled="true">Sold out</span>
   {%- else -%}
     <form method="get" action="{{ routes.checkout_url }}" class="buy-now-card__form">
       <input type="hidden" name="add" value="{{ selected_variant.id }}:1">
-      <button type="submit" class="buy-now-card__button">Buy Now</button>
+      <button type="submit" class="button button-primary buy-now-card__button">Buy Now</button>
     </form>
   {%- endif -%}
 </div>

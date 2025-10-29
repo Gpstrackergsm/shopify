@@ -51,7 +51,7 @@
         <button
           type="submit"
           name="add"
-          class="product-page__button product-page__button--add"
+          class="button button-secondary product-page__button product-page__button--add"
           {%- unless selected_variant.available -%} disabled{%- endunless -%}
         >
           Add to cart
@@ -60,7 +60,7 @@
           type="submit"
           name="checkout"
           value="1"
-          class="product-page__button product-page__button--buy"
+          class="button button-primary product-page__button product-page__button--buy"
           {%- unless selected_variant.available -%} disabled{%- endunless -%}
         >
           Buy now
