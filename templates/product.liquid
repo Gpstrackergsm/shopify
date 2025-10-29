@@ -45,6 +45,14 @@
           {{ 'products.product.sold_out' | t }}
         {%- endif -%}
       </button>
+      <button
+        type="submit"
+        name="checkout"
+        class="product-simple__buy-now"
+        {%- unless selected_variant.available -%} disabled{%- endunless -%}
+      >
+        {{ 'Buy now' }}
+      </button>
     {%- endform -%}
 
     {%- if product.description != blank -%}
