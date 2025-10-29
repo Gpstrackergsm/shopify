@@ -12,16 +12,31 @@
         <div class="product__media">
           {%- if product.media.size > 0 -%}
             {%- assign initial_media = product.media.first -%}
+            {%- assign product_image_widths = '480,640,800,960,1280,1600,2048' -%}
+            {%- assign product_image_sizes = '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)' -%}
             <div class="product__media-viewer" data-product-media-viewer>
               <figure class="product__media-main" data-media-display>
-                {{
-                  initial_media
-                  | media_tag:
-                    class: 'product__media-image',
-                    loading: 'eager',
-                    widths: '480,640,800,960,1280,1600,2048',
-                    sizes: '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)'
-                }}
+                {%- if initial_media.media_type == 'image' -%}
+                  {{
+                    initial_media
+                    | image_url: width: 2048
+                    | image_tag:
+                      alt: initial_media.alt | default: product.title,
+                      class: 'product__media-image',
+                      loading: 'eager',
+                      widths: product_image_widths,
+                      sizes: product_image_sizes
+                  }}
+                {%- else -%}
+                  {{
+                    initial_media
+                    | media_tag:
+                      class: 'product__media-image',
+                      loading: 'eager',
+                      widths: product_image_widths,
+                      sizes: product_image_sizes
+                  }}
+                {%- endif -%}
                 {%- if initial_media.alt != blank -%}
                   <figcaption class="visually-hidden">{{ initial_media.alt }}</figcaption>
                 {%- endif -%}
@@ -58,14 +73,27 @@
                       {%- endif -%}
                     </button>
                     <template id="ProductMediaTemplate-{{ media.id }}">
-                      {{
-                        media
-                        | media_tag:
-                          class: 'product__media-image',
-                          loading: 'lazy',
-                          widths: '480,640,800,960,1280,1600,2048',
-                          sizes: '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)'
-                      }}
+                      {%- if media.media_type == 'image' -%}
+                        {{
+                          media
+                          | image_url: width: 2048
+                          | image_tag:
+                            alt: media.alt | default: product.title,
+                            class: 'product__media-image',
+                            loading: 'lazy',
+                            widths: product_image_widths,
+                            sizes: product_image_sizes
+                        }}
+                      {%- else -%}
+                        {{
+                          media
+                          | media_tag:
+                            class: 'product__media-image',
+                            loading: 'lazy',
+                            widths: product_image_widths,
+                            sizes: product_image_sizes
+                        }}
+                      {%- endif -%}
                       {%- if media.alt != blank -%}
                         <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
                       {%- endif -%}
