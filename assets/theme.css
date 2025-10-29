@@ -192,12 +192,12 @@ a:focus {
 .product__media-viewer {
   display: grid;
   gap: 1.2rem;
-  width: min(100%, 560px);
+  width: min(100%, 640px);
 }
 
 @media (min-width: 960px) {
   .product__media-viewer {
-    width: min(100%, 640px);
+    width: min(100%, 760px);
   }
 }
 
@@ -209,7 +209,7 @@ a:focus {
 .product__media-image {
   width: 100%;
   height: auto;
-  max-height: clamp(320px, 70vh, 640px);
+  max-height: clamp(360px, 75vh, 760px);
   object-fit: contain;
   border-radius: 1.35rem;
   display: block;
