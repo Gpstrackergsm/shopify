@@ -34,24 +34,22 @@
         name="id"
         value="{{ selected_variant.id }}"
       >
-      <button
-        type="submit"
-        class="product-simple__submit"
-        {%- unless selected_variant.available -%} disabled{%- endunless -%}
+      <input
+        type="hidden"
+        name="return_to"
+        value="{{ routes.checkout_url }}"
       >
-        {%- if selected_variant.available -%}
-          {{ 'products.product.add_to_cart' | t }}
-        {%- else -%}
-          {{ 'products.product.sold_out' | t }}
-        {%- endif -%}
-      </button>
       <button
         type="submit"
-        name="checkout"
+        name="add"
         class="product-simple__buy-now"
         {%- unless selected_variant.available -%} disabled{%- endunless -%}
       >
-        {{ 'Buy now' }}
+        {%- if selected_variant.available -%}
+          {{ 'Continue to checkout' }}
+        {%- else -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
       </button>
     {%- endform -%}
 
