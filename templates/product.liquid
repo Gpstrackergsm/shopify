@@ -123,7 +123,13 @@
             {%- endif -%}
           </header>
 
-          {%- assign primary_variant = product.selected_or_first_available_variant -%}
+          <div class="product__pricing">
+            {%- assign primary_variant = product.selected_or_first_available_variant -%}
+            <span class="product__price">{{ primary_variant.price | money }}</span>
+            {%- if primary_variant.compare_at_price > primary_variant.price -%}
+              <span class="product__price--compare">{{ primary_variant.compare_at_price | money }}</span>
+            {%- endif -%}
+          </div>
 
           {%- form 'product', product, class: 'product-form' -%}
             {{ form.errors | default_errors }}
