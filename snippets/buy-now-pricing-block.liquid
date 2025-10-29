@@ -71,12 +71,8 @@
   {%- if checkout_disabled -%}
     <span class="buy-now-card__button buy-now-card__button--disabled" role="button" aria-disabled="true">Sold out</span>
   {%- else -%}
-    <form method="post" action="{{ routes.cart_add_url }}" class="buy-now-card__form">
-      <input type="hidden" name="form_type" value="product">
-      <input type="hidden" name="utf8" value="✓">
-      <input type="hidden" name="id" value="{{ selected_variant.id }}">
-      <input type="hidden" name="quantity" value="1">
-      <input type="hidden" name="return_to" value="{{ routes.checkout_url }}">
+    <form method="get" action="{{ routes.checkout_url }}" class="buy-now-card__form">
+      <input type="hidden" name="add" value="{{ selected_variant.id }}:1">
       <button type="submit" class="buy-now-card__button">Buy Now</button>
     </form>
   {%- endif -%}
