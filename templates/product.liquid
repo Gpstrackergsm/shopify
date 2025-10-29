@@ -11,22 +11,59 @@
       <div class="product__column product__column--visual">
         <div class="product__media">
           {%- if product.media.size > 0 -%}
-            <div class="product__media-gallery" role="list">
-              {%- for media in product.media -%}
-                <figure class="product__media-item" role="listitem">
-                  {{
-                    media
-                    | media_tag:
-                      class: 'product__media-image',
-                      loading: 'lazy',
-                      widths: '480,640,800,960,1280,1600,2048',
-                      sizes: '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)'
-                  }}
-                  {%- if media.alt != blank -%}
-                    <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
-                  {%- endif -%}
-                </figure>
-              {%- endfor -%}
+            {%- assign initial_media = product.media.first -%}
+            <div class="product__media-viewer" data-product-media-viewer>
+              <figure class="product__media-main" data-media-display>
+                {{
+                  initial_media
+                  | media_tag:
+                    class: 'product__media-image',
+                    loading: 'eager',
+                    widths: '480,640,800,960,1280,1600,2048',
+                    sizes: '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)'
+                }}
+                {%- if initial_media.alt != blank -%}
+                  <figcaption class="visually-hidden">{{ initial_media.alt }}</figcaption>
+                {%- endif -%}
+              </figure>
+
+              {%- if product.media.size > 1 -%}
+                <div class="product__media-thumbnails" role="list">
+                  {%- for media in product.media -%}
+                    <button
+                      type="button"
+                      class="product__media-thumbnail{% if forloop.first %} is-active{% endif %}"
+                      data-media-thumbnail
+                      data-media-id="{{ media.id }}"
+                      aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                      aria-label="{%- if media.alt != blank -%}{{ media.alt | escape }}{%- else -%}View product media {{ forloop.index }}{%- endif -%}"
+                    >
+                      {{
+                        media.preview_image
+                        | image_tag:
+                          width: 160,
+                          height: 160,
+                          crop: 'center',
+                          alt: media.alt | default: product.title,
+                          class: 'product__media-thumbnail-image'
+                      }}
+                    </button>
+                    <template id="ProductMediaTemplate-{{ media.id }}">
+                      {{
+                        media
+                        | media_tag:
+                          class: 'product__media-image',
+                          loading: 'lazy',
+                          widths: '480,640,800,960,1280,1600,2048',
+                          sizes: '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)'
+                      }}
+                      {%- if media.alt != blank -%}
+                        <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
+                      {%- endif -%}
+                    </template>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
             </div>
           {%- else -%}
             <div class="product__media-placeholder">No media available</div>
@@ -114,6 +151,41 @@
   {%- render 'product-reviews' -%}
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('[data-product-media-viewer]').forEach(function(viewer) {
+        var display = viewer.querySelector('[data-media-display]');
+        if (!display) {
+          return;
+        }
+
+        var thumbnails = viewer.querySelectorAll('[data-media-thumbnail]');
+        thumbnails.forEach(function(thumbnail) {
+          thumbnail.addEventListener('click', function() {
+            if (thumbnail.classList.contains('is-active')) {
+              return;
+            }
+
+            var mediaId = thumbnail.getAttribute('data-media-id');
+            if (!mediaId) {
+              return;
+            }
+
+            var template = document.getElementById('ProductMediaTemplate-' + mediaId);
+            if (!template) {
+              return;
+            }
+
+            display.innerHTML = '';
+            display.appendChild(template.content.cloneNode(true));
+
+            thumbnails.forEach(function(otherThumbnail) {
+              var isCurrent = otherThumbnail === thumbnail;
+              otherThumbnail.classList.toggle('is-active', isCurrent);
+              otherThumbnail.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+            });
+          });
+        });
+      });
+
       document.querySelectorAll('.product-offer-highlight[data-countdown-hours]').forEach(function(wrapper) {
         var countdownTarget = wrapper.querySelector('[data-countdown-target]');
         if (!countdownTarget) {
