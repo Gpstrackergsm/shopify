@@ -197,11 +197,15 @@ a:focus {
 
 .product__media-item {
   margin: 0;
-  width: min(100%, 540px);
+  width: 100%;
+  max-width: clamp(240px, 48vw, 520px);
 }
 
 .product__media-image {
   width: 100%;
+  height: auto;
+  max-height: clamp(260px, 70vh, 520px);
+  object-fit: contain;
   border-radius: 1.35rem;
   display: block;
   box-shadow: 0 30px 60px -30px rgba(12, 26, 23, 0.45);
