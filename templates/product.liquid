@@ -1,315 +1,56 @@
 {%- if product == blank -%}
-  <section class="product-unavailable">
-    <div class="product-unavailable__content">
-      <h1>Product coming soon</h1>
-      <p>We're preparing our next release. Please check back soon for full details.</p>
-    </div>
+  <section class="product-simple">
+    <h1>Product unavailable</h1>
+    <p>The product you're looking for could not be found.</p>
   </section>
 {%- else -%}
-  <section class="product" aria-labelledby="product-title">
-    <div class="product__layout">
-    {%- assign primary_variant = product.selected_or_first_available_variant -%}
-    <div class="product__grid">
-      <div class="product__column product__column--visual">
-        <div class="product__media">
-          {%- if product.media.size > 0 -%}
-            {%- assign initial_media = product.media.first -%}
-            {%- assign product_image_widths = '360,540,720,900,1080,1280,1440,1680,1920,2048,2560' -%}
-            {%- assign product_image_sizes = '(min-width: 960px) 760px, min(calc(100vw - 3rem), 720px)' -%}
-            <div class="product__media-viewer" data-product-media-viewer>
-              <figure class="product__media-main" data-media-display>
-                {%- if initial_media.media_type == 'image' -%}
-                  {{
-                    initial_media
-                    | image_url: width: 2048
-                    | image_tag:
-                      alt: initial_media.alt | default: product.title,
-                      class: 'product__media-image',
-                      loading: 'eager',
-                      widths: product_image_widths,
-                      sizes: product_image_sizes
-                  }}
-                {%- else -%}
-                  {{
-                    initial_media
-                    | media_tag:
-                      class: 'product__media-image',
-                      loading: 'eager',
-                      widths: product_image_widths,
-                      sizes: product_image_sizes
-                  }}
-                {%- endif -%}
-                {%- if initial_media.alt != blank -%}
-                  <figcaption class="visually-hidden">{{ initial_media.alt }}</figcaption>
-                {%- endif -%}
-              </figure>
+  {%- assign selected_variant = product.selected_or_first_available_variant -%}
+  <section class="product-simple" aria-labelledby="product-title">
+    <header class="product-simple__header">
+      <h1 id="product-title">{{ product.title }}</h1>
+    </header>
 
-              {%- if product.media.size > 1 -%}
-                <div class="product__media-thumbnails" role="list">
-                  {%- for media in product.media -%}
-                    {%- assign thumbnail_source = blank -%}
-                    {%- if media.preview_image -%}
-                      {%- assign thumbnail_source = media.preview_image -%}
-                    {%- elsif media.media_type == 'image' -%}
-                      {%- assign thumbnail_source = media -%}
-                    {%- endif -%}
-                    <button
-                      type="button"
-                      class="product__media-thumbnail{% if forloop.first %} is-active{% endif %}"
-                      data-media-thumbnail
-                      data-media-id="{{ media.id }}"
-                      aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
-                      aria-label="{%- if media.alt != blank -%}{{ media.alt | escape }}{%- else -%}View product media {{ forloop.index }}{%- endif -%}"
-                    >
-                      {%- if thumbnail_source -%}
-                        {{
-                          thumbnail_source
-                          | image_url: width: 320, height: 320, crop: 'center'
-                          | image_tag:
-                            alt: media.alt | default: product.title,
-                            class: 'product__media-thumbnail-image',
-                            loading: 'lazy'
-                        }}
-                      {%- else -%}
-                        <span class="product__media-thumbnail-placeholder" aria-hidden="true">{{ media.media_type | capitalize }}</span>
-                      {%- endif -%}
-                    </button>
-                    <template id="ProductMediaTemplate-{{ media.id }}">
-                      {%- if media.media_type == 'image' -%}
-                        {{
-                          media
-                          | image_url: width: 2048
-                          | image_tag:
-                            alt: media.alt | default: product.title,
-                            class: 'product__media-image',
-                            loading: 'lazy',
-                            widths: product_image_widths,
-                            sizes: product_image_sizes
-                        }}
-                      {%- else -%}
-                        {{
-                          media
-                          | media_tag:
-                            class: 'product__media-image',
-                            loading: 'lazy',
-                            widths: product_image_widths,
-                            sizes: product_image_sizes
-                        }}
-                      {%- endif -%}
-                      {%- if media.alt != blank -%}
-                        <figcaption class="visually-hidden">{{ media.alt }}</figcaption>
-                      {%- endif -%}
-                    </template>
-                  {%- endfor -%}
-                </div>
-              {%- endif -%}
-            </div>
-          {%- else -%}
-            <div class="product__media-placeholder">No media available</div>
-          {%- endif -%}
-        </div>
-
-      </div>
-
-      <div class="product__column product__column--summary">
-        <div class="product__details">
-          <div class="product__intro">
-            <span class="product__eyebrow">Instant digital download</span>
-            <header class="product__header">
-              <h1 id="product-title">{{ product.title }}</h1>
-              {%- if product.vendor != blank -%}
-                <p class="product__vendor">By {{ product.vendor }}</p>
-              {%- endif -%}
-            </header>
-            {%- assign product_subtitle = product.metafields.custom.subtitle -%}
-            {%- if product_subtitle == blank -%}
-              {%- assign product_subtitle = 'Launch-ready Shopify system designed to convert digital product shoppers in seconds.' -%}
-            {%- endif -%}
-            <p class="product__subtitle">{{ product_subtitle }}</p>
-          </div>
-
-          <ul class="product__highlights" role="list">
-            <li>Fast one-page checkout that routes buyers straight to payment.</li>
-            <li>Automatic file delivery and customer onboarding emails ready to go.</li>
-            <li>Lifetime access plus dedicated creator support from our team.</li>
-          </ul>
-
-          <div class="product__pricing-block">
-            <div class="product__pricing">
-              <span class="product__price">{{ primary_variant.price | money }}</span>
-              {%- if primary_variant.compare_at_price > primary_variant.price -%}
-                <span class="product__price--compare">{{ primary_variant.compare_at_price | money }}</span>
-              {%- endif -%}
-            </div>
-
-            {%- form 'product', product, class: 'product-form' -%}
-              {{ form.errors | default_errors }}
-              <div class="product-form__options">
-                {%- if product.variants.size > 1 -%}
-                  <label class="product-form__label" for="VariantSelector-{{ form.id }}">Choose an option</label>
-                  <select
-                    id="VariantSelector-{{ form.id }}"
-                    name="id"
-                    class="product-form__select"
-                  >
-                    {%- for variant in product.variants -%}
-                      <option
-                        value="{{ variant.id }}"
-                        {%- if variant == product.selected_or_first_available_variant -%} selected{%- endif -%}
-                        {%- unless variant.available -%} disabled{%- endunless -%}
-                      >
-                        {{ variant.title }}{%- unless variant.available -%} — Sold out{%- endunless -%}
-                      </option>
-                    {%- endfor -%}
-                  </select>
-                {%- else -%}
-                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                {%- endif -%}
-              </div>
-
-              {{ form | payment_terms }}
-
-              {%- assign current_price = primary_variant.price -%}
-              {%- assign compare_price = primary_variant.compare_at_price -%}
-              {%- if compare_price > current_price and compare_price > 0 -%}
-                {%- assign discount_percentage = compare_price | minus: current_price | times: 100 | divided_by: compare_price | round -%}
-              {%- endif -%}
-
-              <div class="product-offer-highlight" data-countdown-hours="20">
-                <p class="product-offer-highlight__meta">In 20+ carts</p>
-                <div class="product-offer-highlight__prices">
-                  <span class="product-offer-highlight__price-current">{{ current_price | money }}</span>
-                  {%- if compare_price > current_price -%}
-                    <span class="product-offer-highlight__price-compare">{{ compare_price | money }}</span>
-                  {%- endif -%}
-                </div>
-                <span class="product-offer-highlight__badge">Introductory price</span>
-                <div class="product-offer-highlight__footer">
-                  {%- if discount_percentage -%}
-                    <span class="product-offer-highlight__discount">{{ discount_percentage }}% off</span>
-                    <span aria-hidden="true" class="product-offer-highlight__separator">·</span>
-                  {%- endif -%}
-                  <span class="product-offer-highlight__timer">Sale ends in <span data-countdown-target>20:00:00</span></span>
-                </div>
-              </div>
-
-              <div class="product-form__actions">
-                <button type="submit" name="add" class="product-form__submit">Add to cart</button>
-                {%- if product.available -%}
-                  <div class="product-form__payment-button">
-                    {{ form | payment_button }}
-                  </div>
-                {%- endif -%}
-              </div>
-            {%- endform -%}
-          </div>
-
-          <div class="product__guarantee" role="note">
-            <strong>Peace of mind included.</strong> Instant setup instructions, automatic delivery, and creator-first support help you launch in under an hour.
-          </div>
-        </div>
-      </div>
-    </div>
-    {%- if product.description != blank -%}
-      <section class="product__rich-content" aria-labelledby="product-overview-heading">
-        <div class="product__rich-content-grid">
-          <article class="product__rich-content-main">
-            <h2 id="product-overview-heading">Product overview</h2>
-            <div class="product__description">{{ product.description }}</div>
-          </article>
-          <aside class="product__rich-content-aside" aria-label="Purchase details">
-            <div class="product__callout">
-              <h3>What you&apos;ll receive</h3>
-              <ul>
-                <li>Done-for-you Shopify theme sections tailored for digital offers.</li>
-                <li>Automated checkout and delivery workflows ready from day one.</li>
-                <li>Editable copy templates, pricing blocks, and tutorial videos.</li>
-              </ul>
-            </div>
-            <div class="product__callout product__callout--support">
-              <h3>Dedicated creator support</h3>
-              <p>Need tweaks or launch advice? Message our team anytime — we reply within one business day to keep you moving.</p>
-            </div>
-          </aside>
-        </div>
-      </section>
+    {%- if product.featured_image -%}
+      <figure class="product-simple__media">
+        {{
+          product.featured_image
+          | image_url: width: 1024
+          | image_tag:
+            alt: product.featured_image.alt | default: product.title,
+            class: 'product-simple__image',
+            loading: 'lazy'
+        }}
+      </figure>
     {%- endif -%}
+
+    <div class="product-simple__price">
+      {{ selected_variant.price | money }}
     </div>
+
+    {%- form 'product', product, class: 'product-simple__form' -%}
+      {{ form.errors | default_errors }}
+      <input
+        type="hidden"
+        name="id"
+        value="{{ selected_variant.id }}"
+      >
+      <button
+        type="submit"
+        class="product-simple__submit"
+        {%- unless selected_variant.available -%} disabled{%- endunless -%}
+      >
+        {%- if selected_variant.available -%}
+          {{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+      </button>
+    {%- endform -%}
+
+    {%- if product.description != blank -%}
+      <div class="product-simple__description">
+        {{ product.description }}
+      </div>
+    {%- endif -%}
   </section>
-
-  {%- render 'product-reviews' -%}
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('[data-product-media-viewer]').forEach(function(viewer) {
-        var display = viewer.querySelector('[data-media-display]');
-        if (!display) {
-          return;
-        }
-
-        var thumbnails = viewer.querySelectorAll('[data-media-thumbnail]');
-        thumbnails.forEach(function(thumbnail) {
-          thumbnail.addEventListener('click', function() {
-            if (thumbnail.classList.contains('is-active')) {
-              return;
-            }
-
-            var mediaId = thumbnail.getAttribute('data-media-id');
-            if (!mediaId) {
-              return;
-            }
-
-            var template = document.getElementById('ProductMediaTemplate-' + mediaId);
-            if (!template) {
-              return;
-            }
-
-            display.innerHTML = '';
-            display.appendChild(template.content.cloneNode(true));
-
-            thumbnails.forEach(function(otherThumbnail) {
-              var isCurrent = otherThumbnail === thumbnail;
-              otherThumbnail.classList.toggle('is-active', isCurrent);
-              otherThumbnail.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
-            });
-          });
-        });
-      });
-
-      document.querySelectorAll('.product-offer-highlight[data-countdown-hours]').forEach(function(wrapper) {
-        var countdownTarget = wrapper.querySelector('[data-countdown-target]');
-        if (!countdownTarget) {
-          return;
-        }
-
-        var hours = parseInt(wrapper.getAttribute('data-countdown-hours'), 10);
-        if (isNaN(hours) || hours <= 0) {
-          return;
-        }
-
-        var deadline = Date.now() + hours * 60 * 60 * 1000;
-
-        function updateCountdown() {
-          var remaining = Math.max(0, deadline - Date.now());
-          var totalSeconds = Math.floor(remaining / 1000);
-          var displayHours = Math.floor(totalSeconds / 3600);
-          var displayMinutes = Math.floor((totalSeconds % 3600) / 60);
-          var displaySeconds = totalSeconds % 60;
-
-          countdownTarget.textContent = [displayHours, displayMinutes, displaySeconds]
-            .map(function(value) {
-              return String(value).padStart(2, '0');
-            })
-            .join(':');
-
-          if (remaining <= 0) {
-            countdownTarget.textContent = '00:00:00';
-            clearInterval(intervalId);
-          }
-        }
-
-        updateCountdown();
-        var intervalId = setInterval(updateCountdown, 1000);
-      });
-    });
-  </script>
 {%- endif -%}
