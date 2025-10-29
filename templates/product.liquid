@@ -46,6 +46,7 @@
           name="checkout"
           value="1"
           class="button button-primary product-page__button product-page__button--buy"
+          data-buy-now
           {%- unless selected_variant.available -%} disabled{%- endunless -%}
         >
           Buy now
@@ -60,3 +61,53 @@
     {%- endif -%}
   </section>
 {%- endif -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('.product-page__form');
+    if (!form || !window.fetch || !window.FormData) {
+      return;
+    }
+
+    var buyNowButton = form.querySelector('[data-buy-now]');
+    if (!buyNowButton) {
+      return;
+    }
+
+    buyNowButton.addEventListener('click', function (event) {
+      if (buyNowButton.disabled) {
+        return;
+      }
+
+      event.preventDefault();
+
+      var formData = new FormData(form);
+      formData.set('quantity', '1');
+
+      buyNowButton.disabled = true;
+
+      fetch('{{ routes.cart_clear_url }}.js', {
+        method: 'POST',
+        credentials: 'same-origin'
+      })
+        .then(function () {
+          return fetch('{{ routes.cart_add_url }}.js', {
+            method: 'POST',
+            credentials: 'same-origin',
+            body: formData
+          });
+        })
+        .then(function (response) {
+          if (!response || !response.ok) {
+            throw new Error('Unable to add item to cart');
+          }
+
+          window.location.href = '{{ routes.checkout_url }}';
+        })
+        .catch(function () {
+          buyNowButton.disabled = false;
+          form.submit();
+        });
+    });
+  });
+</script>
