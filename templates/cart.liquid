@@ -1,9 +1,90 @@
-{%- layout none -%}
-{%- assign direct_checkout_url = cart.checkout_url | default: routes.checkout_url -%}
-<script>
-  window.location.replace('{{ direct_checkout_url }}');
-</script>
-<noscript>
-  <meta http-equiv="refresh" content="0; url={{ direct_checkout_url }}">
-  <p>If you are not redirected automatically, <a href="{{ direct_checkout_url }}">continue to checkout</a>.</p>
-</noscript>
+{%- if cart == empty -%}
+  <section class="cart-page" aria-labelledby="cart-title">
+    <h1 id="cart-title">Your cart is empty</h1>
+    <p><a href="{{ routes.all_products_collection_url }}">Continue shopping</a>.</p>
+  </section>
+{%- else -%}
+  <section class="cart-page" aria-labelledby="cart-title">
+    <h1 id="cart-title">Your cart</h1>
+
+    <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-page__form">
+      <table class="cart-page__items">
+        <thead>
+          <tr>
+            <th scope="col">Product</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr>
+              <td class="cart-page__item">
+                {%- if item.image -%}
+                  <figure class="cart-page__item-media">
+                    {{
+                      item.image
+                      | image_url: width: 160
+                      | image_tag:
+                        alt: item.image.alt | default: item.product.title,
+                        class: 'cart-page__item-image',
+                        loading: 'lazy'
+                    }}
+                  </figure>
+                {%- endif -%}
+                <div class="cart-page__item-details">
+                  <p class="cart-page__item-title">
+                    <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  </p>
+                  {%- unless item.variant.title == 'Default Title' -%}
+                    <p class="cart-page__item-variant">{{ item.variant.title }}</p>
+                  {%- endunless -%}
+                  <p class="cart-page__item-remove">
+                    <button
+                      type="submit"
+                      name="updates[{{ item.key }}]"
+                      value="0"
+                      formnovalidate
+                      aria-label="Remove {{ item.product.title }}"
+                    >
+                      Remove
+                    </button>
+                  </p>
+                </div>
+              </td>
+              <td class="cart-page__item-price">{{ item.final_price | money }}</td>
+              <td class="cart-page__item-quantity">
+                <input
+                  type="number"
+                  name="updates[{{ item.key }}]"
+                  value="{{ item.quantity }}"
+                  min="0"
+                  aria-label="Update quantity for {{ item.product.title }}"
+                >
+              </td>
+              <td class="cart-page__item-total">{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div class="cart-page__footer">
+        <div class="cart-page__totals">
+          <p class="cart-page__subtotal">Subtotal: {{ cart.total_price | money }}</p>
+          {%- if cart.cart_level_discount_applications.size > 0 -%}
+            <ul class="cart-page__discounts">
+              {%- for discount in cart.cart_level_discount_applications -%}
+                <li>{{ discount.title }} (-{{ discount.total_allocated_amount | money }})</li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+        <div class="cart-page__actions">
+          <button type="submit" name="update" class="cart-page__button">Update cart</button>
+          <button type="submit" name="checkout" class="cart-page__button cart-page__button--checkout">Checkout</button>
+        </div>
+      </div>
+    </form>
+  </section>
+{%- endif -%}
