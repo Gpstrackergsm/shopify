@@ -34,9 +34,14 @@
         name="id"
         value="{{ selected_variant.id }}"
       >
+      <input
+        type="hidden"
+        name="return_to"
+        value="{{ routes.checkout_url }}"
+      >
       <button
         type="submit"
-        name="checkout"
+        name="add"
         class="product-simple__buy-now"
         {%- unless selected_variant.available -%} disabled{%- endunless -%}
       >
