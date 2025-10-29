@@ -1,60 +1,75 @@
 {%- if product == blank -%}
-  <section class="product-simple">
+  <section class="product-page">
     <h1>Product unavailable</h1>
     <p>The product you're looking for could not be found.</p>
   </section>
 {%- else -%}
   {%- assign selected_variant = product.selected_or_first_available_variant -%}
-  <section class="product-simple" aria-labelledby="product-title">
-    <header class="product-simple__header">
+  <section class="product-page" aria-labelledby="product-title">
+    <header class="product-page__header">
       <h1 id="product-title">{{ product.title }}</h1>
     </header>
 
     {%- if product.featured_image -%}
-      <figure class="product-simple__media">
+      <figure class="product-page__media">
         {{
           product.featured_image
           | image_url: width: 1024
           | image_tag:
             alt: product.featured_image.alt | default: product.title,
-            class: 'product-simple__image',
+            class: 'product-page__image',
             loading: 'lazy'
         }}
       </figure>
     {%- endif -%}
 
-    <div class="product-simple__price">
+    <div class="product-page__price">
       {{ selected_variant.price | money }}
     </div>
 
-    {%- form 'product', product, class: 'product-simple__form' -%}
+    {%- form 'product', product, class: 'product-page__form' -%}
       {{ form.errors | default_errors }}
       <input
         type="hidden"
         name="id"
         value="{{ selected_variant.id }}"
       >
-      <input
-        type="hidden"
-        name="return_to"
-        value="{{ routes.checkout_url }}"
-      >
-      <button
-        type="submit"
-        name="add"
-        class="product-simple__buy-now"
-        {%- unless selected_variant.available -%} disabled{%- endunless -%}
-      >
-        {%- if selected_variant.available -%}
-          {{ 'Continue to checkout' }}
-        {%- else -%}
-          {{ 'products.product.sold_out' | t }}
-        {%- endif -%}
-      </button>
+
+      {%- assign quantity_input_id = 'product-quantity-' | append: product.id -%}
+      <label class="product-page__quantity" for="{{ quantity_input_id }}">
+        Quantity
+        <input
+          id="{{ quantity_input_id }}"
+          name="quantity"
+          type="number"
+          value="1"
+          min="1"
+        >
+      </label>
+
+      <div class="product-page__actions">
+        <button
+          type="submit"
+          name="add"
+          class="product-page__button product-page__button--add"
+          {%- unless selected_variant.available -%} disabled{%- endunless -%}
+        >
+          Add to cart
+        </button>
+        <button
+          type="submit"
+          name="checkout"
+          value="1"
+          class="product-page__button product-page__button--buy"
+          {%- unless selected_variant.available -%} disabled{%- endunless -%}
+        >
+          Buy now
+        </button>
+      </div>
     {%- endform -%}
 
     {%- if product.description != blank -%}
-      <div class="product-simple__description">
+      <div class="product-page__description">
         {{ product.description }}
       </div>
     {%- endif -%}
