@@ -30,6 +30,12 @@
               {%- if product.media.size > 1 -%}
                 <div class="product__media-thumbnails" role="list">
                   {%- for media in product.media -%}
+                    {%- assign thumbnail_source = blank -%}
+                    {%- if media.preview_image -%}
+                      {%- assign thumbnail_source = media.preview_image -%}
+                    {%- elsif media.media_type == 'image' -%}
+                      {%- assign thumbnail_source = media -%}
+                    {%- endif -%}
                     <button
                       type="button"
                       class="product__media-thumbnail{% if forloop.first %} is-active{% endif %}"
@@ -38,15 +44,18 @@
                       aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
                       aria-label="{%- if media.alt != blank -%}{{ media.alt | escape }}{%- else -%}View product media {{ forloop.index }}{%- endif -%}"
                     >
-                      {{
-                        media.preview_image
-                        | image_tag:
-                          width: 160,
-                          height: 160,
-                          crop: 'center',
-                          alt: media.alt | default: product.title,
-                          class: 'product__media-thumbnail-image'
-                      }}
+                      {%- if thumbnail_source -%}
+                        {{
+                          thumbnail_source
+                          | image_url: width: 160, height: 160, crop: 'center'
+                          | image_tag:
+                            alt: media.alt | default: product.title,
+                            class: 'product__media-thumbnail-image',
+                            loading: 'lazy'
+                        }}
+                      {%- else -%}
+                        <span class="product__media-thumbnail-placeholder" aria-hidden="true">{{ media.media_type | capitalize }}</span>
+                      {%- endif -%}
                     </button>
                     <template id="ProductMediaTemplate-{{ media.id }}">
                       {{
