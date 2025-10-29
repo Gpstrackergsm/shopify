@@ -34,28 +34,13 @@
         name="id"
         value="{{ selected_variant.id }}"
       >
-
-      {%- assign quantity_input_id = 'product-quantity-' | append: product.id -%}
-      <label class="product-page__quantity" for="{{ quantity_input_id }}">
-        Quantity
-        <input
-          id="{{ quantity_input_id }}"
-          name="quantity"
-          type="number"
-          value="1"
-          min="1"
-        >
-      </label>
+      <input
+        type="hidden"
+        name="quantity"
+        value="1"
+      >
 
       <div class="product-page__actions">
-        <button
-          type="submit"
-          name="add"
-          class="button button-secondary product-page__button product-page__button--add"
-          {%- unless selected_variant.available -%} disabled{%- endunless -%}
-        >
-          Add to cart
-        </button>
         <button
           type="submit"
           name="checkout"
