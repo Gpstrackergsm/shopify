@@ -36,22 +36,15 @@
       >
       <button
         type="submit"
-        class="product-simple__submit"
-        {%- unless selected_variant.available -%} disabled{%- endunless -%}
-      >
-        {%- if selected_variant.available -%}
-          {{ 'products.product.add_to_cart' | t }}
-        {%- else -%}
-          {{ 'products.product.sold_out' | t }}
-        {%- endif -%}
-      </button>
-      <button
-        type="submit"
         name="checkout"
         class="product-simple__buy-now"
         {%- unless selected_variant.available -%} disabled{%- endunless -%}
       >
-        {{ 'Buy now' }}
+        {%- if selected_variant.available -%}
+          {{ 'Continue to checkout' }}
+        {%- else -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
       </button>
     {%- endform -%}
 
