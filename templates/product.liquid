@@ -12,8 +12,8 @@
         <div class="product__media">
           {%- if product.media.size > 0 -%}
             {%- assign initial_media = product.media.first -%}
-            {%- assign product_image_widths = '480,640,800,960,1280,1600,2048' -%}
-            {%- assign product_image_sizes = '(min-width: 960px) 640px, min(calc(100vw - 3rem), 560px)' -%}
+            {%- assign product_image_widths = '360,540,720,900,1080,1280,1440,1680,1920,2048,2560' -%}
+            {%- assign product_image_sizes = '(min-width: 960px) 760px, min(calc(100vw - 3rem), 720px)' -%}
             <div class="product__media-viewer" data-product-media-viewer>
               <figure class="product__media-main" data-media-display>
                 {%- if initial_media.media_type == 'image' -%}
@@ -62,7 +62,7 @@
                       {%- if thumbnail_source -%}
                         {{
                           thumbnail_source
-                          | image_url: width: 160, height: 160, crop: 'center'
+                          | image_url: width: 320, height: 320, crop: 'center'
                           | image_tag:
                             alt: media.alt | default: product.title,
                             class: 'product__media-thumbnail-image',
