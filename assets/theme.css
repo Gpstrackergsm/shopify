@@ -193,18 +193,25 @@ a:focus {
   display: grid;
   gap: 1.5rem;
   justify-items: center;
+  width: min(100%, 560px);
+}
+
+@media (min-width: 960px) {
+  .product__media-gallery {
+    width: min(100%, 640px);
+  }
 }
 
 .product__media-item {
   margin: 0;
   width: 100%;
-  max-width: clamp(240px, 48vw, 520px);
+  max-width: 100%;
 }
 
 .product__media-image {
   width: 100%;
   height: auto;
-  max-height: clamp(260px, 70vh, 520px);
+  max-height: clamp(320px, 70vh, 640px);
   object-fit: contain;
   border-radius: 1.35rem;
   display: block;
