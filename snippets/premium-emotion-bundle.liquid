@@ -63,29 +63,7 @@
       opacity: 0.4;
     }
 
-    /* ─── NAV ─── */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(10,13,20,0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--glass-border);
-      transition: var(--transition);
-    }
-    .nav-logo {
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
-    .nav-logo span { color: var(--accent); }
+
 
     /* ─── BUTTONS ─── */
     .btn {
@@ -130,11 +108,11 @@
 
     /* ─── HERO ─── */
     .hero {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 120px 24px 80px;
+      padding: 60px 24px 80px;
       position: relative;
       text-align: center;
       overflow: hidden;
@@ -526,11 +504,7 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="/" class="nav-logo">Psycho<span>Reads</span></a>
-    <button class="btn btn-primary btn-sm" id="nav-cta" onclick="checkoutBundle()">Get Bundle — $29</button>
-  </nav>
+
 
   <!-- HERO -->
   <header class="hero">
