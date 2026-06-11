@@ -1,0 +1,321 @@
+{% assign book_product = all_products['embracing-our-fragmented-selves-a-workbook-for-trauma-survivors-and-therapists'] %}
+{% assign book_variant = book_product.variants.first %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embracing Our Fragmented Selves — Dr. Janina Fisher</title>
+  <meta name="description" content="A compassionate workbook for trauma survivors and therapists by internationally renowned trauma therapist Dr. Janina Fisher. Learn to befriend your inner parts and restore harmony." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #553c9a;
+      --brand-dark: #3d2b7a;
+      --brand-light: #faf5ff;
+      --accent: #805ad5;
+      --accent-warm: #d69e2e;
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-muted: #a0aec0;
+      --bg: #ffffff;
+      --surface: #faf5ff;
+      --border: rgba(85, 60, 154, 0.18);
+      --shadow: 0 8px 32px rgba(85, 60, 154, 0.08);
+      --shadow-lg: 0 16px 48px rgba(85, 60, 154, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.9);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
+
+    /* NAV */
+    .sl-nav { position: sticky; top: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    .sl-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .sl-nav-logo { font-weight: 900; font-size: 1.2rem; color: var(--text-primary); letter-spacing: -0.5px; }
+    .sl-nav-cta { background: var(--brand); color: #fff; border: none; border-radius: 10px; padding: 10px 24px; font-size: 0.9rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 14px rgba(85,60,154,0.3); font-family: inherit; }
+    .sl-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(85,60,154,0.45); }
+
+    /* STICKY CTA */
+    .sl-sticky-cta { position: fixed; bottom: -100px; left: 0; right: 0; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border); padding: 16px 24px; z-index: 999; display: flex; justify-content: center; align-items: center; gap: 20px; box-shadow: 0 -10px 40px rgba(0,0,0,0.08); transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .sl-sticky-cta.visible { bottom: 0; }
+
+    /* HERO */
+    .sl-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, #faf5ff 55%, #e9d8fd 100%); padding: 110px 24px 100px; text-align: center; }
+    .sl-hero::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(85,60,154,0.07) 0%, transparent 70%); pointer-events: none; }
+    .sl-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(250,245,255,0.95); backdrop-filter: blur(10px); border: 1px solid #b794f4; border-radius: 999px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; color: var(--brand); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+    .sl-author-tag { font-size: 0.95rem; color: var(--accent); font-weight: 700; margin-bottom: 14px; }
+    .sl-hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 900; color: var(--text-primary); line-height: 1.1; letter-spacing: -1.2px; max-width: 900px; margin: 0 auto 24px; }
+    .sl-hero-sub { font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--text-secondary); max-width: 720px; margin: 0 auto 40px; line-height: 1.75; font-weight: 500; }
+    .sl-hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px; }
+    .sl-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--brand), var(--brand-dark)); color: #fff; border: none; border-radius: 14px; padding: 18px 40px; font-size: 1.1rem; font-weight: 900; cursor: pointer; text-decoration: none; box-shadow: 0 10px 30px rgba(85,60,154,0.35); transition: all 0.25s; font-family: inherit; }
+    .sl-btn-primary:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 40px rgba(85,60,154,0.48); }
+    .sl-hero-img { margin-top: 50px; }
+    .sl-hero-img img { max-width: 460px; width: 100%; border-radius: 20px; box-shadow: 0 32px 90px rgba(85,60,154,0.2); border: 2px solid rgba(255,255,255,0.7); }
+
+    /* TRUST */
+    .sl-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; padding: 28px 24px; border-bottom: 1px solid var(--border); background: #fff; }
+    .sl-trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 700; color: var(--text-secondary); }
+
+    /* SECTIONS */
+    .sl-section { padding: 90px 24px; }
+    .sl-section-inner { max-width: 1100px; margin: 0 auto; }
+    .sl-label { font-size: 0.82rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--brand); margin-bottom: 16px; display: inline-block; background: var(--brand-light); padding: 6px 16px; border-radius: 999px; border: 1px solid #b794f4; }
+    .sl-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--text-primary); letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px; }
+
+    /* CARDS */
+    .sl-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 28px; margin-top: 48px; }
+    .sl-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+    .sl-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .sl-card-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .sl-card-body { padding: 28px; }
+    .sl-card-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; color: var(--text-primary); }
+    .sl-card-text { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* TEXT */
+    .sl-text-section { max-width: 800px; margin: 0 auto; text-align: center; }
+    .sl-text-p { font-size: 1.15rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; font-weight: 500; }
+
+    /* REVIEWS */
+    .sl-reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+    .sl-review-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); }
+    .sl-review-stars { color: #d69e2e; font-size: 1.1rem; margin-bottom: 10px; letter-spacing: 2px; }
+    .sl-review-text { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; font-style: italic; }
+    .sl-review-author { font-size: 0.88rem; font-weight: 800; color: var(--text-primary); }
+    .sl-review-meta { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+    /* FINAL CTA */
+    .sl-cta-section { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dark) 100%); color: #fff; text-align: center; padding: 90px 24px; }
+    .sl-cta-section .sl-title { color: #fff; }
+    .sl-cta-sub { font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.88); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .sl-btn-white { background: #fff; color: var(--brand); font-size: 1.15rem; padding: 20px 48px; border-radius: 14px; font-weight: 900; border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.18); transition: all 0.25s; display: inline-flex; align-items: center; gap: 10px; font-family: inherit; }
+    .sl-btn-white:hover { transform: translateY(-4px) scale(1.02); }
+
+    @media (max-width: 768px) {
+      .sl-hero { padding: 80px 20px 60px; }
+      .sl-sticky-cta { flex-direction: column; text-align: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="sl-nav">
+    <div class="sl-nav-inner">
+      <span class="sl-nav-logo">PsychoReads</span>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ book_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="sl-nav-cta">Buy Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="sl-hero">
+    <div class="sl-hero-badge">🌿 By Dr. Janina Fisher</div>
+    <p class="sl-author-tag">Internationally Renowned Trauma Therapist</p>
+    <h1>Embracing Our Fragmented Selves</h1>
+    <p class="sl-hero-sub">
+      Trauma fragments the self, leaving behind parts of us that carry fear, rage, shame, hopelessness, and despair. This compassionate workbook offers a clear path to understanding those parts and restoring a sense of inner harmony.
+    </p>
+    <div class="sl-hero-actions">
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ book_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="sl-btn-primary" id="hero-btn">
+          🛒 Get the Book — {{ book_product.price | money }}
+        </button>
+      </form>
+    </div>
+    <div class="sl-hero-img">
+      {%- if book_product.images.first -%}
+        <img src="{{ book_product.images.first | img_url: 'master' }}" alt="{{ book_product.title }}" loading="eager" />
+      {%- else -%}
+        <div style="background: linear-gradient(135deg,#faf5ff,#e9d8fd); width:100%; max-width:460px; margin:0 auto; height:380px; border-radius:20px; display:flex; align-items:center; justify-content:center; color:var(--brand); font-weight:800; font-size:1.1rem; border: 1px solid #b794f4;">
+          📖 Embracing Our Fragmented Selves
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="sl-trust">
+    <div class="sl-trust-item"><span>🧠</span> Trauma-Informed Approach</div>
+    <div class="sl-trust-item"><span>💜</span> Parts Work & IFS</div>
+    <div class="sl-trust-item"><span>🌿</span> Sensorimotor Psychotherapy</div>
+    <div class="sl-trust-item"><span>⚡</span> Instant Digital Access</div>
+  </div>
+
+  <!-- ABOUT THE BOOK -->
+  <div class="sl-section" style="background: var(--surface);">
+    <div class="sl-section-inner">
+      <div style="text-align: center;">
+        <div class="sl-label">About the Book</div>
+        <h2 class="sl-title">A Workbook for Trauma Survivors &amp; Therapists</h2>
+        <p class="sl-hero-sub" style="margin: 0 auto; max-width: 800px;">
+          Grounded in structural dissociation theory, parts work, and sensorimotor psychotherapy, this workbook by Dr. Janina Fisher teaches trauma survivors to understand symptoms as expressions of different parts, befriend traumatized parts, and offer reparative experiences to wounded young parts.
+        </p>
+      </div>
+      <div class="sl-grid-3">
+        <div class="sl-card">
+          <div class="sl-card-body">
+            <div class="sl-card-icon">🔍</div>
+            <div class="sl-card-title">Understand Your Parts</div>
+            <div class="sl-card-text">Learn to recognize your symptoms as meaningful expressions of different parts of yourself — not flaws or failures, but survival strategies deserving care.</div>
+          </div>
+        </div>
+        <div class="sl-card">
+          <div class="sl-card-body">
+            <div class="sl-card-icon">🤝</div>
+            <div class="sl-card-title">Befriend Traumatized Parts</div>
+            <div class="sl-card-text">Notice, unblend from, and build a compassionate relationship with your traumatized parts, recognizing that every wounded part deserves acceptance.</div>
+          </div>
+        </div>
+        <div class="sl-card">
+          <div class="sl-card-body">
+            <div class="sl-card-icon">🛡️</div>
+            <div class="sl-card-title">Work with Protector Parts</div>
+            <div class="sl-card-text">Recognize self-destructive behaviors as the actions of protector parts trying to keep you safe, and offer them new ways to fulfill that role.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEXT SECTION -->
+  <div class="sl-section">
+    <div class="sl-section-inner sl-text-section">
+      <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 24px; color: var(--text-primary); letter-spacing: -0.5px;">Healing Begins With Compassion</h3>
+      <p class="sl-text-p">
+        Every part of us, no matter how wounded or extreme, is deserving of care. Dr. Janina Fisher's approach is a reminder that healing begins when we meet those parts with support, appreciation, and acceptance.
+      </p>
+      <p class="sl-text-p">
+        Whether you're a trauma survivor navigating your own healing journey, or a therapist seeking a structured, ethically grounded resource for parts-based work, this workbook is an invaluable companion — accessible, humane, and deeply validating.
+      </p>
+      <p class="sl-text-p">
+        This book reflects more than three decades of Dr. Janina Fisher's clinical and teaching experience, encapsulating her TIST model in a way that feels coherent, respectful, and usable even when emotional capacity is limited.
+      </p>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="sl-section" style="background: var(--surface);">
+    <div class="sl-section-inner">
+      <div style="text-align: center;">
+        <div class="sl-label">Reader Reviews</div>
+        <h2 class="sl-title">What Readers Are Saying</h2>
+      </div>
+      <div class="sl-reviews-grid">
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"The perfect book to recommend to my psychotherapy clients. Clients often ask 'can you give me some tools?' Here they are — clearly described, what they're for and how to use them."</p>
+          <div class="sl-review-author">Daniel Shaw</div>
+          <div class="sl-review-meta">Verified Purchase · United States</div>
+        </div>
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"This book is one of the best I have used in my recovery (out of a couple hundred). I highly recommend the workbook for use alone or with a therapist. Helps treat trauma safely — not re-live it!"</p>
+          <div class="sl-review-author">Rebecca K. Zebley</div>
+          <div class="sl-review-meta">Verified Purchase · United States</div>
+        </div>
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"Clear, Compassionate, and Exceptionally Grounded. The steady, non-judgmental tone throughout reduces self-blame and supports safer engagement with difficult internal experiences."</p>
+          <div class="sl-review-author">Julia Marie Wedemeyer, MA, LPC</div>
+          <div class="sl-review-meta">Verified Purchase · United States</div>
+        </div>
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"Very informative but not too technical. Easy to follow and very helpful."</p>
+          <div class="sl-review-author">Eileen S.</div>
+          <div class="sl-review-meta">Verified Purchase · United States</div>
+        </div>
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"The very process of reading this book feels like it is soothing and giving attention to wounded, vulnerable parts. I would definitely recommend for those experiencing dissociative symptoms."</p>
+          <div class="sl-review-author">MCh</div>
+          <div class="sl-review-meta">Verified Purchase · United Kingdom</div>
+        </div>
+
+        <div class="sl-review-card">
+          <div class="sl-review-stars">★★★★★</div>
+          <p class="sl-review-text">"Janina Fisher's commitment and practice open new paths of healing, wholeness, and well-being for all survivors and have changed my life."</p>
+          <div class="sl-review-author">JanieB</div>
+          <div class="sl-review-meta">Verified Purchase · United States</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="sl-cta-section">
+    <div class="sl-section-inner">
+      <h2 class="sl-title">Begin Your Journey to Inner Harmony</h2>
+      <p class="sl-cta-sub">Meet every part of yourself with support, appreciation, and acceptance. Healing starts here.</p>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ book_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="sl-btn-white">
+          🛒 Get the Book — {{ book_product.price | money }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- STICKY BOTTOM ATC -->
+  <div class="sl-sticky-cta" id="sticky-cta">
+    <div style="font-weight: 700; font-size: 0.95rem;">
+      <div style="font-weight: 900; color: var(--text-primary); line-height: 1.2;">Embracing Our Fragmented Selves</div>
+      <div style="font-size: 0.82rem; color: var(--text-secondary);">Dr. Janina Fisher · Trauma Survivors &amp; Therapists</div>
+    </div>
+    <form action="/cart/add" method="post" style="margin:0;">
+      <input type="hidden" name="id" value="{{ book_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="return_to" value="/checkout">
+      <button type="submit" class="sl-btn-primary" style="padding: 12px 28px; font-size: 0.95rem;">
+        🛒 Buy Now — {{ book_product.price | money }}
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroBtn = document.getElementById('hero-btn');
+    window.addEventListener('scroll', () => {
+      if (!stickyCta || !heroBtn) return;
+      if (heroBtn.getBoundingClientRect().bottom < 0) {
+        stickyCta.classList.add('visible');
+      } else {
+        stickyCta.classList.remove('visible');
+      }
+    });
+    const slObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.sl-card, .sl-review-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      slObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
