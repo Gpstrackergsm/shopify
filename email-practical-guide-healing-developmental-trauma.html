@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Practical Guide for Healing Developmental Trauma &mdash; NARM Clinical Guidebook</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0ff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        table { border-spacing: 0; border-collapse: collapse; }
+        td { padding: 0; }
+        img { border: 0; max-width: 100%; height: auto; vertical-align: top; }
+
+        .wrapper {
+            width: 100%;
+            table-layout: fixed;
+            background-color: #f5f0ff;
+            padding-bottom: 40px;
+        }
+
+        .main {
+            background-color: #ffffff;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 600px;
+            border-spacing: 0;
+            color: #1a1528;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(74, 56, 128, 0.12);
+            margin-top: 20px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e1040 0%, #4a3880 55%, #7c5cbf 100%);
+            padding: 50px 30px 40px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0a93c;
+            color: #1a1528;
+            font-size: 13px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 20px;
+        }
+
+        .author-tag {
+            color: #d8caff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 0 0 16px 0;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span { color: #d8caff; }
+
+        .hero p {
+            color: #d8caff;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            max-width: 460px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Content */
+        .content { padding: 40px 36px 10px; }
+
+        .text-block {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #334155;
+            margin: 0 0 20px 0;
+        }
+
+        /* Feature list */
+        .feature-list { margin: 0 0 28px 0; padding: 0; list-style: none; }
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ede8ff;
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li span.icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+        /* Pillars block */
+        .pillars-block {
+            background: #f5f0ff;
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin: 0 36px 32px;
+        }
+        .pillars-block h3 {
+            font-size: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #4a3880;
+            margin: 0 0 16px 0;
+        }
+        .pillars-block p {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 0 0 8px 0;
+        }
+        .pillars-block p:last-child { margin-bottom: 0; }
+        .pillars-block strong { color: #1a1528; }
+
+        /* Quote block */
+        .quote-block {
+            background: #faf5ff;
+            border-left: 4px solid #7c5cbf;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 0 36px 32px;
+        }
+        .quote-block p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            font-style: italic;
+            margin: 0 0 10px 0;
+        }
+        .quote-block cite {
+            font-size: 13px;
+            font-weight: 800;
+            color: #4a3880;
+            font-style: normal;
+        }
+
+        /* CTA Button */
+        .btn-container { text-align: center; margin: 30px 0 20px 0; }
+
+        .btn {
+            background: linear-gradient(135deg, #4a3880, #1e1040);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 18px 44px;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            border-radius: 14px;
+            display: inline-block;
+            box-shadow: 0 8px 24px rgba(74, 56, 128, 0.35);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 13px;
+            color: #94a3b8;
+            background-color: #f5f0ff;
+            border-top: 1px solid #ede8ff;
+        }
+
+        .footer a { color: #64748b; text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+    <!-- PREVIEW TEXT -->
+    <div style="display:none;font-size:1px;color:#f5f0ff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+        The clinician's guide to NARM — help clients overcome C-PTSD, recover from ACEs, and achieve post-traumatic growth.
+        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+    </div>
+
+    <center class="wrapper">
+        <table class="main" width="100%">
+            <tbody>
+
+                <!-- HERO -->
+                <tr>
+                    <td class="hero">
+                        <div class="badge">New Arrival</div>
+                        <p class="author-tag">By Larry Heller &amp; Brad Kammer &mdash; NARM Training Institute</p>
+                        <h1>The Practical Guide for <span>Healing Developmental Trauma</span></h1>
+                        <p>A Clinician's Guidebook for the NeuroAffective Relational Model (NARM)</p>
+                    </td>
+                </tr>
+
+                <!-- CONTENT -->
+                <tr>
+                    <td class="content">
+                        <p class="text-block">Hi Reader,</p>
+                        <p class="text-block">
+                            We're thrilled to add <strong>The Practical Guide for Healing Developmental Trauma</strong> by Larry Heller &amp; Brad Kammer to our library — the essential clinical guidebook for applying the NeuroAffective Relational Model (NARM).
+                        </p>
+                        <p class="text-block">
+                            NARM is a cutting-edge integrated mind-body framework that identifies and treats the complex ways childhood trauma manifests in interpersonal difficulties, maladaptive patterns, identity issues, and disrupted affect regulation.
+                        </p>
+
+                        <p class="text-block" style="font-weight: 700; color: #1a1528; margin-bottom: 12px;">
+                            This guidebook arms you with the skills to:
+                        </p>
+
+                        <ul class="feature-list">
+                            <li><span class="icon">🧠</span> Apply the four pillars of the NARM therapeutic model</li>
+                            <li><span class="icon">🌱</span> Address cultural and intergenerational trauma</li>
+                            <li><span class="icon">🔍</span> Differentiate shock trauma from complex developmental trauma</li>
+                            <li><span class="icon">📋</span> Work with Adverse Childhood Experiences (ACEs) &amp; C-PTSD</li>
+                            <li><span class="icon">💡</span> Integrate NARM into your existing therapeutic practice</li>
+                            <li><span class="icon">📖</span> Study annotated real-session transcripts from both authors</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <!-- PILLARS BLOCK -->
+                <tr>
+                    <td>
+                        <div class="pillars-block">
+                            <h3>The Four Pillars of NARM</h3>
+                            <p><strong>1. Therapeutic Contract</strong> — Grounding the work in the client's own intentions for healing</p>
+                            <p><strong>2. Deconstruction of Experience</strong> — Exploring how clients organize their adaptive survival patterns</p>
+                            <p><strong>3. Supporting Agency</strong> — Reinforcing authentic self-direction and self-esteem</p>
+                            <p><strong>4. Psychobiologic Shifts</strong> — Acknowledging somatic &amp; relational shifts that signal real healing</p>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- QUOTE -->
+                <tr>
+                    <td>
+                        <div class="quote-block">
+                            <p>"This practical guide shows us how to actualize a more humanizing approach into reality — facilitating deep healing on an identity level, rather than a temporary behavioral or symptom-reducing level."</p>
+                            <cite>&mdash; Whitney M. Sutherland, MA, LPC &nbsp;·&nbsp; 5 ★ Verified Review</cite>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- CTA BUTTON -->
+                <tr>
+                    <td>
+                        <div class="btn-container">
+                            <a href="https://psychoreads.com/pages/the-practical-guide-for-healing-developmental-trauma" class="btn">📖 Explore the Book</a>
+                        </div>
+                        <p style="text-align:center; font-size:13px; color:#a0aec0; padding-bottom: 36px; margin: 0;">Instant PDF Download &nbsp;•&nbsp; Secure Checkout</p>
+                    </td>
+                </tr>
+
+                <!-- FOOTER -->
+                <tr>
+                    <td class="footer">
+                        {{ open_tracking_block }}
+                        <p>&copy; 2026 PsychoReads. All rights reserved.</p>
+                        <p>Don't want these updates? <a href="{{ unsubscribe_url }}">Unsubscribe</a></p>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </center>
+</body>
+
+</html>
