@@ -1,0 +1,514 @@
+{% assign narm_product = all_products['the-practical-guide-for-healing-developmental-trauma'] %}
+{% assign narm_variant = narm_product.variants.first %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Practical Guide for Healing Developmental Trauma — NARM Clinician's Guidebook</title>
+  <meta name="description" content="Apply the NeuroAffective Relational Model (NARM) to help clients overcome C-PTSD, recover from ACEs, and map post-traumatic growth. The essential clinical guidebook for developmental trauma treatment." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #4a3880;
+      --brand-dark: #332660;
+      --brand-light: #f5f0ff;
+      --accent: #7c5cbf;
+      --accent2: #e0a93c;
+      --text-primary: #1a1528;
+      --text-secondary: #4a4560;
+      --text-muted: #9e99b5;
+      --bg: #ffffff;
+      --surface: #f5f0ff;
+      --border: rgba(124, 92, 191, 0.2);
+      --radius: 16px;
+      --shadow: 0 8px 32px rgba(74, 56, 128, 0.08);
+      --shadow-lg: 0 16px 48px rgba(74, 56, 128, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.88);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-bottom: 80px; }
+
+    /* Nav */
+    .narm-nav { position: sticky; top: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 24px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
+    .narm-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .narm-nav-logo { font-weight: 900; font-size: 1.2rem; color: var(--text-primary); letter-spacing: -0.5px; }
+    .narm-nav-cta { background: var(--brand); color: #fff; border: none; border-radius: 10px; padding: 10px 24px; font-size: 0.9rem; font-weight: 800; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 14px rgba(74,56,128,0.3); }
+    .narm-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74,56,128,0.45); }
+
+    /* Sticky Bottom */
+    .narm-sticky-cta { position: fixed; bottom: -100px; left: 0; right: 0; background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border); padding: 16px 24px; z-index: 999; display: flex; justify-content: center; align-items: center; gap: 20px; box-shadow: 0 -10px 40px rgba(0,0,0,0.08); transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .narm-sticky-cta.visible { bottom: 0; }
+    .narm-sticky-text { font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+
+    /* Hero */
+    .narm-hero { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, #f5f0ff 45%, #ede5ff 100%); padding: 110px 24px 100px; text-align: center; }
+    .narm-hero::before { content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); width: 900px; height: 900px; background: radial-gradient(circle, rgba(124,92,191,0.09) 0%, transparent 70%); pointer-events: none; }
+    .narm-hero::after { content: ''; position: absolute; bottom: -60px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(74,56,128,0.06) 0%, transparent 70%); pointer-events: none; }
+    .narm-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,240,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(124,92,191,0.35); border-radius: 999px; padding: 6px 18px; font-size: 0.85rem; font-weight: 700; color: var(--brand); margin-bottom: 24px; }
+    .narm-hero h1 { font-size: clamp(1.9rem, 5vw, 3.4rem); font-weight: 900; color: var(--text-primary); line-height: 1.1; letter-spacing: -1.2px; max-width: 900px; margin: 0 auto 24px; }
+    .narm-hero-sub { font-size: clamp(1.05rem, 2.5vw, 1.2rem); color: var(--text-secondary); max-width: 740px; margin: 0 auto 40px; line-height: 1.75; font-weight: 500; }
+    .narm-hero-actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-bottom: 24px; }
+    .narm-btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--brand), var(--accent)); color: #fff; border: none; border-radius: 14px; padding: 18px 40px; font-size: 1.1rem; font-weight: 900; cursor: pointer; text-decoration: none; box-shadow: 0 10px 30px rgba(74,56,128,0.35); transition: all 0.25s; }
+    .narm-btn-primary:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 40px rgba(74,56,128,0.48); }
+    .narm-hero-img { margin-top: 50px; }
+    .narm-hero-img img { max-width: 520px; width: 100%; border-radius: 20px; box-shadow: 0 32px 90px rgba(74,56,128,0.22); border: 2px solid rgba(255,255,255,0.75); }
+
+    /* Trust bar */
+    .narm-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px; padding: 28px 24px; border-bottom: 1px solid var(--border); background: #fff; }
+    .narm-trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 700; color: var(--text-secondary); }
+
+    /* Sections */
+    .narm-section { padding: 90px 24px; }
+    .narm-section-inner { max-width: 1100px; margin: 0 auto; }
+    .narm-label { font-size: 0.82rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--brand); margin-bottom: 16px; display: inline-block; background: var(--brand-light); padding: 6px 16px; border-radius: 999px; border: 1px solid rgba(124,92,191,0.3); }
+    .narm-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: var(--text-primary); letter-spacing: -1px; line-height: 1.15; margin-bottom: 20px; }
+
+    /* What you'll learn list */
+    .narm-learn-list { margin-top: 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .narm-learn-item { display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; box-shadow: 0 3px 12px rgba(74,56,128,0.04); }
+    .narm-learn-dot { width: 28px; height: 28px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 0.85rem; flex-shrink: 0; }
+    .narm-learn-text { font-size: 0.97rem; font-weight: 700; color: var(--text-primary); line-height: 1.45; }
+
+    /* Pillar Cards */
+    .narm-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 48px; }
+    .narm-pillar-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 30px 26px; box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
+    .narm-pillar-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .narm-pillar-num { width: 50px; height: 50px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.3rem; margin: 0 auto 16px; }
+    .narm-pillar-title { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); margin-bottom: 10px; }
+    .narm-pillar-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* Features */
+    .narm-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; margin-top: 40px; }
+    .narm-feature-item { display: flex; align-items: flex-start; gap: 16px; background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 26px; box-shadow: 0 4px 16px rgba(0,0,0,0.03); }
+    .narm-check { width: 36px; height: 36px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; flex-shrink: 0; }
+    .narm-feature-text { font-size: 1rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px; }
+    .narm-feature-sub { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+
+    /* Quote block */
+    .narm-quote-block { margin: 56px 0; background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%); border-radius: 24px; padding: 48px 40px; text-align: center; position: relative; overflow: hidden; }
+    .narm-quote-block::before { content: '"'; position: absolute; top: -20px; left: 24px; font-size: 12rem; color: rgba(255,255,255,0.08); font-weight: 900; line-height: 1; pointer-events: none; }
+    .narm-quote-text { font-size: clamp(1.05rem, 2.5vw, 1.35rem); color: #fff; font-weight: 600; line-height: 1.7; max-width: 760px; margin: 0 auto 20px; font-style: italic; }
+    .narm-quote-source { font-size: 0.88rem; color: rgba(255,255,255,0.75); font-weight: 700; letter-spacing: 0.5px; }
+
+    /* Reviews */
+    .narm-reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+    .narm-review-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 26px 28px; box-shadow: 0 4px 18px rgba(74,56,128,0.05); transition: transform 0.3s, box-shadow 0.3s; }
+    .narm-review-card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(74,56,128,0.12); }
+    .narm-review-stars { color: #f6ad55; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 10px; }
+    .narm-review-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); margin-bottom: 6px; line-height: 1.3; }
+    .narm-review-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; }
+    .narm-verified { color: #4a3880; font-weight: 700; }
+    .narm-review-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 12px; }
+    .narm-review-helpful { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; }
+
+    /* CTA */
+    .narm-cta-section { background: linear-gradient(135deg, var(--brand) 0%, var(--accent) 100%); color: #fff; text-align: center; padding: 90px 24px; position: relative; overflow: hidden; }
+    .narm-cta-section::before { content: ''; position: absolute; top: -100px; left: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%); pointer-events: none; }
+    .narm-cta-section .narm-title { color: #fff; }
+    .narm-cta-sub { font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.88); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .narm-btn-white { background: #fff; color: var(--brand); font-size: 1.15rem; padding: 20px 48px; border-radius: 14px; font-weight: 900; border: none; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.18); transition: all 0.25s; display: inline-flex; align-items: center; gap: 10px; }
+    .narm-btn-white:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,0.22); }
+
+    /* About authors */
+    .narm-authors { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-top: 40px; }
+    .narm-author-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 30px; box-shadow: var(--shadow); }
+    .narm-author-name { font-weight: 900; font-size: 1.15rem; color: var(--text-primary); margin-bottom: 4px; }
+    .narm-author-title { font-size: 0.85rem; font-weight: 700; color: var(--brand); margin-bottom: 12px; }
+    .narm-author-bio { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+    @media (max-width: 768px) {
+      .narm-hero { padding: 80px 20px 60px; }
+      .narm-sticky-cta { flex-direction: column; text-align: center; gap: 12px; }
+      .narm-trust { gap: 18px; }
+      .narm-reviews-grid { grid-template-columns: 1fr; }
+      .narm-quote-block { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="narm-nav">
+    <div class="narm-nav-inner">
+      <span class="narm-nav-logo">PsychoReads</span>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ narm_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="narm-nav-cta">Buy Now</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="narm-hero">
+    <div class="narm-hero-badge">
+      <span>🧠</span> Heller &amp; Kammer · NARM Clinical Guidebook
+    </div>
+    <h1>The Practical Guide for Healing Developmental Trauma</h1>
+    <p class="narm-hero-sub">
+      Apply the NeuroAffective Relational Model (NARM) to help clients overcome C-PTSD, recover from adverse childhood experiences, and achieve post-traumatic growth — the essential clinical guide for trauma-informed therapists.
+    </p>
+    <div class="narm-hero-actions">
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ narm_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="narm-btn-primary" id="hero-btn">
+          🛒 Get the Book — {{ narm_product.price | money }}
+        </button>
+      </form>
+    </div>
+    <div class="narm-hero-img">
+      {%- if narm_product.images.first -%}
+        <img src="{{ narm_product.images.first | img_url: 'master' }}" alt="{{ narm_product.title }}" loading="eager" />
+      {%- else -%}
+        <div style="background: linear-gradient(135deg,#f5f0ff,#ede5ff); width:100%; max-width:520px; margin:0 auto; height:380px; border-radius:20px; display:flex; align-items:center; justify-content:center; color:#4a3880; font-weight:800; font-size:1.1rem;">
+          📖 Healing Developmental Trauma
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="narm-trust">
+    <div class="narm-trust-item"><span>🏆</span> Heller &amp; Kammer, PhD</div>
+    <div class="narm-trust-item"><span>⭐</span> 5.0 · All Verified Reviews</div>
+    <div class="narm-trust-item"><span>🧠</span> NARM · ACEs · C-PTSD</div>
+    <div class="narm-trust-item"><span>⚡</span> Instant PDF Access</div>
+    <div class="narm-trust-item"><span>🌍</span> English Language</div>
+  </div>
+
+  <!-- ABOUT THE BOOK -->
+  <div class="narm-section">
+    <div class="narm-section-inner">
+      <div style="text-align: center;">
+        <div class="narm-label">About the Book</div>
+        <h2 class="narm-title">A Cutting-Edge Framework for Developmental Trauma</h2>
+        <p class="narm-hero-sub" style="margin:0 auto 40px; max-width:760px;">
+          NARM is an integrated mind-body framework that identifies and treats the complex ways childhood trauma manifests in interpersonal difficulties, maladaptive patterns, identity issues, and disrupted affect regulation.
+        </p>
+      </div>
+      <div class="narm-learn-list">
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">The four pillars of the NARM therapeutic model</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">Cultural and intergenerational trauma</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">Shock vs. complex trauma — and why the distinction matters</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">Adverse Childhood Experiences (ACEs) &amp; C-PTSD</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">How NARM differs from other therapeutic modalities</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">NARM's organizing principles</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">How to integrate NARM into your therapeutic practice</div>
+        </div>
+        <div class="narm-learn-item">
+          <div class="narm-learn-dot">✓</div>
+          <div class="narm-learn-text">Annotated real session transcripts from both authors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUR PILLARS -->
+  <div class="narm-section" style="background: var(--surface); padding-top: 80px; padding-bottom: 80px;">
+    <div class="narm-section-inner">
+      <div style="text-align: center;">
+        <div class="narm-label">The NARM Framework</div>
+        <h2 class="narm-title">The Four Pillars of NARM</h2>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.7;">
+          These four pillars guide the exploration of what drives behavior while maintaining moment-by-moment attunement in the therapeutic session.
+        </p>
+      </div>
+      <div class="narm-grid-4">
+        <div class="narm-pillar-card">
+          <div class="narm-pillar-num">1</div>
+          <div class="narm-pillar-title">Therapeutic Contract</div>
+          <div class="narm-pillar-text">Establishing a clear, collaborative working relationship grounded in the client's own intentions for healing and growth.</div>
+        </div>
+        <div class="narm-pillar-card">
+          <div class="narm-pillar-num">2</div>
+          <div class="narm-pillar-title">Deconstruction of Experience</div>
+          <div class="narm-pillar-text">Exploring how clients organize their experience — thoughts, feelings, sensations — to understand their adaptive survival patterns.</div>
+        </div>
+        <div class="narm-pillar-card">
+          <div class="narm-pillar-num">3</div>
+          <div class="narm-pillar-title">Supporting Agency</div>
+          <div class="narm-pillar-text">Reinforcing the client's sense of choice, self-direction, and authentic self-esteem — the heart of post-traumatic growth.</div>
+        </div>
+        <div class="narm-pillar-card">
+          <div class="narm-pillar-num">4</div>
+          <div class="narm-pillar-title">Psychobiologic Shifts</div>
+          <div class="narm-pillar-text">Acknowledging and working with the somatic, emotional, and relational shifts that signal authentic healing in session.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES / WHY THIS BOOK -->
+  <div class="narm-section">
+    <div class="narm-section-inner">
+      <div class="narm-label">Why This Book</div>
+      <h2 class="narm-title">Essential for Every Trauma Clinician</h2>
+      <div class="narm-features-grid">
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">Integrative Mind-Body Approach</div>
+            <div class="narm-feature-sub">Unifies relational, psychobiological, and psychodynamic perspectives into one coherent, non-pathologizing framework for developmental trauma.</div>
+          </div>
+        </div>
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">Built on the Latest ACE Research</div>
+            <div class="narm-feature-sub">Integrates cutting-edge findings on adverse childhood experiences with clinical practice — arming psychologists, social workers, and therapists with practical tools.</div>
+          </div>
+        </div>
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">Real Annotated Session Transcripts</div>
+            <div class="narm-feature-sub">Two full transcripts of NARM sessions with moment-by-moment commentary reveal the thought process and key choice-points — a behind-the-scenes look at NARM in action.</div>
+          </div>
+        </div>
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">Reflective Exercises Throughout</div>
+            <div class="narm-feature-sub">Experiential exercises invite clinicians to deepen their own self-awareness — because the therapist's capacity for presence is central to the NARM model.</div>
+          </div>
+        </div>
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">Non-Pathologizing Language</div>
+            <div class="narm-feature-sub">NARM de-pathologizes trauma symptoms, framing them as adaptive survival responses — a profoundly humanizing shift for both clinicians and clients.</div>
+          </div>
+        </div>
+        <div class="narm-feature-item">
+          <div class="narm-check">✓</div>
+          <div>
+            <div class="narm-feature-text">For Clinicians &amp; Laypeople Alike</div>
+            <div class="narm-feature-sub">Written with accessible, clear language. Many readers share passages with clients and loved ones — the insights are universal and deeply illuminating.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE BLOCK -->
+  <div class="narm-section" style="padding-top: 0; padding-bottom: 60px;">
+    <div class="narm-section-inner">
+      <div class="narm-quote-block">
+        <p class="narm-quote-text">"Our vision is to bring humanity to the transformation of complex trauma. NARM is a therapeutic approach that supports reconnection to one's lived experience, so that clients can feel more fully alive — and become more fully human."</p>
+        <div class="narm-quote-source">— Brad Kammer &amp; Larry Heller, Authors of The Practical Guide for Healing Developmental Trauma</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT AUTHORS -->
+  <div class="narm-section" style="background: var(--surface); padding-top: 80px; padding-bottom: 80px;">
+    <div class="narm-section-inner">
+      <div style="text-align: center;">
+        <div class="narm-label">About the Authors</div>
+        <h2 class="narm-title">Over Half a Century of Combined Experience</h2>
+      </div>
+      <div class="narm-authors">
+        <div class="narm-author-card">
+          <div style="font-size: 2.5rem; margin-bottom: 14px;">🎓</div>
+          <div class="narm-author-name">Larry Heller, PhD</div>
+          <div class="narm-author-title">Founder of the NARM Training Institute</div>
+          <div class="narm-author-bio">Developer of the NeuroAffective Relational Model, Larry Heller brings decades of experience in somatic and relational trauma treatment. He is the co-author of <em>Healing Developmental Trauma</em>, the foundational text introducing NARM to the world.</div>
+        </div>
+        <div class="narm-author-card">
+          <div style="font-size: 2.5rem; margin-bottom: 14px;">🧑‍⚕️</div>
+          <div class="narm-author-name">Brad Kammer, MFT, LPCC</div>
+          <div class="narm-author-title">Senior NARM Trainer &amp; Therapist</div>
+          <div class="narm-author-bio">A senior trainer at the NARM Training Institute, Brad Kammer brings clarity and heart to NARM's clinical application. His accessible teaching style and real-world session examples make the model approachable for both emerging and seasoned practitioners.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="narm-section">
+    <div class="narm-section-inner">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="narm-label">Verified Reviews</div>
+        <h2 class="narm-title">What Readers Are Saying</h2>
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;">
+          <span style="color:#f6ad55;font-size:1.5rem;">★★★★★</span>
+          <span style="font-size:1.1rem;font-weight:800;color:var(--text-primary);">5.0 out of 5</span>
+          <span style="font-size:0.9rem;color:var(--text-secondary);">· All Verified Purchases</span>
+        </div>
+      </div>
+      <div class="narm-reviews-grid">
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">A heartfelt breath of fresh air for the field!</div>
+          <div class="narm-review-meta">Whitney M. Sutherland, MA, LPC &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 19, 2022</div>
+          <div class="narm-review-text">This practical guide shows us how to actualize a more humanizing approach into reality. It elucidates straight-forward methods of refining our own relationship to ourselves to facilitate deep healing on an identity level, rather than a temporary behavioral or symptom-reducing level. The simple breakdown of core NARM principles allowed for greater ease, less effort, and significant self-trust in how to balance being directive while holding an open space for discovery.</div>
+          <div class="narm-review-helpful">44 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Profoundly impactful "must read" for clinicians</div>
+          <div class="narm-review-meta">Marcia Black, PhD &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; July 26, 2022</div>
+          <div class="narm-review-text">After 40 years as a clinical psychologist, I was moved and inspired to encounter NARM. It offers a unique integration of relational, psychobiological, and psychodynamic approaches that has transformed and enlivened my clinical work. The book teaches in a way that parallels the important themes being taught — it does what is rare in a clinical guide.</div>
+          <div class="narm-review-helpful">15 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Invaluable resource for therapists and laypeople</div>
+          <div class="narm-review-meta">Lisa Gillispie, LPC, SEP &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; July 26, 2022</div>
+          <div class="narm-review-text">This book does an excellent job of laying out the NARM model for working with developmental trauma. The two annotated session transcripts give us an inside look at each author's thought process — a peek behind the curtain. For therapists struggling with burnout or feeling stuck with clients, this chapter on the relational model will be incredibly useful.</div>
+          <div class="narm-review-helpful">30 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Incredible Resource for Clinicians and Personal Growth</div>
+          <div class="narm-review-meta">Sedona &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 28, 2022</div>
+          <div class="narm-review-text">Even after studying the NARM model for 8 years and incorporating its principles in my practice, this book offered fresh insights. Anyone curious about what a NARM session looks like will find the two clinical transcripts invaluable. Many of my clients have started reading this and find it an illuminating resource in their own healing process.</div>
+          <div class="narm-review-helpful">2 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">I highly recommend this to anyone interested in deeper healing</div>
+          <div class="narm-review-meta">Ryan Jones, LCSW CCTP &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 26, 2022</div>
+          <div class="narm-review-text">This is a crucial book for anyone treating trauma or interested in further healing their own. It provides a complete roadmap — from disrupted attachment to clinical process. NARM de-pathologizes trauma symptoms and positions them as adaptive, a notion that is itself healing. The concept of Agency and Protest Anger are absolutely vital to C-PTSD treatment.</div>
+          <div class="narm-review-helpful">19 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Cutting-Edge and Accessible</div>
+          <div class="narm-review-meta">Alex White, MS, LCMHC &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 15, 2022</div>
+          <div class="narm-review-text">Heller and Kammer observe the wisdom and strength that evolve out of traumatic experiences and seek to draw on those as resources for change. Many counseling books are laden with esoteric jargon. Here the authors distill a complex therapeutic model into clear, succinct concepts relatable for both new and seasoned practitioners — even for clients as a resource on their own healing journeys.</div>
+          <div class="narm-review-helpful">20 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">AMAZING RESOURCE for therapists and self-growth</div>
+          <div class="narm-review-meta">Irem Akduman &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 2, 2022</div>
+          <div class="narm-review-text">NARM is a very compassionate and humanistic approach with a non-pathologizing language. This new book is a very comprehensive manual. The authors explained in considerable detail how NARM is used in sessions and how change happens, with actual case examples. The book also contains reflective exercises which deepen the reader's experience. I recommend it not just to psychotherapists but to anyone interested in self-growth.</div>
+          <div class="narm-review-helpful">7 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Wonderful resource!</div>
+          <div class="narm-review-meta">Peggy &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; December 8, 2025</div>
+          <div class="narm-review-text">This book takes a very complex subject and makes the information understandable, relatable, and usable. It even provides "scripts" for counselors to address adverse childhood experiences in their clients and gives them information to help resolve complex trauma. Written with empathy and heart, it gives therapists hope in helping their clients heal.</div>
+          <div class="narm-review-helpful">2 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">Transforming the way we understand trauma</div>
+          <div class="narm-review-meta">Wendy Reiersen &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 4, 2022</div>
+          <div class="narm-review-text">Not only should every therapist read this book, so should every teacher, health practitioner, supervisor, and parent — anyone who interacts with people. We all have trauma. We heal through our relationships with self and others, and with generous quantities of acceptance and agency. It really is that simple. But read the book, and experience it for yourself!</div>
+          <div class="narm-review-helpful">39 people found this helpful</div>
+        </div>
+
+        <div class="narm-review-card">
+          <div class="narm-review-stars">★★★★★</div>
+          <div class="narm-review-title">A Tour De Force &amp; Opus Magnum</div>
+          <div class="narm-review-meta">Keith N. &nbsp;·&nbsp; <span class="narm-verified">✓ Verified Purchase</span> &nbsp;·&nbsp; August 22, 2022</div>
+          <div class="narm-review-text">The theoretical underpinnings are brilliantly aligned — informed by somatic work, relational therapy, bioenergetics, neurobiology, and attachment theory. The Four Pillars offer guideposts for the therapist to follow as sessions unfold, while the authors maintain a cogently focused enumeration of the model that never loses sight of the humanizing element. Magnificent!</div>
+          <div class="narm-review-helpful">1 person found this helpful</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="narm-cta-section">
+    <div class="narm-section-inner">
+      <h2 class="narm-title">Begin Your Journey with NARM</h2>
+      <p class="narm-cta-sub">Help yourself or your clients break free from the lasting effects of childhood trauma — with the most comprehensive practical guide to the NeuroAffective Relational Model.</p>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ narm_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="narm-btn-white">
+          🛒 Get the Book — {{ narm_product.price | money }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- STICKY BOTTOM ATC -->
+  <div class="narm-sticky-cta" id="narm-sticky-cta">
+    <div class="narm-sticky-text">
+      <div>
+        <div style="font-weight: 900; color: var(--text-primary); line-height: 1.2;">Practical Guide for Healing Developmental Trauma</div>
+        <div style="font-size: 0.82rem; color: var(--text-secondary);">Heller &amp; Kammer · NARM Clinical Guidebook</div>
+      </div>
+    </div>
+    <form action="/cart/add" method="post" style="margin:0;">
+      <input type="hidden" name="id" value="{{ narm_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="return_to" value="/checkout">
+      <button type="submit" class="narm-btn-primary" style="padding: 12px 28px; font-size: 0.95rem;">
+        🛒 Buy Now — {{ narm_product.price | money }}
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const narmStickyCta = document.getElementById('narm-sticky-cta');
+    const narmHeroBtn = document.getElementById('hero-btn');
+    window.addEventListener('scroll', () => {
+      if (!narmStickyCta || !narmHeroBtn) return;
+      if (narmHeroBtn.getBoundingClientRect().bottom < 0) {
+        narmStickyCta.classList.add('visible');
+      } else {
+        narmStickyCta.classList.remove('visible');
+      }
+    });
+    const narmObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.narm-feature-item, .narm-pillar-card, .narm-review-card, .narm-author-card, .narm-learn-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+      narmObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
