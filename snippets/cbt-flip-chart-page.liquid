@@ -1,0 +1,895 @@
+{% assign cbt_product = all_products['the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety'] %}
+{% assign cbt_variant = cbt_product.variants.first %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The CBT Flip Chart — Evidence-Based Psychoeducational Tool for Anxiety, Depression & More</title>
+  <meta name="description" content="27 full-color CBT diagrams in a reusable spiral-bound flip chart. The essential in-session therapy tool for anxiety, depression, stress, PTSD, OCD, and insomnia. By Seth J. Gillihan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #0d9488;
+      --brand-dark: #0f766e;
+      --brand-darker: #134e4a;
+      --brand-light: #f0fdfa;
+      --accent: #14b8a6;
+      --accent2: #6366f1;
+      --gold: #f59e0b;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --surface2: #f0fdfa;
+      --border: rgba(13, 148, 136, 0.18);
+      --border-soft: rgba(15, 23, 42, 0.06);
+      --radius: 20px;
+      --shadow: 0 4px 24px rgba(13, 148, 136, 0.08);
+      --shadow-lg: 0 16px 56px rgba(13, 148, 136, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.92);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 88px;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .cbt-nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .cbt-nav-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 66px;
+    }
+    .cbt-nav-logo {
+      font-weight: 900; font-size: 1.15rem; color: var(--text-primary);
+      letter-spacing: -0.5px; text-decoration: none;
+    }
+    .cbt-nav-logo span { color: var(--brand); }
+    .cbt-nav-cta {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff; border: none; border-radius: 12px;
+      padding: 10px 26px; font-size: 0.9rem; font-weight: 800;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.22s;
+      box-shadow: 0 4px 16px rgba(13,148,136,0.32);
+    }
+    .cbt-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,0.45); }
+
+    /* ── HERO ── */
+    .cbt-hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(150deg, #ffffff 0%, #f0fdfa 45%, #ccfbf1 100%);
+      padding: 100px 24px 90px;
+    }
+    .cbt-hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -80px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(13,148,136,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cbt-hero::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -60px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cbt-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .cbt-hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(240,253,250,0.95); backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(13,148,136,0.3); border-radius: 999px;
+      padding: 7px 18px; font-size: 0.82rem; font-weight: 800;
+      color: var(--brand); margin-bottom: 22px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .cbt-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900; color: var(--text-primary);
+      line-height: 1.1; letter-spacing: -1.2px;
+      margin-bottom: 10px;
+    }
+    .cbt-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--brand), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cbt-hero-author {
+      font-size: 1rem; font-weight: 600; color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .cbt-hero-author strong { color: var(--brand); }
+    .cbt-hero-rating {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; border: 1px solid var(--border-soft);
+      border-radius: 12px; padding: 10px 18px;
+      font-size: 0.9rem; margin-bottom: 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    }
+    .cbt-hero-rating .stars { color: var(--gold); font-size: 1rem; letter-spacing: 1px; }
+    .cbt-hero-rating .score { font-weight: 900; color: var(--text-primary); }
+    .cbt-hero-rating .count { color: var(--text-muted); font-size: 0.84rem; }
+    .cbt-hero-sub {
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 560px; line-height: 1.75; font-weight: 500; margin-bottom: 36px;
+    }
+    .cbt-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .cbt-btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-darker));
+      color: #fff; border: none; border-radius: 16px;
+      padding: 18px 40px; font-size: 1.08rem; font-weight: 900;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 10px 32px rgba(13,148,136,0.38);
+      transition: all 0.25s; white-space: nowrap;
+    }
+    .cbt-btn-primary:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 18px 44px rgba(13,148,136,0.5); }
+    .cbt-btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--text-primary);
+      border: 2px solid var(--border); border-radius: 16px;
+      padding: 16px 28px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.22s;
+    }
+    .cbt-btn-secondary:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-2px); }
+    .cbt-hero-img {
+      position: relative; display: flex; justify-content: center;
+    }
+    .cbt-hero-img-wrap {
+      position: relative; display: inline-block;
+    }
+    .cbt-hero-img-wrap::before {
+      content: '';
+      position: absolute; inset: -12px;
+      background: linear-gradient(135deg, rgba(13,148,136,0.15), rgba(99,102,241,0.1));
+      border-radius: 28px;
+      z-index: 0;
+    }
+    .cbt-hero-img img {
+      position: relative; z-index: 1;
+      max-width: 420px; width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 32px 80px rgba(13,148,136,0.22), 0 8px 24px rgba(0,0,0,0.08);
+      border: 3px solid rgba(255,255,255,0.8);
+    }
+    .cbt-hero-img-badge {
+      position: absolute; bottom: -18px; right: -18px; z-index: 2;
+      background: linear-gradient(135deg, var(--gold), #f97316);
+      color: #fff; border-radius: 16px;
+      padding: 14px 20px; font-weight: 900; font-size: 0.82rem;
+      box-shadow: 0 8px 24px rgba(245,158,11,0.4);
+      text-align: center; line-height: 1.3;
+    }
+
+    /* ── TRUST BAR ── */
+    .cbt-trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0;
+      background: var(--brand-darker);
+    }
+    .cbt-trust-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 28px; font-size: 0.88rem; font-weight: 700;
+      color: rgba(255,255,255,0.92);
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .cbt-trust-item:last-child { border-right: none; }
+    .cbt-trust-item span { font-size: 1.2rem; }
+
+    /* ── SECTIONS ── */
+    .cbt-section { padding: 90px 24px; }
+    .cbt-section-inner { max-width: 1140px; margin: 0 auto; }
+    .cbt-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 900; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--brand);
+      background: var(--surface2); border: 1.5px solid rgba(13,148,136,0.25);
+      border-radius: 999px; padding: 6px 18px; margin-bottom: 18px;
+    }
+    .cbt-title {
+      font-size: clamp(1.8rem, 3.8vw, 2.75rem); font-weight: 900;
+      color: var(--text-primary); letter-spacing: -0.9px; line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .cbt-subtitle {
+      font-size: clamp(1rem, 2vw, 1.12rem); color: var(--text-secondary);
+      line-height: 1.75; font-weight: 500; max-width: 680px;
+    }
+
+    /* ── WHAT'S INSIDE CARDS ── */
+    .cbt-grid-3 {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; margin-top: 52px;
+    }
+    .cbt-card {
+      background: #fff; border: 1px solid var(--border-soft);
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+      position: relative;
+    }
+    .cbt-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--brand), var(--accent2));
+    }
+    .cbt-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .cbt-card-body { padding: 32px 28px; }
+    .cbt-card-icon {
+      width: 52px; height: 52px;
+      background: var(--surface2); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 18px;
+      border: 1.5px solid rgba(13,148,136,0.2);
+    }
+    .cbt-card-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 10px; color: var(--text-primary); }
+    .cbt-card-text { font-size: 0.93rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ── FORMAT HIGHLIGHT (dark teal) ── */
+    .cbt-format-section {
+      background: linear-gradient(135deg, var(--brand-darker) 0%, #0f766e 50%, #134e4a 100%);
+      padding: 90px 24px; color: #fff; position: relative; overflow: hidden;
+    }
+    .cbt-format-section::before {
+      content: ''; position: absolute; top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cbt-format-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+    }
+    .cbt-format-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; font-weight: 900; letter-spacing: 2.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 999px; padding: 6px 18px; margin-bottom: 18px;
+    }
+    .cbt-format-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 900;
+      line-height: 1.15; letter-spacing: -0.9px; margin-bottom: 22px; color: #fff;
+    }
+    .cbt-format-title em { font-style: normal; color: #5eead4; }
+    .cbt-format-text { font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.75; margin-bottom: 32px; }
+    .cbt-format-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .cbt-format-list li {
+      display: flex; align-items: flex-start; gap: 14px;
+      font-size: 0.97rem; color: rgba(255,255,255,0.9); font-weight: 600; line-height: 1.5;
+    }
+    .cbt-format-check {
+      width: 28px; height: 28px; flex-shrink: 0; margin-top: 1px;
+      background: rgba(94,234,212,0.18); border: 1.5px solid rgba(94,234,212,0.4);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      color: #5eead4; font-weight: 900; font-size: 0.85rem;
+    }
+    .cbt-stat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .cbt-stat-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 18px; padding: 28px 24px; text-align: center;
+      backdrop-filter: blur(10px);
+      transition: background 0.25s, transform 0.25s;
+    }
+    .cbt-stat-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); }
+    .cbt-stat-num {
+      font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 900;
+      color: #5eead4; line-height: 1; margin-bottom: 8px; letter-spacing: -1px;
+    }
+    .cbt-stat-label { font-size: 0.88rem; color: rgba(255,255,255,0.72); font-weight: 600; line-height: 1.4; }
+
+    /* ── CONDITIONS ── */
+    .cbt-conditions {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px; margin-top: 44px;
+    }
+    .cbt-condition-pill {
+      display: flex; align-items: center; gap: 12px;
+      background: #fff; border: 1.5px solid var(--border);
+      border-radius: 16px; padding: 18px 20px;
+      font-weight: 700; font-size: 0.93rem; color: var(--text-primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      transition: all 0.22s; cursor: default;
+    }
+    .cbt-condition-pill:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,148,136,0.1); }
+    .cbt-condition-icon {
+      width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+      background: var(--surface2); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* ── WHO IS IT FOR ── */
+    .cbt-who-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px; margin-top: 44px;
+    }
+    .cbt-who-card {
+      background: #fff; border: 1px solid var(--border-soft);
+      border-radius: var(--radius); padding: 30px 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cbt-who-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .cbt-who-icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .cbt-who-title { font-weight: 800; font-size: 1.05rem; color: var(--text-primary); margin-bottom: 8px; }
+    .cbt-who-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* ── FEATURES ── */
+    .cbt-features-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px; margin-top: 44px;
+    }
+    .cbt-feature-item {
+      display: flex; align-items: flex-start; gap: 18px;
+      background: #fff; border: 1px solid var(--border-soft);
+      border-radius: 18px; padding: 26px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cbt-feature-item:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(13,148,136,0.1); }
+    .cbt-feat-check {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 900; font-size: 1rem;
+    }
+    .cbt-feat-title { font-weight: 800; font-size: 1rem; color: var(--text-primary); margin-bottom: 5px; }
+    .cbt-feat-sub { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ── AUTHOR ── */
+    .cbt-author-section {
+      background: var(--surface); padding: 90px 24px;
+      border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+    }
+    .cbt-author-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .cbt-author-avatar {
+      width: 90px; height: 90px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin: 0 auto 22px;
+      border: 4px solid #fff; box-shadow: 0 8px 32px rgba(13,148,136,0.2);
+    }
+    .cbt-author-name { font-size: 1.4rem; font-weight: 900; color: var(--text-primary); margin-bottom: 6px; }
+    .cbt-author-cred { font-size: 0.9rem; color: var(--brand); font-weight: 700; margin-bottom: 20px; }
+    .cbt-author-bio { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; }
+
+    /* ── REVIEWS ── */
+    .cbt-reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 22px;
+    }
+    .cbt-review-card {
+      background: #fff; border: 1px solid var(--border-soft);
+      border-radius: 20px; padding: 28px 26px;
+      box-shadow: 0 4px 20px rgba(13,148,136,0.05);
+      transition: transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;
+    }
+    .cbt-review-card::before {
+      content: '\201C'; position: absolute; top: 14px; right: 22px;
+      font-size: 5rem; color: rgba(13,148,136,0.07);
+      font-family: Georgia, serif; line-height: 1; font-weight: 900;
+    }
+    .cbt-review-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(13,148,136,0.12); }
+    .cbt-review-stars { color: var(--gold); font-size: 1.05rem; letter-spacing: 2px; margin-bottom: 10px; }
+    .cbt-review-title { font-weight: 800; font-size: 0.97rem; color: var(--text-primary); margin-bottom: 6px; line-height: 1.4; }
+    .cbt-review-meta { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; }
+    .cbt-verified { color: #16a34a; font-weight: 700; }
+    .cbt-review-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* ── FINAL CTA ── */
+    .cbt-cta-section {
+      background: linear-gradient(135deg, var(--brand) 0%, var(--brand-darker) 100%);
+      color: #fff; text-align: center; padding: 100px 24px; position: relative; overflow: hidden;
+    }
+    .cbt-cta-section::before {
+      content: '';
+      position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cbt-cta-inner { position: relative; z-index: 1; }
+    .cbt-cta-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px; padding: 7px 20px; font-size: 0.82rem;
+      font-weight: 800; color: #fff; margin-bottom: 24px; letter-spacing: 0.04em;
+    }
+    .cbt-cta-title { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 900; color: #fff; letter-spacing: -0.9px; line-height: 1.15; margin-bottom: 18px; }
+    .cbt-cta-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.82);
+      margin-bottom: 44px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.75;
+    }
+    .cbt-btn-white {
+      background: #fff; color: var(--brand-dark);
+      font-size: 1.15rem; padding: 20px 52px; border-radius: 16px;
+      font-weight: 900; border: none; cursor: pointer;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .cbt-btn-white:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 48px rgba(0,0,0,0.28); }
+    .cbt-cta-note { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-top: 20px; }
+
+    /* ── STICKY ATC ── */
+    .cbt-sticky-cta {
+      position: fixed; bottom: -110px; left: 0; right: 0;
+      background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border); padding: 14px 24px; z-index: 999;
+      display: flex; justify-content: center; align-items: center; gap: 24px;
+      box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+      transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cbt-sticky-cta.visible { bottom: 0; }
+    .cbt-sticky-info { display: flex; flex-direction: column; gap: 2px; }
+    .cbt-sticky-name { font-size: 0.92rem; font-weight: 900; color: var(--text-primary); line-height: 1.2; }
+    .cbt-sticky-sub { font-size: 0.78rem; color: var(--text-secondary); font-weight: 600; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes cbt-fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cbt-hero-left > * { animation: cbt-fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+    .cbt-hero-left > *:nth-child(2) { animation-delay: 0.08s; }
+    .cbt-hero-left > *:nth-child(3) { animation-delay: 0.14s; }
+    .cbt-hero-left > *:nth-child(4) { animation-delay: 0.20s; }
+    .cbt-hero-left > *:nth-child(5) { animation-delay: 0.26s; }
+    .cbt-hero-left > *:nth-child(6) { animation-delay: 0.32s; }
+    .cbt-hero-img { animation: cbt-fadeUp 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cbt-hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .cbt-hero-actions { justify-content: center; }
+      .cbt-hero-img { order: -1; }
+      .cbt-hero-img img { max-width: 320px; }
+      .cbt-hero-img-badge { bottom: -12px; right: 0; }
+      .cbt-format-inner { grid-template-columns: 1fr; gap: 48px; }
+      .cbt-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .cbt-hero { padding: 70px 20px 60px; }
+      .cbt-section { padding: 64px 20px; }
+      .cbt-trust { flex-wrap: wrap; }
+      .cbt-trust-item { border: none; padding: 12px 16px; font-size: 0.8rem; }
+      .cbt-sticky-cta { flex-direction: column; text-align: center; gap: 12px; padding: 12px 16px; }
+      .cbt-hero-img img { max-width: 260px; }
+      .cbt-stat-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="cbt-nav">
+    <div class="cbt-nav-inner">
+      <a href="/" class="cbt-nav-logo">Psycho<span>Reads</span></a>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ cbt_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="cbt-nav-cta">&#128722; Buy Now</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="cbt-hero">
+    <div class="cbt-hero-inner">
+      <div class="cbt-hero-left">
+        <div class="cbt-hero-badge">&#127973; Therapist Approved Tool</div>
+        <h1>The CBT Flip Chart:<br><em>Evidence-Based</em> Psychoeducation</h1>
+        <div class="cbt-hero-author">By <strong>Seth J. Gillihan, PhD</strong> &nbsp;&middot;&nbsp; Spiral-bound</div>
+        <div class="cbt-hero-rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="score">4.6</span>
+          <span class="count">(384 verified reviews)</span>
+        </div>
+        <p class="cbt-hero-sub">
+          A reusable in-session therapy tool featuring 27 full-color CBT diagrams &mdash; bridging mindfulness, cognitive, and behavioral techniques for anxiety, depression, PTSD, OCD, insomnia, and more.
+        </p>
+        <div class="cbt-hero-actions">
+          <form action="/cart/add" method="post" style="margin:0;">
+            <input type="hidden" name="id" value="{{ cbt_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <input type="hidden" name="return_to" value="/checkout">
+            <button type="submit" class="cbt-btn-primary" id="cbt-hero-btn">
+              &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
+            </button>
+          </form>
+          <a href="#cbt-reviews" class="cbt-btn-secondary">&#11088; See Reviews</a>
+        </div>
+      </div>
+      <div class="cbt-hero-img">
+        <div class="cbt-hero-img-wrap">
+          {%- if cbt_product.images.first -%}
+            <img src="{{ cbt_product.images.first | img_url: 'master' }}" alt="{{ cbt_product.title }}" loading="eager" />
+          {%- else -%}
+            <div style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1);width:100%;max-width:420px;height:420px;border-radius:20px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--brand);font-weight:900;font-size:1.15rem;border:2px solid rgba(13,148,136,0.15);">
+              <span style="font-size:4rem;">&#129504;</span>
+              CBT Flip Chart
+            </div>
+          {%- endif -%}
+          <div class="cbt-hero-img-badge">
+            &#128260; Reusable<br>White-Board Pages
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="cbt-trust">
+    <div class="cbt-trust-item"><span>&#9989;</span> Therapist Approved</div>
+    <div class="cbt-trust-item"><span>&#128260;</span> Buy Once, Use Hundreds of Times</div>
+    <div class="cbt-trust-item"><span>&#128444;</span> 27 Full-Color Diagrams</div>
+    <div class="cbt-trust-item"><span>&#128203;</span> Dual-Sided Pages</div>
+    <div class="cbt-trust-item"><span>&#11088;</span> 4.6 / 5 &mdash; 384 Reviews</div>
+  </div>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="cbt-section" style="background:var(--surface);">
+    <div class="cbt-section-inner">
+      <div style="text-align:center;">
+        <div class="cbt-label">&#128218; What's Inside</div>
+        <h2 class="cbt-title">Bring CBT to Life in Every Session</h2>
+        <p class="cbt-subtitle" style="margin:0 auto;">
+          The CBT Flip Chart translates complex clinical concepts into clear, visual diagrams your clients can see, understand, and engage with &mdash; instantly.
+        </p>
+      </div>
+      <div class="cbt-grid-3">
+        <div class="cbt-card">
+          <div class="cbt-card-body">
+            <div class="cbt-card-icon">&#129504;</div>
+            <div class="cbt-card-title">THINK: Cognitive Techniques</div>
+            <div class="cbt-card-text">Examining thoughts, identifying cognitive distortions, challenging core beliefs &mdash; illustrated clearly so clients genuinely understand the change process.</div>
+          </div>
+        </div>
+        <div class="cbt-card">
+          <div class="cbt-card-body">
+            <div class="cbt-card-icon">&#127939;</div>
+            <div class="cbt-card-title">ACT: Behavioral Techniques</div>
+            <div class="cbt-card-text">Behavioral activation, maximizing follow-through, and evidence-based exposure therapy techniques presented in a step-by-step visual format.</div>
+          </div>
+        </div>
+        <div class="cbt-card">
+          <div class="cbt-card-body">
+            <div class="cbt-card-icon">&#127807;</div>
+            <div class="cbt-card-title">BE: Mindfulness Techniques</div>
+            <div class="cbt-card-text">Mindfulness in action, benefits of practice, meditation, and being the observer &mdash; making mindfulness-centered CBT accessible and actionable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT HIGHLIGHT (dark teal band) -->
+  <section class="cbt-format-section">
+    <div class="cbt-format-inner">
+      <div>
+        <div class="cbt-format-label">&#10024; Unique Format</div>
+        <h2 class="cbt-format-title">A Tool Built for <em>Real Sessions</em></h2>
+        <p class="cbt-format-text">No more searching for handouts. The flip chart sits on your desk and opens between you and your client &mdash; a living visual guide to evidence-based practice.</p>
+        <ul class="cbt-format-list">
+          <li><span class="cbt-format-check">&#10003;</span><div><strong>27 full-color client-facing diagrams</strong> &mdash; visually rich and instantly legible</div></li>
+          <li><span class="cbt-format-check">&#10003;</span><div><strong>Therapist-facing pages</strong> &mdash; clinical notes, explanations &amp; talking points behind each diagram</div></li>
+          <li><span class="cbt-format-check">&#10003;</span><div><strong>White-board client pages</strong> &mdash; write on them, wipe clean, reuse session after session</div></li>
+          <li><span class="cbt-format-check">&#10003;</span><div><strong>Spiral-bound &amp; free-standing</strong> &mdash; stays upright on your desk without any holder</div></li>
+          <li><span class="cbt-format-check">&#10003;</span><div><strong>Copier-friendly pages</strong> &mdash; photocopy for clients to take home</div></li>
+        </ul>
+      </div>
+      <div class="cbt-stat-grid">
+        <div class="cbt-stat-card">
+          <div class="cbt-stat-num">27</div>
+          <div class="cbt-stat-label">Full-Color Client Diagrams</div>
+        </div>
+        <div class="cbt-stat-card">
+          <div class="cbt-stat-num">2</div>
+          <div class="cbt-stat-label">Sections: Foundations + Conditions</div>
+        </div>
+        <div class="cbt-stat-card">
+          <div class="cbt-stat-num">10+</div>
+          <div class="cbt-stat-label">Conditions Addressed</div>
+        </div>
+        <div class="cbt-stat-card">
+          <div class="cbt-stat-num">384</div>
+          <div class="cbt-stat-label">Five-Star Reader Reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS COVERED -->
+  <section class="cbt-section">
+    <div class="cbt-section-inner">
+      <div class="cbt-label">&#129658; Conditions Covered</div>
+      <h2 class="cbt-title">One Flip Chart. Ten Conditions.</h2>
+      <p class="cbt-subtitle">Section 2 dives into specific conditions, giving you dedicated CBT protocols and visual tools for each:</p>
+      <div class="cbt-conditions">
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128552;</div>Anxiety &amp; Worry</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128532;</div>Depression</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128548;</div>Overwhelming Stress</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128564;</div>Insomnia</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#129504;</div>PTSD</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128260;</div>OCD</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128561;</div>Panic</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128101;</div>Social Anxiety</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#128544;</div>Problematic Anger</div>
+        <div class="cbt-condition-pill"><div class="cbt-condition-icon">&#9203;</div>Procrastination</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IS IT FOR -->
+  <section class="cbt-section" style="background:var(--surface); padding-top:72px; padding-bottom:72px;">
+    <div class="cbt-section-inner">
+      <div style="text-align:center; margin-bottom:52px;">
+        <div class="cbt-label">&#128100; Who Is It For?</div>
+        <h2 class="cbt-title">For Every Stage of Practice</h2>
+      </div>
+      <div class="cbt-who-grid">
+        <div class="cbt-who-card">
+          <div class="cbt-who-icon">&#127807;</div>
+          <div class="cbt-who-title">New Therapists &amp; Interns</div>
+          <div class="cbt-who-text">Gain the confidence to explain CBT concepts clearly from day one. As one reviewer said: &ldquo;Wish I had this when I was just an intern &mdash; this is such an enormous help!&rdquo;</div>
+        </div>
+        <div class="cbt-who-card">
+          <div class="cbt-who-icon">&#127973;</div>
+          <div class="cbt-who-title">Seasoned Clinicians</div>
+          <div class="cbt-who-text">Streamline psychoeducation in session. Works beautifully for in-person and telehealth settings. Multiple clinicians report keeping it in heavy rotation.</div>
+        </div>
+        <div class="cbt-who-card">
+          <div class="cbt-who-icon">&#128104;&#65039;</div>
+          <div class="cbt-who-title">Specialized Populations</div>
+          <div class="cbt-who-text">Especially effective with visual learners, geriatric populations, and clients who need to &ldquo;see&rdquo; rather than just hear concepts to make them stick.</div>
+        </div>
+        <div class="cbt-who-card">
+          <div class="cbt-who-icon">&#128218;</div>
+          <div class="cbt-who-title">Self-Help Seekers</div>
+          <div class="cbt-who-text">Clear enough that even individuals exploring CBT on their own &mdash; or with a family member &mdash; can work through the diagrams to understand their own patterns.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES -->
+  <section class="cbt-section">
+    <div class="cbt-section-inner">
+      <div class="cbt-label">&#9889; Why Therapists Love It</div>
+      <h2 class="cbt-title">Built for Real Clinical Work</h2>
+      <div class="cbt-features-list">
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Reusable White-Board Pages</div>
+            <div class="cbt-feat-sub">Write on client-facing pages with a dry-erase marker, wipe clean, and use again &mdash; hundreds of sessions from a single purchase.</div>
+          </div>
+        </div>
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Dual-Sided Design</div>
+            <div class="cbt-feat-sub">Full-color diagrams face clients while corresponding therapist notes, examples and talking points are on the back &mdash; perfectly synchronized.</div>
+          </div>
+        </div>
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Evidence-Based Content</div>
+            <div class="cbt-feat-sub">Rooted in mindfulness-centered CBT (Think Act Be framework) &mdash; the same principles clinicians rely on for lasting client outcomes.</div>
+          </div>
+        </div>
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Works for Telehealth Too</div>
+            <div class="cbt-feat-sub">Multiple reviewers highlight using it on screen share &mdash; the large, clear visuals translate beautifully to video sessions.</div>
+          </div>
+        </div>
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Copier-Ready for Homework</div>
+            <div class="cbt-feat-sub">Each diagram can be photocopied so clients take home relevant worksheets &mdash; extending the work of the session between appointments.</div>
+          </div>
+        </div>
+        <div class="cbt-feature-item">
+          <div class="cbt-feat-check">&#10003;</div>
+          <div>
+            <div class="cbt-feat-title">Compact &amp; Professional Design</div>
+            <div class="cbt-feat-sub">The spiral-bound, free-standing format fits on any desk. Sturdy construction built to survive years of daily clinical use.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section class="cbt-author-section">
+    <div class="cbt-author-inner">
+      <div class="cbt-author-avatar">&#128104;&#8205;&#9877;&#65039;</div>
+      <div class="cbt-author-name">Seth J. Gillihan, PhD</div>
+      <div class="cbt-author-cred">Licensed Psychologist &middot; CBT Specialist &middot; Author</div>
+      <p class="cbt-author-bio">
+        Seth J. Gillihan is a clinical psychologist and the creator of the Think Act Be framework &mdash; a mindfulness-centered approach to CBT. He is the author of multiple books and resources on cognitive behavioral therapy, and has spent years making evidence-based mental health tools accessible to both clinicians and the public. The CBT Flip Chart is designed to complement his broader body of work, including companion card decks used by therapists worldwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="cbt-section" id="cbt-reviews">
+    <div class="cbt-section-inner">
+      <div style="text-align:center; margin-bottom:52px;">
+        <div class="cbt-label">&#11088; Verified Reviews</div>
+        <h2 class="cbt-title">What Clinicians &amp; Readers Say</h2>
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-top:16px; flex-wrap:wrap;">
+          <span style="color:var(--gold); font-size:1.6rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span style="font-size:1.1rem; font-weight:900; color:var(--text-primary);">4.6 out of 5</span>
+          <span style="font-size:0.9rem; color:var(--text-secondary);">&middot; 384 verified reviews</span>
+        </div>
+      </div>
+      <div class="cbt-reviews-grid">
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Excellent user friendly therapy resource</div>
+          <div class="cbt-review-meta">AKCMESOAR &nbsp;&middot;&nbsp; April 2026 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">This has become a valuable tool to use with my patients. It is concrete in its presentation while providing valuable education that I can review in person more easily by design. It also can be copied to allow for materials to be taken home for reference and review. Very practical resource!</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Wish I had this years ago</div>
+          <div class="cbt-review-meta">Mark M &nbsp;&middot;&nbsp; December 2023 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">Wish I had this years ago when I was just an intern. This is such an enormous help both to me and to my clients! I highly recommend this whether you&rsquo;re starting out as a CBT therapist, a practicing professional, or even someone who is a patient being treated with CBT. Outstanding tool.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great visual reference for geriatric populations</div>
+          <div class="cbt-review-meta">Darin/Lena Braunecker &nbsp;&middot;&nbsp; April 2025 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">It&rsquo;s a great visual reference &mdash; I work with the geriatric population and usually have handouts or a visual representation to go along with explaining an intervention or theory. One side is glossy color and the back side is gray scale so you can see what they are seeing.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">A must-have for Marriage &amp; Family Therapists</div>
+          <div class="cbt-review-meta">Amazon Customer &nbsp;&middot;&nbsp; July 2022 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">I rarely write reviews but I love this. As a Marriage Family Therapist, I use this with clients as well as the deck of cards from the same author. Very easy to use and I could see that even a client could use this on their own. Very user friendly. Love it! Perfect size too.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">What a great way to educate and get clients involved</div>
+          <div class="cbt-review-meta">dpenny &nbsp;&middot;&nbsp; April 2022 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">This chart gives the clients a real look at what we are trying to accomplish and why. This also helps those learners who are not able to just hear but need to see to understand.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Perfect for telehealth &amp; in-person sessions</div>
+          <div class="cbt-review-meta">Rachel &nbsp;&middot;&nbsp; October 2021 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">I love this. I used it with patients from day one. Visually it has a great layout and it helps bring CBT to life, especially for telehealth sessions. Seth is doing a great job at crafting practical helpful resources for therapists. This will be in heavy rotation for my practice!</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Better than I expected &mdash; absolutely love this</div>
+          <div class="cbt-review-meta">Kat S &nbsp;&middot;&nbsp; August 2024 &nbsp;&middot;&nbsp; Australia &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">What an amazing product. I&rsquo;m really enjoying using it. It arrived quickly and is better than I expected. Will definitely be getting more on different topics.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Opened up a powerful family conversation</div>
+          <div class="cbt-review-meta">Wonderful &nbsp;&middot;&nbsp; March 2026 &nbsp;&middot;&nbsp; Australia &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">The first day it arrived I sat down flipping through it with my partner, and it inadvertently helped him too &mdash; opening up that he was feeling depressed. He was feeling so much better addressing the cognitive distortions in a light and loving manner.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great addition to my therapy sessions!</div>
+          <div class="cbt-review-meta">Angela D. Hull &nbsp;&middot;&nbsp; August 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">This item is sturdy and easy to use. I have used it many times when explaining CBT to my clients and they find it easy to follow and helpful.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cbt-cta-section">
+    <div class="cbt-cta-inner">
+      <div class="cbt-cta-badge">&#127973; Therapist Approved &amp; Clinically Proven</div>
+      <h2 class="cbt-cta-title">Buy Once. Use Hundreds of Times.</h2>
+      <p class="cbt-cta-sub">Join thousands of therapists who have made The CBT Flip Chart a permanent fixture in their sessions. Your clients will thank you.</p>
+      <form action="/cart/add" method="post" style="margin:0;">
+        <input type="hidden" name="id" value="{{ cbt_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <input type="hidden" name="return_to" value="/checkout">
+        <button type="submit" class="cbt-btn-white">
+          &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
+        </button>
+      </form>
+      <p class="cbt-cta-note">Spiral-bound &middot; Ships worldwide &middot; 27 full-color diagrams</p>
+    </div>
+  </section>
+
+  <!-- STICKY BOTTOM ATC -->
+  <div class="cbt-sticky-cta" id="cbt-sticky-cta">
+    <div class="cbt-sticky-info">
+      <div class="cbt-sticky-name">The CBT Flip Chart</div>
+      <div class="cbt-sticky-sub">by Seth J. Gillihan &middot; &#9733;&#9733;&#9733;&#9733;&#9733; 4.6</div>
+    </div>
+    <form action="/cart/add" method="post" style="margin:0;">
+      <input type="hidden" name="id" value="{{ cbt_variant.id }}">
+      <input type="hidden" name="quantity" value="1">
+      <input type="hidden" name="return_to" value="/checkout">
+      <button type="submit" class="cbt-btn-primary" style="padding:13px 30px; font-size:0.95rem;">
+        &#128722; Buy Now &mdash; {{ cbt_product.price | money }}
+      </button>
+    </form>
+  </div>
+
+  <script>
+    // Sticky CTA show/hide on scroll
+    const cbtSticky = document.getElementById('cbt-sticky-cta');
+    const cbtHeroBtn = document.getElementById('cbt-hero-btn');
+    window.addEventListener('scroll', function() {
+      if (!cbtSticky || !cbtHeroBtn) return;
+      if (cbtHeroBtn.getBoundingClientRect().bottom < 0) {
+        cbtSticky.classList.add('visible');
+      } else {
+        cbtSticky.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    // Scroll-in animations via IntersectionObserver
+    var cbtObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          cbtObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll(
+      '.cbt-card, .cbt-feature-item, .cbt-review-card, .cbt-who-card, .cbt-condition-pill, .cbt-stat-card'
+    ).forEach(function(el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.6s ' + (i * 0.05) + 's cubic-bezier(0.16,1,0.3,1), transform 0.6s ' + (i * 0.05) + 's cubic-bezier(0.16,1,0.3,1)';
+      cbtObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
