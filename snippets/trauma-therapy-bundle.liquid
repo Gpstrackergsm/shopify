@@ -1,12 +1,12 @@
-{% assign p1 = all_products['500-trauma-worksheets'] %}
+{% assign p1 = all_products['waking-the-tiger-healing-trauma'] %}
 {% assign v1 = p1.variants.first %}
-{% assign p2 = all_products['emdr-templates'] %}
+{% assign p2 = all_products['healing-developmental-trauma-how-early-trauma-affects-self-regulation-self-image-and-the-capacity-for-relationship'] %}
 {% assign v2 = p2.variants.first %}
-{% assign p3 = all_products['somatic-exercises'] %}
+{% assign p3 = all_products['internal-family-systems-skills-training-manual-trauma-informed-treatment-for-anxiety-depression-ptsd-substance-abuse'] %}
 {% assign v3 = p3.variants.first %}
-{% assign p4 = all_products['polyvagal-exercises'] %}
+{% assign p4 = all_products['daily-vagus-nerve-exercise-train-your-nervous-system-to-reduce-anxiety-improve-health-and-restore-mind-body-balance'] %}
 {% assign v4 = p4.variants.first %}
-{% assign p5 = all_products['nervous-system-regulation-toolkit'] %}
+{% assign p5 = all_products['emotion-in-posttraumatic-stress-disorder-etiology-assessment-neurobiology-and-treatment'] %}
 {% assign v5 = p5.variants.first %}
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trauma Therapy Bundle - 5 Comprehensive Resources</title>
-  <meta name="description" content="Get five essential trauma therapy toolkits including 500 Trauma Worksheets, EMDR Templates, Somatic Exercises, Polyvagal Exercises, and the Nervous System Regulation Toolkit." />
+  <meta name="description" content="Get five essential trauma therapy and nervous system regulation books for one low price. Featuring Waking the Tiger, Healing Developmental Trauma, and more." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -65,7 +65,7 @@
     .book-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
     .book-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--brand), var(--accent)); border-radius: 16px 16px 0 0; }
     .book-img { width: 100%; max-width: 200px; height: 280px; object-fit: contain; margin: 0 auto 24px; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-    .book-title { font-size: 1.25rem; font-weight: 800; line-height: 1.3; margin-bottom: 12px; color: var(--text-primary); }
+    .book-title { font-size: 1.1rem; font-weight: 800; line-height: 1.3; margin-bottom: 12px; color: var(--text-primary); }
     
     /* Trust Bar */
     .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 24px; background: var(--brand-dark); color: #fff; }
@@ -94,15 +94,15 @@
   <header class="bundle-hero">
     <div class="hero-badge">Complete Practitioner Toolkit</div>
     <h1>The Trauma Therapy Bundle</h1>
-    <p>Everything you need to facilitate deep healing: 500+ Worksheets, EMDR Templates, Somatic Exercises, Polyvagal Tools, and Nervous System Regulation resources in one massive bundle.</p>
+    <p>Everything you need to facilitate deep healing: Somatic tools, Vagus Nerve Exercises, and comprehensive PTSD/Trauma manuals in one massive bundle.</p>
     
     <div class="price-block">
       <span class="price-current">$49.00</span>
-      <span class="price-original">$150.00 Value</span>
+      <span class="price-original">$120.00 Value</span>
     </div>
 
     <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
-      🛒 Get All 5 Resources for $49
+      🛒 Get All 5 Books for $49
     </button>
     <div style="margin-top: 16px; font-size: 0.9rem; color: var(--text-secondary); font-weight: 500;">
       Instant PDF Downloads • Secure Checkout
@@ -110,7 +110,7 @@
   </header>
 
   <div class="trust-bar">
-    <div class="trust-item"><span>📘</span> 5 Comprehensive Toolkits</div>
+    <div class="trust-item"><span>📘</span> 5 Comprehensive Books</div>
     <div class="trust-item"><span>⚡</span> Instant Digital Access</div>
     <div class="trust-item"><span>🧠</span> Evidence-Based Modalities</div>
   </div>
@@ -124,9 +124,9 @@
         {% if p1.images.first %}
           <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">📝</span>500 Trauma Worksheets</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🐅</span>Waking the Tiger</div>
         {% endif %}
-        <h3 class="book-title">{{ p1.title | default: "500 Trauma Worksheets" }}</h3>
+        <h3 class="book-title">{{ p1.title | default: "Waking the Tiger: Healing Trauma" }}</h3>
       </div>
 
       <!-- Book 2 -->
@@ -134,9 +134,9 @@
         {% if p2.images.first %}
           <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">👀</span>EMDR Templates</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🌱</span>Healing Trauma</div>
         {% endif %}
-        <h3 class="book-title">{{ p2.title | default: "EMDR Templates" }}</h3>
+        <h3 class="book-title">{{ p2.title | default: "Healing Developmental Trauma" }}</h3>
       </div>
 
       <!-- Book 3 -->
@@ -144,9 +144,9 @@
         {% if p3.images.first %}
           <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🧘</span>Somatic Exercises</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🫂</span>IFS Skills</div>
         {% endif %}
-        <h3 class="book-title">{{ p3.title | default: "Somatic Exercises" }}</h3>
+        <h3 class="book-title">{{ p3.title | default: "Internal Family Systems Skills Training Manual" }}</h3>
       </div>
 
       <!-- Book 4 -->
@@ -154,9 +154,9 @@
         {% if p4.images.first %}
           <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">⚓</span>Polyvagal Exercises</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">⚡</span>Vagus Nerve</div>
         {% endif %}
-        <h3 class="book-title">{{ p4.title | default: "Polyvagal Exercises" }}</h3>
+        <h3 class="book-title">{{ p4.title | default: "Daily Vagus Nerve Exercise" }}</h3>
       </div>
 
       <!-- Book 5 -->
@@ -164,9 +164,9 @@
         {% if p5.images.first %}
           <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🌿</span>Nervous System Regulation</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🧠</span>Emotion in PTSD</div>
         {% endif %}
-        <h3 class="book-title">{{ p5.title | default: "Nervous System Regulation Toolkit" }}</h3>
+        <h3 class="book-title">{{ p5.title | default: "Emotion in Posttraumatic Stress Disorder" }}</h3>
       </div>
 
     </div>
@@ -209,7 +209,7 @@
         { id: '{{ v3.id }}', quantity: 1 },
         { id: '{{ v4.id }}', quantity: 1 },
         { id: '{{ v5.id }}', quantity: 1 }
-      ].filter(item => item.id !== ''); // Filter out missing products
+      ].filter(item => item.id && item.id !== ''); // Filter out missing products
 
       if (items.length === 0) {
         alert("Products could not be found. Please ensure the product handles match the store.");
