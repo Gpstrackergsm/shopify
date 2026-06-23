@@ -1,6 +1,6 @@
 {% assign p1 = all_products['waking-the-tiger-healing-trauma'] %}
 {% assign v1 = p1.variants.first %}
-{% assign p2 = all_products['healing-developmental-trauma-how-early-trauma-affects-self-regulation-self-image-and-the-capacity-for-relationship'] %}
+{% assign p2 = all_products['anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory'] %}
 {% assign v2 = p2.variants.first %}
 {% assign p3 = all_products['internal-family-systems-skills-training-manual-trauma-informed-treatment-for-anxiety-depression-ptsd-substance-abuse'] %}
 {% assign v3 = p3.variants.first %}
@@ -97,12 +97,12 @@
     <p>Everything you need to facilitate deep healing: Somatic tools, Vagus Nerve Exercises, and comprehensive PTSD/Trauma manuals in one massive bundle.</p>
     
     <div class="price-block">
-      <span class="price-current">$49.00</span>
+      <span class="price-current">$29.00</span>
       <span class="price-original">$120.00 Value</span>
     </div>
 
     <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
-      🛒 Get All 5 Books for $49
+      🛒 Get All 5 Books for $29
     </button>
     <div style="margin-top: 16px; font-size: 0.9rem; color: var(--text-secondary); font-weight: 500;">
       Instant PDF Downloads • Secure Checkout
@@ -134,9 +134,9 @@
         {% if p2.images.first %}
           <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" />
         {% else %}
-          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🌱</span>Healing Trauma</div>
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:var(--brand); font-weight:bold;"><span style="font-size:2rem;margin-bottom:8px;">🌱</span>Anchored</div>
         {% endif %}
-        <h3 class="book-title">{{ p2.title | default: "Healing Developmental Trauma" }}</h3>
+        <h3 class="book-title">{{ p2.title | default: "Anchored: How to Befriend Your Nervous System" }}</h3>
       </div>
 
       <!-- Book 3 -->
@@ -176,12 +176,12 @@
     <h2 style="font-size: 2.5rem; margin-bottom: 24px; color: #fff;">Equip Your Practice Today</h2>
     <p style="color: rgba(255,255,255,0.8);">Download all five comprehensive resources and have exactly what you need for your next session.</p>
     <button class="btn btn-primary" onclick="checkoutBundle()" style="background: #fff; color: var(--brand-dark); box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
-      🛒 Get The Bundle — $49
+      🛒 Get The Bundle — $29
     </button>
   </div>
 
   <div class="sticky-cta" id="sticky-cta">
-    <div class="sticky-cta-text">Trauma Therapy Bundle — $49.00</div>
+    <div class="sticky-cta-text">Trauma Therapy Bundle — $29.00</div>
     <button class="btn btn-primary btn-sm" onclick="checkoutBundle()">Buy Now</button>
   </div>
 
