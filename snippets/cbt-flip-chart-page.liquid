@@ -450,6 +450,17 @@
     .cbt-sticky-name { font-size: 0.92rem; font-weight: 900; color: var(--text-primary); line-height: 1.2; }
     .cbt-sticky-sub { font-size: 0.78rem; color: var(--text-secondary); font-weight: 600; }
 
+    /* ── GALLERY ── */
+    .cbt-gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px; margin-top: 44px;
+    }
+    .cbt-gallery-img {
+      width: 100%; border-radius: 16px; border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.3s;
+    }
+    .cbt-gallery-img:hover { transform: scale(1.03); box-shadow: 0 12px 32px rgba(13,148,136,0.15); }
+
     /* ── ANIMATIONS ── */
     @keyframes cbt-fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -621,6 +632,25 @@
           <div class="cbt-stat-num">384</div>
           <div class="cbt-stat-label">Five-Star Reader Reviews</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEEK INSIDE -->
+  <section class="cbt-section" style="background:var(--surface);">
+    <div class="cbt-section-inner">
+      <div style="text-align:center;">
+        <div class="cbt-label">&#128269; Peek Inside</div>
+        <h2 class="cbt-title">Beautiful, Client-Facing Visuals</h2>
+        <p class="cbt-subtitle" style="margin:0 auto;">
+          See exactly what your clients will see. Full-color, high-contrast diagrams designed specifically to make complex psychoeducation simple and accessible.
+        </p>
+      </div>
+      <div class="cbt-gallery">
+        <img src="https://cdn.shopify.com/s/files/1/0677/5934/1667/files/Screenshot_2026-07-10_at_15.19.08.png?v=1783693192" alt="CBT Flip Chart Diagram Sample 1" class="cbt-gallery-img" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0677/5934/1667/files/Screenshot_2026-07-10_at_15.18.33.png?v=1783693192" alt="CBT Flip Chart Diagram Sample 2" class="cbt-gallery-img" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0677/5934/1667/files/Screenshot_2026-07-10_at_15.17.24.png?v=1783693192" alt="CBT Flip Chart Diagram Sample 3" class="cbt-gallery-img" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0677/5934/1667/files/Screenshot_2026-07-10_at_15.18.07.png?v=1783693192" alt="CBT Flip Chart Diagram Sample 4" class="cbt-gallery-img" loading="lazy">
       </div>
     </div>
   </section>
@@ -817,6 +847,69 @@
           <div class="cbt-review-title">Great addition to my therapy sessions!</div>
           <div class="cbt-review-meta">Angela D. Hull &nbsp;&middot;&nbsp; August 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
           <div class="cbt-review-text">This item is sturdy and easy to use. I have used it many times when explaining CBT to my clients and they find it easy to follow and helpful.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">LOVE IT!</div>
+          <div class="cbt-review-meta">Shannon Powell &nbsp;&middot;&nbsp; November 2021 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">My clients love this chart! So easy to use and usable psycoeducation for during session!</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great Product!</div>
+          <div class="cbt-review-meta">Kirstie &nbsp;&middot;&nbsp; April 2026 &nbsp;&middot;&nbsp; Canada &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">I actually love this product, it&rsquo;s got great CBT activities and is so easy to use with clients!</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Awesome Quality</div>
+          <div class="cbt-review-meta">Penelope Pitts &nbsp;&middot;&nbsp; November 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">Awesome counseling tool. I can see this benefitting me using in my private practice with my clients.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great tool!</div>
+          <div class="cbt-review-meta">Alicia &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">This flip chart is a handy therapy tool, especially in digital format. I don't have to keep up with cards! I love it!</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">CBT Flip Chart</div>
+          <div class="cbt-review-meta">Maria Putman &nbsp;&middot;&nbsp; November 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">This chart is an excellent resource for counselors, therapists, and social workers.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great to use with clients</div>
+          <div class="cbt-review-meta">Acts therapy &nbsp;&middot;&nbsp; August 2022 &nbsp;&middot;&nbsp; UK &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">Great visual resource to help explain things to clients.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great product</div>
+          <div class="cbt-review-meta">Linda &nbsp;&middot;&nbsp; March 2025 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">Purchased as gift. Wonderful tool for therapy. Well used and greatly appreciated.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Great teaching tool</div>
+          <div class="cbt-review-meta">taide &nbsp;&middot;&nbsp; February 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">The flip chart is easy to follow and the illustrations are clear.</div>
+        </div>
+
+        <div class="cbt-review-card">
+          <div class="cbt-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="cbt-review-title">Good chart to use in reviewing CBT concepts</div>
+          <div class="cbt-review-meta">Jacqueline Hopkins &nbsp;&middot;&nbsp; April 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
+          <div class="cbt-review-text">Good chart to use in reviewing CBT concepts.</div>
         </div>
 
       </div>
