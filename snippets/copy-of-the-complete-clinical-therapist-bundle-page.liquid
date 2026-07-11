@@ -1,23 +1,29 @@
-{% assign p1 = all_products['transcending-trauma-healing-complex-ptsd-with-internal-family-systems'] %}
+{% assign p1 = all_products['cognitive-behavioural-therapy-workbook-for-dummies'] %}
 {% assign v1 = p1.variants.first %}
-{% assign p2 = all_products['outshining-trauma-a-new-vision-of-radical-self-compassion-integrating-internal-family-systems-and-buddhist-meditation'] %}
+{% assign p2 = all_products['the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety'] %}
 {% assign v2 = p2.variants.first %}
-{% assign p3 = all_products['radical-acceptance-embracing-your-life-with-the-heart-of-a-buddha'] %}
+{% assign p3 = all_products['emdr-and-attachment-focused-trauma-therapy-for-adults-reclaiming-authentic-self-and-healthy-attachments'] %}
 {% assign v3 = p3.variants.first %}
-{% assign p4 = all_products['what-my-bones-know-a-memoir-of-healing-from-complex-trauma'] %}
+{% assign p4 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
 {% assign v4 = p4.variants.first %}
-{% assign p5 = all_products['working-with-attachment-trauma-clinical-application-of-the-adult-attachment-projective-picture-system'] %}
+{% assign p5 = all_products['the-making-of-a-therapist-a-practical-guide-for-the-inner-journey-norton-series-on-interpersonal-neurobiology'] %}
 {% assign v5 = p5.variants.first %}
-{% assign p6 = all_products['emotion-in-posttraumatic-stress-disorder-etiology-assessment-neurobiology-and-treatment'] %}
+{% assign p6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] %}
 {% assign v6 = p6.variants.first %}
+{% assign p7 = all_products['practical-counselling-and-helping-skills'] %}
+{% assign v7 = p7.variants.first %}
+{% assign p8 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] %}
+{% assign v8 = p8.variants.first %}
+{% assign p9 = all_products['pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition'] %}
+{% assign v9 = p9.variants.first %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Complex Trauma Healing Bundle - 6 Essential Books</title>
-  <meta name="description" content="Get six essential trauma healing and self-compassion workbooks for one low price of $29. Transcend trauma, practice radical acceptance, and achieve wholeness." />
+  <title>The Complete Clinical Therapist Bundle — 9 Books</title>
+  <meta name="description" content="Get all nine essential books on clinical therapy, CBT, EMDR, Motivational Interviewing and counselling skills for one low price of $29." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -36,6 +42,9 @@
       --border: #e2e8f0;
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       --glass-bg: rgba(255, 255, 255, 0.9);
+      --new-badge-bg: #ebf8ff;
+      --new-badge-border: #bee3f8;
+      --new-badge-text: #2b6cb0;
     }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
 
@@ -54,22 +63,23 @@
     .bundle-hero { background: linear-gradient(135deg, var(--surface) 0%, var(--brand-light) 100%); padding: 80px 24px; text-align: center; }
     .hero-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 800; padding: 6px 16px; border-radius: 999px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
     .bundle-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--brand-dark); line-height: 1.1; margin-bottom: 24px; letter-spacing: -1px; }
-    .bundle-hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+    .bundle-hero p { font-size: 1.25rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto 40px; }
     .price-block { margin-bottom: 32px; }
     .price-current { font-size: 3rem; font-weight: 900; color: var(--text-primary); }
     .price-original { font-size: 1.25rem; text-decoration: line-through; color: #a0aec0; margin-left: 12px; font-weight: 600; }
 
     /* Books Grid */
     .books-section { padding: 80px 24px; background: #fff; }
-    .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 48px; color: var(--brand-dark); }
-    .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto; }
-    .book-card.is-new { border-color: #bee3f8; background: linear-gradient(160deg, #ebf8ff 0%, var(--surface) 100%); position: relative; }
-    .new-badge { position: absolute; top: 12px; right: 12px; background: #ebf8ff; color: #2b6cb0; border: 1px solid #bee3f8; font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
-    .book-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; text-align: center; transition: transform 0.3s ease; }
+    .section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 16px; color: var(--brand-dark); }
+    .section-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 48px; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; max-width: 1200px; margin: 0 auto; }
+    .book-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; text-align: center; transition: transform 0.3s ease; display: flex; flex-direction: column; justify-content: flex-start; position: relative; }
     .book-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
-    .book-img { width: 100%; max-width: 200px; height: 280px; object-fit: contain; margin: 0 auto 24px; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
-    .book-title { font-size: 1.25rem; font-weight: 800; line-height: 1.3; margin-bottom: 12px; color: var(--text-primary); }
-    
+    .book-card.is-new { border-color: var(--new-badge-border); background: linear-gradient(160deg, #ebf8ff 0%, var(--surface) 100%); }
+    .book-img { width: 100%; max-width: 160px; height: 230px; object-fit: contain; margin: 0 auto 20px; border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); display: block; }
+    .book-title { font-size: 1.05rem; font-weight: 800; line-height: 1.3; color: var(--text-primary); }
+    .new-badge { position: absolute; top: 14px; right: 14px; background: var(--new-badge-bg); color: var(--new-badge-text); border: 1px solid var(--new-badge-border); font-size: 0.7rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; }
+
     /* Trust Bar */
     .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 40px 24px; background: var(--brand-dark); color: #fff; }
     .trust-item { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 1.1rem; }
@@ -82,6 +92,7 @@
     @media (max-width: 768px) {
       .bundle-hero h1 { font-size: 2.2rem; }
       .sticky-cta { flex-direction: column; text-align: center; gap: 12px; }
+      .books-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     }
   </style>
 </head>
@@ -96,16 +107,16 @@
 
   <header class="bundle-hero">
     <div class="hero-badge">Limited Time Offer</div>
-    <h1>The Ultimate Complex Trauma Healing Bundle</h1>
-    <p>Everything you need to transcend complex PTSD, integrate IFS with mindfulness, and embrace radical self-compassion — now expanded to 6 books.</p>
+    <h1>The Complete Clinical Therapist Bundle</h1>
+    <p>Master Cognitive Behavioural Therapy, EMDR, Motivational Interviewing, and Counselling Skills with this ultimate 9-book collection.</p>
     
     <div class="price-block">
       <span class="price-current">$29.00</span>
-      <span class="price-original">$150.00 Value</span>
+      <span class="price-original">$190.00 Value</span>
     </div>
 
     <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
-      🛒 Get All 6 Books for $29
+      🛒 Get All 9 Books for $29
     </button>
     <div style="margin-top: 16px; font-size: 0.9rem; color: var(--text-secondary); font-weight: 500;">
       Instant PDF Download • Secure Checkout
@@ -113,91 +124,122 @@
   </header>
 
   <div class="trust-bar">
-    <div class="trust-item"><span>📘</span> 6 Transformative Books</div>
+    <div class="trust-item"><span>📘</span> 9 Complete Books</div>
     <div class="trust-item"><span>⚡</span> Instant Digital Access</div>
-    <div class="trust-item"><span>🧠</span> Embrace Self-Compassion</div>
+    <div class="trust-item"><span>🧠</span> Evidence-Based Techniques</div>
   </div>
 
   <section class="books-section">
     <h2 class="section-title">What's Inside The Bundle</h2>
+    <p class="section-subtitle">6 original titles + 3 newly added books</p>
     <div class="books-grid">
       
       <!-- Book 1 -->
       <div class="book-card">
         {% if p1.images.first %}
-          <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" />
+          <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 1</div>
         {% endif %}
-        <h3 class="book-title">{{ p1.title | default: "Transcending Trauma" }}</h3>
+        <h3 class="book-title">{{ p1.title | default: "CBT Workbook For Dummies" }}</h3>
       </div>
 
       <!-- Book 2 -->
       <div class="book-card">
         {% if p2.images.first %}
-          <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" />
+          <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 2</div>
         {% endif %}
-        <h3 class="book-title">{{ p2.title | default: "Outshining Trauma" }}</h3>
+        <h3 class="book-title">{{ p2.title | default: "The CBT Flip Chart" }}</h3>
       </div>
 
       <!-- Book 3 -->
       <div class="book-card">
         {% if p3.images.first %}
-          <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" />
+          <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 3</div>
         {% endif %}
-        <h3 class="book-title">{{ p3.title | default: "Radical Acceptance" }}</h3>
+        <h3 class="book-title">{{ p3.title | default: "EMDR and Attachment-Focused Therapy" }}</h3>
       </div>
 
-      <!-- Book 4 — NEW -->
-      <div class="book-card is-new">
-        <span class="new-badge">NEW</span>
+      <!-- Book 4 -->
+      <div class="book-card">
         {% if p4.images.first %}
-          <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" />
+          <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 4</div>
         {% endif %}
-        <h3 class="book-title">{{ p4.title | default: "What My Bones Know" }}</h3>
+        <h3 class="book-title">{{ p4.title | default: "Attachment-Focused EMDR" }}</h3>
       </div>
 
-      <!-- Book 5 — NEW -->
-      <div class="book-card is-new">
-        <span class="new-badge">NEW</span>
+      <!-- Book 5 -->
+      <div class="book-card">
         {% if p5.images.first %}
-          <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" />
+          <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 5</div>
         {% endif %}
-        <h3 class="book-title">{{ p5.title | default: "Working with Attachment Trauma" }}</h3>
+        <h3 class="book-title">{{ p5.title | default: "The Making of a Therapist" }}</h3>
       </div>
 
-      <!-- Book 6 — NEW -->
-      <div class="book-card is-new">
-        <span class="new-badge">NEW</span>
+      <!-- Book 6 -->
+      <div class="book-card">
         {% if p6.images.first %}
-          <img src="{{ p6.images.first | img_url: '600x' }}" alt="{{ p6.title }}" class="book-img" />
+          <img src="{{ p6.images.first | img_url: '600x' }}" alt="{{ p6.title }}" class="book-img" loading="lazy" />
         {% else %}
           <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 6</div>
         {% endif %}
-        <h3 class="book-title">{{ p6.title | default: "Emotion in PTSD" }}</h3>
+        <h3 class="book-title">{{ p6.title | default: "Master Your Emotions" }}</h3>
+      </div>
+
+      <!-- Book 7 — NEW -->
+      <div class="book-card is-new">
+        <span class="new-badge">NEW</span>
+        {% if p7.images.first %}
+          <img src="{{ p7.images.first | img_url: '600x' }}" alt="{{ p7.title }}" class="book-img" loading="lazy" />
+        {% else %}
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 7</div>
+        {% endif %}
+        <h3 class="book-title">{{ p7.title | default: "Practical Counselling and Helping Skills" }}</h3>
+      </div>
+
+      <!-- Book 8 — NEW -->
+      <div class="book-card is-new">
+        <span class="new-badge">NEW</span>
+        {% if p8.images.first %}
+          <img src="{{ p8.images.first | img_url: '600x' }}" alt="{{ p8.title }}" class="book-img" loading="lazy" />
+        {% else %}
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 8</div>
+        {% endif %}
+        <h3 class="book-title">{{ p8.title | default: "Motivational Interviewing in Health Care" }}</h3>
+      </div>
+
+      <!-- Book 9 — NEW -->
+      <div class="book-card is-new">
+        <span class="new-badge">NEW</span>
+        {% if p9.images.first %}
+          <img src="{{ p9.images.first | img_url: '600x' }}" alt="{{ p9.title }}" class="book-img" loading="lazy" />
+        {% else %}
+          <div class="book-img" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">Book 9</div>
+        {% endif %}
+        <h3 class="book-title">{{ p9.title | default: "Pattern Focused Therapy" }}</h3>
       </div>
 
     </div>
   </section>
 
   <div class="bundle-hero" style="background: var(--brand-dark); color: #fff;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 24px; color: #fff;">Start Your Healing Journey Today</h2>
-    <p style="color: rgba(255,255,255,0.8);">Get instant access to all six books and begin applying trauma healing techniques immediately.</p>
+    <h2 style="font-size: 2.5rem; margin-bottom: 24px; color: #fff;">Start Your Clinical Journey Today</h2>
+    <p style="color: rgba(255,255,255,0.8);">Get instant access to all nine books and begin applying these evidence-based techniques immediately.</p>
     <button class="btn btn-primary" onclick="checkoutBundle()" style="background: #fff; color: var(--brand-dark); box-shadow: none;">
       🛒 Get The Bundle — $29
     </button>
   </div>
 
   <div class="sticky-cta" id="sticky-cta">
-    <div class="sticky-cta-text">Healing Bundle — $29.00</div>
+    <div class="sticky-cta-text">Clinical Therapist Bundle — $29.00</div>
     <button class="btn btn-primary btn-sm" onclick="checkoutBundle()">Buy Now</button>
   </div>
 
@@ -218,7 +260,8 @@
     function checkoutBundle() {
       const variants = [
         '{{ v1.id }}', '{{ v2.id }}', '{{ v3.id }}',
-        '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}'
+        '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}',
+        '{{ v7.id }}', '{{ v8.id }}', '{{ v9.id }}'
       ];
 
       if (variants.some(v => !v)) {
@@ -228,14 +271,13 @@
 
       // Update button states
       document.querySelectorAll('.btn-primary').forEach(btn => {
-        const originalText = btn.innerHTML;
         btn.innerHTML = "Processing...";
         btn.disabled = true;
       });
 
       const items = variants.map(id => ({ id: id, quantity: 1 }));
 
-      // Clear cart first, then add all items, then redirect
+      // Clear cart first, then add the items, then redirect
       fetch('/cart/clear.js', { method: 'POST' })
         .then(() => {
           return fetch('/cart/add.js', {
