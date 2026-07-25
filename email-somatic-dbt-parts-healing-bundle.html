@@ -8,266 +8,280 @@
   <title>Somatic, DBT &amp; Parts Healing Bundle | PsychoReads</title>
   <style>
     body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-    img { -ms-interpolation-mode: bicubic; border: 0; display: block; }
-    body { margin: 0; padding: 0; background-color: #070913; }
-    @media only screen and (max-width: 600px) {
-      .wrapper { width: 100% !important; }
-      .content-block { padding: 24px 20px !important; }
-      .hero-title { font-size: 28px !important; line-height: 36px !important; }
-      .price-big { font-size: 48px !important; }
-      .cta-btn { font-size: 17px !important; padding: 16px 28px !important; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; }
+    img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+    
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      background-color: #070913;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #f1f5f9;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #070913;
+    }
+
+    .header-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .content-box {
+      padding: 40px 30px;
+      text-align: center;
+      background: #070913;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: rgba(45, 212, 191, 0.12);
+      border: 1px solid rgba(45, 212, 191, 0.25);
+      color: #2dd4bf;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+      color: #f1f5f9;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+    
+    .teal-text { color: #2dd4bf; }
+    .purple-text { color: #a78bfa; }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin: 0 0 24px 0;
+    }
+
+    .price-box {
+      background: #13172e;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+
+    .price-text {
+      font-size: 48px;
+      font-weight: 800;
+      color: #f1f5f9;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .value-text {
+      font-size: 14px;
+      color: #64748b;
+      text-decoration: line-through;
+      margin: 8px 0;
+    }
+    
+    .save-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #2dd4bf;
+      background: rgba(45, 212, 191, 0.12);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #2dd4bf;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 18px 40px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    .books-section {
+      background: #0d1020;
+      padding: 40px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .books-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f1f5f9;
+      text-align: center;
+      margin: 0 0 30px 0;
+    }
+
+    .book-item {
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .book-number {
+      display: inline-block;
+      background: #2dd4bf;
+      color: #000000;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      vertical-align: top;
+      margin-right: 12px;
+      margin-top: 2px;
+    }
+
+    .book-title {
+      display: inline-block;
+      width: calc(100% - 40px);
+      font-size: 15px;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.4;
+    }
+    
+    .features-row {
+      padding: 30px 0;
+      text-align: center;
+    }
+    
+    .feature-item {
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .footer {
+      padding: 40px 30px;
+      text-align: center;
+      background: #070913;
+    }
+
+    @media screen and (max-width: 600px) {
+      .content-box { padding: 30px 20px; }
+      h1 { font-size: 28px; }
+      .btn { padding: 16px 30px; font-size: 16px; width: 80%; }
+      .books-section { padding: 30px 20px; }
     }
   </style>
 </head>
-<body style="margin:0; padding:0; background-color:#070913; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;">
+<body>
+  <!-- Preheader text -->
+  <div style="display:none;font-size:1px;color:#070913;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+    6 complete workbooks blending Somatic therapy, DBT skills, parts work, and art exercises...
+    &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+  </div>
 
-<!-- PREHEADER -->
-<div style="display:none; font-size:1px; color:#070913; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden;">
-  Regulate Your System. Release Trauma. Befriend Your Inner Parts. 6 complete workbooks for just $29 — save 84%.
-</div>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#070913;">
+    <tr>
+      <td align="center">
+        <table class="container" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+          
+          <!-- Hero Section -->
+          <tr>
+            <td class="content-box">
+              <div class="badge">Somatic, DBT &amp; Parts Healing</div>
+              <h1>Regulate Your System.<br/><span class="teal-text">Release Trauma.</span><br/>Befriend Your <span class="purple-text">Inner Parts.</span></h1>
+              <p>6 complete workbooks blending Somatic therapy, DBT skills, parts work, and art exercises — curated into one powerful journey toward integration.</p>
+              
+              <div class="price-box">
+                <p class="price-text">$29</p>
+                <p class="value-text">$180.00 Value</p>
+                <div class="save-pill">✦ Save 84%</div>
+              </div>
+              
+              <a href="https://www.psychoreads.com/pages/somatic-dbt-parts-healing-bundle" class="btn">Get All 6 Books for $29</a>
+              
+              <div class="features-row">
+                <div class="feature-item">✓ Instant PDF Download</div>
+                <div class="feature-item">✓ Secure Checkout</div>
+                <div class="feature-item">✓ No Subscription</div>
+              </div>
+            </td>
+          </tr>
 
-<!-- WRAPPER -->
-<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#070913;">
-  <tr>
-    <td align="center" style="padding: 32px 16px;">
+          <!-- Books List -->
+          <tr>
+            <td class="books-section">
+              <h2 class="books-title">What's Included in the Bundle</h2>
+              
+              <div class="book-item">
+                <span class="book-number">1</span>
+                <span class="book-title">Embracing Our Fragmented Selves: A Workbook for Trauma Survivors and Therapists</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">2</span>
+                <span class="book-title">Dialectical Behavior Therapy Workbook</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">3</span>
+                <span class="book-title">Essential Art Therapy Exercises: Effective Techniques to Manage Anxiety, Depression, and PTSD</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">4</span>
+                <span class="book-title">Don't Let Your Emotions Run Your Life: How Dialectical Behavior Therapy Can Put You in Control</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">5</span>
+                <span class="book-title">Somatic Internal Family Systems Therapy</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">6</span>
+                <span class="book-title">The Neurodivergent Friendly Workbook of DBT Skills</span>
+              </div>
+              
+            </td>
+          </tr>
 
-      <!-- CARD -->
-      <table class="wrapper" role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px; background:#0d1020; border-radius:24px; overflow:hidden; box-shadow: 0 8px 60px rgba(0,0,0,0.8); border: 1px solid rgba(255,255,255,0.07);">
+          <!-- Footer -->
+          <tr>
+            <td class="footer">
+              <a href="https://www.psychoreads.com/pages/somatic-dbt-parts-healing-bundle" class="btn">Secure Your Bundle Now</a>
+              
+              <p style="font-size:12px; color:#64748b; margin-top:20px;">
+                You are receiving this email because you signed up at PsychoReads.com<br/><br/>
+                <a href="https://psychoreads.com" style="color:#2dd4bf; text-decoration:none;">Visit Store</a> &nbsp;&middot;&nbsp; 
+                <a href="{{ unsubscribe_link }}" style="color:#64748b; text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
 
-        <!-- TOP GRADIENT BAR -->
-        <tr>
-          <td style="background: linear-gradient(135deg, #2dd4bf, #0d9488, #7c3aed); padding: 3px 0; font-size:0; line-height:0;">&nbsp;</td>
-        </tr>
-
-        <!-- LOGO -->
-        <tr>
-          <td style="padding: 28px 40px 0; text-align:center; background:#0d1020;">
-            <a href="https://psychoreads.com" style="text-decoration:none; font-size:20px; font-weight:900; letter-spacing:-0.5px; color:#f1f5f9;">Psycho<span style="color:#2dd4bf;">Reads</span></a>
-          </td>
-        </tr>
-
-        <!-- HERO -->
-        <tr>
-          <td class="content-block" style="padding: 44px 40px 36px; background:#0d1020; text-align:center;">
-
-            <!-- Badge -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 22px;">
-              <tr>
-                <td style="background:rgba(45, 212, 191, 0.08); border:1px solid rgba(45, 212, 191, 0.25); border-radius:999px; padding:7px 22px;">
-                  <span style="font-size:11px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#2dd4bf;">&#9737; INTEGRATIVE HEALING BUNDLE &#9737;</span>
-                </td>
-              </tr>
-            </table>
-
-            <h1 class="hero-title" style="margin:0 0 10px; font-size:32px; font-weight:900; line-height:1.15; color:#f1f5f9; letter-spacing:-1.5px;">
-              Regulate Your System.
-            </h1>
-            <h1 class="hero-title" style="margin:0 0 20px; font-size:32px; font-weight:900; line-height:1.15; letter-spacing:-1.5px;">
-              <span style="background:linear-gradient(135deg,#2dd4bf,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; mso-color-alt:#2dd4bf;">Release Trauma &amp; Heal Your Parts.</span>
-            </h1>
-            <p style="margin:0 0 30px; font-size:16px; color:#94a3b8; line-height:1.75; max-width:480px; margin-left:auto; margin-right:auto;">
-              6 complete workbooks blending Somatic therapy, DBT skills, parts work (IFS), and art exercises — curated into one powerful journey toward integration.
-            </p>
-
-            <!-- PRICE -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 32px;">
-              <tr>
-                <td style="text-align:center;">
-                  <p style="margin:0; font-size:15px; color:#64748b; font-weight:600; text-decoration:line-through;">$180.00 Value</p>
-                  <p class="price-big" style="margin:4px 0; font-size:64px; font-weight:900; color:#f1f5f9; line-height:1; letter-spacing:-4px;">$29</p>
-                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:8px auto 0;">
-                    <tr>
-                      <td style="background:rgba(45, 212, 191, 0.12); border:1px solid rgba(45, 212, 191, 0.25); border-radius:999px; padding:5px 16px;">
-                        <span style="font-size:12px; font-weight:800; color:#2dd4bf; letter-spacing:0.5px;">✦ Save 84% • Instant Access</span>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-
-            <!-- CTA -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-              <tr>
-                <td style="border-radius:16px; background:linear-gradient(135deg,#2dd4bf,#0d9488); box-shadow:0 0 40px rgba(45, 212, 191, 0.3),0 6px 20px rgba(0,0,0,0.5);">
-                  <a href="https://www.psychoreads.com/pages/somatic-dbt-parts-healing-bundle" class="cta-btn" style="display:inline-block; padding:18px 52px; font-size:18px; font-weight:900; color:#ffffff; text-decoration:none; border-radius:16px; letter-spacing:-0.3px;">
-                    🛒 Get All 6 Books for $29
-                  </a>
-                </td>
-              </tr>
-            </table>
-
-            <!-- Trust Bar -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:20px auto 0;">
-              <tr>
-                <td style="padding:0 10px; font-size:12px; color:#64748b; font-weight:500;">&#10003; Instant PDF Download</td>
-                <td style="padding:0 10px; font-size:12px; color:#64748b; font-weight:500;">&#10003; Secure Checkout</td>
-                <td style="padding:0 10px; font-size:12px; color:#64748b; font-weight:500;">&#10003; No Subscription</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- EXPLAINER -->
-        <tr>
-          <td style="padding: 36px 32px; background:linear-gradient(135deg,rgba(45,212,191,0.05),rgba(167,139,250,0.03)); border-top:1px solid rgba(255,255,255,0.07); border-bottom:1px solid rgba(255,255,255,0.07); text-align:center;">
-            <p style="margin:0 0 10px; font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#2dd4bf;">Integrative Recovery</p>
-            <h2 style="margin:0 0 14px; font-size:20px; font-weight:900; color:#f1f5f9; letter-spacing:-0.5px;">The Mind-Body Approach</h2>
-            <p style="margin:0 0 24px; font-size:13px; color:#94a3b8; line-height:1.75; max-width:440px; margin-left:auto; margin-right:auto;">True recovery lives at the intersection of mind, body, and emotions. By combining the somatic release of trauma, emotional regulation skills of DBT, and parts work, this bundle provides a complete roadmap to inner harmony.</p>
-            <!-- Concepts -->
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
-              <tr>
-                <td style="padding:12px 14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-align:center;">
-                  <p style="margin:0 0 4px; font-size:22px;">🌿</p>
-                  <p style="margin:0; font-size:10px; font-weight:800; color:#f1f5f9; letter-spacing:0.5px;">SOMATIC</p>
-                </td>
-                <td style="width:10px;"></td>
-                <td style="padding:12px 14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-align:center;">
-                  <p style="margin:0 0 4px; font-size:22px;">🧠</p>
-                  <p style="margin:0; font-size:10px; font-weight:800; color:#f1f5f9; letter-spacing:0.5px;">DBT SKILLS</p>
-                </td>
-                <td style="width:10px;"></td>
-                <td style="padding:12px 14px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; text-align:center;">
-                  <p style="margin:0 0 4px; font-size:22px;">🧩</p>
-                  <p style="margin:0; font-size:10px; font-weight:800; color:#f1f5f9; letter-spacing:0.5px;">PARTS WORK</p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- WHAT'S INSIDE -->
-        <tr>
-          <td class="content-block" style="padding: 40px 32px; background:#070913; border-top:1px solid rgba(255,255,255,0.05);">
-            <p style="margin:0 0 8px; font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:#2dd4bf; text-align:center;">What You Get</p>
-            <h2 style="margin:0 0 30px; font-size:21px; font-weight:900; color:#f1f5f9; text-align:center; letter-spacing:-0.5px;">6 Masterclass Workbooks. One Path.</h2>
-
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-              <!-- Book 1 -->
-              <tr><td style="padding-bottom:10px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">1</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">Embracing Our Fragmented Selves</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">A workbook for trauma survivors and therapists to begin integration.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-              <!-- Book 2 -->
-              <tr><td style="padding-bottom:10px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">2</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">Dialectical Behavior Therapy Workbook</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Clear and actionable DBT strategies to manage emotions and distress.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-              <!-- Book 3 -->
-              <tr><td style="padding-bottom:10px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">3</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">Essential Art Therapy Exercises</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Expressive techniques to process anxiety, depression, and PTSD creatively.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-              <!-- Book 4 -->
-              <tr><td style="padding-bottom:10px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">4</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">Don't Let Your Emotions Run Your Life</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Practical guides on how Dialectical Behavior Therapy can put you in control.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-              <!-- Book 5 -->
-              <tr><td style="padding-bottom:10px;">
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">5</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">Somatic Internal Family Systems Therapy</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Mind-body awareness, breath, and touch practices for deep healing.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-              <!-- Book 6 -->
-              <tr><td>
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:12px 14px;">
-                  <tr>
-                    <td style="width:30px; vertical-align:middle;">
-                      <div style="width:26px; height:26px; background:linear-gradient(135deg,#2dd4bf,#0d9488); border-radius:7px; text-align:center; line-height:26px; font-size:12px; font-weight:900; color:#fff; display:inline-block;">6</div>
-                    </td>
-                    <td style="padding-left:12px; vertical-align:middle;">
-                      <p style="margin:0 0 2px; font-size:14px; font-weight:800; color:#f1f5f9;">The Neurodivergent Friendly Workbook of DBT Skills</p>
-                      <p style="margin:0; font-size:12px; color:#64748b; line-height:1.5;">Essential DBT worksheets adapted specifically for neurodivergent minds.</p>
-                    </td>
-                  </tr>
-                </table>
-              </td></tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- FINAL CTA -->
-        <tr>
-          <td style="background:linear-gradient(135deg,#0d1020,#070913); padding:48px 32px; text-align:center; border-top:1px solid rgba(45, 212, 191, 0.15);">
-            <h2 style="margin:0 0 14px; font-size:26px; font-weight:900; color:#f1f5f9; letter-spacing:-1px; line-height:1.2;">Start Your Healing Journey</h2>
-            <p style="margin:0 0 32px; font-size:15px; color:#94a3b8; line-height:1.7; max-width:420px; margin-left:auto; margin-right:auto;">6 of the most powerful, practical workbooks on Somatic therapy, DBT, parts work, and art therapy — curated into one complete journey. Get instant access for just $29.</p>
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
-              <tr>
-                <td style="border-radius:16px; background:linear-gradient(135deg,#2dd4bf,#0d9488); box-shadow:0 0 40px rgba(45, 212, 191, 0.25),0 8px 24px rgba(0,0,0,0.5);">
-                  <a href="https://www.psychoreads.com/pages/somatic-dbt-parts-healing-bundle" style="display:inline-block; padding:18px 48px; font-size:18px; font-weight:900; color:#ffffff; text-decoration:none; border-radius:16px; letter-spacing:-0.3px;">
-                    🛒 Get All 6 Books — $29
-                  </a>
-                </td>
-              </tr>
-            </table>
-            <p style="margin:20px 0 0; font-size:12px; color:#64748b;">&#10003; Instant Access &nbsp;&bull;&nbsp; &#10003; $180 Value for $29 &nbsp;&bull;&nbsp; &#10003; Secure Checkout</p>
-          </td>
-        </tr>
-
-        <!-- FOOTER -->
-        <tr>
-          <td style="padding:28px 32px; background:#070913; text-align:center; border-top:1px solid rgba(255,255,255,0.05);">
-            <p style="margin:0 0 8px; font-size:13px; font-weight:900; color:#2dd4bf;">PsychoReads</p>
-            <p style="margin:0 0 12px; font-size:12px; color:#64748b; line-height:1.6;">You're receiving this because you signed up at PsychoReads.com</p>
-            <p style="margin:0; font-size:12px; color:#64748b;">
-              <a href="https://psychoreads.com" style="color:#2dd4bf; text-decoration:none; font-weight:600;">Visit Store</a>
-              &nbsp;&#183;&nbsp;
-              <a href="{{ unsubscribe_link }}" style="color:#64748b; text-decoration:underline;">Unsubscribe</a>
-            </p>
-          </td>
-        </tr>
-
-      </table>
-    </td>
-  </tr>
-</table>
-
-{{ open_tracking_block }}
+        </table>
+      </td>
+    </tr>
+  </table>
+  
+  {{ open_tracking_block }}
 </body>
 </html>
