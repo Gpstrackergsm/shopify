@@ -1,0 +1,370 @@
+{% assign p1 = all_products['the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['transcending-trauma-healing-complex-ptsd-with-internal-family-systems'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['radical-acceptance-embracing-your-life-with-the-heart-of-a-buddha'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['parts-work-an-illustrated-guide-to-your-inner-life-by-tom-holmes'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts'] %}
+{% assign v6 = p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .unb-wrap *, .unb-wrap *::before, .unb-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .unb-wrap {
+    --c-bg: #0b1120;
+    --c-bg2: #151e32;
+    --c-bg3: #1e293b;
+    --c-glass: rgba(255,255,255,0.03);
+    --c-border: rgba(255,255,255,0.08);
+    --c-gold: #fbbf24;
+    --c-gold2: #d97706;
+    --c-gold-glow: rgba(251,191,36,0.15);
+    --c-blue: #38bdf8;
+    --c-blue2: #0284c7;
+    --c-blue-glow: rgba(56,189,248,0.15);
+    --c-text: #f8fafc;
+    --c-muted: #94a3b8;
+    --c-dim: #64748b;
+    --c-radius: 20px;
+    --c-ease: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .unb-hero {
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative; overflow: hidden;
+  }
+  .unb-orb { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
+  .unb-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(56,189,248,0.12),transparent 70%);top:-200px;left:50%;transform:translateX(-50%); }
+  .unb-orb-2 { width:500px;height:500px;background:radial-gradient(circle,rgba(251,191,36,0.08),transparent 70%);bottom:0;right:-100px; }
+
+  .unb-hero-inner { position:relative;z-index:1;max-width:900px; }
+
+  .unb-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(251,191,36,0.1);
+    border:1px solid rgba(251,191,36,0.25);
+    border-radius:999px;padding:8px 24px;
+    font-size:0.8rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--c-gold);margin-bottom:32px;backdrop-filter:blur(12px);
+  }
+  .unb-badge-dot {
+    width:8px;height:8px;background:var(--c-gold);border-radius:50%;
+    animation:unb-pulse 2s ease-in-out infinite;
+  }
+  @keyframes unb-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+
+  .unb-hero h1 {
+    font-size:clamp(2.8rem,7vw,5.2rem);font-weight:900;line-height:1.05;
+    letter-spacing:-2.5px;margin-bottom:28px;
+  }
+  .unb-gold-text {
+    background:linear-gradient(135deg,var(--c-gold),#f59e0b);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .unb-blue-text {
+    background:linear-gradient(135deg,var(--c-blue),#0ea5e9);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+
+  .unb-sub {
+    font-size:1.2rem;color:var(--c-muted);max-width:680px;
+    margin:0 auto 48px;line-height:1.7;font-weight:400;
+  }
+
+  /* Price */
+  .unb-price-row { display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap; }
+  .unb-price-main { font-size:6rem;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--c-text); }
+  .unb-price-main sup { font-size:2.5rem;letter-spacing:0;vertical-align:super; }
+  .unb-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:8px; }
+  .unb-price-was { font-size:1.15rem;color:var(--c-dim);text-decoration:line-through;font-weight:600; }
+  .unb-save-pill {
+    font-size:0.85rem;font-weight:800;color:var(--c-gold);
+    background:rgba(251,191,36,0.12);padding:5px 14px;border-radius:999px;
+    letter-spacing:0.5px;border:1px solid rgba(251,191,36,0.25);
+  }
+
+  /* Button */
+  .unb-btn {
+    display:inline-flex;align-items:center;gap:12px;
+    font-family:'Outfit',sans-serif;font-weight:800;
+    border:none;border-radius:18px;cursor:pointer;
+    transition:var(--c-ease);text-decoration:none;
+    position:relative;overflow:hidden;letter-spacing:-0.3px;
+  }
+  .unb-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s; }
+  .unb-btn:hover::after { opacity:1; }
+  .unb-btn-primary {
+    background:linear-gradient(135deg,var(--c-blue),var(--c-blue2));
+    color:#fff;padding:20px 56px;font-size:1.25rem;
+    box-shadow:0 0 40px var(--c-blue-glow),0 8px 24px rgba(0,0,0,0.4);
+  }
+  .unb-btn-primary:hover { transform:translateY(-4px);box-shadow:0 0 60px var(--c-blue-glow),0 12px 35px rgba(0,0,0,0.5); }
+  .unb-btn-sm { font-size:0.95rem;padding:12px 28px;border-radius:14px; }
+
+  .unb-trust { display:flex;align-items:center;justify-content:center;gap:28px;margin-top:28px;flex-wrap:wrap; }
+  .unb-trust-item { display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--c-muted);font-weight:500; }
+  .unb-trust-item svg { color:var(--c-blue); }
+
+  /* ── BOOKS GRID ── */
+  .unb-books { padding:100px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border); }
+  .unb-label { display:block;text-align:center;font-size:0.8rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--c-gold);margin-bottom:16px; }
+  .unb-title { text-align:center;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-text); }
+
+  .unb-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto; }
+
+  .unb-card {
+    background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--c-radius);
+    padding:40px 24px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;transition:var(--c-ease);
+    position:relative;overflow:hidden;justify-content:space-between;
+  }
+  .unb-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,0.06),transparent,rgba(251,191,36,0.03));opacity:0;transition:opacity 0.3s; }
+  .unb-card:hover { transform:translateY(-10px);border-color:rgba(56,189,248,0.35);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 40px var(--c-blue-glow); }
+  .unb-card:hover::before { opacity:1; }
+
+  .unb-card-num { position:absolute;top:16px;right:16px;width:34px;height:34px;background:var(--c-bg3);border:1px solid var(--c-border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:900;color:var(--c-gold); }
+
+  .unb-cover-wrap { width:140px;height:210px;margin-bottom:28px;position:relative;flex-shrink:0; }
+  .unb-cover-wrap::after { content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80%;height:20px;background:var(--c-blue-glow);filter:blur(16px);border-radius:50%;opacity:0;transition:opacity 0.3s; }
+  .unb-card:hover .unb-cover-wrap::after { opacity:1; }
+
+  .unb-cover { width:100%;height:100%;object-fit:contain;border-radius:8px;box-shadow:0 16px 45px rgba(0,0,0,0.6),4px 4px 0 rgba(0,0,0,0.25);transition:transform 0.4s ease; }
+  .unb-card:hover .unb-cover { transform:rotate(-3deg) scale(1.05); }
+  .unb-card-title { font-size:1rem;font-weight:700;line-height:1.45;color:var(--c-text); }
+
+  /* ── FEATURES ── */
+  .unb-features { padding:100px 24px;text-align:center; }
+  .unb-features h2 { font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1px;margin-bottom:48px; }
+  .unb-feat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto; }
+  .unb-feat { background:var(--c-glass);border:1px solid var(--c-border);border-radius:24px;padding:40px 24px; }
+  .unb-feat-icon { font-size:3rem;margin-bottom:20px;display:block; }
+  .unb-feat-title { font-size:1.2rem;font-weight:800;margin-bottom:12px;color:var(--c-text); }
+  .unb-feat-desc { font-size:1rem;color:var(--c-muted);line-height:1.7; }
+
+  /* ── STICKY ── */
+  .unb-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:18px 32px;background:rgba(11,17,32,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.7); }
+  .unb-sticky.show { transform:translateY(0); }
+  .unb-sticky-text { font-size:1.1rem;font-weight:700;color:var(--c-text); }
+  .unb-sticky-text span { color:var(--c-gold); }
+
+  /* ── FADE ── */
+  .unb-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
+  .unb-fade.in { opacity:1;transform:translateY(0); }
+  .unb-fade:nth-child(2){transition-delay:0.1s}.unb-fade:nth-child(3){transition-delay:0.2s}
+  .unb-fade:nth-child(4){transition-delay:0.3s}.unb-fade:nth-child(5){transition-delay:0.4s}
+  .unb-fade:nth-child(6){transition-delay:0.5s}
+
+  @media(max-width:900px){ .unb-grid{grid-template-columns:repeat(2,1fr);} .unb-feat-grid{grid-template-columns:1fr;} }
+  @media(max-width:600px){ .unb-grid{grid-template-columns:repeat(2,1fr);gap:16px;} .unb-card{padding:24px 16px;} .unb-hero h1{letter-spacing:-1.5px;} .unb-sticky{flex-direction:column;gap:12px;padding:16px 20px;} .unb-price-main{font-size:4.5rem;} .unb-btn-primary{padding:18px 32px;width:100%;} }
+</style>
+
+<div class="unb-wrap">
+
+  <!-- HERO -->
+  <section class="unb-hero">
+    <div class="unb-orb unb-orb-1"></div>
+    <div class="unb-orb unb-orb-2"></div>
+    <div class="unb-hero-inner">
+
+      <div class="unb-badge">
+        <span class="unb-badge-dot"></span>
+        The Ultimate Bestseller Collection
+      </div>
+
+      <h1>
+        Heal The Body.<br/>
+        <span class="unb-blue-text">Rewire The Mind.</span><br/>
+        Integrate Your <span class="unb-gold-text">Inner Parts.</span>
+      </h1>
+
+      <p class="unb-sub">
+        Our 6 most popular, highest-rated workbooks on Somatic Therapy, Polyvagal Theory, IFS, and Trauma Recovery — bundled together in one life-changing collection.
+      </p>
+
+      <div class="unb-price-row">
+        <div class="unb-price-main"><sup>$</sup>29</div>
+        <div class="unb-price-meta">
+          <span class="unb-price-was">$175.00 Value</span>
+          <span class="unb-save-pill">✦ Save 83%</span>
+        </div>
+      </div>
+
+      <button class="unb-btn unb-btn-primary" id="unb-hero-cta" onclick="unbCheckout()">
+        🛒 Download All 6 Books — $29
+      </button>
+
+      <div class="unb-trust">
+        <div class="unb-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Delivery
+        </div>
+        <div class="unb-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Secure Checkout
+        </div>
+        <div class="unb-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Read on Any Device
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <section class="unb-books">
+    <span class="unb-label">What You Get</span>
+    <h2 class="unb-title">6 Bestselling Workbooks. One Price.</h2>
+
+    <div class="unb-grid">
+
+      <!-- Book 1 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">1</div>
+        <div class="unb-cover-wrap">
+          {% if p1.images.first %}<img class="unb-cover" src="{{ p1.images.first | img_url: '400x' }}" alt="{{ p1.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p1.title | default: 'The Somatic Therapy Handbook' }}</p>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">2</div>
+        <div class="unb-cover-wrap">
+          {% if p2.images.first %}<img class="unb-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p2.title | default: 'Anchored: How to Befriend Your Nervous System' }}</p>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">3</div>
+        <div class="unb-cover-wrap">
+          {% if p3.images.first %}<img class="unb-cover" src="{{ p3.images.first | img_url: '400x' }}" alt="{{ p3.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p3.title | default: 'Transcending Trauma' }}</p>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">4</div>
+        <div class="unb-cover-wrap">
+          {% if p4.images.first %}<img class="unb-cover" src="{{ p4.images.first | img_url: '400x' }}" alt="{{ p4.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p4.title | default: 'Radical Acceptance' }}</p>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">5</div>
+        <div class="unb-cover-wrap">
+          {% if p5.images.first %}<img class="unb-cover" src="{{ p5.images.first | img_url: '400x' }}" alt="{{ p5.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p5.title | default: 'Parts Work' }}</p>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="unb-card unb-fade">
+        <div class="unb-card-num">6</div>
+        <div class="unb-cover-wrap">
+          {% if p6.images.first %}<img class="unb-cover" src="{{ p6.images.first | img_url: '400x' }}" alt="{{ p6.title }}" loading="lazy" />
+          {% else %}<div class="unb-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="unb-card-title">{{ p6.title | default: 'The Self-Led Internal Family Systems Workbook' }}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="unb-features">
+    <span class="unb-label">Why This Collection Works</span>
+    <h2>The Complete Healing Journey</h2>
+    <div class="unb-feat-grid">
+      <div class="unb-feat">
+        <span class="unb-feat-icon">🌊</span>
+        <p class="unb-feat-title">Somatic Regulation</p>
+        <p class="unb-feat-desc">Use Polyvagal Theory and somatic exercises to map your autonomic state and release trauma physically stored in the body.</p>
+      </div>
+      <div class="unb-feat">
+        <span class="unb-feat-icon">🧩</span>
+        <p class="unb-feat-title">Internal Family Systems</p>
+        <p class="unb-feat-desc">Communicate with extreme protector and wounded exile parts of your psyche, approaching them with radical self-compassion.</p>
+      </div>
+      <div class="unb-feat">
+        <span class="unb-feat-icon">🧘</span>
+        <p class="unb-feat-title">Radical Acceptance</p>
+        <p class="unb-feat-desc">Stop fighting reality. Learn mindfulness techniques that cultivate an unwavering sense of inner peace and acceptance.</p>
+      </div>
+    </div>
+    
+    <div style="margin-top: 80px; padding-bottom: 40px;">
+        <button class="unb-btn unb-btn-primary" onclick="unbCheckout()">🛒 Get All 6 Books — $29</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- STICKY BAR -->
+<div class="unb-sticky" id="unb-sticky">
+  <span class="unb-sticky-text">Ultimate Nervous System & Trauma Bundle — <span>$29.00</span></span>
+  <button class="unb-btn unb-btn-primary unb-btn-sm" onclick="unbCheckout()">Download Now</button>
+</div>
+
+<script>
+  const unbHeroCta = document.getElementById('unb-hero-cta');
+  const unbSticky  = document.getElementById('unb-sticky');
+  window.addEventListener('scroll', () => {
+    if (unbSticky && unbHeroCta) {
+      unbSticky.classList.toggle('show', unbHeroCta.getBoundingClientRect().bottom < 0);
+    }
+  }, { passive: true });
+
+  const unbFades = document.querySelectorAll('.unb-fade');
+  const unbObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); unbObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  unbFades.forEach(el => unbObs.observe(el));
+
+  function unbCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+    ];
+    if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.unb-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: variants.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.unb-btn-primary').forEach(b => { b.textContent = 'Get Bundle — $29'; b.disabled = false; });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
