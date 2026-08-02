@@ -1,0 +1,390 @@
+{% assign p1 = all_products['permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['the-anger-workbook-for-women-how-to-keep-your-anger-from-undermining-your-self-esteem-your-emotional-balance-and-your-relationships'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['anger-management-workbook-for-men-take-control-of-your-anger-and-master-your-emotions'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['dialectical-behavior-therapy-workbook'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['the-dialectical-behavior-therapy-skills-workbook-for-anger-using-dbt-mindfulness-and-emotion-regulation-skills-to-manage-anger-new-harbinger-self-help-workbooks'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] %}
+{% assign v6 = p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .aem-wrap *, .aem-wrap *::before, .aem-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .aem-wrap {
+    --c-bg: #0f0a05;
+    --c-bg2: #160e06;
+    --c-bg3: #1e1408;
+    --c-glass: rgba(255,255,255,0.03);
+    --c-border: rgba(255,255,255,0.07);
+    --c-orange: #f97316;
+    --c-orange2: #c2410c;
+    --c-orange-glow: rgba(249,115,22,0.18);
+    --c-amber: #fbbf24;
+    --c-amber-glow: rgba(251,191,36,0.15);
+    --c-red: #f87171;
+    --c-text: #fef3c7;
+    --c-muted: #92400e;
+    --c-dim: #78716c;
+    --c-light: #fef9f0;
+    --c-radius: 20px;
+    --c-ease: all 0.35s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-light);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .aem-hero {
+    min-height: 92vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 80px 24px;
+    position: relative; overflow: hidden;
+  }
+  .aem-orb { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
+  .aem-orb-1 { width:800px;height:800px;background:radial-gradient(circle,rgba(249,115,22,0.14),transparent 70%);top:-250px;left:50%;transform:translateX(-50%); }
+  .aem-orb-2 { width:500px;height:500px;background:radial-gradient(circle,rgba(251,191,36,0.08),transparent 70%);bottom:-80px;right:-100px; }
+  .aem-orb-3 { width:400px;height:400px;background:radial-gradient(circle,rgba(248,113,113,0.06),transparent 70%);bottom:-60px;left:-80px; }
+
+  .aem-hero-inner { position:relative;z-index:1;max-width:900px; }
+
+  .aem-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(249,115,22,0.1);
+    border:1px solid rgba(249,115,22,0.28);
+    border-radius:999px;padding:8px 24px;
+    font-size:0.8rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--c-orange);margin-bottom:32px;backdrop-filter:blur(12px);
+  }
+  .aem-badge-dot { width:8px;height:8px;background:var(--c-orange);border-radius:50%;animation:aem-pulse 2s ease-in-out infinite; }
+  @keyframes aem-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+
+  .aem-hero h1 { font-size:clamp(2.8rem,7vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-2.5px;margin-bottom:28px;color:var(--c-light); }
+  .aem-orange-text { background:linear-gradient(135deg,var(--c-orange),#fb923c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+  .aem-amber-text { background:linear-gradient(135deg,var(--c-amber),#fcd34d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+
+  .aem-sub { font-size:1.18rem;color:#d6d3d1;max-width:680px;margin:0 auto 48px;line-height:1.75;font-weight:400; }
+
+  /* Price */
+  .aem-price-row { display:flex;align-items:center;justify-content:center;gap:24px;margin-bottom:40px;flex-wrap:wrap; }
+  .aem-price-main { font-size:6rem;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--c-light); }
+  .aem-price-main sup { font-size:2.5rem;letter-spacing:0;vertical-align:super; }
+  .aem-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:8px; }
+  .aem-price-was { font-size:1.1rem;color:var(--c-dim);text-decoration:line-through;font-weight:600; }
+  .aem-save-pill { font-size:0.85rem;font-weight:800;color:var(--c-orange);background:rgba(249,115,22,0.12);padding:5px 14px;border-radius:999px;letter-spacing:0.5px;border:1px solid rgba(249,115,22,0.25); }
+
+  /* Button */
+  .aem-btn { display:inline-flex;align-items:center;gap:12px;font-family:'Outfit',sans-serif;font-weight:800;border:none;border-radius:18px;cursor:pointer;transition:var(--c-ease);text-decoration:none;position:relative;overflow:hidden;letter-spacing:-0.3px; }
+  .aem-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s; }
+  .aem-btn:hover::after { opacity:1; }
+  .aem-btn-primary { background:linear-gradient(135deg,var(--c-orange),var(--c-orange2));color:#fff;padding:20px 56px;font-size:1.25rem;box-shadow:0 0 40px var(--c-orange-glow),0 8px 24px rgba(0,0,0,0.5); }
+  .aem-btn-primary:hover { transform:translateY(-4px);box-shadow:0 0 60px var(--c-orange-glow),0 12px 35px rgba(0,0,0,0.6); }
+  .aem-btn-sm { font-size:0.95rem;padding:12px 28px;border-radius:14px; }
+
+  .aem-trust { display:flex;align-items:center;justify-content:center;gap:28px;margin-top:28px;flex-wrap:wrap; }
+  .aem-trust-item { display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#a8a29e;font-weight:500; }
+  .aem-trust-item svg { color:var(--c-orange); }
+
+  /* ── EXPLAINER ── */
+  .aem-explainer { padding:80px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);text-align:center; }
+  .aem-explainer h2 { font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-1px;margin-bottom:18px; }
+  .aem-explainer p { font-size:1.05rem;color:#d6d3d1;line-height:1.8;max-width:700px;margin:0 auto; }
+  .aem-concept-row { display:flex;align-items:stretch;justify-content:center;gap:24px;margin-top:48px;flex-wrap:wrap; }
+  .aem-concept { background:var(--c-glass);border:1px solid var(--c-border);border-radius:16px;padding:28px 24px;text-align:left;flex:1;min-width:240px;backdrop-filter:blur(10px); }
+  .aem-concept-icon { font-size:2.2rem;margin-bottom:14px;display:block; }
+  .aem-concept-title { font-size:1.1rem;font-weight:800;color:var(--c-light);margin-bottom:8px; }
+  .aem-concept-text { font-size:0.9rem;color:#a8a29e;line-height:1.6; }
+
+  /* ── BOOKS GRID ── */
+  .aem-books { padding:100px 24px;background:var(--c-bg); }
+  .aem-label { display:block;text-align:center;font-size:0.8rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--c-orange);margin-bottom:16px; }
+  .aem-title { text-align:center;font-size:clamp(2rem,4.5vw,3rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-light); }
+
+  .aem-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto; }
+
+  .aem-card { background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--c-radius);padding:40px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:var(--c-ease);position:relative;overflow:hidden;justify-content:space-between; }
+  .aem-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,0.07),transparent,rgba(251,191,36,0.03));opacity:0;transition:opacity 0.3s; }
+  .aem-card:hover { transform:translateY(-10px);border-color:rgba(249,115,22,0.4);box-shadow:0 24px 60px rgba(0,0,0,0.6),0 0 40px var(--c-orange-glow); }
+  .aem-card:hover::before { opacity:1; }
+
+  .aem-card-num { position:absolute;top:16px;right:16px;width:34px;height:34px;background:linear-gradient(135deg,var(--c-orange),var(--c-orange2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:900;color:#fff; }
+
+  .aem-cover-wrap { width:140px;height:210px;margin-bottom:28px;position:relative;flex-shrink:0; }
+  .aem-cover-wrap::after { content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80%;height:20px;background:var(--c-orange-glow);filter:blur(16px);border-radius:50%;opacity:0;transition:opacity 0.3s; }
+  .aem-card:hover .aem-cover-wrap::after { opacity:1; }
+
+  .aem-cover { width:100%;height:100%;object-fit:contain;border-radius:8px;box-shadow:0 16px 45px rgba(0,0,0,0.7),4px 4px 0 rgba(0,0,0,0.3);transition:transform 0.4s ease; }
+  .aem-card:hover .aem-cover { transform:rotate(-3deg) scale(1.05); }
+  .aem-card-title { font-size:1rem;font-weight:700;line-height:1.45;color:var(--c-light); }
+
+  /* ── FEATURES ── */
+  .aem-features { padding:100px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);text-align:center; }
+  .aem-feat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1000px;margin:0 auto; }
+  .aem-feat { background:var(--c-glass);border:1px solid var(--c-border);border-radius:24px;padding:40px 24px; }
+  .aem-feat-icon { font-size:3rem;margin-bottom:20px;display:block; }
+  .aem-feat-title { font-size:1.2rem;font-weight:800;margin-bottom:12px;color:var(--c-light); }
+  .aem-feat-desc { font-size:1rem;color:#a8a29e;line-height:1.7; }
+
+  /* ── FINAL CTA ── */
+  .aem-final { padding:120px 24px;text-align:center;position:relative;overflow:hidden; }
+  .aem-final-orb { position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,0.1),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none; }
+  .aem-final-inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
+  .aem-final h2 { font-size:clamp(2rem,4vw,3.4rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;line-height:1.1; }
+  .aem-final p { font-size:1.1rem;color:#d6d3d1;margin-bottom:44px;line-height:1.75; }
+
+  /* ── STICKY ── */
+  .aem-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:18px 32px;background:rgba(15,10,5,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.7); }
+  .aem-sticky.show { transform:translateY(0); }
+  .aem-sticky-text { font-size:1.1rem;font-weight:700;color:var(--c-light); }
+  .aem-sticky-text span { color:var(--c-orange); }
+
+  /* ── FADE ── */
+  .aem-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
+  .aem-fade.in { opacity:1;transform:translateY(0); }
+  .aem-fade:nth-child(2){transition-delay:0.1s}.aem-fade:nth-child(3){transition-delay:0.2s}
+  .aem-fade:nth-child(4){transition-delay:0.3s}.aem-fade:nth-child(5){transition-delay:0.4s}
+  .aem-fade:nth-child(6){transition-delay:0.5s}
+
+  @media(max-width:900px){ .aem-grid{grid-template-columns:repeat(2,1fr);} .aem-feat-grid{grid-template-columns:1fr;} .aem-concept-row{flex-direction:column;} }
+  @media(max-width:600px){ .aem-grid{grid-template-columns:repeat(2,1fr);gap:16px;} .aem-card{padding:24px 16px;} .aem-hero h1{letter-spacing:-1.5px;} .aem-sticky{flex-direction:column;gap:12px;padding:16px 20px;} .aem-price-main{font-size:4.5rem;} .aem-btn-primary{padding:18px 32px;width:100%;} }
+</style>
+
+<div class="aem-wrap">
+
+  <!-- HERO -->
+  <section class="aem-hero">
+    <div class="aem-orb aem-orb-1"></div>
+    <div class="aem-orb aem-orb-2"></div>
+    <div class="aem-orb aem-orb-3"></div>
+    <div class="aem-hero-inner">
+
+      <div class="aem-badge">
+        <span class="aem-badge-dot"></span>
+        Anger &amp; Emotional Mastery Bundle
+      </div>
+
+      <h1>
+        Take Back Control<br/>
+        of Your <span class="aem-orange-text">Anger.</span><br/>
+        Master Your <span class="aem-amber-text">Emotions.</span>
+      </h1>
+
+      <p class="aem-sub">
+        6 powerful workbooks on emotional intelligence, DBT skills, and anger management — the complete toolkit to stop reacting and start responding with intention.
+      </p>
+
+      <div class="aem-price-row">
+        <div class="aem-price-main"><sup>$</sup>29</div>
+        <div class="aem-price-meta">
+          <span class="aem-price-was">$165.00 Value</span>
+          <span class="aem-save-pill">✦ Save 82%</span>
+        </div>
+      </div>
+
+      <button class="aem-btn aem-btn-primary" id="aem-hero-cta" onclick="aemCheckout()">
+        🛒 Get All 6 Books — $29
+      </button>
+
+      <div class="aem-trust">
+        <div class="aem-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Delivery
+        </div>
+        <div class="aem-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Secure Checkout
+        </div>
+        <div class="aem-trust-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No Subscription
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLAINER -->
+  <section class="aem-explainer">
+    <h2>Why Anger Management <span class="aem-orange-text">Actually Fails</span></h2>
+    <p>Most people try to suppress anger — which only makes it explode later. Real emotional mastery means understanding the root causes of anger, developing real-time regulation skills, and rewiring your emotional patterns at the source. These 6 books show you exactly how.</p>
+    <div class="aem-concept-row">
+      <div class="aem-concept">
+        <span class="aem-concept-icon">🧠</span>
+        <p class="aem-concept-title">Emotional Intelligence</p>
+        <p class="aem-concept-text">Identify, understand, and use your emotions as powerful information rather than chaotic forces that control your behaviour.</p>
+      </div>
+      <div class="aem-concept">
+        <span class="aem-concept-icon">⚡</span>
+        <p class="aem-concept-title">DBT Skills</p>
+        <p class="aem-concept-text">Learn the exact mindfulness, distress tolerance, and emotion regulation techniques used in clinical therapy to manage intense emotions.</p>
+      </div>
+      <div class="aem-concept">
+        <span class="aem-concept-icon">🔥</span>
+        <p class="aem-concept-title">Anger Mastery</p>
+        <p class="aem-concept-text">Practical, evidence-based exercises to defuse anger in the moment, identify your triggers, and rebuild healthier relationship patterns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <section class="aem-books">
+    <span class="aem-label">What You Get</span>
+    <h2 class="aem-title">6 Bestselling Workbooks. One Powerful Journey.</h2>
+
+    <div class="aem-grid">
+      <!-- Book 1 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">1</div>
+        <div class="aem-cover-wrap">
+          {% if p1.images.first %}<img class="aem-cover" src="{{ p1.images.first | img_url: '400x' }}" alt="{{ p1.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p1.title | default: 'Permission to Feel' }}</p>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">2</div>
+        <div class="aem-cover-wrap">
+          {% if p2.images.first %}<img class="aem-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p2.title | default: 'The Anger Workbook for Women' }}</p>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">3</div>
+        <div class="aem-cover-wrap">
+          {% if p3.images.first %}<img class="aem-cover" src="{{ p3.images.first | img_url: '400x' }}" alt="{{ p3.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p3.title | default: 'Anger Management Workbook for Men' }}</p>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">4</div>
+        <div class="aem-cover-wrap">
+          {% if p4.images.first %}<img class="aem-cover" src="{{ p4.images.first | img_url: '400x' }}" alt="{{ p4.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p4.title | default: 'Dialectical Behavior Therapy Workbook' }}</p>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">5</div>
+        <div class="aem-cover-wrap">
+          {% if p5.images.first %}<img class="aem-cover" src="{{ p5.images.first | img_url: '400x' }}" alt="{{ p5.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p5.title | default: 'DBT Skills Workbook for Anger' }}</p>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">6</div>
+        <div class="aem-cover-wrap">
+          {% if p6.images.first %}<img class="aem-cover" src="{{ p6.images.first | img_url: '400x' }}" alt="{{ p6.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p6.title | default: "Don't Let Your Emotions Run Your Life" }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="aem-features">
+    <span class="aem-label">Why This Works</span>
+    <h2 class="aem-title" style="margin-bottom:48px;">The Complete Emotional Regulation System</h2>
+    <div class="aem-feat-grid">
+      <div class="aem-feat">
+        <span class="aem-feat-icon">📖</span>
+        <p class="aem-feat-title">For Everyone</p>
+        <p class="aem-feat-desc">Whether you're dealing with explosive anger, passive aggression, or emotional numbness — this bundle covers all types of emotional dysregulation.</p>
+      </div>
+      <div class="aem-feat">
+        <span class="aem-feat-icon">🎯</span>
+        <p class="aem-feat-title">Evidence-Based</p>
+        <p class="aem-feat-desc">Every book is grounded in proven psychological frameworks — DBT, emotional intelligence research, and CBT — not pop psychology.</p>
+      </div>
+      <div class="aem-feat">
+        <span class="aem-feat-icon">🔄</span>
+        <p class="aem-feat-title">Lasting Change</p>
+        <p class="aem-feat-desc">These aren't quick fixes. These are deep, structured workbooks that build long-term emotional regulation skills for life.</p>
+      </div>
+    </div>
+    <div style="margin-top:60px;">
+      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 6 Books — $29</button>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="aem-final">
+    <div class="aem-final-orb"></div>
+    <div class="aem-final-inner">
+      <h2>Your Emotions. <span class="aem-orange-text">Finally Under Control.</span></h2>
+      <p>6 of the most powerful workbooks on anger management, emotional intelligence, and DBT — curated into one complete system. Get instant access for just $29.</p>
+      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 6 Books — $29</button>
+      <div class="aem-trust" style="margin-top:24px;">
+        <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
+        <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$165 Value for $29</div>
+        <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- STICKY BAR -->
+<div class="aem-sticky" id="aem-sticky">
+  <span class="aem-sticky-text">Anger &amp; Emotional Mastery Bundle — <span>$29.00</span></span>
+  <button class="aem-btn aem-btn-primary aem-btn-sm" onclick="aemCheckout()">Buy Now</button>
+</div>
+
+<script>
+  const aemHeroCta = document.getElementById('aem-hero-cta');
+  const aemSticky  = document.getElementById('aem-sticky');
+  window.addEventListener('scroll', () => {
+    if (aemSticky && aemHeroCta) {
+      aemSticky.classList.toggle('show', aemHeroCta.getBoundingClientRect().bottom < 0);
+    }
+  }, { passive: true });
+
+  const aemFades = document.querySelectorAll('.aem-fade');
+  const aemObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); aemObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  aemFades.forEach(el => aemObs.observe(el));
+
+  function aemCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+    ];
+    if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.aem-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: variants.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.aem-btn-primary').forEach(b => { b.textContent = 'Get Bundle — $29'; b.disabled = false; });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
