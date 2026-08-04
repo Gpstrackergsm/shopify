@@ -255,8 +255,6 @@
 
 </div>
 
-{% assign handles = "anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory,anger-management-workbook-for-men-take-control-of-your-anger-and-master-your-emotions,dialectical-behavior-therapy-workbook,dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control,embracing-our-fragmented-selves-a-workbook-for-trauma-survivors-and-therapists,essential-art-therapy-exercises-effective-techniques-to-manage-anxiety-depression-and-ptsd,healing-the-fragmented-selves-of-trauma-survivors,outshining-trauma-a-new-vision-of-radical-self-compassion-integrating-internal-family-systems-and-buddhist-meditation,parts-work-an-illustrated-guide-to-your-inner-life-by-tom-holmes,permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success,quieting-the-storm-within-an-illustrated-introduction-to-your-parts-through-internal-family-systems-and-beyond,radical-acceptance-embracing-your-life-with-the-heart-of-a-buddha,self-therapy-a-step-by-step-guide-to-creating-wholeness-using-ifs-a-cutting-edge-psychotherapy,somatic-internal-family-systems-therapy-awareness-breath-resonance-movement-and-touch-in-practice-endorsed-by-top-experts-in-therapeutic-healing-modalities,the-anger-workbook-for-women-how-to-keep-your-anger-from-undermining-your-self-esteem-your-emotional-balance-and-your-relationships,the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma,the-dialectical-behavior-therapy-skills-workbook-for-anger-using-dbt-mindfulness-and-emotion-regulation-skills-to-manage-anger-new-harbinger-self-help-workbooks,the-neurodivergent-friendly-workbook-of-dbt-skills,the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts,the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery,transcending-trauma-healing-complex-ptsd-with-internal-family-systems,what-my-bones-know-a-memoir-of-healing-from-complex-trauma,you-are-the-one-youve-been-waiting-for-internal-family-systems" | split: "," %}
-
 <script>
   function superCheckout() {
     const btn = document.querySelector('.super-btn-primary');
@@ -264,12 +262,15 @@
     btn.style.opacity = '0.7';
     btn.style.pointerEvents = 'none';
 
+    // Hardcoding all 23 unique variant IDs to bypass Shopify's 20-product liquid limit
     const variants = [
-      {% for handle in handles %}
-        {% assign p = all_products[handle] %}
-        {% if p.variants.first.id %}'{{ p.variants.first.id }}',{% endif %}
-      {% endfor %}
-    ].filter(Boolean);
+      '54798465794390', '54798483030358', '54797075513686', '54797094158678', 
+      '54797066994006', '54797085081942', '54798430896470', '54798508130646', 
+      '54798460191062', '54798529954134', '54798514192726', '54798500594006', 
+      '54798454128982', '54797103137110', '54798488633686', '54798395474262', 
+      '54798440661334', '54797114048854', '54798519992662', '54798447116630', 
+      '54798494728534', '54798523859286', '54798470775126'
+    ];
 
     // Clear cart first, then add all books
     fetch('/cart/clear.js', { method: 'POST' })
