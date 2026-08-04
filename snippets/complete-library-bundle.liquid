@@ -1,0 +1,271 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .super-wrap *, .super-wrap *::before, .super-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .super-wrap {
+    --c-bg: #03050a;
+    --c-bg2: #080d16;
+    --c-bg3: #0c1524;
+    --c-glass: rgba(255,255,255,0.03);
+    --c-border: rgba(255,255,255,0.08);
+    --c-gold: #fbbf24;
+    --c-gold2: #d97706;
+    --c-gold-glow: rgba(251,191,36,0.15);
+    --c-text: #f8fafc;
+    --c-muted: #94a3b8;
+    --c-dim: #475569;
+    --c-radius: 24px;
+    --c-ease: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .super-hero {
+    min-height: 95vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 100px 24px;
+    position: relative; overflow: hidden;
+  }
+  .super-orb { position:absolute; border-radius:50%; filter:blur(140px); pointer-events:none; }
+  .super-orb-1 { width:900px;height:900px;background:radial-gradient(circle,rgba(251,191,36,0.12),transparent 70%);top:-300px;left:50%;transform:translateX(-50%); }
+  .super-orb-2 { width:600px;height:600px;background:radial-gradient(circle,rgba(217,119,6,0.08),transparent 70%);bottom:-150px;right:-150px; }
+
+  .super-hero-inner { position:relative;z-index:1;max-width:1000px; }
+
+  .super-badge {
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(251,191,36,0.1);
+    border:1px solid rgba(251,191,36,0.3);
+    border-radius:999px;padding:10px 28px;
+    font-size:0.85rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+    color:var(--c-gold);margin-bottom:36px;backdrop-filter:blur(12px);
+  }
+
+  .super-hero h1 { font-size:clamp(3rem,8vw,6rem);font-weight:900;line-height:1.05;letter-spacing:-3px;margin-bottom:32px;color:#ffffff; }
+  .super-gold-text { background:linear-gradient(135deg,#fcd34d,#d97706);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+
+  .super-sub { font-size:1.25rem;color:var(--c-muted);max-width:760px;margin:0 auto 56px;line-height:1.8;font-weight:400; }
+
+  /* Price */
+  .super-price-row { display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:48px;flex-wrap:wrap; }
+  .super-price-main { font-size:7rem;font-weight:900;line-height:1;letter-spacing:-5px;color:#ffffff; }
+  .super-price-main sup { font-size:3rem;letter-spacing:0;vertical-align:super; }
+  .super-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:10px; }
+  .super-price-was { font-size:1.3rem;color:var(--c-dim);text-decoration:line-through;font-weight:700; }
+  .super-save-pill { font-size:1rem;font-weight:800;color:var(--c-gold);background:rgba(251,191,36,0.15);padding:6px 18px;border-radius:999px;letter-spacing:1px;border:1px solid rgba(251,191,36,0.3); }
+
+  /* Button */
+  .super-btn { display:inline-flex;align-items:center;gap:12px;font-family:'Outfit',sans-serif;font-weight:800;border:none;border-radius:20px;cursor:pointer;transition:var(--c-ease);text-decoration:none;position:relative;overflow:hidden;letter-spacing:-0.3px; }
+  .super-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s; }
+  .super-btn:hover::after { opacity:1; }
+  .super-btn-primary { background:linear-gradient(135deg,var(--c-gold),var(--c-gold2));color:#000;padding:24px 64px;font-size:1.35rem;box-shadow:0 0 50px var(--c-gold-glow),0 12px 30px rgba(0,0,0,0.6); }
+  .super-btn-primary:hover { transform:translateY(-5px);box-shadow:0 0 70px var(--c-gold-glow),0 16px 40px rgba(0,0,0,0.7); }
+  
+  /* ── BUNDLES SHOWCASE ── */
+  .super-showcase { padding:120px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border); }
+  .super-label { display:block;text-align:center;font-size:0.9rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--c-gold);margin-bottom:20px; }
+  .super-title { text-align:center;font-size:clamp(2.2rem,5vw,3.5rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:80px;color:#ffffff; }
+
+  .super-grid { display:grid;grid-template-columns:repeat(2, 1fr);gap:40px;max-width:1200px;margin:0 auto; }
+
+  .super-bundle-card { background:var(--c-bg);border:1px solid var(--c-border);border-radius:var(--c-radius);padding:48px;display:flex;flex-direction:column;transition:var(--c-ease);position:relative;overflow:hidden; }
+  .super-bundle-card:hover { transform:translateY(-10px);border-color:rgba(251,191,36,0.4);box-shadow:0 30px 60px rgba(0,0,0,0.8),0 0 40px var(--c-gold-glow); }
+
+  .super-bundle-name { font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:16px;line-height:1.2; }
+  .super-bundle-desc { font-size:1.1rem;color:var(--c-muted);margin-bottom:32px;line-height:1.6; }
+  
+  .super-book-list { list-style:none; }
+  .super-book-list li { display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:1rem;color:#cbd5e1;line-height:1.5; }
+  .super-book-list li::before { content:'✦';color:var(--c-gold);font-size:1.1rem; }
+
+  /* ── CTA BOTTOM ── */
+  .super-final { padding:140px 24px;text-align:center;position:relative; }
+  .super-final h2 { font-size:clamp(2.5rem,5vw,4rem);font-weight:900;letter-spacing:-2px;margin-bottom:24px;line-height:1.1; }
+  .super-final p { font-size:1.2rem;color:var(--c-muted);max-width:700px;margin:0 auto 50px;line-height:1.8; }
+
+  @media(max-width:900px){ .super-grid{grid-template-columns:1fr;} }
+  @media(max-width:600px){ .super-bundle-card{padding:32px 24px;} .super-hero h1{letter-spacing:-1.5px;} .super-price-main{font-size:5rem;} .super-btn-primary{padding:20px 32px;width:100%;} }
+</style>
+
+<div class="super-wrap">
+
+  <!-- HERO -->
+  <section class="super-hero">
+    <div class="super-orb super-orb-1"></div>
+    <div class="super-orb super-orb-2"></div>
+    <div class="super-hero-inner">
+
+      <div class="super-badge">The Complete Library</div>
+
+      <h1>
+        Every Healing Bundle.<br/>
+        <span class="super-gold-text">One Ultimate Collection.</span>
+      </h1>
+
+      <p class="super-sub">
+        Get all 8 of our premium best-selling bundles in one package. That's 48 complete workbooks covering Somatic Therapy, DBT, IFS, Trauma Recovery, and Emotional Mastery.
+      </p>
+
+      <div class="super-price-row">
+        <div class="super-price-main"><sup>$</sup>79</div>
+        <div class="super-price-meta">
+          <span class="super-price-was">$232.00 (Individual Bundle Price)</span>
+          <span class="super-save-pill">✦ You Save $153</span>
+        </div>
+      </div>
+
+      <button class="super-btn super-btn-primary" onclick="superCheckout()">
+        🛒 Unlock The Complete Library — $79
+      </button>
+
+      <p style="margin-top:24px; color:var(--c-dim); font-size:0.9rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;">
+        Instant PDF Delivery • Read on Any Device
+      </p>
+    </div>
+  </section>
+
+  <!-- BUNDLES SHOWCASE -->
+  <section class="super-showcase">
+    <span class="super-label">What's Included</span>
+    <h2 class="super-title">48 Workbooks.<br/>8 Premium Bundles.</h2>
+
+    <div class="super-grid">
+      
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">1. Ultimate Nervous System &amp; Trauma Healing Bundle</h3>
+        <p class="super-bundle-desc">Our #1 bestseller for somatic regulation and trauma recovery.</p>
+        <ul class="super-book-list">
+          <li>The Somatic Therapy Handbook</li>
+          <li>Anchored: Befriend Your Nervous System</li>
+          <li>Transcending Trauma (IFS)</li>
+          <li>Radical Acceptance</li>
+          <li>Parts Work</li>
+          <li>The Self-Led IFS Workbook</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">2. Complete IFS &amp; Fragmented Selves Bundle</h3>
+        <p class="super-bundle-desc">The ultimate collection for inner-child healing and parts work.</p>
+        <ul class="super-book-list">
+          <li>Parts Work: An Illustrated Guide</li>
+          <li>Transcending Trauma</li>
+          <li>Embracing Our Fragmented Selves</li>
+          <li>The Self-Led IFS Workbook</li>
+          <li>Healing the Fragmented Selves of Trauma Survivors</li>
+          <li>Somatic Internal Family Systems Therapy</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">3. Anger &amp; Emotional Mastery Bundle</h3>
+        <p class="super-bundle-desc">Take back control of your reactions and master emotional intelligence.</p>
+        <ul class="super-book-list">
+          <li>Permission to Feel</li>
+          <li>The Anger Workbook for Women</li>
+          <li>Anger Management Workbook for Men</li>
+          <li>Dialectical Behavior Therapy Workbook</li>
+          <li>DBT Skills Workbook for Anger</li>
+          <li>Don't Let Your Emotions Run Your Life</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">4. Somatic, DBT &amp; Parts Healing Bundle</h3>
+        <p class="super-bundle-desc">A blended approach of body-based healing and cognitive skills.</p>
+        <ul class="super-book-list">
+          <li>Embracing Our Fragmented Selves</li>
+          <li>DBT Workbook</li>
+          <li>Essential Art Therapy Exercises</li>
+          <li>Don't Let Your Emotions Run Your Life</li>
+          <li>Somatic IFS Therapy</li>
+          <li>Neurodivergent DBT Skills</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">5. IFS Deep Dive Bundle</h3>
+        <p class="super-bundle-desc">Advanced resources for understanding and integrating your internal family system.</p>
+        <ul class="super-book-list">
+          <li>Transcending Trauma</li>
+          <li>You Are the One You've Been Waiting For</li>
+          <li>Parts Work</li>
+          <li>Self-Therapy</li>
+          <li>Healing the Fragmented Selves</li>
+          <li>The Body Keeps the Score</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">6. DBT &amp; Emotional Healing Bundle</h3>
+        <p class="super-bundle-desc">Clinical-grade dialectical behavior therapy tools for emotional regulation.</p>
+        <ul class="super-book-list">
+          <li>DBT Workbook</li>
+          <li>Essential Art Therapy</li>
+          <li>Don't Let Your Emotions Run Your Life</li>
+          <li>Somatic IFS Therapy</li>
+          <li>Neurodivergent DBT Skills</li>
+        </ul>
+      </div>
+      
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">7. Premium Emotion Bundle</h3>
+        <p class="super-bundle-desc">Our highly-rated collection for emotional intelligence and polyvagal theory.</p>
+        <ul class="super-book-list">
+          <li>Permission to Feel</li>
+          <li>Anger Workbook for Women</li>
+          <li>Anger Management for Men</li>
+          <li>Anchored</li>
+          <li>Somatic Therapy Handbook</li>
+          <li>DBT Skills for Anger</li>
+        </ul>
+      </div>
+
+      <div class="super-bundle-card">
+        <h3 class="super-bundle-name">8. Complete Trauma &amp; Healing Bundle</h3>
+        <p class="super-bundle-desc">A holistic approach to surviving and thriving after trauma.</p>
+        <ul class="super-book-list">
+          <li>Permission to Feel</li>
+          <li>What My Bones Know</li>
+          <li>The Self-Led IFS Workbook</li>
+          <li>Quieting the Storm Within</li>
+          <li>Outshining Trauma</li>
+          <li>Radical Acceptance</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="super-final">
+    <h2>The Journey Starts <span class="super-gold-text">Here.</span></h2>
+    <p>Get lifetime access to all 48 workbooks across our 8 premium bundles for just $79. This is the ultimate toolkit for nervous system regulation, trauma recovery, and emotional mastery.</p>
+    <button class="super-btn super-btn-primary" onclick="superCheckout()">
+      🛒 Unlock The Complete Library — $79
+    </button>
+  </section>
+
+</div>
+
+<script>
+  function superCheckout() {
+    // ------------------------------------------------------------------
+    // HEY KHALID! 
+    // Since you set up a special $79 discount, how do you want the checkout 
+    // to work here? 
+    // Option A: Add a specific "$79 All Bundles" product to the cart?
+    // Option B: Add all 48 individual books to the cart and apply the code?
+    // 
+    // Let me know and I will write the checkout logic!
+    // ------------------------------------------------------------------
+    alert("I need the product handle or checkout logic for the $79 bundle! Please tell me how you want it added to the cart.");
+  }
+</script>
