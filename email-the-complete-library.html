@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="x-apple-disable-message-reformatting" />
+  <title>The Complete Library — PsychoReads</title>
+  <style>
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; }
+    img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      background-color: #03050a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #f8fafc;
+    }
+
+    .container { max-width: 600px; margin: 0 auto; background-color: #03050a; }
+
+    .content-box { padding: 45px 30px; text-align: center; background: #03050a; }
+
+    .badge {
+      display: inline-block;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fbbf24;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin: 0 0 20px 0;
+      color: #f8fafc;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    .gold-text { color: #fbbf24; }
+    .amber-text { color: #d97706; }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin: 0 0 24px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #fcd34d, #d97706);
+      color: #000000;
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 18px 40px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 25px rgba(251, 191, 36, 0.2);
+    }
+
+    .price-box {
+      background: #080d16;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 30px 0;
+    }
+
+    .price-text {
+      font-size: 48px;
+      font-weight: 900;
+      color: #f8fafc;
+      margin: 0;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .value-text {
+      font-size: 14px;
+      color: #475569;
+      text-decoration: line-through;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    .save-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      color: #fbbf24;
+      background: rgba(251, 191, 36, 0.12);
+      padding: 4px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(251, 191, 36, 0.25);
+    }
+
+    .books-section {
+      background: #080d16;
+      padding: 45px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .books-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #f8fafc;
+      text-align: center;
+      margin: 0 0 30px 0;
+    }
+
+    .book-item {
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .book-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      color: #000000;
+      width: 26px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 900;
+      vertical-align: top;
+      margin-right: 14px;
+    }
+
+    .book-title {
+      display: inline-block;
+      width: calc(100% - 44px);
+      font-size: 15px;
+      font-weight: 700;
+      color: #f8fafc;
+      line-height: 1.4;
+    }
+
+    .book-desc {
+      display: block;
+      margin-left: 40px;
+      margin-top: 6px;
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .features-row { padding: 28px 0; text-align: center; }
+    .feature-item { font-size: 14px; color: #94a3b8; font-weight: 500; margin-bottom: 12px; }
+
+    .footer { padding: 45px 30px; text-align: center; background: #03050a; }
+
+    @media screen and (max-width: 600px) {
+      .content-box { padding: 35px 20px; }
+      h1 { font-size: 28px; }
+      .btn { padding: 16px 28px; font-size: 16px; width: 85%; }
+      .books-section { padding: 35px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preheader text -->
+  <div style="display:none;font-size:1px;color:#03050a;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+    48 workbooks. 8 premium bundles. 1 massive collection. Get lifetime access to the ultimate toolkit for trauma recovery, nervous system regulation, and emotional mastery.
+    &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+  </div>
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#03050a;">
+    <tr>
+      <td align="center">
+        <table class="container" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+
+          <!-- Hero -->
+          <tr>
+            <td class="content-box">
+              <div class="badge">The Complete Library</div>
+              <h1>Every Healing Bundle.<br/>One <span class="gold-text">Ultimate Collection.</span></h1>
+
+              <p>Get all 8 of our premium best-selling bundles in one package. That's 48 complete workbooks covering Somatic Therapy, DBT, IFS, Trauma Recovery, and Emotional Mastery.</p>
+
+              <!-- High-up CTA -->
+              <a href="https://www.psychoreads.com/pages/the-complete-library" class="btn">Unlock The Library for $59.99</a>
+
+              <div class="price-box">
+                <p class="price-text">$59.99</p>
+                <p class="value-text">$232.00 Value</p>
+                <div class="save-pill">✦ You Save $172.01</div>
+              </div>
+
+              <div class="features-row">
+                <div class="feature-item">✓ 48 Total Workbooks</div>
+                <div class="feature-item">✓ Instant PDF Delivery</div>
+                <div class="feature-item">✓ Lifetime Access</div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Books -->
+          <tr>
+            <td class="books-section">
+              <h2 class="books-title">What's Included in the Library</h2>
+
+              <div class="book-item">
+                <span class="book-number">1</span>
+                <span class="book-title">Ultimate Nervous System &amp; Trauma Healing Bundle</span>
+                <span class="book-desc">Our #1 bestseller for somatic regulation. (6 Books)</span>
+              </div>
+
+              <div class="book-item">
+                <span class="book-number">2</span>
+                <span class="book-title">Complete IFS &amp; Fragmented Selves Bundle</span>
+                <span class="book-desc">The ultimate collection for inner-child healing and parts work. (6 Books)</span>
+              </div>
+
+              <div class="book-item">
+                <span class="book-number">3</span>
+                <span class="book-title">Anger &amp; Emotional Mastery Bundle</span>
+                <span class="book-desc">Take back control of your reactions and master emotional intelligence. (6 Books)</span>
+              </div>
+
+              <div class="book-item">
+                <span class="book-number">4</span>
+                <span class="book-title">Somatic, DBT &amp; Parts Healing Bundle</span>
+                <span class="book-desc">A blended approach of body-based healing and cognitive skills. (6 Books)</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">5</span>
+                <span class="book-title">IFS Deep Dive Bundle</span>
+                <span class="book-desc">Advanced resources for understanding your internal family system. (6 Books)</span>
+              </div>
+              
+              <div class="book-item">
+                <span class="book-number">6</span>
+                <span class="book-title">DBT &amp; Emotional Healing Bundle</span>
+                <span class="book-desc">Clinical-grade tools for emotional regulation. (6 Books)</span>
+              </div>
+
+              <div class="book-item">
+                <span class="book-number">7</span>
+                <span class="book-title">Premium Emotion Bundle</span>
+                <span class="book-desc">Our highly-rated collection for emotional intelligence and polyvagal theory. (6 Books)</span>
+              </div>
+
+              <div class="book-item">
+                <span class="book-number">8</span>
+                <span class="book-title">Complete Trauma &amp; Healing Bundle</span>
+                <span class="book-desc">A holistic approach to surviving and thriving after trauma. (6 Books)</span>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td class="footer">
+              <a href="https://www.psychoreads.com/pages/the-complete-library" class="btn">Secure Your Library Now</a>
+
+              <p style="font-size:12px; color:#475569; margin-top:24px;">
+                You are receiving this email because you signed up at PsychoReads.com<br/><br/>
+                <a href="https://psychoreads.com" style="color:#fbbf24; text-decoration:none;">Visit Store</a> &nbsp;&middot;&nbsp;
+                <a href="{{ unsubscribe_link }}" style="color:#475569; text-decoration:underline;">Unsubscribe</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  {{ open_tracking_block }}
+</body>
+</html>
