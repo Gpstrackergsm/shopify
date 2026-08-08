@@ -1,0 +1,565 @@
+{% comment %}
+  Advanced Trauma & EMDR — 6-Book Bundle
+  Snippet: advanced-trauma-emdr-bundle.liquid
+  Page template: page.advanced-trauma-emdr-bundle.liquid
+{% endcomment %}
+
+{% assign p1 = all_products['emotion-in-posttraumatic-stress-disorder-etiology-assessment-neurobiology-and-treatment'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['emdr-and-attachment-focused-trauma-therapy-for-adults-reclaiming-authentic-self-and-healthy-attachments'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['working-with-attachment-trauma-clinical-application-of-the-adult-attachment-projective-picture-system'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['transformational-chairwork-using-psychotherapeutic-dialogues-in-clinical-practice'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['evidence-based-counselling-psychotherapy-for-the-21st-century-practitioner'] %}
+{% assign v6 = p6.variants.first %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Advanced Trauma & EMDR Bundle | PsychoReads</title>
+  <meta name="description" content="Master advanced clinical skills with this 6-book collection on PTSD, EMDR, and relational trauma healing. Get instant digital access for just $29." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #0f766e;
+      --brand-dark: #115e59;
+      --brand-mid: #14b8a6;
+      --brand-light: #f0fdfa;
+      --accent: #0ea5e9;
+      --accent-hover: #0284c7;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --glass-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* ─── Navigation ─── */
+    .bundle-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .bundle-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .bundle-logo {
+      font-weight: 900;
+      font-size: 1.3rem;
+      color: var(--brand-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 800;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      font-size: 1.1rem;
+      padding: 16px 36px;
+      font-family: inherit;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(15,118,110, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(15,118,110, 0.45);
+    }
+    .btn-sm { font-size: 0.9rem; padding: 10px 22px; border-radius: 8px; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+    /* ─── Hero ─── */
+    .bundle-hero {
+      background: linear-gradient(150deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+      padding: 90px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand-dark);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .bundle-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      color: var(--brand-dark);
+      line-height: 1.05;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+    }
+    .bundle-hero h1 span { color: var(--brand); }
+    .bundle-hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+    .price-block { margin-bottom: 36px; }
+    .price-current {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--brand-dark);
+      letter-spacing: -2px;
+    }
+    .price-original {
+      font-size: 1.2rem;
+      text-decoration: line-through;
+      color: #94a3b8;
+      margin-left: 12px;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    .hero-cta-hint {
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ─── Trust Bar ─── */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px 48px;
+      padding: 36px 24px;
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.95);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── What You Get (mini teaser) ─── */
+    .teaser-section {
+      padding: 72px 24px 0;
+      background: var(--bg);
+    }
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--brand);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto 52px;
+    }
+
+    /* ─── Books Grid ─── */
+    .books-section { padding: 0 24px 80px; background: var(--bg); }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .book-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .book-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(15,118,110,0.1);
+      border-color: rgba(15,118,110,0.2);
+    }
+    .book-number {
+      width: 32px;
+      height: 32px;
+      background: var(--brand-light);
+      color: var(--brand);
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .book-img-wrap {
+      width: 150px;
+      height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+    }
+    .book-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .book-card:hover .book-img { transform: scale(1.04); }
+    .book-img-placeholder {
+      width: 150px;
+      height: 210px;
+      background: linear-gradient(135deg, var(--brand-light), #e2e8f0);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .book-title {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .book-tag {
+      display: inline-block;
+      background: var(--brand-light);
+      color: var(--brand-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* ─── CTA Section ─── */
+    .cta-section {
+      background: linear-gradient(150deg, #115e59 0%, #0f766e 60%, #0d9488 100%);
+      padding: 80px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 36px; }
+    .cta-btn-white {
+      background: #fff;
+      color: var(--brand-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .cta-btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    /* ─── Sticky CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 14px 24px;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta-text { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+    .sticky-price { color: var(--brand); font-size: 1.2rem; font-weight: 900; }
+
+    @media (max-width: 768px) {
+      .bundle-hero { padding: 60px 20px 56px; }
+      .bundle-hero h1 { font-size: 2.1rem; letter-spacing: -0.5px; }
+      .price-current { font-size: 2.8rem; }
+      .sticky-cta { flex-direction: column; text-align: center; gap: 10px; padding: 12px 20px; }
+      .trust-bar { gap: 20px 32px; }
+      .books-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="bundle-nav">
+    <div class="bundle-nav-inner">
+      <a href="/" class="bundle-logo">PsychoReads</a>
+      <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="nav-btn">🛒 Get the Bundle</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bundle-hero">
+    <div class="hero-badge">✨ Advanced Clinical Collection</div>
+    <h1>The Advanced Trauma &amp;<br><span>EMDR Bundle</span></h1>
+    <p>A definitive 6-book collection on PTSD, relational healing, attachment-focused EMDR, and psychotherapeutic dialogue.</p>
+    <div class="price-block">
+      <span class="price-current">$29.00</span>
+      <span class="price-original">$180.00 Value</span>
+    </div>
+    <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
+      🛒 Get All 6 Books for $29
+    </button>
+    <p class="hero-cta-hint">⚡ Instant PDF Download &nbsp;•&nbsp; 🔒 Secure Checkout</p>
+  </header>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-icon">📚</div> 6 Professional Workbooks</div>
+    <div class="trust-item"><div class="trust-icon">⚡</div> Instant Digital Access</div>
+    <div class="trust-item"><div class="trust-icon">🧠</div> Deep Clinical Focus</div>
+  </div>
+
+  <!-- Books Section -->
+  <section class="teaser-section">
+    <p class="section-label">Inside the bundle</p>
+    <h2 class="section-title">6 Masterworks of Clinical Healing.</h2>
+    <p class="section-subtitle">Deepen your clinical practice or personal healing journey with these rigorously curated titles.</p>
+  </section>
+
+  <section class="books-section">
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-number">01</div>
+        <div class="book-img-wrap">
+          {% if p1.images.first %}
+            <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p1.title | default: "Emotion in PTSD" }}</h3>
+        <span class="book-tag">PTSD &amp; Emotion</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">02</div>
+        <div class="book-img-wrap">
+          {% if p2.images.first %}
+            <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p2.title | default: "EMDR and Attachment-Focused Therapy" }}</h3>
+        <span class="book-tag">Trauma &amp; EMDR</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">03</div>
+        <div class="book-img-wrap">
+          {% if p3.images.first %}
+            <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p3.title | default: "Attachment-Focused EMDR" }}</h3>
+        <span class="book-tag">Relational Trauma</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">04</div>
+        <div class="book-img-wrap">
+          {% if p4.images.first %}
+            <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p4.title | default: "Working with Attachment Trauma" }}</h3>
+        <span class="book-tag">Attachment Repair</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">05</div>
+        <div class="book-img-wrap">
+          {% if p5.images.first %}
+            <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p5.title | default: "Transformational Chairwork" }}</h3>
+        <span class="book-tag">Psychotherapeutic Dialogue</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">06</div>
+        <div class="book-img-wrap">
+          {% if p6.images.first %}
+            <img src="{{ p6.images.first | img_url: '600x' }}" alt="{{ p6.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p6.title | default: "Evidence Based Counselling" }}</h3>
+        <span class="book-tag">Clinical Foundations</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="cta-section">
+    <h2>Elevate Your Healing Practice.</h2>
+    <p>Get all 6 advanced clinical books instantly. One payment. Lifetime access.</p>
+    <button class="btn cta-btn-white" onclick="checkoutBundle()" id="cta-bottom-btn">
+      🛒 Get the Bundle — Only $29
+    </button>
+  </section>
+
+  <!-- Sticky Bottom CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="sticky-cta-text">Advanced Trauma &amp; EMDR Bundle <span class="sticky-price">— $29</span></div>
+    <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="sticky-btn">Buy Now</button>
+  </div>
+
+  <script>
+    const heroBtn = document.getElementById('hero-btn');
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      if (heroBtn.getBoundingClientRect().bottom < 0) {
+        stickyCta.classList.add('show');
+      } else {
+        stickyCta.classList.remove('show');
+      }
+    });
+
+    function checkoutBundle() {
+      const variants = [
+        '{{ v1.id }}', '{{ v2.id }}', '{{ v3.id }}',
+        '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}'
+      ];
+
+      if (variants.some(function(v) { return !v || v === ''; })) {
+        alert('Bundle configuration error — one or more products could not be found.');
+        return;
+      }
+
+      document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+        btn.textContent = 'Processing…';
+        btn.disabled = true;
+      });
+
+      var items = variants.map(function(id) { return { id: Number(id), quantity: 1 }; });
+
+      fetch('/cart/clear.js', { method: 'POST' })
+        .then(function() {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: items })
+          });
+        })
+        .then(function(res) { return res.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function(err) {
+          console.error('Bundle checkout error:', err);
+          alert('There was an error creating your bundle. Please try again.');
+          document.getElementById('nav-btn').textContent = '🛒 Get the Bundle';
+          document.getElementById('hero-btn').textContent = '🛒 Get All 6 Books for $29';
+          document.getElementById('cta-bottom-btn').textContent = '🛒 Get the Bundle — Only $29';
+          document.getElementById('sticky-btn').textContent = 'Buy Now';
+          document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+            btn.disabled = false;
+          });
+        });
+    }
+  </script>
+
+</body>
+</html>
