@@ -1,0 +1,383 @@
+{% comment %}
+  Psychology of Success — 6-Book Bundle
+  Snippet: psychology-of-success-bundle.liquid
+  Page template: page.psychology-of-success-bundle.liquid
+{% endcomment %}
+
+{% assign p1 = all_products['mans-search-for-meaning'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['psycho-cybernetics-updated-and-expanded-the-psycho-cybernetics-series'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['influence-the-psychology-of-persuasion-revised-edition'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['the-48-laws-of-power'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['zero-to-one'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['principles-for-dealing-with-the-changing-world-order-why-nations-succeed-and-fail'] %}
+{% assign v6 = p6.variants.first %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Psychology of Success Bundle — 6 Books | PsychoReads</title>
+  <meta name="description" content="Master mindset, influence, and strategic thinking with 6 of the most powerful books in psychology and success. Get instant digital access for just $29." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #5b21b6;
+      --brand-dark: #3b0764;
+      --brand-mid: #7c3aed;
+      --brand-light: #f5f3ff;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --text-primary: #1a1a2e;
+      --text-secondary: #4b5563;
+      --bg: #ffffff;
+      --surface: #fafaff;
+      --border: #e5e7eb;
+      --glass-bg: rgba(255, 255, 255, 0.92);
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+    .bundle-nav { position: sticky; top: 0; z-index: 1000; background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+    .bundle-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .bundle-logo { font-weight: 900; font-size: 1.3rem; color: var(--brand); text-decoration: none; letter-spacing: -0.5px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; border-radius: 12px; cursor: pointer; transition: all 0.25s ease; border: none; font-size: 1.1rem; padding: 16px 36px; font-family: inherit; text-decoration: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%); color: #fff; box-shadow: 0 4px 20px rgba(245,158,11,0.35); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,158,11,0.45); }
+    .btn-sm { font-size: 0.9rem; padding: 10px 22px; border-radius: 8px; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+    .countdown-bar { background: linear-gradient(90deg, var(--brand) 0%, var(--brand-mid) 100%); color: #fff; text-align: center; padding: 10px 24px; font-size: 0.9rem; font-weight: 700; }
+    .countdown-timer { font-variant-numeric: tabular-nums; font-weight: 900; }
+
+    .bundle-hero { background: linear-gradient(150deg, #1a1a2e 0%, #3b0764 50%, #5b21b6 100%); padding: 90px 24px 80px; text-align: center; position: relative; overflow: hidden; }
+    .bundle-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 0%, rgba(245,158,11,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.5); color: #fbbf24; font-size: 0.8rem; font-weight: 800; padding: 6px 18px; border-radius: 999px; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .bundle-hero h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 900; color: #ffffff; line-height: 1.05; margin-bottom: 20px; letter-spacing: -1.5px; }
+    .bundle-hero h1 span { color: #fbbf24; }
+    .bundle-hero p { font-size: 1.2rem; color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 44px; line-height: 1.7; }
+    .price-block { margin-bottom: 36px; }
+    .price-current { font-size: 3.5rem; font-weight: 900; color: #fbbf24; letter-spacing: -2px; }
+    .price-original { font-size: 1.2rem; text-decoration: line-through; color: rgba(255,255,255,0.4); margin-left: 12px; font-weight: 600; vertical-align: middle; }
+    .hero-cta-hint { margin-top: 16px; font-size: 0.875rem; color: rgba(255,255,255,0.5); font-weight: 500; }
+
+    .trust-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 32px 48px; padding: 36px 24px; background: var(--brand-dark); color: rgba(255,255,255,0.9); }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+    .trust-icon { width: 36px; height: 36px; background: rgba(245,158,11,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+
+    .teaser-section { padding: 72px 24px 0; background: var(--surface); }
+    .section-label { text-align: center; font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--brand-mid); margin-bottom: 12px; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: var(--brand-dark); line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .section-subtitle { text-align: center; font-size: 1.05rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto 52px; }
+
+    .books-section { padding: 0 24px 80px; background: var(--surface); }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; max-width: 1160px; margin: 0 auto; }
+    .book-card { background: #fff; border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; }
+    .book-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(91,33,182,0.1); border-color: rgba(91,33,182,0.2); }
+    .book-number { width: 32px; height: 32px; background: var(--brand-light); color: var(--brand-mid); border-radius: 50%; font-size: 0.85rem; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .book-img-wrap { width: 150px; height: 210px; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+    .book-img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 6px; box-shadow: 0 10px 24px rgba(0,0,0,0.13); transition: transform 0.3s ease; }
+    .book-card:hover .book-img { transform: scale(1.04); }
+    .book-img-placeholder { width: 150px; height: 210px; background: linear-gradient(135deg, var(--brand-light), #ede9fe); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .book-title { font-size: 1rem; font-weight: 800; line-height: 1.35; color: var(--text-primary); margin-bottom: 8px; }
+    .book-tag { display: inline-block; background: var(--brand-light); color: var(--brand-mid); font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+    .why-section { padding: 80px 24px; background: #fff; }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 960px; margin: 0 auto; }
+    .why-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px 24px; }
+    .why-icon { font-size: 2rem; margin-bottom: 14px; }
+    .why-title { font-size: 1.05rem; font-weight: 800; color: var(--brand-dark); margin-bottom: 8px; }
+    .why-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+    .cta-section { background: linear-gradient(150deg, #1a1a2e 0%, #3b0764 60%, #5b21b6 100%); padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 100%, rgba(245,158,11,0.1) 0%, transparent 65%); pointer-events: none; }
+    .cta-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 36px; }
+    .cta-btn-white { background: #fff; color: var(--brand-dark); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .cta-btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--border); padding: 14px 24px; z-index: 999; display: flex; justify-content: center; align-items: center; gap: 24px; box-shadow: 0 -4px 24px rgba(0,0,0,0.07); transform: translateY(100%); transition: transform 0.3s ease; }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta-text { font-weight: 800; font-size: 1rem; color: var(--text-primary); }
+    .sticky-price { color: var(--brand-mid); font-size: 1.2rem; font-weight: 900; }
+
+    @media (max-width: 768px) {
+      .bundle-hero { padding: 60px 20px 56px; }
+      .bundle-hero h1 { font-size: 2.1rem; letter-spacing: -0.5px; }
+      .price-current { font-size: 2.8rem; }
+      .sticky-cta { flex-direction: column; text-align: center; gap: 10px; padding: 12px 20px; }
+      .trust-bar { gap: 20px 32px; }
+      .books-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Countdown Bar -->
+  <div class="countdown-bar">
+    ⏳ Limited-time offer — expires in <span class="countdown-timer" id="timer">23:59:59</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="bundle-nav">
+    <div class="bundle-nav-inner">
+      <a href="/" class="bundle-logo">PsychoReads</a>
+      <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="nav-btn">🛒 Get the Bundle</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bundle-hero">
+    <div class="hero-badge">✨ Exclusive Bundle — 6 Books</div>
+    <h1>The Psychology of<br><span>Success Bundle</span></h1>
+    <p>Master mindset, influence, strategy, and self-image with 6 landmark books that shaped modern psychology and success thinking.</p>
+    <div class="price-block">
+      <span class="price-current">$29.00</span>
+      <span class="price-original">$149.00 Value</span>
+    </div>
+    <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
+      🛒 Get All 6 Books for $29
+    </button>
+    <p class="hero-cta-hint">⚡ Instant PDF Download &nbsp;•&nbsp; 🔒 Secure Checkout &nbsp;•&nbsp; 30-Day Guarantee</p>
+  </header>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-icon">📚</div> 6 Complete Books</div>
+    <div class="trust-item"><div class="trust-icon">⚡</div> Instant Digital Access</div>
+    <div class="trust-item"><div class="trust-icon">🧠</div> Psychology-Backed Insights</div>
+    <div class="trust-item"><div class="trust-icon">🛡️</div> 30-Day Money Back</div>
+  </div>
+
+  <!-- Books Section -->
+  <section class="teaser-section">
+    <p class="section-label">Inside the bundle</p>
+    <h2 class="section-title">6 Timeless Books.<br>One Transformative Price.</h2>
+    <p class="section-subtitle">Curated by our editorial team — these titles represent the absolute best in psychology, persuasion, and strategic thinking.</p>
+  </section>
+
+  <section class="books-section">
+    <div class="books-grid">
+
+      <!-- Book 1 -->
+      <div class="book-card">
+        <div class="book-number">01</div>
+        <div class="book-img-wrap">
+          {% if p1.images.first %}
+            <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p1.title | default: "Man's Search for Meaning" }}</h3>
+        <span class="book-tag">Existential Psychology</span>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="book-card">
+        <div class="book-number">02</div>
+        <div class="book-img-wrap">
+          {% if p2.images.first %}
+            <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p2.title | default: "Psycho-Cybernetics" }}</h3>
+        <span class="book-tag">Self-Image &amp; Mindset</span>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="book-card">
+        <div class="book-number">03</div>
+        <div class="book-img-wrap">
+          {% if p3.images.first %}
+            <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p3.title | default: "Influence: The Psychology of Persuasion" }}</h3>
+        <span class="book-tag">Persuasion &amp; Social Psychology</span>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="book-card">
+        <div class="book-number">04</div>
+        <div class="book-img-wrap">
+          {% if p4.images.first %}
+            <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p4.title | default: "The 48 Laws of Power" }}</h3>
+        <span class="book-tag">Power &amp; Strategy</span>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="book-card">
+        <div class="book-number">05</div>
+        <div class="book-img-wrap">
+          {% if p5.images.first %}
+            <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p5.title | default: "Zero to One" }}</h3>
+        <span class="book-tag">Innovation &amp; Thinking</span>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="book-card">
+        <div class="book-number">06</div>
+        <div class="book-img-wrap">
+          {% if p6.images.first %}
+            <img src="{{ p6.images.first | img_url: '600x' }}" alt="{{ p6.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p6.title | default: "Principles for Dealing with the Changing World Order" }}</h3>
+        <span class="book-tag">Macro Strategy &amp; Systems</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why This Bundle -->
+  <section class="why-section">
+    <p class="section-label">Why this bundle</p>
+    <h2 class="section-title" style="margin-bottom:12px;">Built for People Who<br>Think Differently</h2>
+    <p class="section-subtitle" style="margin-bottom:48px;">These books don't just give you information — they rewire how you see the world.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <div class="why-title">Purposefully Curated</div>
+        <div class="why-text">Every book was chosen to build on the one before it — from inner purpose, to self-belief, to mastering influence and strategy.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Instant Access</div>
+        <div class="why-text">Download all 6 PDF books immediately after checkout. No waiting, no shipping — start reading in minutes.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💸</div>
+        <div class="why-title">Unbeatable Value</div>
+        <div class="why-text">Individually worth over $149. You get the entire collection for a single flat price of $29 — that's less than one coffee a book.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🛡️</div>
+        <div class="why-title">Risk-Free Guarantee</div>
+        <div class="why-text">Not satisfied? Contact us within 30 days for a full refund. No questions asked. We stand behind every title.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Unlock Your<br>Full Potential?</h2>
+    <p>Get all 6 books instantly. One payment. Lifetime access.</p>
+    <button class="btn cta-btn-white" onclick="checkoutBundle()" id="cta-bottom-btn">
+      🛒 Get the Bundle — Only $29
+    </button>
+    <p style="margin-top:16px; font-size:0.85rem; color:rgba(255,255,255,0.45); font-weight:500;">⚡ Instant PDF Download &nbsp;•&nbsp; 🔒 Secure Checkout</p>
+  </section>
+
+  <!-- Sticky Bottom CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="sticky-cta-text">Psychology of Success Bundle <span class="sticky-price">— $29</span></div>
+    <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="sticky-btn">Buy Now</button>
+  </div>
+
+  <script>
+    // Sticky CTA on scroll
+    const heroBtn = document.getElementById('hero-btn');
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      if (heroBtn.getBoundingClientRect().bottom < 0) {
+        stickyCta.classList.add('show');
+      } else {
+        stickyCta.classList.remove('show');
+      }
+    });
+
+    // Countdown timer (24h from first visit, stored in sessionStorage)
+    function startCountdown() {
+      const key = 'psych_success_bundle_end';
+      let end = sessionStorage.getItem(key);
+      if (!end) {
+        end = Date.now() + 24 * 60 * 60 * 1000;
+        sessionStorage.setItem(key, end);
+      }
+      const el = document.getElementById('timer');
+      function tick() {
+        const diff = parseInt(end) - Date.now();
+        if (diff <= 0) { el.textContent = '00:00:00'; return; }
+        const h = Math.floor(diff / 3600000).toString().padStart(2, '0');
+        const m = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+        const s = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+        el.textContent = h + ':' + m + ':' + s;
+        setTimeout(tick, 1000);
+      }
+      tick();
+    }
+    startCountdown();
+
+    // Bundle checkout
+    function checkoutBundle() {
+      const variants = [
+        '{{ v1.id }}', '{{ v2.id }}', '{{ v3.id }}',
+        '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}'
+      ];
+
+      if (variants.some(function(v) { return !v || v === ''; })) {
+        alert('Bundle configuration error — one or more products could not be found.');
+        return;
+      }
+
+      document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+        btn.textContent = 'Processing…';
+        btn.disabled = true;
+      });
+
+      var items = variants.map(function(id) { return { id: Number(id), quantity: 1 }; });
+
+      fetch('/cart/clear.js', { method: 'POST' })
+        .then(function() {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: items })
+          });
+        })
+        .then(function(res) { return res.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function(err) {
+          console.error('Bundle checkout error:', err);
+          alert('There was an error creating your bundle. Please try again.');
+          document.getElementById('nav-btn').textContent = '🛒 Get the Bundle';
+          document.getElementById('hero-btn').textContent = '🛒 Get All 6 Books for $29';
+          document.getElementById('cta-bottom-btn').textContent = '🛒 Get the Bundle — Only $29';
+          document.getElementById('sticky-btn').textContent = 'Buy Now';
+          document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+            btn.disabled = false;
+          });
+        });
+    }
+  </script>
+
+</body>
+</html>
