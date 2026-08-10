@@ -1,0 +1,510 @@
+{% comment %}
+  The Complete Trauma Healing Bundle — 6 Books
+  Snippet: complete-trauma-healing-bundle.liquid
+  Template: page.complete-trauma-healing-bundle.liquid
+  Data-driven: Trauma (32%) + IFS (17%) + Somatic (12.5%) = 62% of all store sales
+{% endcomment %}
+
+{% assign p1 = all_products['the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['waking-the-tiger-healing-trauma'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['healing-developmental-trauma-how-early-trauma-affects-self-regulation-self-image-and-the-capacity-for-relationship'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['the-boy-who-was-raised-as-a-dog-and-other-stories-from-a-child-psychiatrists-notebook-what-traumatized-children-can-teach-us-about-loss-love-and-healing'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['internal-family-systems-skills-training-manual-trauma-informed-treatment-for-anxiety-depression-ptsd-substance-abuse'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['daily-vagus-nerve-exercise-train-your-nervous-system-to-reduce-anxiety-improve-health-and-restore-mind-body-balance'] %}
+{% assign v6 = p6.variants.first %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Complete Trauma Healing Bundle — 6 Books | PsychoReads</title>
+  <meta name="description" content="The 6 most clinically proven books on trauma healing, IFS, somatic therapy, and nervous system regulation. Instant digital access for $29." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #b45309;
+      --brand-dark: #78350f;
+      --brand-mid: #d97706;
+      --brand-light: #fffbeb;
+      --accent: #ea580c;
+      --text-primary: #1c1917;
+      --text-secondary: #57534e;
+      --bg: #ffffff;
+      --surface: #fafaf9;
+      --border: #e7e5e4;
+      --glass-bg: rgba(255, 255, 255, 0.94);
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-primary); line-height: 1.6; }
+
+    /* Nav */
+    .bundle-nav {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--glass-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border); padding: 0 24px;
+    }
+    .bundle-nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .bundle-logo { font-weight: 900; font-size: 1.3rem; color: var(--brand-dark); text-decoration: none; letter-spacing: -0.5px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-weight: 800; border-radius: 12px; cursor: pointer; transition: all 0.25s ease;
+      border: none; font-size: 1.05rem; padding: 15px 32px; font-family: inherit; text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: #fff; box-shadow: 0 4px 20px rgba(180,83,9,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(180,83,9,0.45); }
+    .btn-sm { font-size: 0.88rem; padding: 9px 20px; border-radius: 8px; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+    /* Urgency bar */
+    .urgency-bar {
+      background: linear-gradient(90deg, #78350f 0%, #b45309 100%);
+      color: #fef3c7; text-align: center; padding: 11px 24px;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.3px;
+    }
+    .countdown-timer { font-variant-numeric: tabular-nums; font-weight: 900; color: #fcd34d; }
+
+    /* Hero */
+    .bundle-hero {
+      background: linear-gradient(150deg, #1c1917 0%, #44200a 45%, #78350f 100%);
+      padding: 88px 24px 76px; text-align: center; position: relative; overflow: hidden;
+    }
+    .bundle-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 0%, rgba(217,119,6,0.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(251,191,36,0.15); border: 1px solid rgba(251,191,36,0.45);
+      color: #fbbf24; font-size: 0.78rem; font-weight: 800; padding: 6px 18px;
+      border-radius: 999px; margin-bottom: 28px; text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    .bundle-hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 4rem); font-weight: 900; color: #ffffff;
+      line-height: 1.05; margin-bottom: 20px; letter-spacing: -1.5px;
+    }
+    .bundle-hero h1 span { color: #fcd34d; }
+    .bundle-hero p {
+      font-size: 1.15rem; color: rgba(255,255,255,0.72); max-width: 600px;
+      margin: 0 auto 44px; line-height: 1.75;
+    }
+    .price-block { margin-bottom: 32px; }
+    .price-current { font-size: 3.6rem; font-weight: 900; color: #fcd34d; letter-spacing: -2px; }
+    .price-original {
+      font-size: 1.2rem; text-decoration: line-through; color: rgba(255,255,255,0.35);
+      margin-left: 12px; font-weight: 600; vertical-align: middle;
+    }
+    .hero-trust-row {
+      margin-top: 18px; font-size: 0.85rem; color: rgba(255,255,255,0.55); font-weight: 500;
+    }
+    .hero-trust-row strong { color: #fcd34d; font-weight: 700; }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 28px 48px;
+      padding: 32px 24px; background: #1c1917; color: rgba(255,255,255,0.9);
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 0.95rem; }
+    .trust-icon {
+      width: 34px; height: 34px; background: rgba(253,211,77,0.12);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+
+    /* Social proof strip */
+    .proof-strip {
+      background: var(--brand-light); border-top: 1px solid #fde68a; border-bottom: 1px solid #fde68a;
+      padding: 14px 24px; text-align: center;
+      font-size: 0.9rem; font-weight: 700; color: var(--brand-dark);
+    }
+
+    /* Section headers */
+    .section-label {
+      text-align: center; font-size: 0.78rem; font-weight: 800; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--brand-mid); margin-bottom: 10px;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(1.8rem, 3.5vw, 2.7rem); font-weight: 900;
+      color: var(--text-primary); line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px;
+    }
+    .section-subtitle {
+      text-align: center; font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 580px; margin: 0 auto 52px;
+    }
+
+    /* Books */
+    .teaser-section { padding: 76px 24px 0; background: var(--bg); }
+    .books-section { padding: 0 24px 80px; background: var(--bg); }
+    .books-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px; max-width: 1160px; margin: 0 auto;
+    }
+    .book-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 30px 26px; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .book-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(180,83,9,0.1); border-color: rgba(180,83,9,0.2); }
+    .book-number {
+      width: 30px; height: 30px; background: var(--brand-light); color: var(--brand);
+      border-radius: 50%; font-size: 0.8rem; font-weight: 900;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+    }
+    .book-img-wrap { width: 145px; height: 205px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+    .book-img {
+      max-width: 100%; max-height: 100%; object-fit: contain;
+      border-radius: 6px; box-shadow: 0 10px 24px rgba(0,0,0,0.13); transition: transform 0.3s ease;
+    }
+    .book-card:hover .book-img { transform: scale(1.04); }
+    .book-img-placeholder {
+      width: 145px; height: 205px;
+      background: linear-gradient(135deg, var(--brand-light), #fde68a);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+    }
+    .book-title { font-size: 0.97rem; font-weight: 800; line-height: 1.35; color: var(--text-primary); margin-bottom: 8px; }
+    .book-tag {
+      display: inline-block; background: var(--brand-light); color: var(--brand-dark);
+      font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px;
+    }
+
+    /* Why section */
+    .why-section { padding: 76px 24px; background: var(--surface); border-top: 1px solid var(--border); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px; max-width: 960px; margin: 0 auto;
+    }
+    .why-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; }
+    .why-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .why-title { font-size: 1rem; font-weight: 800; color: var(--brand-dark); margin-bottom: 8px; }
+    .why-text { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+
+    /* Guarantee */
+    .guarantee-section {
+      max-width: 680px; margin: 0 auto; padding: 0 24px 72px;
+      text-align: center;
+    }
+    .guarantee-box {
+      background: var(--brand-light); border: 2px solid #fde68a;
+      border-radius: 20px; padding: 36px 32px;
+    }
+    .guarantee-box h3 { font-size: 1.3rem; font-weight: 900; color: var(--brand-dark); margin-bottom: 12px; }
+    .guarantee-box p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(150deg, #1c1917 0%, #44200a 60%, #78350f 100%);
+      padding: 80px 24px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 14px; }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 36px; }
+    .btn-cta-light { background: #fcd34d; color: #1c1917; box-shadow: 0 4px 20px rgba(252,211,77,0.3); }
+    .btn-cta-light:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(252,211,77,0.45); }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--glass-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border); padding: 13px 24px; z-index: 999;
+      display: flex; justify-content: center; align-items: center; gap: 22px;
+      box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta-text { font-weight: 800; font-size: 0.95rem; color: var(--text-primary); }
+    .sticky-price { color: var(--brand); font-size: 1.15rem; font-weight: 900; }
+
+    @media (max-width: 768px) {
+      .bundle-hero { padding: 60px 20px 52px; }
+      .bundle-hero h1 { font-size: 2.1rem; letter-spacing: -0.5px; }
+      .price-current { font-size: 2.8rem; }
+      .sticky-cta { flex-direction: column; text-align: center; gap: 10px; padding: 12px 20px; }
+      .trust-bar { gap: 18px 28px; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Urgency Bar -->
+  <div class="urgency-bar">
+    🔥 Limited time offer — ends in <span class="countdown-timer" id="timer">23:59:59</span> &nbsp;|&nbsp; Only a few bundles left at this price
+  </div>
+
+  <!-- Nav -->
+  <nav class="bundle-nav">
+    <div class="bundle-nav-inner">
+      <a href="/" class="bundle-logo">PsychoReads</a>
+      <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="nav-btn">🛒 Get the Bundle — $29</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bundle-hero">
+    <div class="hero-badge">🧠 Clinically Proven · Evidence-Based</div>
+    <h1>The Complete<br><span>Trauma Healing Bundle</span></h1>
+    <p>The 6 most essential books used by therapists, counselors, and individuals to understand, process, and heal from trauma — covering Somatic, IFS, and Nervous System approaches.</p>
+    <div class="price-block">
+      <span class="price-current">$29.00</span>
+      <span class="price-original">$180.00 Value</span>
+    </div>
+    <button id="hero-btn" class="btn btn-primary" onclick="checkoutBundle()">
+      🛒 Unlock My Healing Library
+    </button>
+    <div class="hero-trust-row">
+      <strong>⚡ Instant Download</strong> &nbsp;•&nbsp; Works on Kindle, Apple Books &amp; PDF &nbsp;•&nbsp; <strong>🛡️ 30-Day Guarantee</strong>
+    </div>
+  </header>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item"><div class="trust-icon">📚</div> 6 Clinical Masterworks</div>
+    <div class="trust-item"><div class="trust-icon">⚡</div> Instant Digital Access</div>
+    <div class="trust-item"><div class="trust-icon">🧠</div> Covers Trauma, IFS &amp; Somatic</div>
+    <div class="trust-item"><div class="trust-icon">🛡️</div> 30-Day Money Back</div>
+  </div>
+
+  <!-- Social Proof Strip -->
+  <div class="proof-strip">
+    ⭐ Trusted by therapists, psychologists &amp; counselors — our #1 most requested topic with 200+ sales this month
+  </div>
+
+  <!-- Books Section -->
+  <section class="teaser-section">
+    <p class="section-label">What's inside</p>
+    <h2 class="section-title">6 Books. Three Modalities.<br>One Complete Healing System.</h2>
+    <p class="section-subtitle">Handpicked from our bestsellers list — these titles cover the full spectrum of trauma recovery used by leading clinical practitioners today.</p>
+  </section>
+
+  <section class="books-section">
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-number">01</div>
+        <div class="book-img-wrap">
+          {% if p1.images.first %}
+            <img src="{{ p1.images.first | img_url: '600x' }}" alt="{{ p1.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p1.title | default: "The Body Keeps the Score" }}</h3>
+        <span class="book-tag">Trauma &amp; Body</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">02</div>
+        <div class="book-img-wrap">
+          {% if p2.images.first %}
+            <img src="{{ p2.images.first | img_url: '600x' }}" alt="{{ p2.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p2.title | default: "Waking the Tiger: Healing Trauma" }}</h3>
+        <span class="book-tag">Somatic Experiencing</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">03</div>
+        <div class="book-img-wrap">
+          {% if p3.images.first %}
+            <img src="{{ p3.images.first | img_url: '600x' }}" alt="{{ p3.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p3.title | default: "Healing Developmental Trauma" }}</h3>
+        <span class="book-tag">Developmental Trauma</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">04</div>
+        <div class="book-img-wrap">
+          {% if p4.images.first %}
+            <img src="{{ p4.images.first | img_url: '600x' }}" alt="{{ p4.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p4.title | default: "The Boy Who Was Raised as a Dog" }}</h3>
+        <span class="book-tag">Child Trauma</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">05</div>
+        <div class="book-img-wrap">
+          {% if p5.images.first %}
+            <img src="{{ p5.images.first | img_url: '600x' }}" alt="{{ p5.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p5.title | default: "IFS Skills Training Manual" }}</h3>
+        <span class="book-tag">Internal Family Systems</span>
+      </div>
+
+      <div class="book-card">
+        <div class="book-number">06</div>
+        <div class="book-img-wrap">
+          {% if p6.images.first %}
+            <img src="{{ p6.images.first | img_url: '600x' }}" alt="{{ p6.title }}" class="book-img" loading="lazy" />
+          {% else %}
+            <div class="book-img-placeholder">📖</div>
+          {% endif %}
+        </div>
+        <h3 class="book-title">{{ p6.title | default: "Daily Vagus Nerve Exercise" }}</h3>
+        <span class="book-tag">Nervous System</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="why-section">
+    <p class="section-label">Why this bundle</p>
+    <h2 class="section-title" style="margin-bottom:12px;">Built for Clinicians &amp;<br>Serious Healers</h2>
+    <p class="section-subtitle" style="margin-bottom:44px;">Every title is evidence-based and clinically recognized. This is not generic self-help — this is the real toolkit.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🔬</div>
+        <div class="why-title">Evidence-Based Only</div>
+        <div class="why-text">Every book in this bundle is grounded in peer-reviewed research and used in professional clinical settings worldwide.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🧩</div>
+        <div class="why-title">Three Modalities, One Bundle</div>
+        <div class="why-text">Somatic Experiencing, Internal Family Systems, and Nervous System Regulation — the three most impactful trauma approaches today.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <div class="why-title">Instant Access, Any Device</div>
+        <div class="why-text">PDF format works immediately on Kindle, Apple Books, iPad, desktop, or any PDF reader. Start reading in under 60 seconds.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💸</div>
+        <div class="why-title">80% Off Retail Price</div>
+        <div class="why-text">$180 worth of clinical literature for just $29. Less than the cost of a single therapy session.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="guarantee-section">
+    <div class="guarantee-box">
+      <h3>🛡️ 30-Day Money-Back Guarantee</h3>
+      <p>We stand behind every book in this bundle. If you're not completely satisfied, contact us within 30 days for a full refund — no questions asked. You have nothing to lose.</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <h2>Start Your Healing Journey Today.</h2>
+    <p>6 clinical masterworks. Instant access. One unbeatable price.</p>
+    <button class="btn btn-cta-light" onclick="checkoutBundle()" id="cta-bottom-btn">
+      🛒 Unlock My Bundle for $29
+    </button>
+    <p style="margin-top:14px; font-size:0.85rem; color:rgba(255,255,255,0.45);">⚡ Instant PDF Download &nbsp;•&nbsp; 🛡️ 30-Day Guarantee &nbsp;•&nbsp; 🔒 Secure Checkout</p>
+  </section>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="sticky-cta-text">Complete Trauma Healing Bundle <span class="sticky-price">— $29</span></div>
+    <button class="btn btn-primary btn-sm" onclick="checkoutBundle()" id="sticky-btn">Buy Now</button>
+  </div>
+
+  <script>
+    // Sticky CTA
+    const heroBtn = document.getElementById('hero-btn');
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', function() {
+      if (heroBtn.getBoundingClientRect().bottom < 0) {
+        stickyCta.classList.add('show');
+      } else {
+        stickyCta.classList.remove('show');
+      }
+    });
+
+    // Countdown timer
+    function startCountdown() {
+      var key = 'trauma_bundle_end';
+      var end = sessionStorage.getItem(key);
+      if (!end) {
+        end = Date.now() + 24 * 60 * 60 * 1000;
+        sessionStorage.setItem(key, end);
+      }
+      var el = document.getElementById('timer');
+      function tick() {
+        var diff = parseInt(end) - Date.now();
+        if (diff <= 0) { el.textContent = '00:00:00'; return; }
+        var h = Math.floor(diff / 3600000).toString().padStart(2, '0');
+        var m = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+        var s = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+        el.textContent = h + ':' + m + ':' + s;
+        setTimeout(tick, 1000);
+      }
+      tick();
+    }
+    startCountdown();
+
+    // Checkout
+    function checkoutBundle() {
+      var variants = [
+        '{{ v1.id }}', '{{ v2.id }}', '{{ v3.id }}',
+        '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}'
+      ];
+
+      if (variants.some(function(v) { return !v || v === ''; })) {
+        alert('Bundle configuration error — one or more products could not be found.');
+        return;
+      }
+
+      document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+        btn.textContent = 'Processing…';
+        btn.disabled = true;
+      });
+
+      var items = variants.map(function(id) { return { id: Number(id), quantity: 1 }; });
+
+      fetch('/cart/clear.js', { method: 'POST' })
+        .then(function() {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: items })
+          });
+        })
+        .then(function(res) { return res.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function(err) {
+          console.error('Bundle checkout error:', err);
+          alert('There was an error. Please try again.');
+          document.getElementById('nav-btn').textContent = '🛒 Get the Bundle — $29';
+          document.getElementById('hero-btn').textContent = '🛒 Unlock My Healing Library';
+          document.getElementById('cta-bottom-btn').textContent = '🛒 Unlock My Bundle for $29';
+          document.getElementById('sticky-btn').textContent = 'Buy Now';
+          document.querySelectorAll('#nav-btn, #hero-btn, #cta-bottom-btn, #sticky-btn').forEach(function(btn) {
+            btn.disabled = false;
+          });
+        });
+    }
+  </script>
+
+</body>
+</html>
