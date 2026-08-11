@@ -1,0 +1,435 @@
+{% assign product = all_products['maps-of-meaning-the-architecture-of-belief'] %}
+{% assign current_variant = product.variants.first %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ product.title | default: "Maps of Meaning: The Architecture of Belief" }} | PsychoReads</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #0f172a;
+      --brand-light: #f1f5f9;
+      --brand-dark: #020617;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --text-main: #334155;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--brand-dark);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    header p.subtitle {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-price {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fbbf24;
+      margin-bottom: 30px;
+    }
+
+    /* Product Section */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 50px;
+      padding: 60px 0;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .product-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-image {
+      background: var(--brand-light);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      position: sticky;
+      top: 20px;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .product-image-placeholder {
+        width: 100%;
+        padding-top: 130%;
+        background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        border-radius: 8px;
+        position: relative;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .product-image-placeholder::after {
+        content: '📖';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+    }
+
+    .product-info h2 {
+      font-size: 2rem;
+      color: var(--brand);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .description {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    .description p {
+        margin-bottom: 16px;
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-light);
+      padding: 8px 16px;
+      border-radius: 99px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--brand);
+    }
+
+    /* Button */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: var(--accent);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 800;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Reviews */
+    .reviews-section {
+      background: var(--brand-light);
+      padding: 80px 0;
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .reviews-header h2 {
+      font-size: 2.5rem;
+      color: var(--brand);
+      margin-bottom: 10px;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .review-card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    
+    .review-card.featured {
+        grid-column: 1 / -1;
+        border: 2px solid var(--accent);
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .review-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand);
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    .review-text.long {
+        max-height: 250px;
+        overflow-y: auto;
+        padding-right: 10px;
+    }
+    
+    /* Scrollbar for long reviews */
+    .review-text.long::-webkit-scrollbar { width: 6px; }
+    .review-text.long::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+    .review-text.long::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    .review-text.long::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    .review-author {
+      font-weight: 700;
+      color: var(--brand);
+      font-size: 0.9rem;
+    }
+    
+    .review-meta {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-top: 4px;
+    }
+
+    /* Guarantee */
+    .guarantee {
+      text-align: center;
+      padding: 60px 24px;
+      background: white;
+    }
+
+    .guarantee-box {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .guarantee-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Maps of Meaning:<br>The Architecture of Belief</h1>
+      <p class="subtitle">A cutting-edge work that brings together neuropsychology, cognitive science, and myth to make the wisdom of narrative accessible to the modern mind.</p>
+      <div class="hero-price">$19.99</div>
+      <button class="btn" style="max-width: 300px; margin: 0 auto;" onclick="checkoutProduct()">
+        🛒 Download Now
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="product-layout">
+      <div class="product-image">
+        {% if product.images.first %}
+          <img src="{{ product.images.first | img_url: '800x' }}" alt="{{ product.title }}">
+        {% else %}
+          <div class="product-image-placeholder"></div>
+        {% endif %}
+      </div>
+
+      <div class="product-info">
+        <h2>Uncover the Hidden Structure of Human Mythology & Morality</h2>
+        
+        <div class="trust-badges">
+          <span class="badge">⚡ Instant PDF/EPUB Download</span>
+          <span class="badge">📱 Read on Any Device</span>
+          <span class="badge">🛡️ 100% Secure Checkout</span>
+        </div>
+
+        <div class="description">
+            <p>Why have people from different cultures and eras formulated myths and stories with similar structures? What does this similarity tell us about the mind, morality, and structure of the world itself?</p>
+            <p>From the author of <em>12 Rules for Life: An Antidote to Chaos</em> comes a provocative hypothesis that explores the connection between what modern neuropsychology tells us about the brain and what rituals, myths, and religious stories have long narrated.</p>
+            <p>A cutting-edge work that brings together neuropsychology, cognitive science, and Freudian and Jungian approaches to mythology and narrative, <strong>Maps of Meaning</strong> presents a rich theory that makes the wisdom and meaning of myth accessible to the critical modern mind.</p>
+        </div>
+
+        <button class="btn" onclick="checkoutProduct()">
+          🛒 Buy Now — $19.99
+        </button>
+        <p style="text-align: center; margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">
+          Instant access immediately after purchase.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <section class="reviews-section">
+    <div class="container">
+      <div class="reviews-header">
+        <h2>What Readers Are Saying</h2>
+        <div class="stars">★★★★★</div>
+        <p style="color: var(--text-light);">Based on hundreds of reader reviews</p>
+      </div>
+
+      <div class="review-grid">
+        
+        <!-- Featured Long Review -->
+        <div class="review-card featured">
+          <div class="stars">★★★★★</div>
+          <div class="review-title">"Maps of Meaning is the most meaningful and interesting book I have ever read"</div>
+          <div class="review-text long">
+            "I just finished reading Maps of Meaning for the 4th time, and only now do I feel comfortable posting a review for this remarkable and staggering book... It's a very hard book to read in many ways, intellectually and emotionally, but it is absolutely worth it. MoM is also the most practically useful "self-help" book I have ever come across, and I have found it deeply transformative in my personal life in many ways... <br><br>
+            Peterson lays out an extremely detailed framework for understanding narrative structure, and grounds this framework in the latest psychology and neuroscience research... Our modern scientific minds are in desperate need of a rational framework for understanding our relationship with the irrational transcendant, and Peterson has done an extremely admirable job of solving this problem... <br><br>
+            I personally think that Maps of Meaning is one the most important scientific/philosophical/religious works of the 20th/21st centuries, and perhaps human history. Peterson has provided us with a high-fidelity framework for understanding how we humans behave, and more importantly, how we can behave heroically in the face of the ever-present Unknown."
+          </div>
+          <div class="review-author">— Robert Lancaster</div>
+          <div class="review-meta">Verified Purchase</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-title">"A courageous undertaking. Saved my life."</div>
+          <div class="review-text">
+            "This is one of Dr. Peterson’s greatest works. While I do find it unnecessarily wordy which may render it hard to follow at times- if you can get past this then the words that have been thoughtfully chosen and orchestrated into meaningful and thought provoking perspectives do indeed help to provide structure to the sometimes chaotic psyche... I’m no longer trying to survive, but I’m actually living life."
+          </div>
+          <div class="review-author">— George B.</div>
+          <div class="review-meta">Verified Purchase</div>
+        </div>
+        
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-title">"An Important and Challenging Book"</div>
+          <div class="review-text">
+            "The purpose of the book is basically to determine how we have come to know, to represent, to understand and to value. Its materials are literary, philosophic, psychological and religious (for starters). It is a very learned book and it is not written for a popular audience... It is, however, essential, in understanding how JP 'came to be' and 'where he is coming from'. This is an important, challenging book."
+          </div>
+          <div class="review-author">— Richard B. Schwartz</div>
+          <div class="review-meta">Verified Purchase</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-title">"An Incredibly Important Book!"</div>
+          <div class="review-text">
+            "Utterly brilliant! A DEEP dive into what makes us think, what makes us conscious, what makes us feel and what makes us act. An erudite, scholarly, accessible and incredibly perceptive tour de force whose insights into psychology, religion, culture, myth and what constitutes the essence of finding Meaning in Life are impossible to ignore."
+          </div>
+          <div class="review-author">— Anthony Stark</div>
+          <div class="review-meta">Verified Purchase</div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-title">"One of the greatest books of all time"</div>
+          <div class="review-text">
+            "How do you describe the emotional and intellectual experience that is this book? ... I am forever changed for the better because of this and can only wonder in gratitude why I am so fortunate as to have such a good man alive in my time. Thank you for sharing your wisdom."
+          </div>
+          <div class="review-author">— Robert D Seaman</div>
+          <div class="review-meta">Verified Purchase</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="guarantee">
+    <div class="guarantee-box">
+      <div class="guarantee-icon">🛡️</div>
+      <h2 style="margin-bottom: 10px;">100% Satisfaction Guarantee</h2>
+      <p style="color: var(--text-light);">We are confident this book will provide immense value. If you're not completely satisfied with your purchase, contact us within 30 days for a full refund.</p>
+    </div>
+  </section>
+
+  <script>
+    function checkoutProduct() {
+      var variantId = '{{ current_variant.id }}';
+      if (!variantId || variantId === '') {
+        alert('Product not found or unavailable.');
+        return;
+      }
+
+      var btns = document.querySelectorAll('.btn');
+      btns.forEach(function(btn) {
+        btn.textContent = 'Processing...';
+        btn.disabled = true;
+      });
+
+      fetch('/cart/clear.js', { method: 'POST' })
+        .then(function() {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] })
+          });
+        })
+        .then(function(res) { return res.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function(err) {
+          console.error('Checkout error:', err);
+          alert('There was an error. Please try again.');
+          btns.forEach(function(btn) {
+            btn.textContent = '🛒 Buy Now — $19.99';
+            btn.disabled = false;
+          });
+        });
+    }
+  </script>
+</body>
+</html>
