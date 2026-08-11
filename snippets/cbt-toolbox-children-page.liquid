@@ -76,9 +76,13 @@
       background: radial-gradient(ellipse at 80% 20%, rgba(252,211,77,0.1) 0%, transparent 60%);
     }
     .hero-inner {
-      max-width: 780px; margin: 0 auto;
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center;
     }
-    
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } .hero-book { display: none; } }
+    .hero-book { cursor: pointer; }
+    .hero-book:hover img { transform: scale(1.02); transition: transform 0.25s ease; }
+
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -238,7 +242,13 @@
           🛒 Download Now — Only $11
         </button>
       </div>
-
+      <div class="hero-book" onclick="checkoutProduct()" title="Download Now — Only $11">
+        {% if product.images.first %}
+          <img src="{{ product.images.first | img_url: '800x' }}" alt="{{ product.title }}" style="pointer-events:none;" />
+        {% else %}
+          <div class="hero-book-placeholder" style="pointer-events:none;">📋</div>
+        {% endif %}
+      </div>
     </div>
   </header>
 
