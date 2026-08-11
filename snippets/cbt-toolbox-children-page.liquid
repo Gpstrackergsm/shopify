@@ -74,10 +74,12 @@
     .hero::before {
       content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse at 80% 20%, rgba(252,211,77,0.1) 0%, transparent 60%);
+      pointer-events: none;
     }
     .hero-inner {
       max-width: 1120px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center;
+      position: relative; z-index: 1;
     }
     @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } .hero-book { display: none; } }
     .hero-book { cursor: pointer; }
