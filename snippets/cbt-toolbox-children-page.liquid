@@ -1,0 +1,475 @@
+{% assign product = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign current_variant = product.variants.first %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBT Toolbox for Children &amp; Adolescents — 200+ Worksheets | PsychoReads</title>
+  <meta name="description" content="Over 200 CBT worksheets &amp; exercises for Trauma, ADHD, Autism, Anxiety, Depression &amp; Conduct Disorders. Written by clinicians. Instant digital download for only $11." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #0d9488;
+      --teal-dark: #0f766e;
+      --teal-deeper: #115e59;
+      --teal-light: #f0fdfa;
+      --teal-border: #99f6e4;
+      --amber: #f59e0b;
+      --amber-light: #fffbeb;
+      --red: #ef4444;
+      --text-main: #1c1917;
+      --text-mid: #44403c;
+      --text-light: #78716c;
+      --border: #e7e5e4;
+      --bg: #ffffff;
+      --surface: #fafaf9;
+    }
+
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+    /* Urgency bar */
+    .urgency-bar {
+      background: linear-gradient(90deg, #0f766e, #0d9488);
+      color: #fff; text-align: center; padding: 12px 20px;
+      font-size: 0.92rem; font-weight: 700; letter-spacing: 0.2px;
+    }
+    .urgency-bar strong { color: #fcd34d; }
+
+    /* Nav */
+    .nav {
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border); padding: 0 24px;
+      position: sticky; top: 0; z-index: 999;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; height: 62px;
+    }
+    .nav-logo { font-weight: 900; font-size: 1.25rem; color: var(--teal-deeper); text-decoration: none; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-weight: 800; border-radius: 12px; cursor: pointer; border: none;
+      font-size: 1rem; font-family: inherit; transition: all 0.25s ease; text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #fff; padding: 16px 32px;
+      box-shadow: 0 4px 18px rgba(245,158,11,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,158,11,0.45); }
+    .btn-sm { font-size: 0.85rem; padding: 9px 20px; border-radius: 8px; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(150deg, #042f2e 0%, #0f766e 55%, #14b8a6 100%);
+      padding: 70px 24px 60px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(252,211,77,0.1) 0%, transparent 60%);
+    }
+    .hero-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 420px; gap: 48px; align-items: center;
+    }
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } .hero-book { display: none; } }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(252,211,77,0.15); border: 1px solid rgba(252,211,77,0.4);
+      color: #fcd34d; font-size: 0.75rem; font-weight: 800;
+      padding: 5px 16px; border-radius: 999px; margin-bottom: 22px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 900; color: #fff;
+      line-height: 1.1; margin-bottom: 18px; letter-spacing: -1px;
+    }
+    .hero h1 span { color: #fcd34d; }
+    .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.75); margin-bottom: 32px; line-height: 1.7; }
+
+    /* Price */
+    .price-row { display: flex; align-items: baseline; gap: 14px; margin-bottom: 8px; }
+    .price-now { font-size: 3.5rem; font-weight: 900; color: #fcd34d; letter-spacing: -2px; }
+    .price-was { font-size: 1.2rem; text-decoration: line-through; color: rgba(255,255,255,0.35); font-weight: 600; }
+    .price-save {
+      background: #ef4444; color: #fff;
+      font-size: 0.85rem; font-weight: 800; padding: 4px 12px; border-radius: 999px;
+    }
+    .hero-sub { font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 32px; }
+    .hero-sub strong { color: #fcd34d; }
+
+    .hero-book {
+      background: rgba(255,255,255,0.08); border-radius: 20px; padding: 30px;
+      display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-book img { max-width: 100%; border-radius: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .hero-book-placeholder {
+      width: 100%; aspect-ratio: 3/4; background: rgba(255,255,255,0.1);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 5rem;
+    }
+
+    /* Trust bar */
+    .trust-bar {
+      background: #042f2e; display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 24px 40px; padding: 26px 24px;
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 700; }
+    .trust-icon { font-size: 1.1rem; }
+
+    /* Conditions section */
+    .conditions-section { padding: 72px 24px; background: var(--bg); }
+    .section-label { text-align: center; font-size: 0.75rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+    .section-title { text-align: center; font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 900; color: var(--text-main); line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.5px; }
+    .section-sub { text-align: center; color: var(--text-light); font-size: 1rem; max-width: 560px; margin: 0 auto 48px; }
+
+    .conditions-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px; max-width: 900px; margin: 0 auto;
+    }
+    .condition-card {
+      background: var(--teal-light); border: 1.5px solid var(--teal-border);
+      border-radius: 16px; padding: 24px 16px; text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .condition-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(13,148,136,0.12); }
+    .condition-icon { font-size: 2rem; margin-bottom: 10px; }
+    .condition-name { font-size: 0.9rem; font-weight: 800; color: var(--teal-deeper); }
+
+    /* What's inside */
+    .inside-section { padding: 72px 24px; background: var(--surface); }
+    .inside-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 980px; margin: 0 auto; }
+    .inside-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 26px 22px; }
+    .inside-icon { font-size: 1.6rem; margin-bottom: 12px; }
+    .inside-title { font-size: 1rem; font-weight: 800; color: var(--teal-deeper); margin-bottom: 8px; }
+    .inside-text { font-size: 0.88rem; color: var(--text-light); line-height: 1.65; }
+
+    /* Reviews */
+    .reviews-section { padding: 72px 24px; background: var(--bg); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .review-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 26px; display: flex; flex-direction: column; }
+    .review-card.featured { border: 2px solid var(--teal); background: var(--teal-light); grid-column: 1 / -1; }
+    .stars { color: #f59e0b; font-size: 1rem; margin-bottom: 10px; }
+    .review-title { font-weight: 800; font-size: 0.97rem; color: var(--text-main); margin-bottom: 10px; }
+    .review-body { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; flex: 1; font-style: italic; }
+    .review-author { margin-top: 14px; font-size: 0.82rem; font-weight: 700; color: var(--teal-dark); }
+    .review-tag { font-size: 0.75rem; color: var(--text-light); margin-top: 3px; }
+
+    /* Who is this for */
+    .for-section { padding: 72px 24px; background: var(--teal-deeper); }
+    .for-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto; }
+    .for-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 22px 18px; text-align: center; }
+    .for-icon { font-size: 2rem; margin-bottom: 10px; }
+    .for-title { font-size: 0.92rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .for-desc { font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+    /* Guarantee */
+    .guarantee-section { padding: 0 24px 72px; background: var(--bg); }
+    .guarantee-box { max-width: 640px; margin: 0 auto; background: var(--amber-light); border: 2px solid #fde68a; border-radius: 20px; padding: 36px 32px; text-align: center; }
+    .guarantee-box h3 { font-size: 1.25rem; font-weight: 900; color: #78350f; margin-bottom: 10px; }
+    .guarantee-box p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(150deg, #042f2e 0%, #0f766e 60%, #14b8a6 100%);
+      padding: 80px 24px; text-align: center;
+    }
+    .cta-section h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); font-weight: 900; color: #fff; margin-bottom: 12px; letter-spacing: -0.5px; }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 1rem; margin-bottom: 32px; }
+    .btn-cta { background: #fcd34d; color: #1c1917; font-size: 1.1rem; padding: 18px 44px; box-shadow: 0 4px 20px rgba(252,211,77,0.35); }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(252,211,77,0.5); }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 998;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border); padding: 12px 24px;
+      display: flex; justify-content: center; align-items: center; gap: 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+      transform: translateY(100%); transition: transform 0.3s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-label { font-weight: 800; font-size: 0.95rem; color: var(--text-main); }
+    .sticky-price { color: var(--amber); font-size: 1.2rem; font-weight: 900; }
+
+    @media (max-width: 600px) {
+      .sticky-cta { flex-direction: column; gap: 8px; padding: 12px 16px; }
+      .price-now { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Urgency Bar -->
+  <div class="urgency-bar">
+    🎉 Special Price: <strong>62% OFF</strong> — Get it for only $11 instead of $29. Limited time deal!
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">PsychoReads</a>
+      <button class="btn btn-primary btn-sm" onclick="checkoutProduct()" id="nav-btn">🛒 Get It for $11</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">📋 200+ Worksheets &amp; Exercises</div>
+        <h1>CBT Toolbox for<br><span>Children &amp; Adolescents</span></h1>
+        <p class="hero-desc">
+          Hundreds of evidence-based worksheets, exercises, and activities to help treat Trauma, ADHD, Autism, Anxiety, Depression &amp; Conduct Disorders — written by clinicians with decades of experience.
+        </p>
+        <div class="price-row">
+          <span class="price-now">$11</span>
+          <span class="price-was">$29.00</span>
+          <span class="price-save">SAVE 62%</span>
+        </div>
+        <p class="hero-sub"><strong>⚡ Instant Digital Access</strong> &nbsp;•&nbsp; Works on Kindle, Apple Books, iPad &amp; PDF &nbsp;•&nbsp; <strong>🛡️ 30-Day Guarantee</strong></p>
+        <button class="btn btn-primary" onclick="checkoutProduct()" id="hero-btn" style="font-size:1.1rem; padding:18px 40px;">
+          🛒 Download Now — Only $11
+        </button>
+      </div>
+      <div class="hero-book">
+        {% if product.images.first %}
+          <img src="{{ product.images.first | img_url: '800x' }}" alt="{{ product.title }}" />
+        {% else %}
+          <div class="hero-book-placeholder">📋</div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">📋</span> 200+ Worksheets &amp; Exercises</div>
+    <div class="trust-item"><span class="trust-icon">🧒</span> Ages 0–17 Covered</div>
+    <div class="trust-item"><span class="trust-icon">🏥</span> Written by Clinicians</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Instant Download</div>
+    <div class="trust-item"><span class="trust-icon">🛡️</span> 30-Day Guarantee</div>
+  </div>
+
+  <!-- Conditions -->
+  <section class="conditions-section">
+    <p class="section-label">What it covers</p>
+    <h2 class="section-title">One Toolbox.<br>Six Conditions.</h2>
+    <p class="section-sub">Comprehensive CBT resources for every major childhood mental health challenge — all in one place.</p>
+    <div class="conditions-grid">
+      <div class="condition-card">
+        <div class="condition-icon">💔</div>
+        <div class="condition-name">Trauma</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-icon">⚡</div>
+        <div class="condition-name">ADHD</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-icon">🌈</div>
+        <div class="condition-name">Autism</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-icon">😰</div>
+        <div class="condition-name">Anxiety</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-icon">🌧️</div>
+        <div class="condition-name">Depression</div>
+      </div>
+      <div class="condition-card">
+        <div class="condition-icon">🛑</div>
+        <div class="condition-name">Conduct Disorders</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Inside -->
+  <section class="inside-section">
+    <p class="section-label">Inside the toolbox</p>
+    <h2 class="section-title" style="margin-bottom:10px;">Everything You Need<br>in One Resource</h2>
+    <p class="section-sub" style="margin-bottom:44px;">Carefully organized by diagnosis and activity type — so you can always find the right tool for the right moment.</p>
+    <div class="inside-grid">
+      <div class="inside-card">
+        <div class="inside-icon">📝</div>
+        <div class="inside-title">In-Session Exercises</div>
+        <div class="inside-text">Activities designed to be completed with the child during therapy sessions — structured, engaging, and clinically grounded.</div>
+      </div>
+      <div class="inside-card">
+        <div class="inside-icon">🏠</div>
+        <div class="inside-title">Homework for Clients</div>
+        <div class="inside-text">Take-home worksheets that reinforce skills between sessions — usable at any age or stage in treatment.</div>
+      </div>
+      <div class="inside-card">
+        <div class="inside-icon">👨‍👩‍👧</div>
+        <div class="inside-title">Caregiver Exercises</div>
+        <div class="inside-text">Dedicated resources for parents and caregivers — because family involvement is key to lasting change.</div>
+      </div>
+      <div class="inside-card">
+        <div class="inside-icon">🧠</div>
+        <div class="inside-title">4 Core Skill Areas</div>
+        <div class="inside-text">Cognitive Skills, Relationship Coaching, Competency Building, and Brain-Based Learning — all evidence-based CBT techniques.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Is It For -->
+  <section class="for-section">
+    <p class="section-label" style="color:#99f6e4;">Who uses this toolbox</p>
+    <h2 class="section-title" style="color:#fff; margin-bottom:10px;">Trusted by Professionals<br>&amp; Parents Alike</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.6); margin-bottom:40px;">From clinical offices to family homes — this toolbox works everywhere.</p>
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-icon">🏥</div>
+        <div class="for-title">Therapists &amp; Counselors</div>
+        <div class="for-desc">Quick session prep and in-session resources (LCSW, LMFT, ACPC, PMHNP &amp; more)</div>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🏫</div>
+        <div class="for-title">School Counselors &amp; Teachers</div>
+        <div class="for-desc">Easy-to-photocopy worksheets for classroom and small group sessions</div>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">🎓</div>
+        <div class="for-title">Graduate Students &amp; Interns</div>
+        <div class="for-desc">The ideal companion for practicum — builds confidence and session quality fast</div>
+      </div>
+      <div class="for-card">
+        <div class="for-icon">👨‍👩‍👧</div>
+        <div class="for-title">Parents &amp; Caregivers</div>
+        <div class="for-desc">Work through activities at home with children who need structured, guided support</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews-section">
+    <p class="section-label">What professionals say</p>
+    <h2 class="section-title" style="margin-bottom:10px;">Used by Therapists,<br>Loved by Kids</h2>
+    <p class="section-sub" style="margin-bottom:44px;">Hundreds of 5-star reviews from clinicians, educators, and parents across the country.</p>
+    <div class="reviews-grid">
+
+      <div class="review-card featured">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"Thoughtful exercises, carefully organized, and easy to use!"</div>
+        <div class="review-body">
+          "I am a clinical social worker. I have worked at an in-patient psychiatric hospital and in a partial hospitalization clinic facilitating group therapy for kids, pre-teens, teens, and adults. I was very pleased to see some of my old favorites along with so many new and creatively-thought exercises that I am eager to try with my individual clients! I really loved the organizational structure of in-session exercises, homework for the client, as well as exercises for the caregiver. I love the inclusion of the caregiver exercises as I think it is very important to involve the parent. I am particularly happy to have such an easy to use quick reference to augment material for sessions!"
+        </div>
+        <div class="review-author">— Clinical Social Worker</div>
+        <div class="review-tag">Verified Purchase &nbsp;•&nbsp; 34 people found this helpful</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"Life changing for my youth patients!"</div>
+        <div class="review-body">"I'm a PMHNP in a rural area with very few therapists to refer to. Being able to use this resource with my youth patients has been life changing for them! Excellent book, easy to use. 10/10!"</div>
+        <div class="review-author">— PMHNP</div>
+        <div class="review-tag">Verified Purchase</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"This is a must have for all therapists who work with kids!"</div>
+        <div class="review-body">"I have relied on this book so many times when I was last minute planning for a session or needed inspiration. It's so easy to make photocopies of the pages to take into session. I love that it has so many different presenting problem sections (depression, trauma, etc)."</div>
+        <div class="review-author">— Child &amp; Adolescent Therapist</div>
+        <div class="review-tag">Verified Purchase</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"I've been a child therapist for over 20 years. Well done!"</div>
+        <div class="review-body">"I love doing hands-on and visual exercises with my clients. This book has so many activities I am excited to use! It's very well thought out and I love how caregivers are included in some of the pages."</div>
+        <div class="review-author">— 20-Year Child &amp; Adolescent Therapist</div>
+        <div class="review-tag">Verified Purchase</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"Great tool for self awareness — helped my child with ADHD &amp; OCD"</div>
+        <div class="review-body">"I use this at home for my child with ADHD and OCD. My child enjoys completing the worksheets and we follow up with a discussion. It has been a great tool for self awareness and has helped my child recognize triggers and find ways to manage situations before they get out of hand."</div>
+        <div class="review-author">— Parent (AB)</div>
+        <div class="review-tag">Verified Purchase &nbsp;•&nbsp; 12 people found this helpful</div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <div class="review-title">"I've been able to use it with clients from ages 6 to 17!"</div>
+        <div class="review-body">"This book is easy to use and very helpful. I use it OFTEN. Its format allows room for you to add your own personal adjustments when needed to cater to a variety of clients. I've been able to use it with clients from ages 6 to 17, even my probation/juvenile detention clients."</div>
+        <div class="review-author">— New Therapist (MemeC)</div>
+        <div class="review-tag">Verified Purchase</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="guarantee-section">
+    <div class="guarantee-box">
+      <p style="font-size:2.5rem; margin-bottom:14px;">🛡️</p>
+      <h3>30-Day Money-Back Guarantee</h3>
+      <p>We stand behind every resource in this toolbox. If you're not completely satisfied within 30 days, contact us for a full refund — no questions asked.</p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <h2>200+ Worksheets.<br>One Affordable Price.</h2>
+    <p>Everything you need to help children and adolescents overcome their toughest struggles — for just $11.</p>
+    <button class="btn btn-cta" onclick="checkoutProduct()" id="cta-btn">🛒 Download Now for $11</button>
+    <p style="margin-top:14px; font-size:0.82rem; color:rgba(255,255,255,0.4);">⚡ Instant Digital Access &nbsp;•&nbsp; 🛡️ 30-Day Guarantee &nbsp;•&nbsp; 🔒 Secure Checkout</p>
+  </section>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <span class="sticky-label">CBT Toolbox — <span class="sticky-price">$11 only</span></span>
+    <button class="btn btn-primary btn-sm" onclick="checkoutProduct()" id="sticky-btn">Buy Now</button>
+  </div>
+
+  <script>
+    // Sticky CTA visibility
+    var heroBtn = document.getElementById('hero-btn');
+    var stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', function() {
+      stickyCta.classList.toggle('show', heroBtn.getBoundingClientRect().bottom < 0);
+    });
+
+    // Checkout
+    function checkoutProduct() {
+      var variantId = '{{ current_variant.id }}';
+      if (!variantId || variantId === '') {
+        alert('Product not available. Please try again.');
+        return;
+      }
+      var allBtns = document.querySelectorAll('#nav-btn, #hero-btn, #cta-btn, #sticky-btn');
+      allBtns.forEach(function(b) { b.textContent = 'Processing…'; b.disabled = true; });
+
+      fetch('/cart/clear.js', { method: 'POST' })
+        .then(function() {
+          return fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: [{ id: Number(variantId), quantity: 1 }] })
+          });
+        })
+        .then(function(r) { return r.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function(err) {
+          console.error(err);
+          alert('Something went wrong. Please try again.');
+          allBtns.forEach(function(b) { b.disabled = false; });
+          document.getElementById('nav-btn').textContent = '🛒 Get It for $11';
+          document.getElementById('hero-btn').textContent = '🛒 Download Now — Only $11';
+          document.getElementById('cta-btn').textContent = '🛒 Download Now for $11';
+          document.getElementById('sticky-btn').textContent = 'Buy Now';
+        });
+    }
+  </script>
+</body>
+</html>
