@@ -1,4 +1,4 @@
-{% comment %}product and current_variant are passed in from the template{% endcomment %}
+{% comment %}product is passed from the template{% endcomment %}
 {% assign current_variant = product.variants.first %}
 
 <!DOCTYPE html>
@@ -444,7 +444,8 @@
     function checkoutProduct() {
       var variantId = '{{ current_variant.id }}';
       if (!variantId || variantId === '') {
-        alert('Product not available. Please try again.');
+        // Fallback: redirect directly to the product page
+        window.location.href = '/products/cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders';
         return;
       }
       var allBtns = document.querySelectorAll('#nav-btn, #hero-btn, #cta-btn, #sticky-btn');
