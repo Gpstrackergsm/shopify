@@ -1,4 +1,4 @@
-{% comment %}product is passed from the template{% endcomment %}
+{% comment %}product and current_variant are passed in from the template{% endcomment %}
 {% assign current_variant = product.variants.first %}
 
 <!DOCTYPE html>
@@ -239,11 +239,11 @@
           🛒 Download Now — Only $11
         </button>
       </div>
-      <div class="hero-book">
+      <div class="hero-book" onclick="checkoutProduct()" style="cursor:pointer;" title="Download Now — Only $11">
         {% if product.images.first %}
-          <img src="{{ product.images.first | img_url: '800x' }}" alt="{{ product.title }}" />
+          <img src="{{ product.images.first | img_url: '800x' }}" alt="{{ product.title }}" style="pointer-events:none;" />
         {% else %}
-          <div class="hero-book-placeholder">📋</div>
+          <div class="hero-book-placeholder" style="pointer-events:none;">📋</div>
         {% endif %}
       </div>
     </div>
@@ -444,8 +444,7 @@
     function checkoutProduct() {
       var variantId = '{{ current_variant.id }}';
       if (!variantId || variantId === '') {
-        // Fallback: redirect directly to the product page
-        window.location.href = '/products/cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders';
+        alert('Product not available. Please try again.');
         return;
       }
       var allBtns = document.querySelectorAll('#nav-btn, #hero-btn, #cta-btn, #sticky-btn');
