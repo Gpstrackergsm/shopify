@@ -1,0 +1,412 @@
+{% assign p1 = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['maps-of-meaning-the-architecture-of-belief'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['what-my-bones-know-a-memoir-of-healing-from-complex-trauma'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['quieting-the-storm-within-an-illustrated-introduction-to-your-parts-through-internal-family-systems-and-beyond'] %}
+{% assign v6 = p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .ltb-wrap *, .ltb-wrap *::before, .ltb-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .ltb-wrap {
+    --c-bg:     #080b10;
+    --c-bg2:    #0d1117;
+    --c-bg3:    #131926;
+    --c-glass:  rgba(255,255,255,0.04);
+    --c-border: rgba(255,255,255,0.07);
+    --c-teal:   #2dd4bf;
+    --c-teal2:  #0d9488;
+    --c-teal-glow: rgba(45,212,191,0.18);
+    --c-amber:  #fbbf24;
+    --c-amber-glow: rgba(251,191,36,0.15);
+    --c-text:   #f1f5f9;
+    --c-muted:  #64748b;
+    --c-dim:    #94a3b8;
+    --c-radius: 20px;
+    --c-ease:   all 0.35s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .ltb-hero {
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .ltb-orb { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
+  .ltb-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(45,212,191,0.12),transparent 70%);top:-180px;left:50%;transform:translateX(-50%); }
+  .ltb-orb-2 { width:420px;height:420px;background:radial-gradient(circle,rgba(251,191,36,0.09),transparent 70%);bottom:0;right:-80px; }
+  .ltb-orb-3 { width:350px;height:350px;background:radial-gradient(circle,rgba(45,212,191,0.07),transparent 70%);bottom:0;left:-60px; }
+
+  .ltb-hero-inner { position:relative;z-index:1;max-width:840px; }
+
+  .ltb-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(45,212,191,0.08);
+    border:1px solid rgba(45,212,191,0.2);
+    border-radius:999px;padding:8px 22px;
+    font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    color:var(--c-teal);margin-bottom:28px;backdrop-filter:blur(12px);
+  }
+  .ltb-badge-dot {
+    width:7px;height:7px;background:var(--c-teal);border-radius:50%;
+    animation:ltb-pulse 2s ease-in-out infinite;
+  }
+  @keyframes ltb-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+
+  .ltb-hero h1 {
+    font-size:clamp(2.6rem,6vw,4.8rem);font-weight:900;line-height:1.05;
+    letter-spacing:-2px;margin-bottom:24px;
+  }
+  .ltb-teal-text {
+    background:linear-gradient(135deg,var(--c-teal),#5eead4);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .ltb-amber-text {
+    background:linear-gradient(135deg,var(--c-amber),#f59e0b);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+
+  .ltb-sub {
+    font-size:1.15rem;color:var(--c-dim);max-width:600px;
+    margin:0 auto 44px;line-height:1.75;font-weight:400;
+  }
+
+  .ltb-price-row { display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:36px;flex-wrap:wrap; }
+  .ltb-price-main { font-size:5.5rem;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--c-text); }
+  .ltb-price-main sup { font-size:2.2rem;letter-spacing:0;vertical-align:super; }
+  .ltb-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:6px; }
+  .ltb-price-was { font-size:1.1rem;color:var(--c-muted);text-decoration:line-through;font-weight:600; }
+  .ltb-save-pill {
+    font-size:0.82rem;font-weight:800;color:var(--c-teal);
+    background:rgba(45,212,191,0.12);padding:4px 12px;border-radius:999px;
+    letter-spacing:0.5px;border:1px solid rgba(45,212,191,0.25);
+  }
+
+  .ltb-btn {
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Outfit',sans-serif;font-weight:800;
+    border:none;border-radius:16px;cursor:pointer;
+    transition:var(--c-ease);text-decoration:none;
+    position:relative;overflow:hidden;letter-spacing:-0.3px;
+  }
+  .ltb-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);opacity:0;transition:opacity 0.2s; }
+  .ltb-btn:hover::after { opacity:1; }
+  .ltb-btn-primary {
+    background:linear-gradient(135deg,var(--c-teal),var(--c-teal2));
+    color:#fff;padding:18px 52px;font-size:1.15rem;
+    box-shadow:0 0 40px var(--c-teal-glow),0 6px 20px rgba(0,0,0,0.4);
+  }
+  .ltb-btn-primary:hover { transform:translateY(-3px);box-shadow:0 0 60px var(--c-teal-glow),0 10px 30px rgba(0,0,0,0.5); }
+  .ltb-btn-sm { font-size:0.9rem;padding:11px 24px;border-radius:12px; }
+
+  .ltb-trust { display:flex;align-items:center;justify-content:center;gap:24px;margin-top:22px;flex-wrap:wrap; }
+  .ltb-trust-item { display:flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--c-muted);font-weight:500; }
+  .ltb-trust-item svg { color:var(--c-teal); }
+
+  /* INTRO */
+  .ltb-intro {
+    padding:70px 24px;
+    background:linear-gradient(135deg,rgba(45,212,191,0.05),rgba(251,191,36,0.03));
+    border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);
+    text-align:center;
+  }
+  .ltb-intro-inner { max-width:700px;margin:0 auto; }
+  .ltb-intro h2 { font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:18px; }
+  .ltb-intro p { font-size:1rem;color:var(--c-dim);line-height:1.8; }
+  .ltb-pillars { display:flex;align-items:center;justify-content:center;gap:24px;margin-top:40px;flex-wrap:wrap; }
+  .ltb-pillar {
+    background:var(--c-glass);border:1px solid var(--c-border);
+    border-radius:14px;padding:20px 24px;text-align:center;min-width:130px;
+    backdrop-filter:blur(10px);
+  }
+  .ltb-pillar-icon { font-size:2rem;margin-bottom:10px;display:block; }
+  .ltb-pillar-name { font-size:0.85rem;font-weight:800;color:var(--c-text);letter-spacing:0.5px; }
+
+  /* BOOKS GRID */
+  .ltb-books { padding:100px 24px; }
+  .ltb-label { display:block;text-align:center;font-size:0.73rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--c-teal);margin-bottom:14px; }
+  .ltb-title { text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-text); }
+
+  .ltb-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto; }
+
+  .ltb-card {
+    background:var(--c-glass);border:1px solid var(--c-border);border-radius:var(--c-radius);
+    padding:32px 22px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;transition:var(--c-ease);backdrop-filter:blur(10px);
+    position:relative;overflow:hidden;
+  }
+  .ltb-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(45,212,191,0.07),transparent,rgba(251,191,36,0.04));opacity:0;transition:opacity 0.3s; }
+  .ltb-card:hover { transform:translateY(-10px);border-color:rgba(45,212,191,0.35);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 40px var(--c-teal-glow); }
+  .ltb-card:hover::before { opacity:1; }
+
+  .ltb-card-num { position:absolute;top:14px;right:14px;width:30px;height:30px;background:linear-gradient(135deg,var(--c-teal),var(--c-teal2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#fff; }
+
+  .ltb-cover-wrap { width:130px;height:195px;margin-bottom:22px;position:relative;flex-shrink:0; }
+  .ltb-cover-wrap::after { content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:75%;height:18px;background:var(--c-teal-glow);filter:blur(14px);border-radius:50%;opacity:0;transition:opacity 0.3s; }
+  .ltb-card:hover .ltb-cover-wrap::after { opacity:1; }
+
+  .ltb-cover { width:100%;height:100%;object-fit:contain;border-radius:6px;box-shadow:0 14px 40px rgba(0,0,0,0.6),4px 4px 0 rgba(0,0,0,0.25);transition:transform 0.35s ease; }
+  .ltb-card:hover .ltb-cover { transform:rotate(-2.5deg) scale(1.05); }
+  .ltb-card-title { font-size:0.92rem;font-weight:700;line-height:1.4;color:var(--c-text); }
+
+  /* FEATURES */
+  .ltb-features { padding:80px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border); }
+  .ltb-feat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto; }
+  .ltb-feat { text-align:center;padding:36px 20px; }
+  .ltb-feat-icon { font-size:2.6rem;margin-bottom:16px;display:block; }
+  .ltb-feat-title { font-size:1.05rem;font-weight:800;margin-bottom:10px;color:var(--c-text); }
+  .ltb-feat-desc { font-size:0.88rem;color:var(--c-muted);line-height:1.75; }
+
+  /* FINAL CTA */
+  .ltb-final { padding:120px 24px;text-align:center;position:relative;overflow:hidden; }
+  .ltb-final-orb { position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,0.09),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none; }
+  .ltb-final-inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
+  .ltb-final h2 { font-size:clamp(2rem,4vw,3.4rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;line-height:1.1; }
+  .ltb-final p { font-size:1.1rem;color:var(--c-dim);margin-bottom:44px;line-height:1.75; }
+
+  /* STICKY */
+  .ltb-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:16px 32px;background:rgba(8,11,16,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.6); }
+  .ltb-sticky.show { transform:translateY(0); }
+  .ltb-sticky-text { font-size:1rem;font-weight:700;color:var(--c-text); }
+  .ltb-sticky-text span { color:var(--c-teal); }
+
+  /* FADE */
+  .ltb-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
+  .ltb-fade.in { opacity:1;transform:translateY(0); }
+  .ltb-fade:nth-child(2){transition-delay:0.1s}.ltb-fade:nth-child(3){transition-delay:0.2s}
+  .ltb-fade:nth-child(4){transition-delay:0.3s}.ltb-fade:nth-child(5){transition-delay:0.4s}
+  .ltb-fade:nth-child(6){transition-delay:0.5s}
+
+  @media(max-width:900px){ .ltb-grid{grid-template-columns:repeat(2,1fr);} .ltb-feat-grid{grid-template-columns:1fr;} .ltb-pillars{gap:16px;} }
+  @media(max-width:600px){ .ltb-grid{grid-template-columns:repeat(2,1fr);gap:14px;} .ltb-card{padding:18px 12px;} .ltb-hero h1{letter-spacing:-1.5px;} .ltb-sticky{flex-direction:column;gap:10px;padding:14px 20px;} .ltb-price-main{font-size:4rem;} }
+</style>
+
+<div class="ltb-wrap">
+
+  <!-- HERO -->
+  <section class="ltb-hero">
+    <div class="ltb-orb ltb-orb-1"></div>
+    <div class="ltb-orb ltb-orb-2"></div>
+    <div class="ltb-orb ltb-orb-3"></div>
+    <div class="ltb-hero-inner">
+
+      <div class="ltb-badge">
+        <span class="ltb-badge-dot"></span>
+        The Inner World Bundle
+      </div>
+
+      <h1>
+        6 Powerful Books.<br/>
+        <span class="ltb-teal-text">Mind. Emotion.</span><br/>
+        <span class="ltb-amber-text">Healing.</span>
+      </h1>
+
+      <p class="ltb-sub">
+        Our latest additions — spanning trauma recovery, emotional intelligence, IFS therapy, and the science of belief — now available as one unmissable bundle.
+      </p>
+
+      <div class="ltb-price-row">
+        <div class="ltb-price-main"><sup>$</sup>29</div>
+        <div class="ltb-price-meta">
+          <span class="ltb-price-was">$179.94 Value</span>
+          <span class="ltb-save-pill">&#10022; Save 83%</span>
+        </div>
+      </div>
+
+      <button class="ltb-btn ltb-btn-primary" id="ltb-hero-cta" onclick="ltbCheckout()">
+        Get All 6 Books for $29
+      </button>
+
+      <div class="ltb-trust">
+        <div class="ltb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Download
+        </div>
+        <div class="ltb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Secure Checkout
+        </div>
+        <div class="ltb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No Subscription
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO / THEMES -->
+  <section class="ltb-intro">
+    <div class="ltb-intro-inner">
+      <h2>Curated for <span class="ltb-teal-text">Deep Transformation</span></h2>
+      <p>These six books represent the best of modern psychology — practical workbooks, landmark memoirs, and groundbreaking theory — handpicked because they change how you understand yourself and the world around you.</p>
+      <div class="ltb-pillars">
+        <div class="ltb-pillar"><span class="ltb-pillar-icon">&#129504;</span><span class="ltb-pillar-name">CBT &amp; Skills</span></div>
+        <div class="ltb-pillar"><span class="ltb-pillar-icon">&#128161;</span><span class="ltb-pillar-name">Belief &amp; Meaning</span></div>
+        <div class="ltb-pillar"><span class="ltb-pillar-icon">&#10084;&#65039;</span><span class="ltb-pillar-name">Emotional Intelligence</span></div>
+        <div class="ltb-pillar"><span class="ltb-pillar-icon">&#129657;</span><span class="ltb-pillar-name">Trauma Healing</span></div>
+        <div class="ltb-pillar"><span class="ltb-pillar-icon">&#127744;</span><span class="ltb-pillar-name">IFS Parts Work</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <section class="ltb-books">
+    <span class="ltb-label">What You Get</span>
+    <h2 class="ltb-title">6 Books. One Complete Journey.</h2>
+
+    <div class="ltb-grid">
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">1</div>
+        <div class="ltb-cover-wrap">
+          {% if p1.images.first %}<img class="ltb-cover" src="{{ p1.images.first | img_url: '400x' }}" alt="{{ p1.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p1.title | default: 'CBT Toolbox for Children and Adolescents' }}</p>
+      </div>
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">2</div>
+        <div class="ltb-cover-wrap">
+          {% if p2.images.first %}<img class="ltb-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p2.title | default: 'Maps of Meaning: The Architecture of Belief' }}</p>
+      </div>
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">3</div>
+        <div class="ltb-cover-wrap">
+          {% if p3.images.first %}<img class="ltb-cover" src="{{ p3.images.first | img_url: '400x' }}" alt="{{ p3.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p3.title | default: 'Permission to Feel' }}</p>
+      </div>
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">4</div>
+        <div class="ltb-cover-wrap">
+          {% if p4.images.first %}<img class="ltb-cover" src="{{ p4.images.first | img_url: '400x' }}" alt="{{ p4.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p4.title | default: 'What My Bones Know' }}</p>
+      </div>
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">5</div>
+        <div class="ltb-cover-wrap">
+          {% if p5.images.first %}<img class="ltb-cover" src="{{ p5.images.first | img_url: '400x' }}" alt="{{ p5.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p5.title | default: 'The Self-Led Internal Family Systems Workbook' }}</p>
+      </div>
+
+      <div class="ltb-card ltb-fade">
+        <div class="ltb-card-num">6</div>
+        <div class="ltb-cover-wrap">
+          {% if p6.images.first %}<img class="ltb-cover" src="{{ p6.images.first | img_url: '400x' }}" alt="{{ p6.title }}" loading="lazy" />
+          {% else %}<div class="ltb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="ltb-card-title">{{ p6.title | default: 'Quieting the Storm Within' }}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="ltb-features">
+    <span class="ltb-label">Why This Bundle</span>
+    <h2 class="ltb-title" style="margin-bottom:48px;">Everything Your Mind Needs</h2>
+    <div class="ltb-feat-grid">
+      <div class="ltb-feat">
+        <span class="ltb-feat-icon">&#128736;&#65039;</span>
+        <p class="ltb-feat-title">Practical Workbooks</p>
+        <p class="ltb-feat-desc">From CBT worksheets for children to IFS skills for adults — hands-on exercises you can apply immediately in real life.</p>
+      </div>
+      <div class="ltb-feat">
+        <span class="ltb-feat-icon">&#128214;</span>
+        <p class="ltb-feat-title">Landmark Theory</p>
+        <p class="ltb-feat-desc">Maps of Meaning explores the deep architecture of human belief — a foundational text for anyone serious about psychology and meaning-making.</p>
+      </div>
+      <div class="ltb-feat">
+        <span class="ltb-feat-icon">&#129657;</span>
+        <p class="ltb-feat-title">Trauma &amp; Healing</p>
+        <p class="ltb-feat-desc">First-hand memoirs and evidence-based frameworks for healing complex trauma — from somatic approaches to parts-based therapy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="ltb-final">
+    <div class="ltb-final-orb"></div>
+    <div class="ltb-final-inner">
+      <h2>Your Reading Journey<br/>Starts Now</h2>
+      <p>6 of our most recently added psychology and healing books — curated into one complete bundle. Get instant access for just $29.</p>
+      <button class="ltb-btn ltb-btn-primary" onclick="ltbCheckout()">Get All 6 Books &mdash; $29</button>
+      <div class="ltb-trust" style="margin-top:24px;">
+        <div class="ltb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
+        <div class="ltb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$179 Value for $29</div>
+        <div class="ltb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- STICKY BAR -->
+<div class="ltb-sticky" id="ltb-sticky">
+  <span class="ltb-sticky-text">The Inner World Bundle &mdash; <span>$29.00</span></span>
+  <button class="ltb-btn ltb-btn-primary ltb-btn-sm" onclick="ltbCheckout()">Buy Now</button>
+</div>
+
+<script>
+  const ltbHeroCta = document.getElementById('ltb-hero-cta');
+  const ltbSticky  = document.getElementById('ltb-sticky');
+  window.addEventListener('scroll', () => {
+    ltbSticky.classList.toggle('show', ltbHeroCta.getBoundingClientRect().bottom < 0);
+  }, { passive: true });
+
+  const ltbFades = document.querySelectorAll('.ltb-fade');
+  const ltbObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ltbObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  ltbFades.forEach(el => ltbObs.observe(el));
+
+  function ltbCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+    ];
+    if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.ltb-btn-primary').forEach(b => { b.textContent = 'Processing\u2026'; b.disabled = true; });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: variants.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.ltb-btn-primary').forEach(b => { b.textContent = 'Get Bundle \u2014 $29'; b.disabled = false; });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
