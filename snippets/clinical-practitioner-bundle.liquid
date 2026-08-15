@@ -1,0 +1,412 @@
+{% assign p1 = all_products['the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['the-making-of-a-therapist-a-practical-guide-for-the-inner-journey-norton-series-on-interpersonal-neurobiology'] %}
+{% assign v6 = p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .cpb-wrap *, .cpb-wrap *::before, .cpb-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cpb-wrap {
+    --c-bg:     #0b1329;
+    --c-bg2:    #101a36;
+    --c-bg3:    #172447;
+    --c-glass:  rgba(255,255,255,0.04);
+    --c-border: rgba(255,255,255,0.08);
+    --c-blue:   #38bdf8;
+    --c-blue2:  #0284c7;
+    --c-blue-glow: rgba(56,189,248,0.18);
+    --c-teal:   #2dd4bf;
+    --c-text:   #f1f5f9;
+    --c-muted:  #64748b;
+    --c-dim:    #94a3b8;
+    --c-radius: 20px;
+    --c-ease:   all 0.35s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .cpb-hero {
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .cpb-orb { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
+  .cpb-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(56,189,248,0.14),transparent 70%);top:-180px;left:50%;transform:translateX(-50%); }
+  .cpb-orb-2 { width:420px;height:420px;background:radial-gradient(circle,rgba(45,212,191,0.10),transparent 70%);bottom:0;right:-80px; }
+  .cpb-orb-3 { width:350px;height:350px;background:radial-gradient(circle,rgba(56,189,248,0.08),transparent 70%);bottom:0;left:-60px; }
+
+  .cpb-hero-inner { position:relative;z-index:1;max-width:860px; }
+
+  .cpb-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(56,189,248,0.08);
+    border:1px solid rgba(56,189,248,0.2);
+    border-radius:999px;padding:8px 22px;
+    font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    color:var(--c-blue);margin-bottom:28px;backdrop-filter:blur(12px);
+  }
+  .cpb-badge-dot {
+    width:7px;height:7px;background:var(--c-blue);border-radius:50%;
+    animation:cpb-pulse 2s ease-in-out infinite;
+  }
+  @keyframes cpb-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+
+  .cpb-hero h1 {
+    font-size:clamp(2.5rem,5.8vw,4.6rem);font-weight:900;line-height:1.06;
+    letter-spacing:-2px;margin-bottom:24px;
+  }
+  .cpb-blue-text {
+    background:linear-gradient(135deg,var(--c-blue),#7dd3fc);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .cpb-teal-text {
+    background:linear-gradient(135deg,var(--c-teal),#5eead4);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+
+  .cpb-sub {
+    font-size:1.15rem;color:var(--c-dim);max-width:640px;
+    margin:0 auto 44px;line-height:1.75;font-weight:400;
+  }
+
+  .cpb-price-row { display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:36px;flex-wrap:wrap; }
+  .cpb-price-main { font-size:5.5rem;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--c-text); }
+  .cpb-price-main sup { font-size:2.2rem;letter-spacing:0;vertical-align:super; }
+  .cpb-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:6px; }
+  .cpb-price-was { font-size:1.1rem;color:var(--c-muted);text-decoration:line-through;font-weight:600; }
+  .cpb-save-pill {
+    font-size:0.82rem;font-weight:800;color:var(--c-blue);
+    background:rgba(56,189,248,0.12);padding:4px 12px;border-radius:999px;
+    letter-spacing:0.5px;border:1px solid rgba(56,189,248,0.25);
+  }
+
+  .cpb-btn {
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Outfit',sans-serif;font-weight:800;
+    border:none;border-radius:16px;cursor:pointer;
+    transition:var(--c-ease);text-decoration:none;
+    position:relative;overflow:hidden;letter-spacing:-0.3px;
+  }
+  .cpb-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);opacity:0;transition:opacity 0.2s; }
+  .cpb-btn:hover::after { opacity:1; }
+  .cpb-btn-primary {
+    background:linear-gradient(135deg,var(--c-blue),var(--c-blue2));
+    color:#fff;padding:18px 52px;font-size:1.15rem;
+    box-shadow:0 0 40px var(--c-blue-glow),0 6px 20px rgba(0,0,0,0.4);
+  }
+  .cpb-btn-primary:hover { transform:translateY(-3px);box-shadow:0 0 60px var(--c-blue-glow),0 10px 30px rgba(0,0,0,0.5); }
+  .cpb-btn-sm { font-size:0.9rem;padding:11px 24px;border-radius:12px; }
+
+  .cpb-trust { display:flex;align-items:center;justify-content:center;gap:24px;margin-top:22px;flex-wrap:wrap; }
+  .cpb-trust-item { display:flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--c-muted);font-weight:500; }
+  .cpb-trust-item svg { color:var(--c-blue); }
+
+  /* INTRO */
+  .cpb-intro {
+    padding:70px 24px;
+    background:linear-gradient(135deg,rgba(56,189,248,0.05),rgba(45,212,191,0.03));
+    border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);
+    text-align:center;
+  }
+  .cpb-intro-inner { max-width:740px;margin:0 auto; }
+  .cpb-intro h2 { font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:18px; }
+  .cpb-intro p { font-size:1rem;color:var(--c-dim);line-height:1.8; }
+  .cpb-pillars { display:flex;align-items:center;justify-content:center;gap:20px;margin-top:40px;flex-wrap:wrap; }
+  .cpb-pillar {
+    background:var(--c-glass);border:1px solid var(--c-border);
+    border-radius:14px;padding:18px 22px;text-align:center;min-width:130px;
+    backdrop-filter:blur(10px);
+  }
+  .cpb-pillar-icon { font-size:1.8rem;margin-bottom:8px;display:block; }
+  .cpb-pillar-name { font-size:0.83rem;font-weight:800;color:var(--c-text);letter-spacing:0.5px; }
+
+  /* BOOKS GRID */
+  .cpb-books { padding:100px 24px; }
+  .cpb-label { display:block;text-align:center;font-size:0.73rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--c-blue);margin-bottom:14px; }
+  .cpb-title { text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-text); }
+
+  .cpb-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto; }
+
+  .cpb-card {
+    background:var(--c-glass);border:1px solid var(--c-border);border-radius:var(--c-radius);
+    padding:32px 22px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;transition:var(--c-ease);backdrop-filter:blur(10px);
+    position:relative;overflow:hidden;
+  }
+  .cpb-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,0.07),transparent,rgba(45,212,191,0.04));opacity:0;transition:opacity 0.3s; }
+  .cpb-card:hover { transform:translateY(-10px);border-color:rgba(56,189,248,0.35);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 40px var(--c-blue-glow); }
+  .cpb-card:hover::before { opacity:1; }
+
+  .cpb-card-num { position:absolute;top:14px;right:14px;width:30px;height:30px;background:linear-gradient(135deg,var(--c-blue),var(--c-blue2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#fff; }
+
+  .cpb-cover-wrap { width:130px;height:195px;margin-bottom:22px;position:relative;flex-shrink:0; }
+  .cpb-cover-wrap::after { content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:75%;height:18px;background:var(--c-blue-glow);filter:blur(14px);border-radius:50%;opacity:0;transition:opacity 0.3s; }
+  .cpb-card:hover .cpb-cover-wrap::after { opacity:1; }
+
+  .cpb-cover { width:100%;height:100%;object-fit:contain;border-radius:6px;box-shadow:0 14px 40px rgba(0,0,0,0.6),4px 4px 0 rgba(0,0,0,0.25);transition:transform 0.35s ease; }
+  .cpb-card:hover .cpb-cover { transform:rotate(-2.5deg) scale(1.05); }
+  .cpb-card-title { font-size:0.92rem;font-weight:700;line-height:1.4;color:var(--c-text); }
+
+  /* FEATURES */
+  .cpb-features { padding:80px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border); }
+  .cpb-feat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto; }
+  .cpb-feat { text-align:center;padding:36px 20px; }
+  .cpb-feat-icon { font-size:2.6rem;margin-bottom:16px;display:block; }
+  .cpb-feat-title { font-size:1.05rem;font-weight:800;margin-bottom:10px;color:var(--c-text); }
+  .cpb-feat-desc { font-size:0.88rem;color:var(--c-muted);line-height:1.75; }
+
+  /* FINAL CTA */
+  .cpb-final { padding:120px 24px;text-align:center;position:relative;overflow:hidden; }
+  .cpb-final-orb { position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,0.09),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none; }
+  .cpb-final-inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
+  .cpb-final h2 { font-size:clamp(2rem,4vw,3.4rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;line-height:1.1; }
+  .cpb-final p { font-size:1.1rem;color:var(--c-dim);margin-bottom:44px;line-height:1.75; }
+
+  /* STICKY */
+  .cpb-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:16px 32px;background:rgba(11,19,41,0.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.6); }
+  .cpb-sticky.show { transform:translateY(0); }
+  .cpb-sticky-text { font-size:1rem;font-weight:700;color:var(--c-text); }
+  .cpb-sticky-text span { color:var(--c-blue); }
+
+  /* FADE */
+  .cpb-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
+  .cpb-fade.in { opacity:1;transform:translateY(0); }
+  .cpb-fade:nth-child(2){transition-delay:0.1s}.cpb-fade:nth-child(3){transition-delay:0.2s}
+  .cpb-fade:nth-child(4){transition-delay:0.3s}.cpb-fade:nth-child(5){transition-delay:0.4s}
+  .cpb-fade:nth-child(6){transition-delay:0.5s}
+
+  @media(max-width:900px){ .cpb-grid{grid-template-columns:repeat(2,1fr);} .cpb-feat-grid{grid-template-columns:1fr;} .cpb-pillars{gap:12px;} }
+  @media(max-width:600px){ .cpb-grid{grid-template-columns:repeat(2,1fr);gap:14px;} .cpb-card{padding:18px 12px;} .cpb-hero h1{letter-spacing:-1.5px;} .cpb-sticky{flex-direction:column;gap:10px;padding:14px 20px;} .cpb-price-main{font-size:4rem;} }
+</style>
+
+<div class="cpb-wrap">
+
+  <!-- HERO -->
+  <section class="cpb-hero">
+    <div class="cpb-orb cpb-orb-1"></div>
+    <div class="cpb-orb cpb-orb-2"></div>
+    <div class="cpb-orb cpb-orb-3"></div>
+    <div class="cpb-hero-inner">
+
+      <div class="cpb-badge">
+        <span class="cpb-badge-dot"></span>
+        Clinical Practitioner Collection
+      </div>
+
+      <h1>
+        The Clinical Practitioner&#39;s<br/>
+        <span class="cpb-blue-text">Essential Toolkit.</span><br/>
+        <span class="cpb-teal-text">6 Modality Guides.</span>
+      </h1>
+
+      <p class="cpb-sub">
+        Elevate your private practice and reduce session prep fatigue with our 6 essential clinical toolkits spanning CBT, EMDR, IFS, Trauma Recovery &amp; Neurobiology.
+      </p>
+
+      <div class="cpb-price-row">
+        <div class="cpb-price-main"><sup>$</sup>29</div>
+        <div class="cpb-price-meta">
+          <span class="cpb-price-was">$180.00 Value</span>
+          <span class="cpb-save-pill">&#10022; Save 84%</span>
+        </div>
+      </div>
+
+      <button class="cpb-btn cpb-btn-primary" id="cpb-hero-cta" onclick="cpbCheckout()">
+        🛒 Get The Clinical Toolkit — $29
+      </button>
+
+      <div class="cpb-trust">
+        <div class="cpb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Download
+        </div>
+        <div class="cpb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Printable &amp; Telehealth Ready
+        </div>
+        <div class="cpb-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Lifetime Practice License
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO / MODALITIES -->
+  <section class="cpb-intro">
+    <div class="cpb-intro-inner">
+      <h2>Designed for <span class="cpb-blue-text">Private Practice Clinicians</span></h2>
+      <p>Whether you work with individuals, couples, or adolescents, having structured visual psychoeducation tools and evidence-based exercises helps bridge session insights into daily client application.</p>
+      <div class="cpb-pillars">
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">🧠</span><span class="cpb-pillar-name">CBT &amp; Flip Charts</span></div>
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">👶</span><span class="cpb-pillar-name">Child &amp; Adolescent</span></div>
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">🌊</span><span class="cpb-pillar-name">EMDR &amp; Attachment</span></div>
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">🩺</span><span class="cpb-pillar-name">Somatic Trauma</span></div>
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">🌀</span><span class="cpb-pillar-name">IFS Parts Work</span></div>
+        <div class="cpb-pillar"><span class="cpb-pillar-icon">✨</span><span class="cpb-pillar-name">Neurobiology</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <section class="cpb-books">
+    <span class="cpb-label">What You Get</span>
+    <h2 class="cpb-title">6 Clinical Handbooks &amp; Toolkits</h2>
+
+    <div class="cpb-grid">
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">1</div>
+        <div class="cpb-cover-wrap">
+          {% if p1.images.first %}<img class="cpb-cover" src="{{ p1.images.first | img_url: '400x' }}" alt="{{ p1.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p1.title | default: 'The CBT Flip Chart' }}</p>
+      </div>
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">2</div>
+        <div class="cpb-cover-wrap">
+          {% if p2.images.first %}<img class="cpb-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p2.title | default: 'CBT Toolbox for Children &amp; Adolescents' }}</p>
+      </div>
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">3</div>
+        <div class="cpb-cover-wrap">
+          {% if p3.images.first %}<img class="cpb-cover" src="{{ p3.images.first | img_url: '400x' }}" alt="{{ p3.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p3.title | default: 'Attachment-Focused EMDR' }}</p>
+      </div>
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">4</div>
+        <div class="cpb-cover-wrap">
+          {% if p4.images.first %}<img class="cpb-cover" src="{{ p4.images.first | img_url: '400x' }}" alt="{{ p4.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p4.title | default: 'The Body Keeps the Score' }}</p>
+      </div>
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">5</div>
+        <div class="cpb-cover-wrap">
+          {% if p5.images.first %}<img class="cpb-cover" src="{{ p5.images.first | img_url: '400x' }}" alt="{{ p5.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p5.title | default: 'The Self-Led IFS Workbook' }}</p>
+      </div>
+
+      <div class="cpb-card cpb-fade">
+        <div class="cpb-card-num">6</div>
+        <div class="cpb-cover-wrap">
+          {% if p6.images.first %}<img class="cpb-cover" src="{{ p6.images.first | img_url: '400x' }}" alt="{{ p6.title }}" loading="lazy" />
+          {% else %}<div class="cpb-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cpb-card-title">{{ p6.title | default: 'The Making of a Therapist' }}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="cpb-features">
+    <span class="cpb-label">Clinical Impact</span>
+    <h2 class="cpb-title" style="margin-bottom:48px;">Streamline Your Caseload Management</h2>
+    <div class="cpb-feat-grid">
+      <div class="cpb-feat">
+        <span class="cpb-feat-icon">🛠️</span>
+        <p class="cpb-feat-title">Session-Ready Psychoeducation</p>
+        <p class="cpb-feat-desc">Use high-impact visual diagrams and structured worksheets to explain anxiety, trauma, and emotional regulation effortlessly.</p>
+      </div>
+      <div class="cpb-feat">
+        <span class="cpb-feat-icon">📊</span>
+        <p class="cpb-feat-title">200+ Youth &amp; Adult Worksheets</p>
+        <p class="cpb-feat-desc">From child CBT worksheets to adult EMDR and IFS exercises — printable and telehealth-ready for any client presentation.</p>
+      </div>
+      <div class="cpb-feat">
+        <span class="cpb-feat-icon">🎓</span>
+        <p class="cpb-feat-title">Evidence-Based Modalities</p>
+        <p class="cpb-feat-desc">Rooted in established clinical science (Attachment-Focused EMDR, Interpersonal Neurobiology, Somatic Experiencing &amp; IFS).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cpb-final">
+    <div class="cpb-final-orb"></div>
+    <div class="cpb-final-inner">
+      <h2>Elevate Your Practice<br/>Today</h2>
+      <p>6 essential clinical handbooks &amp; visual toolkits — curated into one complete bundle for private practice clinicians. Get instant access for just $29.</p>
+      <button class="cpb-btn cpb-btn-primary" onclick="cpbCheckout()">🛒 Get All 6 Handbooks — $29</button>
+      <div class="cpb-trust" style="margin-top:24px;">
+        <div class="cpb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
+        <div class="cpb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$180 Value for $29</div>
+        <div class="cpb-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- STICKY BAR -->
+<div class="cpb-sticky" id="cpb-sticky">
+  <span class="cpb-sticky-text">The Clinical Practitioner&#39;s Toolkit — <span>$29.00</span></span>
+  <button class="cpb-btn cpb-btn-primary cpb-btn-sm" onclick="cpbCheckout()">Buy Now</button>
+</div>
+
+<script>
+  const cpbHeroCta = document.getElementById('cpb-hero-cta');
+  const cpbSticky  = document.getElementById('cpb-sticky');
+  window.addEventListener('scroll', () => {
+    cpbSticky.classList.toggle('show', cpbHeroCta.getBoundingClientRect().bottom < 0);
+  }, { passive: true });
+
+  const cpbFades = document.querySelectorAll('.cpb-fade');
+  const cpbObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); cpbObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  cpbFades.forEach(el => cpbObs.observe(el));
+
+  function cpbCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+    ];
+    if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.cpb-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: variants.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.cpb-btn-primary').forEach(b => { b.textContent = 'Get Bundle — $29'; b.disabled = false; });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
