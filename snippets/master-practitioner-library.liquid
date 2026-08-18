@@ -1,0 +1,1026 @@
+{% comment %} ============================================================
+  MASTER PRACTITIONER LIBRARY PASS — Business-Explained Style
+  Landing Page: Clean white/light, content-first, professional
+============================================================ {% endcomment %}
+
+{% assign b1_p1 = all_products['the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety'] %}
+{% assign b1_p2 = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign b1_p3 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
+{% assign b1_p4 = all_products['the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma'] %}
+{% assign b1_p5 = all_products['the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts'] %}
+{% assign b1_p6 = all_products['the-making-of-a-therapist-a-practical-guide-for-the-inner-journey-norton-series-on-interpersonal-neurobiology'] %}
+
+{% assign b2_p1 = all_products['the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma'] %}
+{% assign b2_p2 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
+{% assign b2_p3 = all_products['healing-the-fragmented-selves-of-trauma-survivors'] %}
+{% assign b2_p4 = all_products['self-therapy-a-step-by-step-guide-to-creating-wholeness-using-ifs-a-cutting-edge-psychotherapy'] %}
+{% assign b2_p5 = all_products['transcending-trauma-healing-complex-ptsd-with-internal-family-systems'] %}
+{% assign b2_p6 = all_products['the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery'] %}
+
+{% assign b3_p1 = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign b3_p2 = all_products['the-guide-to-play-therapy-documentation-and-parent-consultation'] %}
+{% assign b3_p3 = all_products['play-therapy-4th-edition'] %}
+{% assign b3_p4 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] %}
+{% assign b3_p5 = all_products['permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success'] %}
+{% assign b3_p6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] %}
+
+{% assign v1  = b1_p1.variants.first %}
+{% assign v2  = b1_p2.variants.first %}
+{% assign v3  = b1_p3.variants.first %}
+{% assign v4  = b1_p4.variants.first %}
+{% assign v5  = b1_p5.variants.first %}
+{% assign v6  = b1_p6.variants.first %}
+{% assign v7  = b2_p3.variants.first %}
+{% assign v8  = b2_p4.variants.first %}
+{% assign v9  = b2_p5.variants.first %}
+{% assign v10 = b2_p6.variants.first %}
+{% assign v11 = b3_p2.variants.first %}
+{% assign v12 = b3_p3.variants.first %}
+{% assign v13 = b3_p4.variants.first %}
+{% assign v14 = b3_p5.variants.first %}
+{% assign v15 = b3_p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+/* ── RESET & BASE ── */
+.mpl-wrap *, .mpl-wrap *::before, .mpl-wrap *::after { box-sizing:border-box; margin:0; padding:0; }
+.mpl-wrap {
+  font-family:'Inter',system-ui,sans-serif;
+  background:#ffffff;
+  color:#111827;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── TOPBAR ── */
+.mpl-topbar {
+  background:#1e3a5f;
+  color:#fff;
+  text-align:center;
+  padding:10px 24px;
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.3px;
+}
+.mpl-topbar strong { color:#fbbf24; }
+
+/* ── NAV ── */
+.mpl-nav {
+  border-bottom:1px solid #e5e7eb;
+  padding:16px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 1px 0 rgba(0,0,0,0.06);
+}
+.mpl-logo {
+  font-size:1.1rem;
+  font-weight:900;
+  color:#111827;
+  text-decoration:none;
+  letter-spacing:-0.5px;
+}
+.mpl-logo span { color:#2563eb; }
+.mpl-nav-cta {
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:10px 22px;
+  font-size:0.88rem;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  transition:background 0.2s;
+}
+.mpl-nav-cta:hover { background:#1d4ed8; }
+
+/* ── HERO ── */
+.mpl-hero {
+  max-width:1100px;
+  margin:0 auto;
+  padding:56px 32px 48px;
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:56px;
+  align-items:start;
+}
+.mpl-hero-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:999px;
+  padding:5px 16px;
+  font-size:0.75rem;
+  font-weight:700;
+  color:#1d4ed8;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-bottom:20px;
+}
+.mpl-hero-badge-dot {
+  width:6px; height:6px;
+  background:#2563eb;
+  border-radius:50%;
+  animation:mpl-blink 1.8s ease-in-out infinite;
+}
+@keyframes mpl-blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+.mpl-hero h1 {
+  font-size:clamp(2rem,3.5vw,2.9rem);
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:-1.5px;
+  color:#111827;
+  margin-bottom:16px;
+}
+.mpl-hero h1 em { font-style:normal; color:#2563eb; }
+.mpl-hero-desc {
+  font-size:1.05rem;
+  color:#6b7280;
+  max-width:540px;
+  line-height:1.75;
+  margin-bottom:28px;
+}
+.mpl-includes-row {
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-bottom:32px;
+}
+.mpl-includes-item {
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:0.88rem;
+  font-weight:600;
+  color:#374151;
+}
+.mpl-includes-item svg { color:#16a34a; flex-shrink:0; }
+.mpl-star-row {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+}
+.mpl-stars { color:#f59e0b; font-size:1.1rem; letter-spacing:2px; }
+.mpl-star-text { font-size:0.88rem; color:#6b7280; font-weight:500; }
+
+/* ── PURCHASE CARD ── */
+.mpl-card {
+  background:#fff;
+  border:1.5px solid #e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,0.08),0 1px 4px rgba(0,0,0,0.04);
+  position:sticky;
+  top:80px;
+}
+.mpl-card-header {
+  background:linear-gradient(135deg,#1e3a5f,#2563eb);
+  padding:24px 28px;
+  text-align:center;
+}
+.mpl-card-title {
+  font-size:0.7rem;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+  margin-bottom:4px;
+}
+.mpl-card-name {
+  font-size:1.1rem;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-0.3px;
+}
+.mpl-card-body { padding:28px; }
+.mpl-price-block { text-align:center; margin-bottom:24px; }
+.mpl-price-was { font-size:0.9rem; color:#9ca3af; text-decoration:line-through; font-weight:500; margin-bottom:4px; }
+.mpl-price-now { font-size:3.8rem; font-weight:900; color:#111827; letter-spacing:-3px; line-height:1; }
+.mpl-price-now sup { font-size:1.6rem; letter-spacing:0; vertical-align:super; }
+.mpl-price-save {
+  display:inline-block;
+  background:#dcfce7;
+  color:#16a34a;
+  font-size:0.78rem;
+  font-weight:800;
+  padding:3px 12px;
+  border-radius:999px;
+  margin-top:8px;
+  letter-spacing:0.3px;
+}
+.mpl-card-perks {
+  list-style:none;
+  margin-bottom:24px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.mpl-card-perks li {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:0.88rem;
+  color:#374151;
+  line-height:1.45;
+}
+.mpl-card-perks li svg { color:#2563eb; flex-shrink:0; margin-top:1px; }
+.mpl-buy-btn {
+  width:100%;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:16px;
+  font-size:1rem;
+  font-weight:800;
+  cursor:pointer;
+  letter-spacing:-0.2px;
+  transition:all 0.2s;
+  box-shadow:0 4px 16px rgba(37,99,235,0.35);
+  font-family:'Inter',sans-serif;
+}
+.mpl-buy-btn:hover { transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,0.4); }
+.mpl-card-trust {
+  margin-top:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.mpl-card-trust-item {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  font-size:0.75rem;
+  color:#9ca3af;
+  font-weight:500;
+}
+.mpl-card-trust-item svg { color:#d1d5db; }
+.mpl-divider { border:none;border-top:1px solid #f3f4f6;margin:20px 0; }
+
+/* ── SECTION WRAPPER ── */
+.mpl-section { max-width:1100px; margin:0 auto; padding:56px 32px; }
+.mpl-section-border { border-top:1px solid #f3f4f6; }
+
+/* ── SECTION HEADER ── */
+.mpl-sh { margin-bottom:36px; }
+.mpl-sh-label {
+  font-size:0.72rem;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:#2563eb;
+  margin-bottom:8px;
+}
+.mpl-sh h2 {
+  font-size:clamp(1.5rem,2.8vw,2rem);
+  font-weight:900;
+  color:#111827;
+  letter-spacing:-1px;
+  line-height:1.15;
+}
+.mpl-sh p {
+  margin-top:10px;
+  font-size:1rem;
+  color:#6b7280;
+  max-width:620px;
+  line-height:1.75;
+}
+
+/* ── BUNDLE TABS ── */
+.mpl-tabs { display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap; }
+.mpl-tab {
+  padding:8px 18px;
+  border-radius:999px;
+  border:1.5px solid #e5e7eb;
+  font-size:0.82rem;
+  font-weight:700;
+  cursor:pointer;
+  background:#fff;
+  color:#6b7280;
+  transition:all 0.2s;
+  font-family:'Inter',sans-serif;
+}
+.mpl-tab.active,.mpl-tab:hover { background:#2563eb; border-color:#2563eb; color:#fff; }
+
+/* ── BOOK GRID ── */
+.mpl-bundle-panel { display:none; }
+.mpl-bundle-panel.active { display:block; }
+.mpl-bundle-label {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#f0f9ff;
+  border:1px solid #bae6fd;
+  border-radius:8px;
+  padding:6px 14px;
+  font-size:0.8rem;
+  font-weight:700;
+  color:#0369a1;
+  margin-bottom:20px;
+}
+.mpl-books-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.mpl-book-card {
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:#f9fafb;
+  border:1px solid #f3f4f6;
+  border-radius:12px;
+  padding:16px;
+  transition:all 0.2s;
+}
+.mpl-book-card:hover { border-color:#bfdbfe; background:#eff6ff; }
+.mpl-book-cover {
+  width:52px;
+  height:72px;
+  object-fit:contain;
+  border-radius:4px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  flex-shrink:0;
+  background:#e5e7eb;
+}
+.mpl-book-info { flex:1; min-width:0; }
+.mpl-book-num {
+  font-size:0.68rem;
+  font-weight:800;
+  color:#2563eb;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:3px;
+}
+.mpl-book-title {
+  font-size:0.82rem;
+  font-weight:700;
+  color:#111827;
+  line-height:1.35;
+  margin-bottom:4px;
+}
+.mpl-book-desc { font-size:0.75rem; color:#6b7280; line-height:1.45; }
+
+/* ── WHAT YOU GET TABLE ── */
+.mpl-value-table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:0.9rem;
+}
+.mpl-value-table th {
+  text-align:left;
+  padding:12px 16px;
+  font-size:0.75rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:#6b7280;
+  background:#f9fafb;
+  border-bottom:1px solid #e5e7eb;
+}
+.mpl-value-table td {
+  padding:14px 16px;
+  border-bottom:1px solid #f3f4f6;
+  vertical-align:middle;
+}
+.mpl-value-table tr:last-child td { border-bottom:none; }
+.mpl-value-table tr:hover td { background:#f9fafb; }
+.mpl-vt-label {
+  font-weight:700;
+  color:#111827;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.mpl-vt-icon {
+  width:28px; height:28px;
+  border-radius:7px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.85rem;
+  flex-shrink:0;
+}
+.mpl-vt-strike { color:#9ca3af; text-decoration:line-through; font-size:0.85rem; }
+.mpl-vt-included {
+  color:#16a34a;
+  font-weight:800;
+  font-size:0.85rem;
+}
+.mpl-vt-total-row td {
+  background:#eff6ff;
+  border-top:2px solid #bfdbfe;
+  font-weight:800;
+  color:#1e3a5f;
+}
+
+/* ── STATS BAR ── */
+.mpl-stats {
+  background:linear-gradient(135deg,#1e3a5f,#1d4ed8);
+  padding:40px 32px;
+}
+.mpl-stats-inner {
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:32px;
+  text-align:center;
+}
+.mpl-stat-num {
+  font-size:2.4rem;
+  font-weight:900;
+  color:#fff;
+  letter-spacing:-1.5px;
+  line-height:1;
+  margin-bottom:6px;
+}
+.mpl-stat-label { font-size:0.82rem; color:rgba(255,255,255,0.65); font-weight:500; }
+
+/* ── TESTIMONIALS ── */
+.mpl-testimonials-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.mpl-tcard {
+  background:#f9fafb;
+  border:1px solid #f3f4f6;
+  border-radius:16px;
+  padding:24px;
+}
+.mpl-tcard-stars { color:#f59e0b; font-size:0.9rem; margin-bottom:10px; }
+.mpl-tcard-text { font-size:0.88rem; color:#374151; line-height:1.7; margin-bottom:16px; font-style:italic; }
+.mpl-tcard-author { display:flex; align-items:center; gap:10px; }
+.mpl-tcard-avatar {
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.8rem;font-weight:800;color:#fff;flex-shrink:0;
+}
+.mpl-tcard-name { font-size:0.82rem; font-weight:700; color:#111827; }
+.mpl-tcard-role { font-size:0.75rem; color:#9ca3af; }
+
+/* ── FAQ ── */
+.mpl-faq { display:flex; flex-direction:column; gap:0; border:1px solid #e5e7eb; border-radius:14px; overflow:hidden; }
+.mpl-faq-item { border-bottom:1px solid #f3f4f6; }
+.mpl-faq-item:last-child { border-bottom:none; }
+.mpl-faq-q {
+  width:100%;text-align:left;padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-size:0.92rem;font-weight:700;color:#111827;
+  background:#fff;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;transition:background 0.15s;
+}
+.mpl-faq-q:hover { background:#f9fafb; }
+.mpl-faq-q-icon { font-size:1.1rem; color:#9ca3af; flex-shrink:0; }
+.mpl-faq-a { display:none; padding:0 22px 18px; font-size:0.88rem; color:#6b7280; line-height:1.75; }
+.mpl-faq-item.open .mpl-faq-a { display:block; }
+.mpl-faq-item.open .mpl-faq-q-icon { transform:rotate(45deg); }
+
+/* ── FINAL CTA ── */
+.mpl-final-cta {
+  background:linear-gradient(135deg,#0f172a,#1e3a5f);
+  padding:80px 32px;
+  text-align:center;
+}
+.mpl-final-cta-inner { max-width:640px; margin:0 auto; }
+.mpl-final-cta h2 { font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:#fff;letter-spacing:-1.5px;margin-bottom:14px;line-height:1.1; }
+.mpl-final-cta p { font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:36px;line-height:1.75; }
+.mpl-final-btn {
+  background:linear-gradient(135deg,#fbbf24,#f97316);
+  color:#0f172a;border:none;border-radius:14px;
+  padding:18px 52px;font-size:1.1rem;font-weight:900;
+  cursor:pointer;font-family:'Inter',sans-serif;
+  letter-spacing:-0.3px;transition:all 0.2s;
+  box-shadow:0 4px 20px rgba(251,191,36,0.4);
+}
+.mpl-final-btn:hover { transform:translateY(-2px);box-shadow:0 8px 32px rgba(251,191,36,0.5); }
+.mpl-final-meta { margin-top:18px; font-size:0.8rem; color:rgba(255,255,255,0.4); }
+
+/* ── FOOTER TRUST ── */
+.mpl-trust-strip {
+  border-top:1px solid #f3f4f6;
+  padding:24px 32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:32px;
+  flex-wrap:wrap;
+}
+.mpl-trust-item-s {
+  display:flex;align-items:center;gap:8px;
+  font-size:0.82rem;font-weight:600;color:#6b7280;
+}
+.mpl-trust-item-s svg { color:#2563eb; }
+
+/* ── STICKY MOBILE CTA ── */
+.mpl-sticky-cta {
+  display:none;
+  position:fixed;bottom:0;left:0;right:0;z-index:999;
+  background:#fff;border-top:1px solid #e5e7eb;
+  padding:14px 24px;
+  box-shadow:0 -4px 20px rgba(0,0,0,0.08);
+  align-items:center;justify-content:space-between;gap:12px;
+}
+.mpl-sticky-cta-text { font-size:0.92rem;font-weight:800;color:#111827; }
+.mpl-sticky-cta-price { font-size:0.85rem;color:#6b7280; }
+.mpl-sticky-cta-price strong { color:#2563eb; }
+.mpl-sticky-btn {
+  background:#2563eb;color:#fff;border:none;border-radius:10px;
+  padding:12px 24px;font-size:0.9rem;font-weight:800;
+  cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .mpl-hero { grid-template-columns:1fr; gap:32px; }
+  .mpl-card { position:static; }
+  .mpl-books-grid { grid-template-columns:repeat(2,1fr); }
+  .mpl-stats-inner { grid-template-columns:repeat(2,1fr); }
+  .mpl-testimonials-grid { grid-template-columns:1fr; }
+  .mpl-sticky-cta { display:flex; }
+}
+@media(max-width:600px){
+  .mpl-section { padding:40px 20px; }
+  .mpl-hero { padding:32px 20px; }
+  .mpl-books-grid { grid-template-columns:1fr; }
+  .mpl-value-table { font-size:0.82rem; }
+  .mpl-stats-inner { grid-template-columns:repeat(2,1fr); gap:16px; }
+}
+</style>
+
+<!-- ════════════════════ PAGE ════════════════════ -->
+<div class="mpl-wrap">
+
+  <!-- TOPBAR -->
+  <div class="mpl-topbar">
+    🎓 Limited Offer — All 3 Bundles (18 Handbooks) for just <strong>$49</strong> &nbsp;·&nbsp; Instant PDF Access
+  </div>
+
+  <!-- NAV -->
+  <nav class="mpl-nav">
+    <a href="/" class="mpl-logo">Psycho<span>Reads</span></a>
+    <button class="mpl-nav-cta" onclick="mplCheckout()">Get Library Pass — $49</button>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="mpl-hero">
+
+    <!-- LEFT: Copy -->
+    <div>
+      <div class="mpl-hero-badge">
+        <span class="mpl-hero-badge-dot"></span>
+        All-Access Clinical Collection
+      </div>
+
+      <h1>The Master Practitioner<br/><em>Library Pass.</em></h1>
+
+      <p class="mpl-hero-desc">
+        All 3 professional bundles in one. 18 essential clinical handbooks covering CBT, Somatic Therapy, IFS Parts Work, EMDR, Play Therapy, ADHD, and Emotional Intelligence — everything a modern clinician needs for a complete, evidence-based practice.
+      </p>
+
+      <div class="mpl-includes-row">
+        <div class="mpl-includes-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          18 Clinical Handbooks
+        </div>
+        <div class="mpl-includes-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          200+ Printable Worksheets
+        </div>
+        <div class="mpl-includes-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Download
+        </div>
+        <div class="mpl-includes-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Telehealth &amp; Print Ready
+        </div>
+        <div class="mpl-includes-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Lifetime Practice License
+        </div>
+      </div>
+
+      <div class="mpl-star-row">
+        <span class="mpl-stars">★★★★★</span>
+        <span class="mpl-star-text">Trusted by LCSWs, LMFTs, Psychologists &amp; Counselors worldwide</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Purchase Card -->
+    <div class="mpl-card">
+      <div class="mpl-card-header">
+        <div class="mpl-card-title">All-Access Pass</div>
+        <div class="mpl-card-name">Master Practitioner Library</div>
+      </div>
+      <div class="mpl-card-body">
+        <div class="mpl-price-block">
+          <div class="mpl-price-was">$540.00 retail value</div>
+          <div class="mpl-price-now"><sup>$</sup>49</div>
+          <div class="mpl-price-save">Save 91% — Limited Time</div>
+        </div>
+
+        <ul class="mpl-card-perks">
+          <li>
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Bundle 1:</strong> Clinical Practitioner's Essential Toolkit (6 Handbooks)</span>
+          </li>
+          <li>
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Bundle 2:</strong> Advanced Somatic &amp; IFS Trauma Bundle (6 Handbooks)</span>
+          </li>
+          <li>
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Bundle 3:</strong> Child, Adolescent &amp; Family Therapy Toolkit (6 Handbooks)</span>
+          </li>
+          <li>
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>200+ Printable CBT Worksheets for youth &amp; adults</span>
+          </li>
+          <li>
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Instant download — access all 18 PDFs within minutes</span>
+          </li>
+        </ul>
+
+        <button class="mpl-buy-btn" onclick="mplCheckout()">
+          🛒 Get All 18 Handbooks — $49
+        </button>
+
+        <hr class="mpl-divider">
+
+        <div class="mpl-card-trust">
+          <div class="mpl-card-trust-item">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure Checkout
+          </div>
+          <div class="mpl-card-trust-item">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Instant PDF Access
+          </div>
+          <div class="mpl-card-trust-item">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            Lifetime License
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══ STATS BAR ══ -->
+  <div class="mpl-stats">
+    <div class="mpl-stats-inner">
+      <div>
+        <div class="mpl-stat-num">18</div>
+        <div class="mpl-stat-label">Clinical Handbooks Included</div>
+      </div>
+      <div>
+        <div class="mpl-stat-num">200+</div>
+        <div class="mpl-stat-label">Printable Worksheets</div>
+      </div>
+      <div>
+        <div class="mpl-stat-num">91%</div>
+        <div class="mpl-stat-label">Off Retail Value</div>
+      </div>
+      <div>
+        <div class="mpl-stat-num">3</div>
+        <div class="mpl-stat-label">Complete Specialty Bundles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ WHAT'S INSIDE ══ -->
+  <div class="mpl-section mpl-section-border">
+    <div class="mpl-sh">
+      <div class="mpl-sh-label">Contents</div>
+      <h2>What's Inside the Library Pass</h2>
+      <p>Three complete specialty bundles curated for modern clinical practice — covering the most in-demand therapeutic modalities.</p>
+    </div>
+
+    <div class="mpl-tabs">
+      <button class="mpl-tab active" onclick="mplShowPanel(0, this)">📋 Bundle 1: Clinical Toolkit</button>
+      <button class="mpl-tab" onclick="mplShowPanel(1, this)">🌿 Bundle 2: Somatic &amp; IFS</button>
+      <button class="mpl-tab" onclick="mplShowPanel(2, this)">👶 Bundle 3: Child &amp; Family</button>
+    </div>
+
+    <!-- BUNDLE 1 -->
+    <div class="mpl-bundle-panel active" id="mpl-panel-0">
+      <div class="mpl-bundle-label">
+        📋 The Clinical Practitioner's Essential Toolkit — $29 Value
+      </div>
+      <div class="mpl-books-grid">
+        <div class="mpl-book-card">
+          {% if b1_p1.images.first %}<img class="mpl-book-cover" src="{{ b1_p1.images.first | img_url: '200x' }}" alt="{{ b1_p1.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 1</div><div class="mpl-book-title">{{ b1_p1.title | default: 'The CBT Flip Chart' }}</div><div class="mpl-book-desc">Evidence-based psychoeducation tool for anxiety.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b1_p2.images.first %}<img class="mpl-book-cover" src="{{ b1_p2.images.first | img_url: '200x' }}" alt="{{ b1_p2.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 2</div><div class="mpl-book-title">{{ b1_p2.title | default: 'CBT Toolbox for Children &amp; Adolescents' }}</div><div class="mpl-book-desc">200+ worksheets for trauma, ADHD &amp; anxiety.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b1_p3.images.first %}<img class="mpl-book-cover" src="{{ b1_p3.images.first | img_url: '200x' }}" alt="{{ b1_p3.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 3</div><div class="mpl-book-title">{{ b1_p3.title | default: 'Attachment-Focused EMDR' }}</div><div class="mpl-book-desc">Healing relational trauma with EMDR protocols.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b1_p4.images.first %}<img class="mpl-book-cover" src="{{ b1_p4.images.first | img_url: '200x' }}" alt="{{ b1_p4.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 4</div><div class="mpl-book-title">{{ b1_p4.title | default: 'The Body Keeps the Score' }}</div><div class="mpl-book-desc">Brain, mind &amp; body in the healing of trauma.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b1_p5.images.first %}<img class="mpl-book-cover" src="{{ b1_p5.images.first | img_url: '200x' }}" alt="{{ b1_p5.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 5</div><div class="mpl-book-title">{{ b1_p5.title | default: 'The Self-Led IFS Workbook' }}</div><div class="mpl-book-desc">Learn IFS skills to understand and love all your parts.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b1_p6.images.first %}<img class="mpl-book-cover" src="{{ b1_p6.images.first | img_url: '200x' }}" alt="{{ b1_p6.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 6</div><div class="mpl-book-title">{{ b1_p6.title | default: 'The Making of a Therapist' }}</div><div class="mpl-book-desc">A practical guide for the inner journey.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUNDLE 2 -->
+    <div class="mpl-bundle-panel" id="mpl-panel-1">
+      <div class="mpl-bundle-label">
+        🌿 The Advanced Somatic &amp; IFS Trauma Bundle — $29 Value
+      </div>
+      <div class="mpl-books-grid">
+        <div class="mpl-book-card">
+          {% if b2_p1.images.first %}<img class="mpl-book-cover" src="{{ b2_p1.images.first | img_url: '200x' }}" alt="{{ b2_p1.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 1</div><div class="mpl-book-title">{{ b2_p1.title | default: 'The Body Keeps the Score' }}</div><div class="mpl-book-desc">Landmark neurobiology of trauma text by van der Kolk.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b2_p2.images.first %}<img class="mpl-book-cover" src="{{ b2_p2.images.first | img_url: '200x' }}" alt="{{ b2_p2.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 2</div><div class="mpl-book-title">{{ b2_p2.title | default: 'Attachment-Focused EMDR' }}</div><div class="mpl-book-desc">Parnell's clinical framework for relational trauma.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b2_p3.images.first %}<img class="mpl-book-cover" src="{{ b2_p3.images.first | img_url: '200x' }}" alt="{{ b2_p3.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 3</div><div class="mpl-book-title">{{ b2_p3.title | default: 'Healing the Fragmented Selves' }}</div><div class="mpl-book-desc">Janina Fisher's guide to structural dissociation.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b2_p4.images.first %}<img class="mpl-book-cover" src="{{ b2_p4.images.first | img_url: '200x' }}" alt="{{ b2_p4.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 4</div><div class="mpl-book-title">{{ b2_p4.title | default: 'Self-Therapy: Using IFS' }}</div><div class="mpl-book-desc">Step-by-step IFS guide by Jay Earley.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b2_p5.images.first %}<img class="mpl-book-cover" src="{{ b2_p5.images.first | img_url: '200x' }}" alt="{{ b2_p5.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 5</div><div class="mpl-book-title">{{ b2_p5.title | default: 'Transcending Trauma' }}</div><div class="mpl-book-desc">Healing Complex PTSD with IFS by Frank Anderson.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b2_p6.images.first %}<img class="mpl-book-cover" src="{{ b2_p6.images.first | img_url: '200x' }}" alt="{{ b2_p6.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 6</div><div class="mpl-book-title">{{ b2_p6.title | default: 'The Somatic Therapy Handbook' }}</div><div class="mpl-book-desc">Nervous system regulation &amp; somatic healing.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUNDLE 3 -->
+    <div class="mpl-bundle-panel" id="mpl-panel-2">
+      <div class="mpl-bundle-label">
+        👶 The Child, Adolescent &amp; Family Therapy Toolkit — $29 Value
+      </div>
+      <div class="mpl-books-grid">
+        <div class="mpl-book-card">
+          {% if b3_p1.images.first %}<img class="mpl-book-cover" src="{{ b3_p1.images.first | img_url: '200x' }}" alt="{{ b3_p1.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 1</div><div class="mpl-book-title">{{ b3_p1.title | default: 'CBT Toolbox for Children &amp; Adolescents' }}</div><div class="mpl-book-desc">200+ worksheets for youth behavioral issues.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b3_p2.images.first %}<img class="mpl-book-cover" src="{{ b3_p2.images.first | img_url: '200x' }}" alt="{{ b3_p2.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 2</div><div class="mpl-book-title">{{ b3_p2.title | default: 'Play Therapy Documentation' }}</div><div class="mpl-book-desc">Frameworks for parent consultation &amp; notes.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b3_p3.images.first %}<img class="mpl-book-cover" src="{{ b3_p3.images.first | img_url: '200x' }}" alt="{{ b3_p3.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 3</div><div class="mpl-book-title">{{ b3_p3.title | default: 'Play Therapy (4th Edition)' }}</div><div class="mpl-book-desc">Definitive clinical guide for child therapy.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b3_p4.images.first %}<img class="mpl-book-cover" src="{{ b3_p4.images.first | img_url: '200x' }}" alt="{{ b3_p4.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 4</div><div class="mpl-book-title">{{ b3_p4.title | default: 'Taking Charge of ADHD' }}</div><div class="mpl-book-desc">Executive function strategies for home &amp; school.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b3_p5.images.first %}<img class="mpl-book-cover" src="{{ b3_p5.images.first | img_url: '200x' }}" alt="{{ b3_p5.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 5</div><div class="mpl-book-title">{{ b3_p5.title | default: 'Permission to Feel' }}</div><div class="mpl-book-desc">Yale RULER emotional intelligence system.</div></div>
+        </div>
+        <div class="mpl-book-card">
+          {% if b3_p6.images.first %}<img class="mpl-book-cover" src="{{ b3_p6.images.first | img_url: '200x' }}" alt="{{ b3_p6.title }}" loading="lazy" />{% else %}<div class="mpl-book-cover"></div>{% endif %}
+          <div class="mpl-book-info"><div class="mpl-book-num">Book 6</div><div class="mpl-book-title">{{ b3_p6.title | default: 'Master Your Emotions' }}</div><div class="mpl-book-desc">Essential emotional regulation for daily life.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ VALUE TABLE ══ -->
+  <div class="mpl-section mpl-section-border" style="background:#f9fafb; max-width:100%; padding:56px 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 32px;">
+      <div class="mpl-sh">
+        <div class="mpl-sh-label">Value Breakdown</div>
+        <h2>What You're Getting vs. What You Pay</h2>
+        <p>Each bundle is already 84% off retail. The Library Pass takes that further — all three for the price of one.</p>
+      </div>
+      <table class="mpl-value-table">
+        <thead>
+          <tr>
+            <th>What's Included</th>
+            <th>Retail Price</th>
+            <th>Your Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="mpl-vt-label"><div class="mpl-vt-icon" style="background:#eff6ff;">📋</div>Bundle 1: Clinical Practitioner's Essential Toolkit (6 Books)</div></td>
+            <td><span class="mpl-vt-strike">$180</span></td>
+            <td><span class="mpl-vt-included">✓ Included</span></td>
+          </tr>
+          <tr>
+            <td><div class="mpl-vt-label"><div class="mpl-vt-icon" style="background:#f0fdf4;">🌿</div>Bundle 2: Advanced Somatic &amp; IFS Trauma Bundle (6 Books)</div></td>
+            <td><span class="mpl-vt-strike">$180</span></td>
+            <td><span class="mpl-vt-included">✓ Included</span></td>
+          </tr>
+          <tr>
+            <td><div class="mpl-vt-label"><div class="mpl-vt-icon" style="background:#fffbeb;">👶</div>Bundle 3: Child, Adolescent &amp; Family Therapy Toolkit (6 Books)</div></td>
+            <td><span class="mpl-vt-strike">$180</span></td>
+            <td><span class="mpl-vt-included">✓ Included</span></td>
+          </tr>
+          <tr class="mpl-vt-total-row">
+            <td><div class="mpl-vt-label" style="font-size:1rem;">🏆 Total — All 18 Handbooks + 200+ Worksheets</div></td>
+            <td style="font-size:1.1rem;"><span class="mpl-vt-strike" style="font-size:1rem;">$540</span></td>
+            <td style="font-size:1.4rem;color:#1d4ed8;letter-spacing:-1px;font-weight:900;">$49</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:24px;text-align:center;">
+        <button class="mpl-buy-btn" style="max-width:400px;margin:0 auto;" onclick="mplCheckout()">🛒 Get The Complete Library Pass — $49</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TESTIMONIALS ══ -->
+  <div class="mpl-section mpl-section-border">
+    <div class="mpl-sh">
+      <div class="mpl-sh-label">Practitioner Reviews</div>
+      <h2>Trusted by Licensed Clinicians</h2>
+    </div>
+    <div class="mpl-testimonials-grid">
+      <div class="mpl-tcard">
+        <div class="mpl-tcard-stars">★★★★★</div>
+        <p class="mpl-tcard-text">"Having all three bundles in one place has genuinely transformed how I prep for sessions. The EMDR and IFS resources alone are worth triple the price."</p>
+        <div class="mpl-tcard-author">
+          <div class="mpl-tcard-avatar">SR</div>
+          <div><div class="mpl-tcard-name">Sarah R.</div><div class="mpl-tcard-role">LCSW — Private Practice, California</div></div>
+        </div>
+      </div>
+      <div class="mpl-tcard">
+        <div class="mpl-tcard-stars">★★★★★</div>
+        <p class="mpl-tcard-text">"The play therapy documentation guide paired with the CBT worksheets is exactly what I needed. My caseload is almost entirely children and this is a goldmine."</p>
+        <div class="mpl-tcard-author">
+          <div class="mpl-tcard-avatar">JM</div>
+          <div><div class="mpl-tcard-name">James M.</div><div class="mpl-tcard-role">LMFT — School-Based Therapist, Texas</div></div>
+        </div>
+      </div>
+      <div class="mpl-tcard">
+        <div class="mpl-tcard-stars">★★★★★</div>
+        <p class="mpl-tcard-text">"As a psychologist running a group practice, I immediately shared these resources with my entire team. Outstanding value and clinically rigorous content."</p>
+        <div class="mpl-tcard-author">
+          <div class="mpl-tcard-avatar">DP</div>
+          <div><div class="mpl-tcard-name">Dr. Patricia D.</div><div class="mpl-tcard-role">PhD, Clinical Psychologist — New York</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FAQ ══ -->
+  <div class="mpl-section mpl-section-border" style="background:#f9fafb;max-width:100%;padding:56px 0;">
+    <div style="max-width:700px;margin:0 auto;padding:0 32px;">
+      <div class="mpl-sh" style="text-align:center;">
+        <div class="mpl-sh-label">FAQ</div>
+        <h2>Common Questions</h2>
+      </div>
+      <div class="mpl-faq">
+        <div class="mpl-faq-item">
+          <button class="mpl-faq-q" onclick="mplToggleFaq(this)">
+            What format are the books delivered in?
+            <span class="mpl-faq-q-icon">+</span>
+          </button>
+          <div class="mpl-faq-a">All 18 handbooks are delivered as instant PDF downloads. You'll receive access within minutes of purchase and can download them to any device — phone, tablet, or computer.</div>
+        </div>
+        <div class="mpl-faq-item">
+          <button class="mpl-faq-q" onclick="mplToggleFaq(this)">
+            Can I use these resources in telehealth sessions?
+            <span class="mpl-faq-q-icon">+</span>
+          </button>
+          <div class="mpl-faq-a">Absolutely. All resources are designed to be screen-shareable in telehealth sessions and printable for in-person practice. Worksheets are fillable PDF-ready.</div>
+        </div>
+        <div class="mpl-faq-item">
+          <button class="mpl-faq-q" onclick="mplToggleFaq(this)">
+            Is this a one-time payment or a subscription?
+            <span class="mpl-faq-q-icon">+</span>
+          </button>
+          <div class="mpl-faq-a">This is a single, one-time payment of $49. There are no subscriptions, no recurring charges, and no hidden fees. You get lifetime access to all 18 PDFs.</div>
+        </div>
+        <div class="mpl-faq-item">
+          <button class="mpl-faq-q" onclick="mplToggleFaq(this)">
+            Can I share these with my team or colleagues?
+            <span class="mpl-faq-q-icon">+</span>
+          </button>
+          <div class="mpl-faq-a">The license is for personal practice use. For group practices or teams of 3+, please contact us for multi-seat licensing at a discounted rate.</div>
+        </div>
+        <div class="mpl-faq-item">
+          <button class="mpl-faq-q" onclick="mplToggleFaq(this)">
+            What if I already purchased one of the individual bundles?
+            <span class="mpl-faq-q-icon">+</span>
+          </button>
+          <div class="mpl-faq-a">If you've purchased one of the $29 bundles, the Library Pass is still a great value — you'll get the two remaining bundles for just $20 total (less than $10 per bundle). There's no overlap in your download links.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FINAL CTA ══ -->
+  <div class="mpl-final-cta">
+    <div class="mpl-final-cta-inner">
+      <h2>Complete Your Clinical Library Today</h2>
+      <p>18 essential practitioner handbooks across 3 specialty bundles. The most comprehensive clinical resource collection available at this price point.</p>
+      <button class="mpl-final-btn" onclick="mplCheckout()">🛒 Get All 18 Handbooks — Just $49</button>
+      <div class="mpl-final-meta">One-time payment &nbsp;·&nbsp; Instant Access &nbsp;·&nbsp; $540 Value for $49 &nbsp;·&nbsp; Secure Checkout</div>
+    </div>
+  </div>
+
+  <!-- TRUST STRIP -->
+  <div class="mpl-trust-strip">
+    <div class="mpl-trust-item-s">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      256-bit Secure Checkout
+    </div>
+    <div class="mpl-trust-item-s">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      Instant PDF Delivery
+    </div>
+    <div class="mpl-trust-item-s">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Lifetime License
+    </div>
+    <div class="mpl-trust-item-s">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Access Within Minutes
+    </div>
+  </div>
+
+</div>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mpl-sticky-cta" id="mpl-sticky">
+  <div>
+    <div class="mpl-sticky-cta-text">Master Library Pass</div>
+    <div class="mpl-sticky-cta-price">All 18 handbooks — <strong>$49</strong></div>
+  </div>
+  <button class="mpl-sticky-btn" onclick="mplCheckout()">Get Access</button>
+</div>
+
+<script>
+  function mplShowPanel(idx, btn) {
+    document.querySelectorAll('.mpl-bundle-panel').forEach((p,i) => p.classList.toggle('active', i === idx));
+    document.querySelectorAll('.mpl-tab').forEach((t,i) => t.classList.toggle('active', i === idx));
+  }
+
+  function mplToggleFaq(btn) {
+    const item = btn.closest('.mpl-faq-item');
+    item.classList.toggle('open');
+  }
+
+  function mplCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}','{{ v4.id }}','{{ v5.id }}','{{ v6.id }}',
+      '{{ v7.id }}','{{ v8.id }}','{{ v9.id }}','{{ v10.id }}',
+      '{{ v11.id }}','{{ v12.id }}','{{ v13.id }}','{{ v14.id }}','{{ v15.id }}'
+    ];
+    const valid = variants.filter(v => v && v !== '' && v !== '0');
+    if (valid.length === 0) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.mpl-buy-btn,.mpl-nav-cta,.mpl-final-btn,.mpl-sticky-btn').forEach(b => {
+      b.textContent = 'Processing…'; b.disabled = true;
+    });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: valid.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.mpl-buy-btn,.mpl-nav-cta,.mpl-final-btn,.mpl-sticky-btn').forEach(b => {
+          b.disabled = false; b.textContent = 'Get Library Pass — $49';
+        });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
