@@ -1,0 +1,412 @@
+{% assign p1 = all_products['cbt-toolbox-for-children-and-adolescents-over-200-worksheets-exercises-for-trauma-adhd-autism-anxiety-depression-conduct-disorders'] %}
+{% assign v1 = p1.variants.first %}
+{% assign p2 = all_products['the-guide-to-play-therapy-documentation-and-parent-consultation'] %}
+{% assign v2 = p2.variants.first %}
+{% assign p3 = all_products['play-therapy-4th-edition'] %}
+{% assign v3 = p3.variants.first %}
+{% assign p4 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] %}
+{% assign v4 = p4.variants.first %}
+{% assign p5 = all_products['permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success'] %}
+{% assign v5 = p5.variants.first %}
+{% assign p6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] %}
+{% assign v6 = p6.variants.first %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<style>
+  .cft-wrap *, .cft-wrap *::before, .cft-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .cft-wrap {
+    --c-bg:     #0f172a;
+    --c-bg2:    #1e1b4b;
+    --c-bg3:    #312e81;
+    --c-glass:  rgba(255,255,255,0.04);
+    --c-border: rgba(255,255,255,0.08);
+    --c-amber:  #fbbf24;
+    --c-coral:  #f97316;
+    --c-glow:   rgba(251,191,36,0.18);
+    --c-teal:   #2dd4bf;
+    --c-text:   #f8fafc;
+    --c-muted:  #64748b;
+    --c-dim:    #94a3b8;
+    --c-radius: 20px;
+    --c-ease:   all 0.35s cubic-bezier(0.4,0,0.2,1);
+    font-family: 'Outfit', sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .cft-hero {
+    min-height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .cft-orb { position:absolute; border-radius:50%; filter:blur(120px); pointer-events:none; }
+  .cft-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(251,191,36,0.14),transparent 70%);top:-180px;left:50%;transform:translateX(-50%); }
+  .cft-orb-2 { width:420px;height:420px;background:radial-gradient(circle,rgba(45,212,191,0.10),transparent 70%);bottom:0;right:-80px; }
+  .cft-orb-3 { width:350px;height:350px;background:radial-gradient(circle,rgba(249,115,22,0.08),transparent 70%);bottom:0;left:-60px; }
+
+  .cft-hero-inner { position:relative;z-index:1;max-width:860px; }
+
+  .cft-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(251,191,36,0.08);
+    border:1px solid rgba(251,191,36,0.2);
+    border-radius:999px;padding:8px 22px;
+    font-size:0.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+    color:var(--c-amber);margin-bottom:28px;backdrop-filter:blur(12px);
+  }
+  .cft-badge-dot {
+    width:7px;height:7px;background:var(--c-amber);border-radius:50%;
+    animation:cft-pulse 2s ease-in-out infinite;
+  }
+  @keyframes cft-pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.4;transform:scale(0.7);} }
+
+  .cft-hero h1 {
+    font-size:clamp(2.5rem,5.8vw,4.6rem);font-weight:900;line-height:1.06;
+    letter-spacing:-2px;margin-bottom:24px;
+  }
+  .cft-amber-text {
+    background:linear-gradient(135deg,var(--c-amber),var(--c-coral));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+  .cft-teal-text {
+    background:linear-gradient(135deg,var(--c-teal),#5eead4);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  }
+
+  .cft-sub {
+    font-size:1.15rem;color:var(--c-dim);max-width:640px;
+    margin:0 auto 44px;line-height:1.75;font-weight:400;
+  }
+
+  .cft-price-row { display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:36px;flex-wrap:wrap; }
+  .cft-price-main { font-size:5.5rem;font-weight:900;line-height:1;letter-spacing:-4px;color:var(--c-text); }
+  .cft-price-main sup { font-size:2.2rem;letter-spacing:0;vertical-align:super; }
+  .cft-price-meta { display:flex;flex-direction:column;align-items:flex-start;gap:6px; }
+  .cft-price-was { font-size:1.1rem;color:var(--c-muted);text-decoration:line-through;font-weight:600; }
+  .cft-save-pill {
+    font-size:0.82rem;font-weight:800;color:var(--c-amber);
+    background:rgba(251,191,36,0.12);padding:4px 12px;border-radius:999px;
+    letter-spacing:0.5px;border:1px solid rgba(251,191,36,0.25);
+  }
+
+  .cft-btn {
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Outfit',sans-serif;font-weight:800;
+    border:none;border-radius:16px;cursor:pointer;
+    transition:var(--c-ease);text-decoration:none;
+    position:relative;overflow:hidden;letter-spacing:-0.3px;
+  }
+  .cft-btn::after { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);opacity:0;transition:opacity 0.2s; }
+  .cft-btn:hover::after { opacity:1; }
+  .cft-btn-primary {
+    background:linear-gradient(135deg,var(--c-amber),var(--c-coral));
+    color:#0f172a;padding:18px 52px;font-size:1.15rem;
+    box-shadow:0 0 40px var(--c-glow),0 6px 20px rgba(0,0,0,0.4);
+  }
+  .cft-btn-primary:hover { transform:translateY(-3px);box-shadow:0 0 60px var(--c-glow),0 10px 30px rgba(0,0,0,0.5); }
+  .cft-btn-sm { font-size:0.9rem;padding:11px 24px;border-radius:12px; }
+
+  .cft-trust { display:flex;align-items:center;justify-content:center;gap:24px;margin-top:22px;flex-wrap:wrap; }
+  .cft-trust-item { display:flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--c-muted);font-weight:500; }
+  .cft-trust-item svg { color:var(--c-amber); }
+
+  /* INTRO */
+  .cft-intro {
+    padding:70px 24px;
+    background:linear-gradient(135deg,rgba(251,191,36,0.05),rgba(45,212,191,0.03));
+    border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);
+    text-align:center;
+  }
+  .cft-intro-inner { max-width:740px;margin:0 auto; }
+  .cft-intro h2 { font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:18px; }
+  .cft-intro p { font-size:1rem;color:var(--c-dim);line-height:1.8; }
+  .cft-pillars { display:flex;align-items:center;justify-content:center;gap:20px;margin-top:40px;flex-wrap:wrap; }
+  .cft-pillar {
+    background:var(--c-glass);border:1px solid var(--c-border);
+    border-radius:14px;padding:18px 22px;text-align:center;min-width:130px;
+    backdrop-filter:blur(10px);
+  }
+  .cft-pillar-icon { font-size:1.8rem;margin-bottom:8px;display:block; }
+  .cft-pillar-name { font-size:0.83rem;font-weight:800;color:var(--c-text);letter-spacing:0.5px; }
+
+  /* BOOKS GRID */
+  .cft-books { padding:100px 24px; }
+  .cft-label { display:block;text-align:center;font-size:0.73rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--c-amber);margin-bottom:14px; }
+  .cft-title { text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-text); }
+
+  .cft-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto; }
+
+  .cft-card {
+    background:var(--c-glass);border:1px solid var(--c-border);border-radius:var(--c-radius);
+    padding:32px 22px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;transition:var(--c-ease);backdrop-filter:blur(10px);
+    position:relative;overflow:hidden;
+  }
+  .cft-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(251,191,36,0.07),transparent,rgba(45,212,191,0.04));opacity:0;transition:opacity 0.3s; }
+  .cft-card:hover { transform:translateY(-10px);border-color:rgba(251,191,36,0.35);box-shadow:0 24px 60px rgba(0,0,0,0.5),0 0 40px var(--c-glow); }
+  .cft-card:hover::before { opacity:1; }
+
+  .cft-card-num { position:absolute;top:14px;right:14px;width:30px;height:30px;background:linear-gradient(135deg,var(--c-amber),var(--c-coral));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:900;color:#0f172a; }
+
+  .cft-cover-wrap { width:130px;height:195px;margin-bottom:22px;position:relative;flex-shrink:0; }
+  .cft-cover-wrap::after { content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:75%;height:18px;background:var(--c-glow);filter:blur(14px);border-radius:50%;opacity:0;transition:opacity 0.3s; }
+  .cft-card:hover .cft-cover-wrap::after { opacity:1; }
+
+  .cft-cover { width:100%;height:100%;object-fit:contain;border-radius:6px;box-shadow:0 14px 40px rgba(0,0,0,0.6),4px 4px 0 rgba(0,0,0,0.25);transition:transform 0.35s ease; }
+  .cft-card:hover .cft-cover { transform:rotate(-2.5deg) scale(1.05); }
+  .cft-card-title { font-size:0.92rem;font-weight:700;line-height:1.4;color:var(--c-text); }
+
+  /* FEATURES */
+  .cft-features { padding:80px 24px;background:var(--c-bg2);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border); }
+  .cft-feat-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto; }
+  .cft-feat { text-align:center;padding:36px 20px; }
+  .cft-feat-icon { font-size:2.6rem;margin-bottom:16px;display:block; }
+  .cft-feat-title { font-size:1.05rem;font-weight:800;margin-bottom:10px;color:var(--c-text); }
+  .cft-feat-desc { font-size:0.88rem;color:var(--c-muted);line-height:1.75; }
+
+  /* FINAL CTA */
+  .cft-final { padding:120px 24px;text-align:center;position:relative;overflow:hidden; }
+  .cft-final-orb { position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,0.09),transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);filter:blur(80px);pointer-events:none; }
+  .cft-final-inner { position:relative;z-index:1;max-width:640px;margin:0 auto; }
+  .cft-final h2 { font-size:clamp(2rem,4vw,3.4rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;line-height:1.1; }
+  .cft-final p { font-size:1.1rem;color:var(--c-dim);margin-bottom:44px;line-height:1.75; }
+
+  /* STICKY */
+  .cft-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:16px 32px;background:rgba(15,23,42,0.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.6); }
+  .cft-sticky.show { transform:translateY(0); }
+  .cft-sticky-text { font-size:1rem;font-weight:700;color:var(--c-text); }
+  .cft-sticky-text span { color:var(--c-amber); }
+
+  /* FADE */
+  .cft-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
+  .cft-fade.in { opacity:1;transform:translateY(0); }
+  .cft-fade:nth-child(2){transition-delay:0.1s}.cft-fade:nth-child(3){transition-delay:0.2s}
+  .cft-fade:nth-child(4){transition-delay:0.3s}.cft-fade:nth-child(5){transition-delay:0.4s}
+  .cft-fade:nth-child(6){transition-delay:0.5s}
+
+  @media(max-width:900px){ .cft-grid{grid-template-columns:repeat(2,1fr);} .cft-feat-grid{grid-template-columns:1fr;} .cft-pillars{gap:12px;} }
+  @media(max-width:600px){ .cft-grid{grid-template-columns:repeat(2,1fr);gap:14px;} .cft-card{padding:18px 12px;} .cft-hero h1{letter-spacing:-1.5px;} .cft-sticky{flex-direction:column;gap:10px;padding:14px 20px;} .cft-price-main{font-size:4rem;} }
+</style>
+
+<div class="cft-wrap">
+
+  <!-- HERO -->
+  <section class="cft-hero">
+    <div class="cft-orb cft-orb-1"></div>
+    <div class="cft-orb cft-orb-2"></div>
+    <div class="cft-orb cft-orb-3"></div>
+    <div class="cft-hero-inner">
+
+      <div class="cft-badge">
+        <span class="cft-badge-dot"></span>
+        Child, Teen &amp; Family Practitioner Collection
+      </div>
+
+      <h1>
+        The Child, Adolescent &amp;<br/>
+        <span class="cft-amber-text">Family Therapy Toolkit.</span><br/>
+        <span class="cft-teal-text">6 Clinical Resources.</span>
+      </h1>
+
+      <p class="cft-sub">
+        Equip your practice with 200+ printable youth worksheets, play therapy documentation frameworks, ADHD management, and emotional intelligence guides.
+      </p>
+
+      <div class="cft-price-row">
+        <div class="cft-price-main"><sup>$</sup>29</div>
+        <div class="cft-price-meta">
+          <span class="cft-price-was">$180.00 Value</span>
+          <span class="cft-save-pill">&#10022; Save 84%</span>
+        </div>
+      </div>
+
+      <button class="cft-btn cft-btn-primary" id="cft-hero-cta" onclick="cftCheckout()">
+        🛒 Get The Child &amp; Family Toolkit — $29
+      </button>
+
+      <div class="cft-trust">
+        <div class="cft-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Instant PDF Download
+        </div>
+        <div class="cft-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Printable &amp; Telehealth Ready
+        </div>
+        <div class="cft-trust-item">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Lifetime Practice License
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO / MODALITIES -->
+  <section class="cft-intro">
+    <div class="cft-intro-inner">
+      <h2>Designed for <span class="cft-amber-text">Youth &amp; Family Clinicians</span></h2>
+      <p>Whether you conduct play therapy sessions, parent consultations, or adolescent behavioral counseling, having ready-to-use worksheets and documentation guides saves hours of prep time.</p>
+      <div class="cft-pillars">
+        <div class="cft-pillar"><span class="cft-pillar-icon">👶</span><span class="cft-pillar-name">200+ CBT Worksheets</span></div>
+        <div class="cft-pillar"><span class="cft-pillar-icon">🧸</span><span class="cft-pillar-name">Play Therapy Protocols</span></div>
+        <div class="cft-pillar"><span class="cft-pillar-icon">📝</span><span class="cft-pillar-name">Parent Consultation</span></div>
+        <div class="cft-pillar"><span class="cft-pillar-icon">⚡</span><span class="cft-pillar-name">ADHD Strategies</span></div>
+        <div class="cft-pillar"><span class="cft-pillar-icon">💡</span><span class="cft-pillar-name">RULER Emotional Skills</span></div>
+        <div class="cft-pillar"><span class="cft-pillar-icon">🧠</span><span class="cft-pillar-name">Emotional Control</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS GRID -->
+  <section class="cft-books">
+    <span class="cft-label">What You Get</span>
+    <h2 class="cft-title">6 Practitioner Resources Included</h2>
+
+    <div class="cft-grid">
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">1</div>
+        <div class="cft-cover-wrap">
+          {% if p1.images.first %}<img class="cft-cover" src="{{ p1.images.first | img_url: '400x' }}" alt="{{ p1.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p1.title | default: 'CBT Toolbox for Children &amp; Adolescents' }}</p>
+      </div>
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">2</div>
+        <div class="cft-cover-wrap">
+          {% if p2.images.first %}<img class="cft-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p2.title | default: 'Guide to Play Therapy Documentation &amp; Parent Consultation' }}</p>
+      </div>
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">3</div>
+        <div class="cft-cover-wrap">
+          {% if p3.images.first %}<img class="cft-cover" src="{{ p3.images.first | img_url: '400x' }}" alt="{{ p3.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p3.title | default: 'Play Therapy (4th Edition)' }}</p>
+      </div>
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">4</div>
+        <div class="cft-cover-wrap">
+          {% if p4.images.first %}<img class="cft-cover" src="{{ p4.images.first | img_url: '400x' }}" alt="{{ p4.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p4.title | default: 'Taking Charge of ADHD' }}</p>
+      </div>
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">5</div>
+        <div class="cft-cover-wrap">
+          {% if p5.images.first %}<img class="cft-cover" src="{{ p5.images.first | img_url: '400x' }}" alt="{{ p5.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p5.title | default: 'Permission to Feel' }}</p>
+      </div>
+
+      <div class="cft-card cft-fade">
+        <div class="cft-card-num">6</div>
+        <div class="cft-cover-wrap">
+          {% if p6.images.first %}<img class="cft-cover" src="{{ p6.images.first | img_url: '400x' }}" alt="{{ p6.title }}" loading="lazy" />
+          {% else %}<div class="cft-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="cft-card-title">{{ p6.title | default: 'Master Your Emotions' }}</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="cft-features">
+    <span class="cft-label">Practitioner Impact</span>
+    <h2 class="cft-title" style="margin-bottom:48px;">Streamline Youth &amp; Family Interventions</h2>
+    <div class="cft-feat-grid">
+      <div class="cft-feat">
+        <span class="cft-feat-icon">📋</span>
+        <p class="cft-feat-title">Play Therapy &amp; Parent Documentation</p>
+        <p class="cft-feat-desc">Concrete frameworks for structured parent consultation notes, treatment plans, and play therapy session documentation.</p>
+      </div>
+      <div class="cft-feat">
+        <span class="cft-feat-icon">🧩</span>
+        <p class="cft-feat-title">200+ Printable Youth Worksheets</p>
+        <p class="cft-feat-desc">Worksheets for ADHD, autism spectrum, anxiety, conduct disorders, depression, and trauma in kids &amp; teens.</p>
+      </div>
+      <div class="cft-feat">
+        <span class="cft-feat-icon">💡</span>
+        <p class="cft-feat-title">RULER Emotional Intelligence</p>
+        <p class="cft-feat-desc">Marc Brackett's proven Yale system to teach children and parents how to recognize, understand, and regulate emotions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cft-final">
+    <div class="cft-final-orb"></div>
+    <div class="cft-final-inner">
+      <h2>Equip Your Youth Practice<br/>Today</h2>
+      <p>6 essential child, teen &amp; family therapy handbooks — curated into one complete bundle. Get instant access for just $29.</p>
+      <button class="cft-btn cft-btn-primary" onclick="cftCheckout()">🛒 Get All 6 Handbooks — $29</button>
+      <div class="cft-trust" style="margin-top:24px;">
+        <div class="cft-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
+        <div class="cft-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$180 Value for $29</div>
+        <div class="cft-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- STICKY BAR -->
+<div class="cft-sticky" id="cft-sticky">
+  <span class="cft-sticky-text">Child &amp; Family Therapy Toolkit — <span>$29.00</span></span>
+  <button class="cft-btn cft-btn-primary cft-btn-sm" onclick="cftCheckout()">Buy Now</button>
+</div>
+
+<script>
+  const cftHeroCta = document.getElementById('cft-hero-cta');
+  const cftSticky  = document.getElementById('cft-sticky');
+  window.addEventListener('scroll', () => {
+    cftSticky.classList.toggle('show', cftHeroCta.getBoundingClientRect().bottom < 0);
+  }, { passive: true });
+
+  const cftFades = document.querySelectorAll('.cft-fade');
+  const cftObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); cftObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  cftFades.forEach(el => cftObs.observe(el));
+
+  function cftCheckout() {
+    const variants = [
+      '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+    ];
+    if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
+    document.querySelectorAll('.cft-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(() => fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ items: variants.map(id => ({ id: parseInt(id), quantity: 1 })) })
+      }))
+      .then(r => r.json())
+      .then(() => { window.location.href = '/checkout'; })
+      .catch(err => {
+        console.error(err);
+        document.querySelectorAll('.cft-btn-primary').forEach(b => { b.textContent = 'Get Bundle — $29'; b.disabled = false; });
+        alert('Something went wrong. Please try again.');
+      });
+  }
+</script>
