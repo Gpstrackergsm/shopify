@@ -852,125 +852,166 @@
     </div>
   </section>
 
-  <!-- COMPLETE YOUR CBT LIBRARY (OFFER) -->
+  <!-- BUNDLE DEAL OFFER -->
   {%- assign book1 = all_products['cognitive-behavioural-therapy-workbook-for-dummies'] -%}
   {%- assign book2 = all_products['pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition'] -%}
   {%- assign book3 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] -%}
   {%- assign book4 = all_products['mans-search-for-meaning'] -%}
-  <section class="cbt-offer-section">
-    <div class="cbt-section-inner">
-      <div class="cbt-offer-intro">
-        <div class="cbt-label">&#128218; Also Available</div>
-        <h2 class="cbt-title">Complete Your CBT Library</h2>
-        <p class="cbt-subtitle" style="margin:0 auto;">
-          Pair the CBT Flip Chart with these hand-picked companion books &mdash; each one deepens your clinical toolkit and your clients&rsquo; understanding of evidence-based therapy.
-        </p>
+  {%- assign book5 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] -%}
+  {%- assign book6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] -%}
+  {%- assign book7 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] -%}
+  {%- assign book8 = all_products['attachment-focused-emdr-healing-relational-trauma'] -%}
+
+  <section style="background:linear-gradient(160deg,#0f172a 0%,#134e4a 55%,#1e1b4b 100%);padding:100px 24px;position:relative;overflow:hidden;">
+    <!-- glow blobs -->
+    <div style="position:absolute;top:-140px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(94,234,212,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-100px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+
+    <div class="cbt-section-inner" style="position:relative;z-index:1;">
+
+      <!-- Header -->
+      <div style="text-align:center;margin-bottom:56px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1.5px solid rgba(245,158,11,0.4);border-radius:999px;padding:7px 20px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:20px;">&#9889; Limited Special Offer</div>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;">Get All 8 Books for <em style="font-style:normal;color:#5eead4;">Just {{ cbt_product.price | money }} Total</em></h2>
+        <p style="font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,0.68);line-height:1.75;font-weight:500;max-width:600px;margin:0 auto;">An expertly curated clinical psychology &amp; CBT collection — get all 8 essential companion books together for the price of one. Complete your toolkit in a single click.</p>
       </div>
-      <div class="cbt-offer-grid">
+
+      <!-- Book grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:52px;">
 
         <!-- Book 1 -->
-        <div class="cbt-offer-card">
-          <div class="cbt-offer-img-wrap">
-            {%- if book1.images.first -%}
-              <img src="{{ book1.images.first | img_url: '400x' }}" alt="{{ book1.title }}" loading="lazy">
-            {%- else -%}
-              <div class="cbt-offer-img-placeholder">&#128218;</div>
-            {%- endif -%}
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book1.images.first -%}<img src="{{ book1.images.first | img_url: '400x' }}" alt="{{ book1.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
           </div>
-          <div class="cbt-offer-body">
-            <span class="cbt-offer-tag">&#129504; CBT Workbook</span>
-            <div class="cbt-offer-title">{{ book1.title }}</div>
-            <div class="cbt-offer-author">{{ book1.vendor }}</div>
-          </div>
-          <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ book1.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
-            </form>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; CBT Workbook</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book1.title }}</div>
           </div>
         </div>
 
         <!-- Book 2 -->
-        <div class="cbt-offer-card">
-          <div class="cbt-offer-img-wrap">
-            {%- if book2.images.first -%}
-              <img src="{{ book2.images.first | img_url: '400x' }}" alt="{{ book2.title }}" loading="lazy">
-            {%- else -%}
-              <div class="cbt-offer-img-placeholder">&#128218;</div>
-            {%- endif -%}
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book2.images.first -%}<img src="{{ book2.images.first | img_url: '400x' }}" alt="{{ book2.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
           </div>
-          <div class="cbt-offer-body">
-            <span class="cbt-offer-tag">&#9889; Pattern-Focused CBT</span>
-            <div class="cbt-offer-title">{{ book2.title }}</div>
-            <div class="cbt-offer-author">{{ book2.vendor }}</div>
-          </div>
-          <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ book2.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
-            </form>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#a5b4fc;margin-bottom:5px;">&#9889; Pattern CBT</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book2.title }}</div>
           </div>
         </div>
 
         <!-- Book 3 -->
-        <div class="cbt-offer-card">
-          <div class="cbt-offer-img-wrap">
-            {%- if book3.images.first -%}
-              <img src="{{ book3.images.first | img_url: '400x' }}" alt="{{ book3.title }}" loading="lazy">
-            {%- else -%}
-              <div class="cbt-offer-img-placeholder">&#128218;</div>
-            {%- endif -%}
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book3.images.first -%}<img src="{{ book3.images.first | img_url: '400x' }}" alt="{{ book3.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
           </div>
-          <div class="cbt-offer-body">
-            <span class="cbt-offer-tag">&#127775; DBT &amp; Emotion Regulation</span>
-            <div class="cbt-offer-title">{{ book3.title }}</div>
-            <div class="cbt-offer-author">{{ book3.vendor }}</div>
-          </div>
-          <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ book3.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
-            </form>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#f9a8d4;margin-bottom:5px;">&#127775; DBT Skills</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book3.title }}</div>
           </div>
         </div>
 
         <!-- Book 4 -->
-        <div class="cbt-offer-card">
-          <div class="cbt-offer-img-wrap">
-            {%- if book4.images.first -%}
-              <img src="{{ book4.images.first | img_url: '400x' }}" alt="{{ book4.title }}" loading="lazy">
-            {%- else -%}
-              <div class="cbt-offer-img-placeholder">&#128218;</div>
-            {%- endif -%}
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book4.images.first -%}<img src="{{ book4.images.first | img_url: '400x' }}" alt="{{ book4.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
           </div>
-          <div class="cbt-offer-body">
-            <span class="cbt-offer-tag">&#127981; Meaning &amp; Psychology</span>
-            <div class="cbt-offer-title">{{ book4.title }}</div>
-            <div class="cbt-offer-author">{{ book4.vendor }}</div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:5px;">&#127981; Meaning</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book4.title }}</div>
           </div>
-          <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ book4.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
-            </form>
+        </div>
+
+        <!-- Book 5 -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book5.images.first -%}<img src="{{ book5.images.first | img_url: '400x' }}" alt="{{ book5.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
+          </div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; ADHD &amp; Focus</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book5.title }}</div>
+          </div>
+        </div>
+
+        <!-- Book 6 -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book6.images.first -%}<img src="{{ book6.images.first | img_url: '400x' }}" alt="{{ book6.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
+          </div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#a5b4fc;margin-bottom:5px;">&#127775; Emotional IQ</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book6.title }}</div>
+          </div>
+        </div>
+
+        <!-- Book 7 -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book7.images.first -%}<img src="{{ book7.images.first | img_url: '400x' }}" alt="{{ book7.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
+          </div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#128172; Motivational</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book7.title }}</div>
+          </div>
+        </div>
+
+        <!-- Book 8 -->
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
+            {%- if book8.images.first -%}<img src="{{ book8.images.first | img_url: '400x' }}" alt="{{ book8.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
+          </div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#f9a8d4;margin-bottom:5px;">&#129291; Trauma &amp; EMDR</div>
+            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book8.title }}</div>
           </div>
         </div>
 
       </div>
+
+      <!-- Bundle CTA box -->
+      <div style="max-width:640px;margin:0 auto;background:rgba(255,255,255,0.07);border:1.5px solid rgba(94,234,212,0.25);border-radius:24px;padding:40px 36px;text-align:center;backdrop-filter:blur(12px);">
+        <div style="font-size:0.82rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:12px;">&#127775; Everything included — one price</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
+          <span style="font-size:1.1rem;color:rgba(255,255,255,0.4);font-weight:700;text-decoration:line-through;">$239.92</span>
+          <span style="font-size:3rem;font-weight:900;color:#5eead4;letter-spacing:-1.5px;line-height:1;">{{ cbt_product.price | money }}</span>
+        </div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:28px;">All 8 books &nbsp;&bull;&nbsp; Instant digital download &nbsp;&bull;&nbsp; Lifetime access</div>
+        <button id="cbt-bundle-btn"
+          data-ids="{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}"
+          style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:16px;padding:20px 52px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 32px rgba(13,148,136,0.45);transition:all 0.25s;width:100%;max-width:440px;">
+          &#128722; Get All 8 Books for {{ cbt_product.price | money }} Total
+        </button>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:14px;">All 8 books added to cart &bull; Direct to secure checkout</p>
+      </div>
+
     </div>
   </section>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('cbt-bundle-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var ids = btn.getAttribute('data-ids').split(',').filter(Boolean);
+        var items = ids.map(function(id) { return { id: parseInt(id, 10), quantity: 1 }; });
+        btn.disabled = true;
+        btn.textContent = 'Adding to cart\u2026';
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ items: items })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function() { window.location.href = '/checkout'; })
+        .catch(function() {
+          btn.disabled = false;
+          btn.innerHTML = '&#128722; Get All 8 Books for {{ cbt_product.price | money }} Total';
+          alert('Something went wrong. Please try again.');
+        });
+      });
+    })();
+  </script>
 
   <!-- REVIEWS -->
   <section class="cbt-section" id="cbt-reviews">
@@ -1110,126 +1151,6 @@
           <div class="cbt-review-title">Good chart to use in reviewing CBT concepts</div>
           <div class="cbt-review-meta">Jacqueline Hopkins &nbsp;&middot;&nbsp; April 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
           <div class="cbt-review-text">Good chart to use in reviewing CBT concepts.</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- READERS ALSO LOVE (OFFER 2) -->
-  {%- assign rec1 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] -%}
-  {%- assign rec2 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] -%}
-  {%- assign rec3 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] -%}
-  {%- assign rec4 = all_products['attachment-focused-emdr-healing-relational-trauma'] -%}
-  <section style="background:linear-gradient(160deg,#0f172a 0%,#134e4a 60%,#1e1b4b 100%); padding:90px 24px; position:relative; overflow:hidden;">
-    <div style="position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(94,234,212,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-    <div style="position:absolute;bottom:-80px;left:-60px;width:440px;height:440px;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-    <div class="cbt-section-inner" style="position:relative;z-index:1;">
-      <div style="text-align:center;margin-bottom:52px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#5eead4;border:1.5px solid rgba(94,234,212,0.3);border-radius:999px;padding:6px 18px;margin-bottom:18px;">&#128218; Readers Also Love</div>
-        <h2 style="font-size:clamp(1.8rem,3.8vw,2.75rem);font-weight:900;color:#fff;letter-spacing:-0.9px;line-height:1.15;margin-bottom:14px;">Expand Your Therapy Toolkit</h2>
-        <p style="font-size:clamp(1rem,2vw,1.1rem);color:rgba(255,255,255,0.7);line-height:1.75;font-weight:500;max-width:620px;margin:0 auto;">Clients love the CBT Flip Chart. These titles take the work even further &mdash; from ADHD strategies to trauma-informed EMDR.</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;">
-
-        <!-- Rec 1 -->
-        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
-            {%- if rec1.images.first -%}
-              <img src="{{ rec1.images.first | img_url: '400x' }}" alt="{{ rec1.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            {%- else -%}
-              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
-            {%- endif -%}
-          </div>
-          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
-            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#5eead4;">&#129504; ADHD &amp; Focus</span>
-            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec1.title }}</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec1.vendor }}</div>
-          </div>
-          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ rec1.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Rec 2 -->
-        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
-            {%- if rec2.images.first -%}
-              <img src="{{ rec2.images.first | img_url: '400x' }}" alt="{{ rec2.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            {%- else -%}
-              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
-            {%- endif -%}
-          </div>
-          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
-            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#a5b4fc;">&#127775; Emotional Intelligence</span>
-            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec2.title }}</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec2.vendor }}</div>
-          </div>
-          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ rec2.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Rec 3 -->
-        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
-            {%- if rec3.images.first -%}
-              <img src="{{ rec3.images.first | img_url: '400x' }}" alt="{{ rec3.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            {%- else -%}
-              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
-            {%- endif -%}
-          </div>
-          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
-            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#5eead4;">&#128172; Motivational Interviewing</span>
-            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec3.title }}</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec3.vendor }}</div>
-          </div>
-          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ rec3.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Rec 4 -->
-        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
-            {%- if rec4.images.first -%}
-              <img src="{{ rec4.images.first | img_url: '400x' }}" alt="{{ rec4.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-            {%- else -%}
-              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
-            {%- endif -%}
-          </div>
-          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
-            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#f9a8d4;">&#129291; Trauma &amp; EMDR</span>
-            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec4.title }}</div>
-            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec4.vendor }}</div>
-          </div>
-          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
-            <form action="/cart/add" method="post" style="margin:0;">
-              <input type="hidden" name="id" value="{{ rec4.variants.first.id }}">
-              <input type="hidden" name="quantity" value="1">
-              <input type="hidden" name="return_to" value="/checkout">
-              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
-            </form>
-          </div>
         </div>
 
       </div>
