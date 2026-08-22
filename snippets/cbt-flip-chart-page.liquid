@@ -494,6 +494,85 @@
       .cbt-hero-img img { max-width: 260px; }
       .cbt-stat-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ── OFFER SECTION ── */
+    .cbt-offer-section {
+      background: linear-gradient(160deg, #f0fdfa 0%, #ffffff 60%, #faf5ff 100%);
+      padding: 90px 24px;
+      border-top: 1px solid var(--border-soft);
+    }
+    .cbt-offer-intro {
+      text-align: center; max-width: 680px; margin: 0 auto 52px;
+    }
+    .cbt-offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    .cbt-offer-card {
+      background: #fff;
+      border: 1.5px solid var(--border-soft);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+      position: relative;
+    }
+    .cbt-offer-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--accent2), var(--brand));
+    }
+    .cbt-offer-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .cbt-offer-img-wrap {
+      width: 100%; aspect-ratio: 3/4; overflow: hidden;
+      background: linear-gradient(135deg, #f0fdfa, #ede9fe);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cbt-offer-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .cbt-offer-card:hover .cbt-offer-img-wrap img { transform: scale(1.04); }
+    .cbt-offer-img-placeholder {
+      font-size: 3.5rem; color: var(--brand); opacity: 0.4;
+    }
+    .cbt-offer-body {
+      padding: 22px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px;
+    }
+    .cbt-offer-tag {
+      display: inline-block; font-size: 0.7rem; font-weight: 900;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 4px;
+    }
+    .cbt-offer-title {
+      font-weight: 800; font-size: 0.95rem; color: var(--text-primary);
+      line-height: 1.4; flex: 1;
+    }
+    .cbt-offer-author {
+      font-size: 0.82rem; color: var(--text-muted); font-weight: 600;
+    }
+    .cbt-offer-footer {
+      padding: 0 20px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    }
+    .cbt-offer-price {
+      font-size: 1.05rem; font-weight: 900; color: var(--brand);
+    }
+    .cbt-offer-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      color: #fff; border: none; border-radius: 10px;
+      padding: 9px 18px; font-size: 0.82rem; font-weight: 800;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(13,148,136,0.28);
+      transition: all 0.22s;
+    }
+    .cbt-offer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,148,136,0.4); }
+
+    @media (max-width: 600px) {
+      .cbt-offer-section { padding: 64px 20px; }
+      .cbt-offer-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -773,6 +852,126 @@
     </div>
   </section>
 
+  <!-- COMPLETE YOUR CBT LIBRARY (OFFER) -->
+  {%- assign book1 = all_products['cognitive-behavioural-therapy-workbook-for-dummies'] -%}
+  {%- assign book2 = all_products['pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition'] -%}
+  {%- assign book3 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] -%}
+  {%- assign book4 = all_products['mans-search-for-meaning'] -%}
+  <section class="cbt-offer-section">
+    <div class="cbt-section-inner">
+      <div class="cbt-offer-intro">
+        <div class="cbt-label">&#128218; Also Available</div>
+        <h2 class="cbt-title">Complete Your CBT Library</h2>
+        <p class="cbt-subtitle" style="margin:0 auto;">
+          Pair the CBT Flip Chart with these hand-picked companion books &mdash; each one deepens your clinical toolkit and your clients&rsquo; understanding of evidence-based therapy.
+        </p>
+      </div>
+      <div class="cbt-offer-grid">
+
+        <!-- Book 1 -->
+        <div class="cbt-offer-card">
+          <div class="cbt-offer-img-wrap">
+            {%- if book1.images.first -%}
+              <img src="{{ book1.images.first | img_url: '400x' }}" alt="{{ book1.title }}" loading="lazy">
+            {%- else -%}
+              <div class="cbt-offer-img-placeholder">&#128218;</div>
+            {%- endif -%}
+          </div>
+          <div class="cbt-offer-body">
+            <span class="cbt-offer-tag">&#129504; CBT Workbook</span>
+            <div class="cbt-offer-title">{{ book1.title }}</div>
+            <div class="cbt-offer-author">{{ book1.vendor }}</div>
+          </div>
+          <div class="cbt-offer-footer">
+            <span class="cbt-offer-price">{{ book1.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ book1.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="cbt-offer-card">
+          <div class="cbt-offer-img-wrap">
+            {%- if book2.images.first -%}
+              <img src="{{ book2.images.first | img_url: '400x' }}" alt="{{ book2.title }}" loading="lazy">
+            {%- else -%}
+              <div class="cbt-offer-img-placeholder">&#128218;</div>
+            {%- endif -%}
+          </div>
+          <div class="cbt-offer-body">
+            <span class="cbt-offer-tag">&#9889; Pattern-Focused CBT</span>
+            <div class="cbt-offer-title">{{ book2.title }}</div>
+            <div class="cbt-offer-author">{{ book2.vendor }}</div>
+          </div>
+          <div class="cbt-offer-footer">
+            <span class="cbt-offer-price">{{ book2.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ book2.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="cbt-offer-card">
+          <div class="cbt-offer-img-wrap">
+            {%- if book3.images.first -%}
+              <img src="{{ book3.images.first | img_url: '400x' }}" alt="{{ book3.title }}" loading="lazy">
+            {%- else -%}
+              <div class="cbt-offer-img-placeholder">&#128218;</div>
+            {%- endif -%}
+          </div>
+          <div class="cbt-offer-body">
+            <span class="cbt-offer-tag">&#127775; DBT &amp; Emotion Regulation</span>
+            <div class="cbt-offer-title">{{ book3.title }}</div>
+            <div class="cbt-offer-author">{{ book3.vendor }}</div>
+          </div>
+          <div class="cbt-offer-footer">
+            <span class="cbt-offer-price">{{ book3.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ book3.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="cbt-offer-card">
+          <div class="cbt-offer-img-wrap">
+            {%- if book4.images.first -%}
+              <img src="{{ book4.images.first | img_url: '400x' }}" alt="{{ book4.title }}" loading="lazy">
+            {%- else -%}
+              <div class="cbt-offer-img-placeholder">&#128218;</div>
+            {%- endif -%}
+          </div>
+          <div class="cbt-offer-body">
+            <span class="cbt-offer-tag">&#127981; Meaning &amp; Psychology</span>
+            <div class="cbt-offer-title">{{ book4.title }}</div>
+            <div class="cbt-offer-author">{{ book4.vendor }}</div>
+          </div>
+          <div class="cbt-offer-footer">
+            <span class="cbt-offer-price">{{ book4.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ book4.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" class="cbt-offer-btn">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section class="cbt-section" id="cbt-reviews">
     <div class="cbt-section-inner">
@@ -911,6 +1110,126 @@
           <div class="cbt-review-title">Good chart to use in reviewing CBT concepts</div>
           <div class="cbt-review-meta">Jacqueline Hopkins &nbsp;&middot;&nbsp; April 2024 &nbsp;&middot;&nbsp; <span class="cbt-verified">&#10003; Verified Purchase</span></div>
           <div class="cbt-review-text">Good chart to use in reviewing CBT concepts.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- READERS ALSO LOVE (OFFER 2) -->
+  {%- assign rec1 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] -%}
+  {%- assign rec2 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] -%}
+  {%- assign rec3 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] -%}
+  {%- assign rec4 = all_products['attachment-focused-emdr-healing-relational-trauma'] -%}
+  <section style="background:linear-gradient(160deg,#0f172a 0%,#134e4a 60%,#1e1b4b 100%); padding:90px 24px; position:relative; overflow:hidden;">
+    <div style="position:absolute;top:-120px;right:-80px;width:600px;height:600px;background:radial-gradient(circle,rgba(94,234,212,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-80px;left:-60px;width:440px;height:440px;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="cbt-section-inner" style="position:relative;z-index:1;">
+      <div style="text-align:center;margin-bottom:52px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#5eead4;border:1.5px solid rgba(94,234,212,0.3);border-radius:999px;padding:6px 18px;margin-bottom:18px;">&#128218; Readers Also Love</div>
+        <h2 style="font-size:clamp(1.8rem,3.8vw,2.75rem);font-weight:900;color:#fff;letter-spacing:-0.9px;line-height:1.15;margin-bottom:14px;">Expand Your Therapy Toolkit</h2>
+        <p style="font-size:clamp(1rem,2vw,1.1rem);color:rgba(255,255,255,0.7);line-height:1.75;font-weight:500;max-width:620px;margin:0 auto;">Clients love the CBT Flip Chart. These titles take the work even further &mdash; from ADHD strategies to trauma-informed EMDR.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;">
+
+        <!-- Rec 1 -->
+        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
+            {%- if rec1.images.first -%}
+              <img src="{{ rec1.images.first | img_url: '400x' }}" alt="{{ rec1.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            {%- else -%}
+              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
+            {%- endif -%}
+          </div>
+          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#5eead4;">&#129504; ADHD &amp; Focus</span>
+            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec1.title }}</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec1.vendor }}</div>
+          </div>
+          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec1.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ rec1.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Rec 2 -->
+        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
+            {%- if rec2.images.first -%}
+              <img src="{{ rec2.images.first | img_url: '400x' }}" alt="{{ rec2.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            {%- else -%}
+              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
+            {%- endif -%}
+          </div>
+          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#a5b4fc;">&#127775; Emotional Intelligence</span>
+            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec2.title }}</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec2.vendor }}</div>
+          </div>
+          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec2.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ rec2.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Rec 3 -->
+        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
+            {%- if rec3.images.first -%}
+              <img src="{{ rec3.images.first | img_url: '400x' }}" alt="{{ rec3.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            {%- else -%}
+              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
+            {%- endif -%}
+          </div>
+          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#5eead4;">&#128172; Motivational Interviewing</span>
+            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec3.title }}</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec3.vendor }}</div>
+          </div>
+          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec3.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ rec3.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Rec 4 -->
+        <div style="background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s,box-shadow 0.3s;backdrop-filter:blur(8px);" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 20px 48px rgba(0,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+          <div style="width:100%;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.12),rgba(99,102,241,0.1));display:flex;align-items:center;justify-content:center;">
+            {%- if rec4.images.first -%}
+              <img src="{{ rec4.images.first | img_url: '400x' }}" alt="{{ rec4.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+            {%- else -%}
+              <span style="font-size:3.5rem;opacity:0.4;">&#128218;</span>
+            {%- endif -%}
+          </div>
+          <div style="padding:20px 18px;flex:1;display:flex;flex-direction:column;gap:7px;">
+            <span style="font-size:0.7rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#f9a8d4;">&#129291; Trauma &amp; EMDR</span>
+            <div style="font-weight:800;font-size:0.93rem;color:#fff;line-height:1.4;flex:1;">{{ rec4.title }}</div>
+            <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec4.vendor }}</div>
+          </div>
+          <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec4.price | money }}</span>
+            <form action="/cart/add" method="post" style="margin:0;">
+              <input type="hidden" name="id" value="{{ rec4.variants.first.id }}">
+              <input type="hidden" name="quantity" value="1">
+              <input type="hidden" name="return_to" value="/checkout">
+              <button type="submit" style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(13,148,136,0.4);">&#128722; Add to Cart</button>
+            </form>
+          </div>
         </div>
 
       </div>
