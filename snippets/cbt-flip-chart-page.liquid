@@ -1,5 +1,13 @@
 {% assign cbt_product = all_products['the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety'] %}
 {% assign cbt_variant = cbt_product.variants.first %}
+{% assign book1 = all_products['cognitive-behavioural-therapy-workbook-for-dummies'] %}
+{% assign book2 = all_products['pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition'] %}
+{% assign book3 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] %}
+{% assign book4 = all_products['mans-search-for-meaning'] %}
+{% assign book5 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] %}
+{% assign book6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] %}
+{% assign book7 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] %}
+{% assign book8 = all_products['attachment-focused-emdr-healing-relational-trauma'] %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -581,12 +589,10 @@
   <nav class="cbt-nav">
     <div class="cbt-nav-inner">
       <a href="/" class="cbt-nav-logo">Psycho<span>Reads</span></a>
-      <form action="/cart/add" method="post" style="margin:0;">
-        <input type="hidden" name="id" value="{{ cbt_variant.id }}">
-        <input type="hidden" name="quantity" value="1">
-        <input type="hidden" name="return_to" value="/checkout">
-        <button type="submit" class="cbt-nav-cta">&#128722; Buy Now</button>
-      </form>
+      <button type="button" class="cbt-nav-cta cbt-bundle-btn"
+        data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}">
+        &#128722; Buy Now &mdash; {{ cbt_product.price | money }}
+      </button>
     </div>
   </nav>
 
@@ -606,14 +612,10 @@
           A reusable in-session therapy tool featuring 27 full-color CBT diagrams &mdash; bridging mindfulness, cognitive, and behavioral techniques for anxiety, depression, PTSD, OCD, insomnia, and more.
         </p>
         <div class="cbt-hero-actions">
-          <form action="/cart/add" method="post" style="margin:0;">
-            <input type="hidden" name="id" value="{{ cbt_variant.id }}">
-            <input type="hidden" name="quantity" value="1">
-            <input type="hidden" name="return_to" value="/checkout">
-            <button type="submit" class="cbt-btn-primary" id="cbt-hero-btn">
-              &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
-            </button>
-          </form>
+          <button type="button" class="cbt-btn-primary cbt-bundle-btn" id="cbt-hero-btn"
+            data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}">
+            &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
+          </button>
           <a href="#cbt-reviews" class="cbt-btn-secondary">&#11088; See Reviews</a>
         </div>
       </div>
@@ -989,7 +991,7 @@
           <span style="font-size:3rem;font-weight:900;color:#5eead4;letter-spacing:-1.5px;line-height:1;">{{ cbt_product.price | money }}</span>
         </div>
         <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:28px;">CBT Flip Chart + 8 Books &nbsp;&bull;&nbsp; All for the price of 1 &nbsp;&bull;&nbsp; Instant Access</div>
-        <button id="cbt-bundle-btn"
+        <button id="cbt-bundle-btn" class="cbt-bundle-btn"
           data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}"
           style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:16px;padding:20px 52px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 32px rgba(13,148,136,0.45);transition:all 0.25s;width:100%;max-width:480px;">
           &#128722; Get CBT Flip Chart + All 8 Books for {{ cbt_product.price | money }}
@@ -999,31 +1001,6 @@
 
     </div>
   </section>
-
-  <script>
-    (function() {
-      var btn = document.getElementById('cbt-bundle-btn');
-      if (!btn) return;
-      btn.addEventListener('click', function() {
-        var ids = btn.getAttribute('data-ids').split(',').filter(Boolean);
-        var items = ids.map(function(id) { return { id: parseInt(id, 10), quantity: 1 }; });
-        btn.disabled = true;
-        btn.textContent = 'Adding to cart\u2026';
-        fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ items: items })
-        })
-        .then(function(r) { return r.json(); })
-        .then(function() { window.location.href = '/checkout'; })
-        .catch(function() {
-          btn.disabled = false;
-          btn.innerHTML = '&#128722; Get CBT Flip Chart + All 8 Books for {{ cbt_product.price | money }}';
-          alert('Something went wrong. Please try again.');
-        });
-      });
-    })();
-  </script>
 
   <!-- REVIEWS -->
   <section class="cbt-section" id="cbt-reviews">
@@ -1175,35 +1152,65 @@
       <div class="cbt-cta-badge">&#127973; Therapist Approved &amp; Clinically Proven</div>
       <h2 class="cbt-cta-title">Buy Once. Use Hundreds of Times.</h2>
       <p class="cbt-cta-sub">Join thousands of therapists who have made The CBT Flip Chart a permanent fixture in their sessions. Your clients will thank you.</p>
-      <form action="/cart/add" method="post" style="margin:0;">
-        <input type="hidden" name="id" value="{{ cbt_variant.id }}">
-        <input type="hidden" name="quantity" value="1">
-        <input type="hidden" name="return_to" value="/checkout">
-        <button type="submit" class="cbt-btn-white">
-          &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
-        </button>
-      </form>
-      <p class="cbt-cta-note">Spiral-bound &middot; Ships worldwide &middot; 27 full-color diagrams</p>
+      <button type="button" class="cbt-btn-white cbt-bundle-btn"
+        data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}">
+        &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
+      </button>
+      <p class="cbt-cta-note">Includes CBT Flip Chart + 8 Free Books &middot; Direct to checkout</p>
     </div>
   </section>
 
   <!-- STICKY BOTTOM ATC -->
   <div class="cbt-sticky-cta" id="cbt-sticky-cta">
     <div class="cbt-sticky-info">
-      <div class="cbt-sticky-name">The CBT Flip Chart</div>
-      <div class="cbt-sticky-sub">by Seth J. Gillihan &middot; &#9733;&#9733;&#9733;&#9733;&#9733; 4.6</div>
+      <div class="cbt-sticky-name">The CBT Flip Chart + 8 Book Bundle</div>
+      <div class="cbt-sticky-sub">All Included &middot; &#9733;&#9733;&#9733;&#9733;&#9733; 4.6</div>
     </div>
-    <form action="/cart/add" method="post" style="margin:0;">
-      <input type="hidden" name="id" value="{{ cbt_variant.id }}">
-      <input type="hidden" name="quantity" value="1">
-      <input type="hidden" name="return_to" value="/checkout">
-      <button type="submit" class="cbt-btn-primary" style="padding:13px 30px; font-size:0.95rem;">
-        &#128722; Buy Now &mdash; {{ cbt_product.price | money }}
-      </button>
-    </form>
+    <button type="button" class="cbt-btn-primary cbt-bundle-btn" style="padding:13px 30px; font-size:0.95rem;"
+      data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}">
+      &#128722; Buy Now &mdash; {{ cbt_product.price | money }}
+    </button>
   </div>
 
   <script>
+    // Universal Bundle Add-to-Cart for all .cbt-bundle-btn buttons
+    (function() {
+      var bundleButtons = document.querySelectorAll('.cbt-bundle-btn');
+      bundleButtons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          var ids = (btn.getAttribute('data-ids') || '').split(',').filter(Boolean);
+          if (!ids.length) return;
+          var items = ids.map(function(id) { return { id: parseInt(id, 10), quantity: 1 }; });
+          
+          bundleButtons.forEach(function(b) {
+            b.disabled = true;
+            b.setAttribute('data-original-text', b.innerHTML);
+            b.textContent = 'Adding to cart\u2026';
+          });
+
+          fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items: items })
+          })
+          .then(function(r) { return r.json(); })
+          .then(function() {
+            window.location.href = '/checkout';
+          })
+          .catch(function(err) {
+            console.error(err);
+            bundleButtons.forEach(function(b) {
+              b.disabled = false;
+              var orig = b.getAttribute('data-original-text');
+              if (orig) b.innerHTML = orig;
+            });
+            alert('Something went wrong. Please try again.');
+          });
+        });
+      });
+    })();
+
     // Sticky CTA show/hide on scroll
     const cbtSticky = document.getElementById('cbt-sticky-cta');
     const cbtHeroBtn = document.getElementById('cbt-hero-btn');
