@@ -883,7 +883,7 @@
             <div class="cbt-offer-author">{{ book1.vendor }}</div>
           </div>
           <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ book1.price | money }}</span>
+            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ book1.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -908,7 +908,7 @@
             <div class="cbt-offer-author">{{ book2.vendor }}</div>
           </div>
           <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ book2.price | money }}</span>
+            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ book2.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -933,7 +933,7 @@
             <div class="cbt-offer-author">{{ book3.vendor }}</div>
           </div>
           <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ book3.price | money }}</span>
+            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ book3.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -958,7 +958,7 @@
             <div class="cbt-offer-author">{{ book4.vendor }}</div>
           </div>
           <div class="cbt-offer-footer">
-            <span class="cbt-offer-price">{{ book4.price | money }}</span>
+            <span class="cbt-offer-price">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ book4.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -1147,7 +1147,7 @@
             <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec1.vendor }}</div>
           </div>
           <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec1.price | money }}</span>
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ rec1.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -1172,7 +1172,7 @@
             <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec2.vendor }}</div>
           </div>
           <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec2.price | money }}</span>
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ rec2.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -1197,7 +1197,7 @@
             <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec3.vendor }}</div>
           </div>
           <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec3.price | money }}</span>
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ rec3.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
@@ -1222,7 +1222,7 @@
             <div style="font-size:0.8rem;color:rgba(255,255,255,0.45);font-weight:600;">{{ rec4.vendor }}</div>
           </div>
           <div style="padding:0 18px 18px;display:flex;align-items:center;justify-content:space-between;gap:10px;">
-            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ rec4.price | money }}</span>
+            <span style="font-size:1.05rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</span>
             <form action="/cart/add" method="post" style="margin:0;">
               <input type="hidden" name="id" value="{{ rec4.variants.first.id }}">
               <input type="hidden" name="quantity" value="1">
