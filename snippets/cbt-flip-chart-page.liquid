@@ -577,6 +577,9 @@
     }
     .cbt-offer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,148,136,0.4); }
 
+    @media (max-width: 860px) {
+      .cbt-offer-main-layout { grid-template-columns: 1fr !important; }
+    }
     @media (max-width: 600px) {
       .cbt-offer-section { padding: 64px 20px; }
       .cbt-offer-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
@@ -608,13 +611,16 @@
           <span class="score">4.6</span>
           <span class="count">(384 verified reviews)</span>
         </div>
-        <p class="cbt-hero-sub">
-          A reusable in-session therapy tool featuring 27 full-color CBT diagrams &mdash; bridging mindfulness, cognitive, and behavioral techniques for anxiety, depression, PTSD, OCD, insomnia, and more.
-        </p>
+        <div style="background:rgba(240,253,250,0.95);border:1.5px solid rgba(13,148,136,0.3);border-radius:14px;padding:12px 18px;margin-bottom:28px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:1.6rem;line-height:1;">&#127873;</span>
+          <div style="font-size:0.88rem;color:#0f766e;font-weight:700;line-height:1.4;">
+            <strong style="color:#0f172a;">Special Offer:</strong> Includes <strong style="color:#0d9488;">8 Best-Selling Clinical Books ($239.92 Value) FREE</strong> with your order today!
+          </div>
+        </div>
         <div class="cbt-hero-actions">
           <button type="button" class="cbt-btn-primary cbt-bundle-btn" id="cbt-hero-btn"
             data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}">
-            &#128722; Get Your Copy &mdash; {{ cbt_product.price | money }}
+            &#128722; Get CBT Flip Chart + 8 Free Books &mdash; {{ cbt_product.price | money }}
           </button>
           <a href="#cbt-reviews" class="cbt-btn-secondary">&#11088; See Reviews</a>
         </div>
@@ -854,149 +860,182 @@
     </div>
   </section>
 
-  <!-- BUNDLE DEAL OFFER -->
-  {%- assign book1 = all_products['cognitive-behavioural-therapy-workbook-for-dummies'] -%}
-  {%- assign book2 = all_products['pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition'] -%}
-  {%- assign book3 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] -%}
-  {%- assign book4 = all_products['mans-search-for-meaning'] -%}
-  {%- assign book5 = all_products['taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships'] -%}
-  {%- assign book6 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] -%}
-  {%- assign book7 = all_products['motivational-interviewing-in-health-care-helping-patients-change-behavior-applications-of-motivational-interviewing-series'] -%}
-  {%- assign book8 = all_products['attachment-focused-emdr-healing-relational-trauma'] -%}
+  <!-- EXCLUSIVE SPECIAL BONUS OFFER -->
+  <section style="background:linear-gradient(170deg,#0a192f 0%,#0f3b39 50%,#092625 100%);padding:100px 24px;position:relative;overflow:hidden;border-top:1px solid rgba(94,234,212,0.2);border-bottom:1px solid rgba(94,234,212,0.2);">
+    <!-- background glow accents -->
+    <div style="position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(94,234,212,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-100px;left:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(245,158,11,0.08) 0%,transparent 70%);pointer-events:none;"></div>
 
-  <section style="background:linear-gradient(160deg,#0f172a 0%,#134e4a 55%,#1e1b4b 100%);padding:100px 24px;position:relative;overflow:hidden;">
-    <!-- glow blobs -->
-    <div style="position:absolute;top:-140px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(94,234,212,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-    <div style="position:absolute;bottom:-100px;left:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="cbt-section-inner" style="position:relative;z-index:1;max-width:1140px;margin:0 auto;">
 
-    <div class="cbt-section-inner" style="position:relative;z-index:1;">
-
-      <!-- Header -->
-      <div style="text-align:center;margin-bottom:56px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1.5px solid rgba(245,158,11,0.4);border-radius:999px;padding:7px 20px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:20px;">&#9889; Complete Collection Bundle Offer</div>
-        <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;">Get The CBT Flip Chart + All 8 Books for <em style="font-style:normal;color:#5eead4;">Just {{ cbt_product.price | money }} Total</em></h2>
-        <p style="font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,0.68);line-height:1.75;font-weight:500;max-width:640px;margin:0 auto;">Get the full in-session <strong>CBT Flip Chart</strong> plus all <strong>8 essential companion books</strong> bundled together for just {{ cbt_product.price | money }}. Everything you need for clinical practice in one order.</p>
+      <!-- Header & Value Hook -->
+      <div style="text-align:center;max-width:780px;margin:0 auto 60px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1.5px solid #f59e0b;border-radius:999px;padding:8px 22px;font-size:0.82rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:20px;box-shadow:0 0 20px rgba(245,158,11,0.2);">
+          &#127873; Limited Time Special Offer
+        </div>
+        <h2 style="font-size:clamp(2.1rem,4.5vw,3.2rem);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:18px;">
+          Order The CBT Flip Chart Today &amp; Get <span style="color:#5eead4;text-decoration:underline;text-decoration-color:#14b8a6;text-underline-offset:6px;">8 Best-Selling Books FREE</span>
+        </h2>
+        <p style="font-size:clamp(1.05rem,2vw,1.2rem);color:rgba(255,255,255,0.85);line-height:1.7;font-weight:500;">
+          For a limited time, when you invest in <strong>The CBT Flip Chart</strong> at the regular price of <strong>{{ cbt_product.price | money }}</strong>, you instantly unlock our entire 8-volume digital therapy library (<strong style="color:#fbbf24;">$239.92 retail value</strong>) at <strong>no extra cost</strong>.
+        </p>
       </div>
 
-      <!-- Book grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:52px;">
-
-        <!-- Lead Product: CBT Flip Chart -->
-        <div style="background:rgba(13,148,136,0.2);border:2px solid #5eead4;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);box-shadow:0 8px 30px rgba(13,148,136,0.3);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.2),rgba(99,102,241,0.15));display:flex;align-items:center;justify-content:center;position:relative;">
-            {%- if cbt_product.images.first -%}<img src="{{ cbt_product.images.first | img_url: '400x' }}" alt="{{ cbt_product.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.6;">&#129504;</span>{%- endif -%}
-            <span style="position:absolute;top:10px;left:10px;background:#0d9488;color:#fff;font-size:0.68rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">&#9733; Main Item</span>
+      <!-- Main Item + Plus Icon + Bonus Grid -->
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:start;margin-bottom:50px;" class="cbt-offer-main-layout">
+        
+        <!-- Main Item Card -->
+        <div style="background:linear-gradient(145deg,rgba(13,148,136,0.35),rgba(15,23,42,0.8));border:2.5px solid #5eead4;border-radius:24px;padding:24px;text-align:center;box-shadow:0 16px 40px rgba(13,148,136,0.35);position:relative;">
+          <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#0d9488,#14b8a6);color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,0.3);white-space:nowrap;">
+            &#9733; Main Item
           </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; In-Session Tool</div>
-            <div style="font-weight:800;font-size:0.88rem;color:#fff;line-height:1.4;">The CBT Flip Chart</div>
+          <div style="margin-top:10px;margin-bottom:16px;border-radius:16px;overflow:hidden;background:#000;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+            {%- if cbt_product.images.first -%}
+              <img src="{{ cbt_product.images.first | img_url: '400x' }}" alt="{{ cbt_product.title }}" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block;">
+            {%- else -%}
+              <div style="aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:4rem;">&#129504;</div>
+            {%- endif -%}
           </div>
+          <h3 style="font-size:1.15rem;font-weight:900;color:#fff;margin-bottom:6px;line-height:1.3;">The CBT Flip Chart</h3>
+          <p style="font-size:0.85rem;color:rgba(255,255,255,0.7);margin-bottom:14px;">27 In-Session Reusable Visuals</p>
+          <div style="font-size:1.5rem;font-weight:900;color:#5eead4;">{{ cbt_product.price | money }}</div>
         </div>
 
-        <!-- Book 1 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book1.images.first -%}<img src="{{ book1.images.first | img_url: '400x' }}" alt="{{ book1.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
+        <!-- 8 Free Bonuses Grid -->
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
+            <div style="font-size:1.15rem;font-weight:900;color:#fff;display:flex;align-items:center;gap:10px;">
+              <span style="background:#fbbf24;color:#0f172a;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.9rem;font-weight:900;">+</span>
+              8 Included Free Bonus Gifts:
+            </div>
+            <div style="font-size:0.85rem;font-weight:800;color:#fbbf24;background:rgba(245,158,11,0.15);padding:4px 12px;border-radius:8px;border:1px solid rgba(245,158,11,0.3);">
+              100% Free With Today's Order
+            </div>
           </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; CBT Workbook</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book1.title }}</div>
-          </div>
-        </div>
 
-        <!-- Book 2 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book2.images.first -%}<img src="{{ book2.images.first | img_url: '400x' }}" alt="{{ book2.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#a5b4fc;margin-bottom:5px;">&#9889; Pattern CBT</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book2.title }}</div>
-          </div>
-        </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;">
+            
+            <!-- Bonus 1 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book1.images.first -%}<img src="{{ book1.images.first | img_url: '300x' }}" alt="{{ book1.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book1.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 3 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book3.images.first -%}<img src="{{ book3.images.first | img_url: '400x' }}" alt="{{ book3.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#f9a8d4;margin-bottom:5px;">&#127775; DBT Skills</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book3.title }}</div>
-          </div>
-        </div>
+            <!-- Bonus 2 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book2.images.first -%}<img src="{{ book2.images.first | img_url: '300x' }}" alt="{{ book2.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book2.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 4 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book4.images.first -%}<img src="{{ book4.images.first | img_url: '400x' }}" alt="{{ book4.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:5px;">&#127981; Meaning</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book4.title }}</div>
-          </div>
-        </div>
+            <!-- Bonus 3 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book3.images.first -%}<img src="{{ book3.images.first | img_url: '300x' }}" alt="{{ book3.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book3.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 5 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book5.images.first -%}<img src="{{ book5.images.first | img_url: '400x' }}" alt="{{ book5.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; ADHD &amp; Focus</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book5.title }}</div>
-          </div>
-        </div>
+            <!-- Bonus 4 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book4.images.first -%}<img src="{{ book4.images.first | img_url: '300x' }}" alt="{{ book4.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book4.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 6 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book6.images.first -%}<img src="{{ book6.images.first | img_url: '400x' }}" alt="{{ book6.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#a5b4fc;margin-bottom:5px;">&#127775; Emotional IQ</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book6.title }}</div>
-          </div>
-        </div>
+            <!-- Bonus 5 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book5.images.first -%}<img src="{{ book5.images.first | img_url: '300x' }}" alt="{{ book5.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book5.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 7 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book7.images.first -%}<img src="{{ book7.images.first | img_url: '400x' }}" alt="{{ book7.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#128172; Motivational</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book7.title }}</div>
-          </div>
-        </div>
+            <!-- Bonus 6 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book6.images.first -%}<img src="{{ book6.images.first | img_url: '300x' }}" alt="{{ book6.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book6.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
 
-        <!-- Book 8 -->
-        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
-          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.1),rgba(99,102,241,0.08));display:flex;align-items:center;justify-content:center;">
-            {%- if book8.images.first -%}<img src="{{ book8.images.first | img_url: '400x' }}" alt="{{ book8.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.35;">&#128218;</span>{%- endif -%}
-          </div>
-          <div style="padding:14px 14px 16px;flex:1;">
-            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#f9a8d4;margin-bottom:5px;">&#129291; Trauma &amp; EMDR</div>
-            <div style="font-weight:700;font-size:0.85rem;color:#fff;line-height:1.4;">{{ book8.title }}</div>
+            <!-- Bonus 7 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book7.images.first -%}<img src="{{ book7.images.first | img_url: '300x' }}" alt="{{ book7.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book7.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
+
+            <!-- Bonus 8 -->
+            <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative;">
+              <span style="position:absolute;top:8px;right:8px;background:#16a34a;color:#fff;font-size:0.65rem;font-weight:900;padding:3px 8px;border-radius:4px;z-index:2;">FREE</span>
+              <div style="aspect-ratio:3/4;overflow:hidden;background:rgba(0,0,0,0.2);">
+                {%- if book8.images.first -%}<img src="{{ book8.images.first | img_url: '300x' }}" alt="{{ book8.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<div style="height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;">&#128218;</div>{%- endif -%}
+              </div>
+              <div style="padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+                <div style="font-weight:700;font-size:0.8rem;color:#fff;line-height:1.3;margin-bottom:6px;">{{ book8.title }}</div>
+                <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-decoration:line-through;">$29.99 Value</div>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
 
-      <!-- Bundle CTA box -->
-      <div style="max-width:640px;margin:0 auto;background:rgba(255,255,255,0.07);border:1.5px solid rgba(94,234,212,0.25);border-radius:24px;padding:40px 36px;text-align:center;backdrop-filter:blur(12px);">
-        <div style="font-size:0.82rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:12px;">&#127775; Complete Library — CBT Flip Chart + 8 Books Included</div>
-        <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
-          <span style="font-size:1.1rem;color:rgba(255,255,255,0.4);font-weight:700;text-decoration:line-through;">$269.91</span>
-          <span style="font-size:3rem;font-weight:900;color:#5eead4;letter-spacing:-1.5px;line-height:1;">{{ cbt_product.price | money }}</span>
+      <!-- Conversion Checkout Box -->
+      <div style="background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03));border:2px solid #5eead4;border-radius:28px;padding:40px 32px;text-align:center;max-width:680px;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);backdrop-filter:blur(16px);">
+        <div style="font-size:0.85rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:12px;">
+          &#9889; Total Value: $269.91 &mdash; You Pay Only {{ cbt_product.price | money }}
         </div>
-        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:28px;">CBT Flip Chart + 8 Books &nbsp;&bull;&nbsp; All for the price of 1 &nbsp;&bull;&nbsp; Instant Access</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:10px;">
+          <span style="font-size:1.3rem;color:rgba(255,255,255,0.4);font-weight:700;text-decoration:line-through;">$269.91</span>
+          <span style="font-size:3.2rem;font-weight:900;color:#5eead4;letter-spacing:-1.5px;line-height:1;">{{ cbt_product.price | money }}</span>
+        </div>
+        <div style="font-size:0.95rem;color:rgba(255,255,255,0.75);margin-bottom:28px;font-weight:600;">
+          &#9989; The CBT Flip Chart + 8 Companion Books Included &bull; Instant Access &bull; 100% Guarantee
+        </div>
         <button id="cbt-bundle-btn" class="cbt-bundle-btn"
           data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}"
-          style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:16px;padding:20px 52px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 32px rgba(13,148,136,0.45);transition:all 0.25s;width:100%;max-width:480px;">
-          &#128722; Get CBT Flip Chart + All 8 Books for {{ cbt_product.price | money }}
+          style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#14b8a6,#0f766e);color:#fff;border:none;border-radius:18px;padding:22px 48px;font-size:1.15rem;font-weight:900;cursor:pointer;box-shadow:0 14px 36px rgba(20,184,166,0.45);transition:all 0.25s;width:100%;max-width:500px;">
+          &#128722; Claim The CBT Flip Chart + 8 Free Bonuses
         </button>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:14px;">The CBT Flip Chart + all 8 books added to cart &bull; Direct to secure checkout</p>
+        <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:16px;">
+          All 9 items will be added to your cart &bull; Proceed directly to secure checkout
+        </p>
       </div>
 
     </div>
