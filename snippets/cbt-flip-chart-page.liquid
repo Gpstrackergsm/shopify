@@ -871,13 +871,25 @@
 
       <!-- Header -->
       <div style="text-align:center;margin-bottom:56px;">
-        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1.5px solid rgba(245,158,11,0.4);border-radius:999px;padding:7px 20px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:20px;">&#9889; Limited Special Offer</div>
-        <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;">Get All 8 Books for <em style="font-style:normal;color:#5eead4;">Just {{ cbt_product.price | money }} Total</em></h2>
-        <p style="font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,0.68);line-height:1.75;font-weight:500;max-width:600px;margin:0 auto;">An expertly curated clinical psychology &amp; CBT collection — get all 8 essential companion books together for the price of one. Complete your toolkit in a single click.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.15);border:1.5px solid rgba(245,158,11,0.4);border-radius:999px;padding:7px 20px;font-size:0.78rem;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;color:#fbbf24;margin-bottom:20px;">&#9889; Complete Collection Bundle Offer</div>
+        <h2 style="font-size:clamp(2rem,4vw,3rem);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:16px;">Get The CBT Flip Chart + All 8 Books for <em style="font-style:normal;color:#5eead4;">Just {{ cbt_product.price | money }} Total</em></h2>
+        <p style="font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,0.68);line-height:1.75;font-weight:500;max-width:640px;margin:0 auto;">Get the full in-session <strong>CBT Flip Chart</strong> plus all <strong>8 essential companion books</strong> bundled together for just {{ cbt_product.price | money }}. Everything you need for clinical practice in one order.</p>
       </div>
 
       <!-- Book grid -->
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-bottom:52px;">
+
+        <!-- Lead Product: CBT Flip Chart -->
+        <div style="background:rgba(13,148,136,0.2);border:2px solid #5eead4;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);box-shadow:0 8px 30px rgba(13,148,136,0.3);">
+          <div style="aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,0.2),rgba(99,102,241,0.15));display:flex;align-items:center;justify-content:center;position:relative;">
+            {%- if cbt_product.images.first -%}<img src="{{ cbt_product.images.first | img_url: '400x' }}" alt="{{ cbt_product.title }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">{%- else -%}<span style="font-size:3rem;opacity:0.6;">&#129504;</span>{%- endif -%}
+            <span style="position:absolute;top:10px;left:10px;background:#0d9488;color:#fff;font-size:0.68rem;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">&#9733; Main Item</span>
+          </div>
+          <div style="padding:14px 14px 16px;flex:1;">
+            <div style="font-size:0.7rem;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;color:#5eead4;margin-bottom:5px;">&#129504; In-Session Tool</div>
+            <div style="font-weight:800;font-size:0.88rem;color:#fff;line-height:1.4;">The CBT Flip Chart</div>
+          </div>
+        </div>
 
         <!-- Book 1 -->
         <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;backdrop-filter:blur(8px);">
@@ -971,18 +983,18 @@
 
       <!-- Bundle CTA box -->
       <div style="max-width:640px;margin:0 auto;background:rgba(255,255,255,0.07);border:1.5px solid rgba(94,234,212,0.25);border-radius:24px;padding:40px 36px;text-align:center;backdrop-filter:blur(12px);">
-        <div style="font-size:0.82rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:12px;">&#127775; Everything included — one price</div>
+        <div style="font-size:0.82rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#fbbf24;margin-bottom:12px;">&#127775; Complete Library — CBT Flip Chart + 8 Books Included</div>
         <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px;">
-          <span style="font-size:1.1rem;color:rgba(255,255,255,0.4);font-weight:700;text-decoration:line-through;">$239.92</span>
+          <span style="font-size:1.1rem;color:rgba(255,255,255,0.4);font-weight:700;text-decoration:line-through;">$269.91</span>
           <span style="font-size:3rem;font-weight:900;color:#5eead4;letter-spacing:-1.5px;line-height:1;">{{ cbt_product.price | money }}</span>
         </div>
-        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:28px;">All 8 books &nbsp;&bull;&nbsp; Instant digital download &nbsp;&bull;&nbsp; Lifetime access</div>
+        <div style="font-size:0.88rem;color:rgba(255,255,255,0.5);margin-bottom:28px;">CBT Flip Chart + 8 Books &nbsp;&bull;&nbsp; All for the price of 1 &nbsp;&bull;&nbsp; Instant Access</div>
         <button id="cbt-bundle-btn"
-          data-ids="{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}"
-          style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:16px;padding:20px 52px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 32px rgba(13,148,136,0.45);transition:all 0.25s;width:100%;max-width:440px;">
-          &#128722; Get All 8 Books for {{ cbt_product.price | money }} Total
+          data-ids="{{ cbt_variant.id }},{{ book1.variants.first.id }},{{ book2.variants.first.id }},{{ book3.variants.first.id }},{{ book4.variants.first.id }},{{ book5.variants.first.id }},{{ book6.variants.first.id }},{{ book7.variants.first.id }},{{ book8.variants.first.id }}"
+          style="display:inline-flex;align-items:center;justify-content:center;gap:12px;background:linear-gradient(135deg,#0d9488,#0f766e);color:#fff;border:none;border-radius:16px;padding:20px 52px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 12px 32px rgba(13,148,136,0.45);transition:all 0.25s;width:100%;max-width:480px;">
+          &#128722; Get CBT Flip Chart + All 8 Books for {{ cbt_product.price | money }}
         </button>
-        <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:14px;">All 8 books added to cart &bull; Direct to secure checkout</p>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:14px;">The CBT Flip Chart + all 8 books added to cart &bull; Direct to secure checkout</p>
       </div>
 
     </div>
@@ -1006,7 +1018,7 @@
         .then(function() { window.location.href = '/checkout'; })
         .catch(function() {
           btn.disabled = false;
-          btn.innerHTML = '&#128722; Get All 8 Books for {{ cbt_product.price | money }} Total';
+          btn.innerHTML = '&#128722; Get CBT Flip Chart + All 8 Books for {{ cbt_product.price | money }}';
           alert('Something went wrong. Please try again.');
         });
       });
