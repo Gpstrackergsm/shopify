@@ -290,7 +290,7 @@
           {% if p2.images.first %}<img class="ifs-cover" src="{{ p2.images.first | img_url: '400x' }}" alt="{{ p2.title }}" loading="lazy" />
           {% else %}<div class="ifs-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
         </div>
-        <p class="ifs-card-title">{{ p2.title | default: 'You Are the One You\'ve Been Waiting For' }}</p>
+        <p class="ifs-card-title">{{ p2.title | default: 'You Are the One You\' }}</p>
       </div>
 
       <div class="ifs-card ifs-fade">
@@ -413,3 +413,13 @@
       });
   }
 </script>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{{ p2.title | default: 'You Are the One You\\'ve Been Waiting For' }}"
+  to: "{{ p2.title | default: 'You Are the One You\\' }}"
+  position: 15630..15678
+{% endcomment %}
