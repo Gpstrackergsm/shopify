@@ -110,7 +110,7 @@
           <div class="progress-dot"></div>
         </div>
       </div>
-      <button class="btn-checkout" id="headerCheckoutBtn" onclick="checkoutBundle()">🛒 Checkout Bundle — $19.99</button>
+      <button class="btn-checkout" id="headerCheckoutBtn" onclick="checkoutBundle()">🛒 Checkout Bundle</button>
     </div>
   </header>
 
@@ -133,7 +133,7 @@
 
   <!-- Mobile CTA -->
   <div class="mobile-cta">
-    <button class="btn-checkout" id="mobileCheckoutBtn" style="width: 100%;" onclick="checkoutBundle()">🛒 Checkout Bundle — $19.99</button>
+    <button class="btn-checkout" id="mobileCheckoutBtn" style="width: 100%;" onclick="checkoutBundle()">🛒 Checkout Bundle</button>
   </div>
 
   <script>
@@ -289,8 +289,8 @@
         });
         headerBtn.classList.add('active');
         mobileBtn.classList.add('active');
-        headerBtn.textContent = '🛒 Checkout Bundle — $19.99';
-        mobileBtn.textContent = '🛒 Checkout Bundle — $19.99';
+        headerBtn.textContent = '🛒 Checkout Bundle';
+        mobileBtn.textContent = '🛒 Checkout Bundle';
       } else {
         allCards.forEach(card => {
           card.classList.remove('disabled');
