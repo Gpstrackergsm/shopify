@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build Your Own Bundle — Choose 6 Books for $29</title>
-  <meta name="description" content="Select any 6 premium psychology and trauma healing books from our collection for just $29." />
+  <title>Build Your Bundle — Pick Any 7 Books for $19.99 | PsychoReads</title>
+  <meta name="description" content="Pick any 7 bestselling psychology and trauma therapy books for just $19.99. Instant digital download. Over $100 in value." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -103,21 +103,22 @@
         <a href="/" class="bundle-logo">PsychoReads</a>
       </div>
       <div class="progress-container">
-        <div class="progress-text"><span id="countDisplay">0</span> / 6 Selected</div>
+        <div class="progress-text"><span id="countDisplay">0</span> / 7 Selected</div>
         <div class="progress-dots" id="progressDots">
           <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
           <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+          <div class="progress-dot"></div>
         </div>
       </div>
-      <button class="btn-checkout" id="headerCheckoutBtn" onclick="checkoutBundle()">🛒 Checkout Bundle — $29</button>
+      <button class="btn-checkout" id="headerCheckoutBtn" onclick="checkoutBundle()">🛒 Checkout Bundle — $19.99</button>
     </div>
   </header>
 
   <!-- Hero Area -->
   <section class="hero-section">
-    <h1>Build Your Healing Library</h1>
-    <p>Select any 6 books from our premium collection of trauma healing, IFS, and somatic therapy resources.</p>
-    <div class="price-tag">6 Books for $29</div>
+    <h1>7 Bestselling Books for Less Than the Price of One</h1>
+    <p>Only $19.99 — That's less than $3 per book.<br>One smart decision today. A lifetime of upgraded thinking.</p>
+    <div class="price-tag">Select any 7 books to build your bundle.</div>
   </section>
 
   <!-- Product Grid -->
@@ -132,43 +133,78 @@
 
   <!-- Mobile CTA -->
   <div class="mobile-cta">
-    <button class="btn-checkout" id="mobileCheckoutBtn" style="width: 100%;" onclick="checkoutBundle()">🛒 Checkout Bundle — $29</button>
+    <button class="btn-checkout" id="mobileCheckoutBtn" style="width: 100%;" onclick="checkoutBundle()">🛒 Checkout Bundle — $19.99</button>
   </div>
 
   <script>
-    const MAX_SELECTIONS = 6;
+    const MAX_SELECTIONS = 7;
     let selectedVariants = new Set();
     
-    // Product Handles
+    // Product Handles — full curated psychology & therapy library
     const handles = [
-      "permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success",
-      "what-my-bones-know-a-memoir-of-healing-from-complex-trauma",
+      // IFS & Parts Work
       "the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts",
+      "the-internal-family-systems-workbook-a-guide-to-discover-your-self-and-heal-your-parts-sounds-true-inner-workbooks",
+      "the-internal-family-systems-workbook-an-ifs-therapy-skills-training-manual-for-beginners-heal-trauma-calm-anxiety-inner-chaos-build-confidence-and-your-inner-child-acceptance-therapy",
+      "internal-family-systems-skills-training-manual-trauma-informed-treatment-for-anxiety-depression-ptsd-substance-abuse",
+      "self-therapy-a-step-by-step-guide-to-creating-wholeness-using-ifs-a-cutting-edge-psychotherapy",
+      "you-are-the-one-youve-been-waiting-for-internal-family-systems",
+      "parts-work-an-illustrated-guide-to-your-inner-life-by-tom-holmes",
       "quieting-the-storm-within-an-illustrated-introduction-to-your-parts-through-internal-family-systems-and-beyond",
       "outshining-trauma-a-new-vision-of-radical-self-compassion-integrating-internal-family-systems-and-buddhist-meditation",
-      "radical-acceptance-embracing-your-life-with-the-heart-of-a-buddha",
       "transcending-trauma-healing-complex-ptsd-with-internal-family-systems",
+      // Somatic & Nervous System
+      "somatic-internal-family-systems-therapy-awareness-breath-resonance-movement-and-touch-in-practice-endorsed-by-top-experts-in-therapeutic-healing-modalities",
+      "the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery",
+      "somatic-exercises-for-nervous-system-regulation-35-beginner-intermediate-techniques-to-reduce-anxiety-tone-your-vagus-nerve-in-under-10-minutes-a-day-anxiety-relief",
+      "anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory",
+      "daily-vagus-nerve-exercise-train-your-nervous-system-to-reduce-anxiety-improve-health-and-restore-mind-body-balance",
+      "waking-the-tiger-healing-trauma",
+      // Trauma & PTSD
+      "the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma",
+      "healing-the-fragmented-selves-of-trauma-survivors",
+      "what-my-bones-know-a-memoir-of-healing-from-complex-trauma",
+      "the-boy-who-was-raised-as-a-dog-and-other-stories-from-a-child-psychiatrists-notebook-what-traumatized-children-can-teach-us-about-loss-love-and-healing",
+      "attachment-focused-emdr-healing-relational-trauma",
+      "the-emdr-workbook-for-trauma-and-ptsd-skills-to-manage-triggers-move-beyond-traumatic-memories-and-take-back-your-life",
+      "embracing-our-fragmented-selves-a-workbook-for-trauma-survivors-and-therapists",
+      "the-practical-guide-for-healing-developmental-trauma",
+      "working-with-attachment-trauma-clinical-application-of-the-adult-attachment-projective-picture-system",
+      "superhero-therapy-for-anxiety-and-trauma",
+      // DBT & CBT
+      "the-dialectical-behavior-therapy-skills-workbook-for-anger-using-dbt-mindfulness-and-emotion-regulation-skills-to-manage-anger-new-harbinger-self-help-workbooks",
+      "dbt-skills-training-handouts-and-worksheets-revised-edition-spiral-bound-paperback-by-marsha-m-linehan-author",
+      "dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control",
+      "dialectical-behavior-therapy-workbook",
+      "the-neurodivergent-friendly-workbook-of-dbt-skills",
+      "the-cbt-flip-chart-an-evidence-based-psychoeducational-tool-for-anxiety",
+      "pattern-focused-therapy-highly-effective-cbt-practice-in-mental-health-and-integrated-care-settings-first-edition",
+      "cognitive-behavioural-therapy-workbook-for-dummies",
+      "stop-overthinking-3-books-in-1-overthinking-self-discipline-cognitive-behavioral-therapy-declutter-your-mind-create-atomic-habits-and-happiness-to-manage-anger-stress-anxiety-and-depression",
+      // Anger & Emotion
       "the-anger-workbook-for-women-how-to-keep-your-anger-from-undermining-your-self-esteem-your-emotional-balance-and-your-relationships",
       "anger-management-workbook-for-men-take-control-of-your-anger-and-master-your-emotions",
-      "the-internal-family-systems-workbook-an-ifs-therapy-skills-training-manual-for-beginners-heal-trauma-calm-anxiety-inner-chaos-build-confidence-and-your-inner-child-acceptance-therapy",
-      "self-therapy-a-step-by-step-guide-to-creating-wholeness-using-ifs-a-cutting-edge-psychotherapy",
-      "the-internal-family-systems-workbook-a-guide-to-discover-your-self-and-heal-your-parts-sounds-true-inner-workbooks",
-      "the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma",
-      "the-dialectical-behavior-therapy-skills-workbook-for-anger-using-dbt-mindfulness-and-emotion-regulation-skills-to-manage-anger-new-harbinger-self-help-workbooks",
-      "anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory",
-      "the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery",
-      "parts-work-an-illustrated-guide-to-your-inner-life-by-tom-holmes",
-      "healing-the-fragmented-selves-of-trauma-survivors",
-      "somatic-internal-family-systems-therapy-awareness-breath-resonance-movement-and-touch-in-practice-endorsed-by-top-experts-in-therapeutic-healing-modalities",
       "destroyyouranger-0",
-      "diabetessustenance-0",
-      "stop-overthinking-3-books-in-1-overthinking-self-discipline-cognitive-behavioral-therapy-declutter-your-mind-create-atomic-habits-and-happiness-to-manage-anger-stress-anxiety-and-depression",
+      "permission-to-feel-the-power-of-emotional-intelligence-to-achieve-well-being-and-success",
+      "emotional-intelligence-2-0",
+      "master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings",
+      "essential-art-therapy-exercises-effective-techniques-to-manage-anxiety-depression-and-ptsd",
+      // Mindfulness & Acceptance
+      "radical-acceptance-embracing-your-life-with-the-heart-of-a-buddha",
+      "mindfulness-meditation",
+      // Clinical & Practitioner Tools
+      "the-making-of-a-therapist-a-practical-guide-for-the-inner-journey-norton-series-on-interpersonal-neurobiology",
+      "the-guide-to-play-therapy-documentation-and-parent-consultation",
+      "play-therapy-4th-edition",
+      "transformational-chairwork-using-psychotherapeutic-dialogues-in-clinical-practice",
+      "evidence-based-counselling-psychotherapy-for-the-21st-century-practitioner",
+      "gender-power-and-global-social-justice-the-healing-power-of-psychotherapy",
+      // ADHD & Neurodivergent
+      "taking-charge-of-adult-adhd-proven-strategies-to-succeed-at-work-at-home-and-in-relationships",
+      // Psychology Essentials
       "the-psychology-book-big-ideas-simply-explained",
-      "internal-family-systems-skills-training-manual-trauma-informed-treatment-for-anxiety-depression-ptsd-substance-abuse",
-      "daily-vagus-nerve-exercise-train-your-nervous-system-to-reduce-anxiety-improve-health-and-restore-mind-body-balance",
-      "you-are-the-one-youve-been-waiting-for-internal-family-systems",
-      "superhero-therapy-for-anxiety-and-trauma",
-      "mans-search-for-meaning"
+      "mans-search-for-meaning",
+      "influence-the-psychology-of-persuasion-revised-edition",
     ];
 
     // DOM Elements
@@ -253,8 +289,8 @@
         });
         headerBtn.classList.add('active');
         mobileBtn.classList.add('active');
-        headerBtn.textContent = '🛒 Checkout Bundle — $29';
-        mobileBtn.textContent = '🛒 Checkout Bundle — $29';
+        headerBtn.textContent = '🛒 Checkout Bundle — $19.99';
+        mobileBtn.textContent = '🛒 Checkout Bundle — $19.99';
       } else {
         allCards.forEach(card => {
           card.classList.remove('disabled');
