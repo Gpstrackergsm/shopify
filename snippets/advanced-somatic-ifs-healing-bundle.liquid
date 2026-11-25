@@ -184,10 +184,11 @@
   .sif-final p { font-size:1.1rem;color:var(--c-dim);margin-bottom:44px;line-height:1.75; }
 
   /* STICKY */
-  .sif-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:16px 32px;background:rgba(13,11,24,0.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.6); }
+  .sif-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:14px 28px;background:rgba(6,26,20,0.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid rgba(52,211,153,0.28);display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -12px 40px rgba(0,0,0,0.55);font-family:'Outfit',sans-serif; }
   .sif-sticky.show { transform:translateY(0); }
-  .sif-sticky-text { font-size:1rem;font-weight:700;color:var(--c-text); }
-  .sif-sticky-text span { color:var(--c-purple); }
+  .sif-sticky-text { font-size:1rem;font-weight:700;color:#f1f5f9; }
+  .sif-sticky-text span { color:#34d399;font-weight:800; }
+  .sif-sticky .sif-btn-primary { background:linear-gradient(135deg,#34d399,#059669);color:#ffffff;box-shadow:0 0 24px rgba(52,211,153,0.35),0 4px 14px rgba(0,0,0,0.4); }
 
   /* FADE */
   .sif-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
@@ -392,12 +393,12 @@
     </div>
   </section>
 
-</div>
+  <!-- STICKY BAR -->
+  <div class="sif-sticky" id="sif-sticky">
+    <span class="sif-sticky-text">Advanced Somatic &amp; IFS Trauma Bundle (8 Books) — <span>$29</span></span>
+    <button class="sif-btn sif-btn-primary sif-btn-sm" onclick="sifCheckout()">🛒 Get All 8 Books</button>
+  </div>
 
-<!-- STICKY BAR -->
-<div class="sif-sticky" id="sif-sticky">
-  <span class="sif-sticky-text">Advanced Somatic &amp; IFS Trauma Bundle — <span>$29.00</span></span>
-  <button class="sif-btn sif-btn-primary sif-btn-sm" onclick="sifCheckout()">Buy Now</button>
 </div>
 
 <script>
