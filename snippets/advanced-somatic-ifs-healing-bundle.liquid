@@ -10,6 +10,10 @@
 {% assign v5 = p5.variants.first %}
 {% assign p6 = all_products['the-somatic-therapy-handbook-a-transformative-guide-to-trauma-recovery-anxiety-relief-nervous-system-regulation-and-releasing-emotional-blockages-body-soul-mind-body-trauma-recovery'] %}
 {% assign v6 = p6.variants.first %}
+{% assign p7 = all_products['somatic-internal-family-systems-therapy-awareness-breath-resonance-movement-and-touch-in-practice-endorsed-by-top-experts-in-therapeutic-healing-modalities'] %}
+{% assign v7 = p7.variants.first %}
+{% assign p8 = all_products['anchored-how-to-befriend-your-nervous-system-using-polyvagal-theory'] %}
+{% assign v8 = p8.variants.first %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -142,7 +146,7 @@
   .sif-label { display:block;text-align:center;font-size:0.73rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--c-purple);margin-bottom:14px; }
   .sif-title { text-align:center;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-text); }
 
-  .sif-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto; }
+  .sif-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto; }
 
   .sif-card {
     background:var(--c-glass);border:1px solid var(--c-border);border-radius:var(--c-radius);
@@ -190,7 +194,8 @@
   .sif-fade.in { opacity:1;transform:translateY(0); }
   .sif-fade:nth-child(2){transition-delay:0.1s}.sif-fade:nth-child(3){transition-delay:0.2s}
   .sif-fade:nth-child(4){transition-delay:0.3s}.sif-fade:nth-child(5){transition-delay:0.4s}
-  .sif-fade:nth-child(6){transition-delay:0.5s}
+  .sif-fade:nth-child(6){transition-delay:0.5s}.sif-fade:nth-child(7){transition-delay:0.6s}
+  .sif-fade:nth-child(8){transition-delay:0.7s}
 
   @media(max-width:900px){ .sif-grid{grid-template-columns:repeat(2,1fr);} .sif-feat-grid{grid-template-columns:1fr;} .sif-pillars{gap:12px;} }
   @media(max-width:600px){ .sif-grid{grid-template-columns:repeat(2,1fr);gap:14px;} .sif-card{padding:18px 12px;} .sif-hero h1{letter-spacing:-1.5px;} .sif-sticky{flex-direction:column;gap:10px;padding:14px 20px;} .sif-price-main{font-size:4rem;} }
@@ -213,18 +218,18 @@
       <h1>
         The Advanced Somatic &amp;<br/>
         <span class="sif-purple-text">IFS Trauma Bundle.</span><br/>
-        <span class="sif-rose-text">6 Master Works.</span>
+        <span class="sif-rose-text">8 Master Works.</span>
       </h1>
 
       <p class="sif-sub">
-        Deepen your trauma therapy repertoire with 6 essential clinical guides covering Somatic Experiencing, Attachment EMDR, C-PTSD, and Internal Family Systems.
+        Deepen your trauma therapy repertoire with 8 essential clinical guides covering Somatic Experiencing, Attachment EMDR, C-PTSD, Polyvagal Theory, and Internal Family Systems.
       </p>
 
       <div class="sif-price-row">
         <div class="sif-price-main"><sup>$</sup>29</div>
         <div class="sif-price-meta">
-          <span class="sif-price-was">$180.00 Value</span>
-          <span class="sif-save-pill">&#10022; Save 84%</span>
+          <span class="sif-price-was">$240.00 Value</span>
+          <span class="sif-save-pill">&#10022; Save 88%</span>
         </div>
       </div>
 
@@ -261,6 +266,8 @@
         <div class="sif-pillar"><span class="sif-pillar-icon">🛡️</span><span class="sif-pillar-name">Self-Therapy IFS</span></div>
         <div class="sif-pillar"><span class="sif-pillar-icon">🔥</span><span class="sif-pillar-name">Transcending C-PTSD</span></div>
         <div class="sif-pillar"><span class="sif-pillar-icon">🩺</span><span class="sif-pillar-name">Somatic Regulation</span></div>
+        <div class="sif-pillar"><span class="sif-pillar-icon">🌬️</span><span class="sif-pillar-name">Somatic IFS</span></div>
+        <div class="sif-pillar"><span class="sif-pillar-icon">⚓</span><span class="sif-pillar-name">Polyvagal Theory</span></div>
       </div>
     </div>
   </section>
@@ -268,7 +275,7 @@
   <!-- BOOKS GRID -->
   <section class="sif-books">
     <span class="sif-label">What You Get</span>
-    <h2 class="sif-title">6 Master Handbooks Included</h2>
+    <h2 class="sif-title">8 Master Handbooks Included</h2>
 
     <div class="sif-grid">
 
@@ -326,6 +333,24 @@
         <p class="sif-card-title">{{ p6.title | default: 'The Somatic Therapy Handbook' }}</p>
       </div>
 
+      <div class="sif-card sif-fade">
+        <div class="sif-card-num">7</div>
+        <div class="sif-cover-wrap">
+          {% if p7.images.first %}<img class="sif-cover" src="{{ p7.images.first | img_url: '400x' }}" alt="{{ p7.title }}" loading="lazy" />
+          {% else %}<div class="sif-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="sif-card-title">{{ p7.title | default: 'Somatic Internal Family Systems Therapy' }}</p>
+      </div>
+
+      <div class="sif-card sif-fade">
+        <div class="sif-card-num">8</div>
+        <div class="sif-cover-wrap">
+          {% if p8.images.first %}<img class="sif-cover" src="{{ p8.images.first | img_url: '400x' }}" alt="{{ p8.title }}" loading="lazy" />
+          {% else %}<div class="sif-cover" style="background:var(--c-bg3);border-radius:6px;"></div>{% endif %}
+        </div>
+        <p class="sif-card-title">{{ p8.title | default: 'Anchored: How to Befriend Your Nervous System Using Polyvagal Theory' }}</p>
+      </div>
+
     </div>
   </section>
 
@@ -357,11 +382,11 @@
     <div class="sif-final-orb"></div>
     <div class="sif-final-inner">
       <h2>Deepen Your Trauma Repertoire<br/>Today</h2>
-      <p>6 essential trauma &amp; IFS handbooks — curated into one complete bundle for clinical practice. Get instant access for just $29.</p>
-      <button class="sif-btn sif-btn-primary" onclick="sifCheckout()">🛒 Get All 6 Handbooks — $29</button>
+      <p>8 essential trauma &amp; IFS handbooks — curated into one complete bundle for clinical practice. Get instant access for just $29.</p>
+      <button class="sif-btn sif-btn-primary" onclick="sifCheckout()">🛒 Get All 8 Handbooks — $29</button>
       <div class="sif-trust" style="margin-top:24px;">
         <div class="sif-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
-        <div class="sif-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$180 Value for $29</div>
+        <div class="sif-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$240 Value for $29</div>
         <div class="sif-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
       </div>
     </div>
@@ -391,7 +416,8 @@
   function sifCheckout() {
     const variants = [
       '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
-      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}',
+      '{{ v7.id }}','{{ v8.id }}'
     ];
     if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
     document.querySelectorAll('.sif-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
