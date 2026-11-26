@@ -10,6 +10,10 @@
 {% assign v5 = p5.variants.first %}
 {% assign p6 = all_products['dont-let-your-emotions-run-your-life-how-dialectical-behavior-therapy-can-put-you-in-control'] %}
 {% assign v6 = p6.variants.first %}
+{% assign p7 = all_products['master-your-emotions-develop-emotional-intelligence-and-discover-the-essential-rules-of-when-and-how-to-control-your-feelings'] %}
+{% assign v7 = p7.variants.first %}
+{% assign p8 = all_products['dbt-skills-training-handouts-and-worksheets-revised-edition-spiral-bound-paperback-by-marsha-m-linehan-author'] %}
+{% assign v8 = p8.variants.first %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -109,7 +113,7 @@
   .aem-label { display:block;text-align:center;font-size:0.8rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--c-orange);margin-bottom:16px; }
   .aem-title { text-align:center;font-size:clamp(2rem,4.5vw,3rem);font-weight:900;letter-spacing:-1.5px;margin-bottom:60px;color:var(--c-light); }
 
-  .aem-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1100px;margin:0 auto; }
+  .aem-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto; }
 
   .aem-card { background:var(--c-bg2);border:1px solid var(--c-border);border-radius:var(--c-radius);padding:40px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:var(--c-ease);position:relative;overflow:hidden;justify-content:space-between; }
   .aem-card::before { content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(249,115,22,0.07),transparent,rgba(251,191,36,0.03));opacity:0;transition:opacity 0.3s; }
@@ -142,17 +146,19 @@
   .aem-final p { font-size:1.1rem;color:#d6d3d1;margin-bottom:44px;line-height:1.75; }
 
   /* ── STICKY ── */
-  .aem-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:18px 32px;background:rgba(15,10,5,0.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--c-border);display:flex;align-items:center;justify-content:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -20px 60px rgba(0,0,0,0.7); }
+  .aem-sticky { position:fixed;bottom:0;left:0;right:0;z-index:999;padding:14px 28px;background:rgba(15,10,5,0.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid rgba(249,115,22,0.35);display:flex;align-items:center;justify-content:center;gap:24px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 -12px 40px rgba(0,0,0,0.65);font-family:'Outfit',sans-serif; }
   .aem-sticky.show { transform:translateY(0); }
-  .aem-sticky-text { font-size:1.1rem;font-weight:700;color:var(--c-light); }
-  .aem-sticky-text span { color:var(--c-orange); }
+  .aem-sticky-text { font-size:1rem;font-weight:700;color:#fef9f0; }
+  .aem-sticky-text span { color:#f97316;font-weight:800; }
+  .aem-sticky .aem-btn-primary { background:linear-gradient(135deg,#f97316,#c2410c);color:#ffffff;box-shadow:0 0 24px rgba(249,115,22,0.35),0 4px 14px rgba(0,0,0,0.45); }
 
   /* ── FADE ── */
   .aem-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
   .aem-fade.in { opacity:1;transform:translateY(0); }
   .aem-fade:nth-child(2){transition-delay:0.1s}.aem-fade:nth-child(3){transition-delay:0.2s}
   .aem-fade:nth-child(4){transition-delay:0.3s}.aem-fade:nth-child(5){transition-delay:0.4s}
-  .aem-fade:nth-child(6){transition-delay:0.5s}
+  .aem-fade:nth-child(6){transition-delay:0.5s}.aem-fade:nth-child(7){transition-delay:0.6s}
+  .aem-fade:nth-child(8){transition-delay:0.7s}
 
   @media(max-width:900px){ .aem-grid{grid-template-columns:repeat(2,1fr);} .aem-feat-grid{grid-template-columns:1fr;} .aem-concept-row{flex-direction:column;} }
   @media(max-width:600px){ .aem-grid{grid-template-columns:repeat(2,1fr);gap:16px;} .aem-card{padding:24px 16px;} .aem-hero h1{letter-spacing:-1.5px;} .aem-sticky{flex-direction:column;gap:12px;padding:16px 20px;} .aem-price-main{font-size:4.5rem;} .aem-btn-primary{padding:18px 32px;width:100%;} }
@@ -179,19 +185,19 @@
       </h1>
 
       <p class="aem-sub">
-        6 powerful workbooks on emotional intelligence, DBT skills, and anger management — the complete toolkit to stop reacting and start responding with intention.
+        8 powerful workbooks on emotional intelligence, DBT skills, and anger management — the complete toolkit to stop reacting and start responding with intention.
       </p>
 
       <div class="aem-price-row">
         <div class="aem-price-main"><sup>$</sup>29</div>
         <div class="aem-price-meta">
-          <span class="aem-price-was">$165.00 Value</span>
-          <span class="aem-save-pill">✦ Save 82%</span>
+          <span class="aem-price-was">$220.00 Value</span>
+          <span class="aem-save-pill">✦ Save 87%</span>
         </div>
       </div>
 
       <button class="aem-btn aem-btn-primary" id="aem-hero-cta" onclick="aemCheckout()">
-        🛒 Get All 6 Books — $29
+        🛒 Get All 8 Books — $29
       </button>
 
       <div class="aem-trust">
@@ -214,7 +220,7 @@
   <!-- EXPLAINER -->
   <section class="aem-explainer">
     <h2>Why Anger Management <span class="aem-orange-text">Actually Fails</span></h2>
-    <p>Most people try to suppress anger — which only makes it explode later. Real emotional mastery means understanding the root causes of anger, developing real-time regulation skills, and rewiring your emotional patterns at the source. These 6 books show you exactly how.</p>
+    <p>Most people try to suppress anger — which only makes it explode later. Real emotional mastery means understanding the root causes of anger, developing real-time regulation skills, and rewiring your emotional patterns at the source. These 8 books show you exactly how.</p>
     <div class="aem-concept-row">
       <div class="aem-concept">
         <span class="aem-concept-icon">🧠</span>
@@ -237,7 +243,7 @@
   <!-- BOOKS GRID -->
   <section class="aem-books">
     <span class="aem-label">What You Get</span>
-    <h2 class="aem-title">6 Bestselling Workbooks. One Powerful Journey.</h2>
+    <h2 class="aem-title">8 Bestselling Workbooks. One Powerful Journey.</h2>
 
     <div class="aem-grid">
       <!-- Book 1 -->
@@ -299,6 +305,26 @@
         </div>
         <p class="aem-card-title">{{ p6.title | default: "Don't Let Your Emotions Run Your Life" }}</p>
       </div>
+
+      <!-- Book 7 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">7</div>
+        <div class="aem-cover-wrap">
+          {% if p7.images.first %}<img class="aem-cover" src="{{ p7.images.first | img_url: '400x' }}" alt="{{ p7.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p7.title | default: 'Master Your Emotions' }}</p>
+      </div>
+
+      <!-- Book 8 -->
+      <div class="aem-card aem-fade">
+        <div class="aem-card-num">8</div>
+        <div class="aem-cover-wrap">
+          {% if p8.images.first %}<img class="aem-cover" src="{{ p8.images.first | img_url: '400x' }}" alt="{{ p8.title }}" loading="lazy" />
+          {% else %}<div class="aem-cover" style="background:var(--c-bg3);border-radius:8px;"></div>{% endif %}
+        </div>
+        <p class="aem-card-title">{{ p8.title | default: 'DBT Skills Training Handouts and Worksheets' }}</p>
+      </div>
     </div>
   </section>
 
@@ -324,7 +350,7 @@
       </div>
     </div>
     <div style="margin-top:60px;">
-      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 6 Books — $29</button>
+      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 8 Books — $29</button>
     </div>
   </section>
 
@@ -333,22 +359,22 @@
     <div class="aem-final-orb"></div>
     <div class="aem-final-inner">
       <h2>Your Emotions. <span class="aem-orange-text">Finally Under Control.</span></h2>
-      <p>6 of the most powerful workbooks on anger management, emotional intelligence, and DBT — curated into one complete system. Get instant access for just $29.</p>
-      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 6 Books — $29</button>
+      <p>8 of the most powerful workbooks on anger management, emotional intelligence, and DBT — curated into one complete system. Get instant access for just $29.</p>
+      <button class="aem-btn aem-btn-primary" onclick="aemCheckout()">🛒 Get All 8 Books — $29</button>
       <div class="aem-trust" style="margin-top:24px;">
         <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Instant Access</div>
-        <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$165 Value for $29</div>
+        <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>$220 Value for $29</div>
         <div class="aem-trust-item"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Secure Checkout</div>
       </div>
     </div>
   </section>
 
-</div>
+  <!-- STICKY BAR -->
+  <div class="aem-sticky" id="aem-sticky">
+    <span class="aem-sticky-text">Anger &amp; Emotional Mastery Bundle (8 Books) — <span>$29</span></span>
+    <button class="aem-btn aem-btn-primary aem-btn-sm" onclick="aemCheckout()">🛒 Get All 8 Books</button>
+  </div>
 
-<!-- STICKY BAR -->
-<div class="aem-sticky" id="aem-sticky">
-  <span class="aem-sticky-text">Anger &amp; Emotional Mastery Bundle — <span>$29.00</span></span>
-  <button class="aem-btn aem-btn-primary aem-btn-sm" onclick="aemCheckout()">Buy Now</button>
 </div>
 
 <script>
@@ -369,7 +395,8 @@
   function aemCheckout() {
     const variants = [
       '{{ v1.id }}','{{ v2.id }}','{{ v3.id }}',
-      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}'
+      '{{ v4.id }}','{{ v5.id }}','{{ v6.id }}',
+      '{{ v7.id }}','{{ v8.id }}'
     ];
     if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
     document.querySelectorAll('.aem-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
