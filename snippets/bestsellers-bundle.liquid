@@ -10,6 +10,10 @@
 {% assign v5 = p5.variants.first %}
 {% assign p6 = all_products['anger-management-workbook-for-men-take-control-of-your-anger-and-master-your-emotions'] %}
 {% assign v6 = p6.variants.first %}
+{% assign p7 = all_products['the-body-keeps-the-score-brain-mind-and-body-in-the-healing-of-trauma'] %}
+{% assign v7 = p7.variants.first %}
+{% assign p8 = all_products['the-self-led-internal-family-systems-workbook-learn-ifs-skills-to-understand-and-love-all-your-parts'] %}
+{% assign v8 = p8.variants.first %}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -241,9 +245,9 @@
 
   .bb-grid {
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:24px;
-    max-width:1100px;
+    max-width:1200px;
     margin:0 auto;
   }
 
@@ -332,19 +336,25 @@
   /* ── STICKY BAR ── */
   .bb-sticky {
     position:fixed;bottom:0;left:0;right:0;z-index:999;
-    padding:16px 32px;
-    background:rgba(12,15,26,0.88);
+    padding:14px 28px;
+    background:rgba(12,15,26,0.96);
     backdrop-filter:blur(24px);
     -webkit-backdrop-filter:blur(24px);
-    border-top:1px solid var(--bb-border);
-    display:flex;align-items:center;justify-content:center;gap:32px;
+    border-top:1px solid rgba(245,158,11,0.35);
+    display:flex;align-items:center;justify-content:center;gap:24px;
     transform:translateY(100%);
     transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);
-    box-shadow:0 -20px 60px rgba(0,0,0,0.55);
+    box-shadow:0 -12px 40px rgba(0,0,0,0.6);
+    font-family:'Outfit',sans-serif;
   }
   .bb-sticky.show { transform:translateY(0); }
-  .bb-sticky-text { font-size:1rem;font-weight:700;color:var(--bb-text); }
-  .bb-sticky-text span { color:var(--bb-gold); }
+  .bb-sticky-text { font-size:1rem;font-weight:700;color:#f1f5f9; }
+  .bb-sticky-text span { color:#f59e0b;font-weight:800; }
+  .bb-sticky .bb-btn-primary {
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+    color:#0a0d14;
+    box-shadow:0 0 24px rgba(245,158,11,0.35),0 4px 14px rgba(0,0,0,0.4);
+  }
 
   /* ── ANIMATIONS ── */
   .bb-fade { opacity:0;transform:translateY(32px);transition:opacity 0.75s ease,transform 0.75s ease; }
@@ -354,6 +364,8 @@
   .bb-fade:nth-child(4){transition-delay:0.3s}
   .bb-fade:nth-child(5){transition-delay:0.4s}
   .bb-fade:nth-child(6){transition-delay:0.5s}
+  .bb-fade:nth-child(7){transition-delay:0.6s}
+  .bb-fade:nth-child(8){transition-delay:0.7s}
 
   /* ── RESPONSIVE ── */
   @media(max-width:900px){ .bb-grid{grid-template-columns:repeat(2,1fr);} .bb-feat-grid{grid-template-columns:1fr;} }
@@ -384,11 +396,11 @@
       <h1>
         The Therapist's<br/>
         <span class="bb-gold-text">Toolkit.</span><br/>
-        <span class="bb-green-text">6 Must-Read Books.</span>
+        <span class="bb-green-text">8 Must-Read Books.</span>
       </h1>
 
       <p class="bb-hero-sub">
-        Our most-ordered titles — combining CBT, somatic therapy, polyvagal theory, and nervous system healing — curated into one powerful bundle.
+        Our most-ordered titles — combining CBT, somatic therapy, IFS, polyvagal theory, and trauma healing — curated into one powerful bundle.
       </p>
 
       <div class="bb-stars">
@@ -398,13 +410,13 @@
       <div class="bb-price-row">
         <div class="bb-price-main"><sup>$</sup>29</div>
         <div class="bb-price-meta">
-          <span class="bb-price-was">$179.94 Value</span>
-          <span class="bb-save-pill">✓ Save 83%</span>
+          <span class="bb-price-was">$240.00 Value</span>
+          <span class="bb-save-pill">✓ Save 88%</span>
         </div>
       </div>
 
       <button class="bb-btn bb-btn-primary" id="hero-cta" onclick="bbCheckout()">
-        🛒 Get All 6 Books for $29
+        🛒 Get All 8 Books for $29
       </button>
 
       <div class="bb-trust">
@@ -432,11 +444,11 @@
         <div class="bb-ribbon-label">Best Sellers</div>
       </div>
       <div class="bb-ribbon-stat">
-        <div class="bb-ribbon-num">6</div>
+        <div class="bb-ribbon-num">8</div>
         <div class="bb-ribbon-label">Expert Books</div>
       </div>
       <div class="bb-ribbon-stat">
-        <div class="bb-ribbon-num">83%</div>
+        <div class="bb-ribbon-num">88%</div>
         <div class="bb-ribbon-label">Savings</div>
       </div>
       <div class="bb-ribbon-stat">
@@ -537,6 +549,34 @@
         <p class="bb-card-title">{{ p6.title | default: 'Anger Management Workbook for Men' }}</p>
       </div>
 
+      <!-- Book 7 -->
+      <div class="bb-card bb-fade">
+        <span class="bb-bestseller-tag">Best Seller</span>
+        <div class="bb-card-num">7</div>
+        <div class="bb-cover-wrap">
+          {% if p7.images.first %}
+            <img class="bb-cover" src="{{ p7.images.first | img_url: '400x' }}" alt="{{ p7.title }}" loading="lazy" />
+          {% else %}
+            <div class="bb-cover" style="background:var(--bb-bg3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--bb-muted);">Book 7</div>
+          {% endif %}
+        </div>
+        <p class="bb-card-title">{{ p7.title | default: 'The Body Keeps the Score' }}</p>
+      </div>
+
+      <!-- Book 8 -->
+      <div class="bb-card bb-fade">
+        <span class="bb-bestseller-tag">Best Seller</span>
+        <div class="bb-card-num">8</div>
+        <div class="bb-cover-wrap">
+          {% if p8.images.first %}
+            <img class="bb-cover" src="{{ p8.images.first | img_url: '400x' }}" alt="{{ p8.title }}" loading="lazy" />
+          {% else %}
+            <div class="bb-cover" style="background:var(--bb-bg3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--bb-muted);">Book 8</div>
+          {% endif %}
+        </div>
+        <p class="bb-card-title">{{ p8.title | default: 'The Self-Led Internal Family Systems Workbook' }}</p>
+      </div>
+
     </div>
   </section>
 
@@ -568,9 +608,9 @@
     <div class="bb-final-orb"></div>
     <div class="bb-final-inner">
       <h2>Start Your Journey<br/>With Our Best Books</h2>
-      <p>These are the 6 titles our readers order most. Get instant access to all of them for just $29 — a fraction of what they're worth.</p>
+      <p>These are the 8 titles our readers order most. Get instant access to all of them for just $29 — a fraction of what they're worth.</p>
       <button class="bb-btn bb-btn-primary" onclick="bbCheckout()">
-        🛒 Get All 6 Books — $29
+        🛒 Get All 8 Books — $29
       </button>
       <div class="bb-trust" style="margin-top:24px;">
         <div class="bb-trust-item">
@@ -579,7 +619,7 @@
         </div>
         <div class="bb-trust-item">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          $179 Value for $29
+          $240 Value for $29
         </div>
         <div class="bb-trust-item">
           <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -589,12 +629,12 @@
     </div>
   </section>
 
-</div>
+  <!-- STICKY BAR -->
+  <div class="bb-sticky" id="bb-sticky">
+    <span class="bb-sticky-text">The Therapist's Toolkit Bundle (8 Books) — <span>$29</span></span>
+    <button class="bb-btn bb-btn-primary bb-btn-sm" onclick="bbCheckout()">🛒 Get All 8 Books</button>
+  </div>
 
-<!-- STICKY BAR -->
-<div class="bb-sticky" id="bb-sticky">
-  <span class="bb-sticky-text">The Therapist's Toolkit Bundle — <span>$29.00</span></span>
-  <button class="bb-btn bb-btn-primary bb-btn-sm" onclick="bbCheckout()">Buy Now</button>
 </div>
 
 <script>
@@ -617,7 +657,8 @@
   function bbCheckout() {
     const variants = [
       '{{ v1.id }}', '{{ v2.id }}', '{{ v3.id }}',
-      '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}'
+      '{{ v4.id }}', '{{ v5.id }}', '{{ v6.id }}',
+      '{{ v7.id }}', '{{ v8.id }}'
     ];
     if (variants.some(v => !v || v === '')) { alert('Bundle error. Please try again.'); return; }
     document.querySelectorAll('.bb-btn-primary').forEach(b => { b.textContent = 'Processing…'; b.disabled = true; });
